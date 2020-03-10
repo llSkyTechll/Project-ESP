@@ -8,7 +8,7 @@
 
 <body>
 
-  Paroisse
+  Paroisse-Communauté
 
 </body>
 
