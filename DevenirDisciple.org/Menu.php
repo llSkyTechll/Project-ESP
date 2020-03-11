@@ -2,7 +2,7 @@
 
 include 'PHPFunctions.php';
 
-include 'Connection.php';  //Garder les includes dans cet ordre
+include 'ConnectionDB.php';  //Garder les includes dans cet ordre
 
 include 'Menu_pr.php';
 
@@ -49,6 +49,7 @@ include 'Menu_pr.php';
       }
     
       ?>
+      <li><input type="button" name="btnConnexion" onclick="fnRedirection('ConnexionAdmin.php',5)"></li>
     </ul>
   <iframe id="PageContent" src="<?php if(isset($path)){echo $path;}else{echo 'Accueil/Accueil.php';}?>" frameborder="0" style="width:100%;height:100%"></iframe>
 </body>
