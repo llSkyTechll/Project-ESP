@@ -2,9 +2,11 @@
 
 include 'PHPFunctions.php';
 
-include 'ConnectionDB.php';  //Garder les includes dans cet ordre
+include 'ConnexionDB.php';  //Garder les includes dans cet ordre
 
 include 'Menu_pr.php';
+
+$conn = OpenCon();
 
 ?>
   <!doctype html>
@@ -31,7 +33,28 @@ include 'Menu_pr.php';
             })
           });
         });
+<<<<<<< Updated upstream
       }
+=======
+      });
+    }
+    
+    function fnDeconnexion(){
+      $(function() {
+        $.ajax({
+          type: 'post',
+          url: 'Menu.php',
+          data: ({action: 'deconnexion'}),
+          success: function(data){
+            if(data == 'success'){
+              alert('Déconnexion effectué.');
+              window.top.location.reload();
+            }
+          }
+        });
+      });
+    }
+>>>>>>> Stashed changes
 
     </script>
   </head>
@@ -39,6 +62,7 @@ include 'Menu_pr.php';
   <body>
     <ul>
       <?php
+      echo $_SESSION["gadminId"];
 
         $SQL = "SELECT menu.menuId, menu.name, menu.redirectionPath FROM menu where parentId = 0";
         $RSSQL2 = $conn->query($SQL);
@@ -75,4 +99,12 @@ include 'Menu_pr.php';
     <iframe id="PageContent" src="<?php if(isset($path)){echo $path;}else{echo 'Accueil/Accueil.php';}?>" frameborder="0" style="width:100%;height:100%"></iframe>
   </body>
 
+<<<<<<< Updated upstream
   </html>
+=======
+</html>
+
+<?php
+CloseCon($conn);
+?>
+>>>>>>> Stashed changes
