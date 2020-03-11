@@ -20,6 +20,7 @@ $conn = OpenCon();
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="css/include.css">
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="https://kit.fontawesome.com/30dce125f3.js" crossorigin="anonymous"></script>
   <script>
     function fnRedirection(Path, menuId) {
       document.getElementById('PageContent').src = Path;
@@ -61,23 +62,36 @@ $conn = OpenCon();
     <?php
         
     $SQL = "SELECT menu.menuId, menu.name, menu.redirectionPath FROM menu where parentId = 0";
+    $RSSQL = $conn->query($SQL);
+    
+    $SQL = "SELECT DISTINCT menu.menuId AS parentMenu FROM menu INNER JOIN menu m2 ON m2.parentId = menu.menuId WHERE menu.menuId <> 0";
     $RSSQL2 = $conn->query($SQL);
-
+    $menuArray = array();
+    
     if ($RSSQL2->num_rows > 0){
-      while ($Row = $RSSQL2->fetch_assoc()){
-        $width = 100/($RSSQL2->num_rows + 1); 
+      while($arrayRow = $RSSQL2->fetch_assoc()){
+        $menuArray[] = $arrayRow["parentMenu"];
+      }
+    }
+    
+    if ($RSSQL->num_rows > 0){
+      while ($Row = $RSSQL->fetch_assoc()){
+        $width = 100/($RSSQL->num_rows + 1);
         echo ('<li class="dropdown" style=width:'.$width.'%;> <a  onclick="fnRedirection(\''.$Row['redirectionPath'].'\','.$Row['menuId'].')">'. utf8_encode($Row['name']).'</a>');
-        echo('<ul class="dropdown-content">');
-        $SQL = "SELECT * from menu where parentId = ".$Row["menuId"]." order by sequence,name ";
-        $RSSQL = $conn->query($SQL);
+        if(in_array($Row['menuId'], $menuArray)){
+          echo ('&nbsp;&nbsp;<i class="fas fa-caret-down"></i>');
+          echo ('<ul class="dropdown-content">');
+          $SQL = "SELECT * from menu where parentId = ".$Row["menuId"]." order by sequence,name ";
+          $RSSQL3 = $conn->query($SQL);
 
-        while ($Row = $RSSQL->fetch_assoc()){
-          echo ('<li><a  onclick="fnRedirection(\''.$Row['redirectionPath'].'\','.$Row['menuId'].')">'. utf8_encode($Row['name']).'</a></li>');
-          if ($Row['menuId'] == $_SESSION["gmenuId"]){
-          $path = $Row['redirectionPath'];
+          while ($Row = $RSSQL3->fetch_assoc()){
+            echo ('<li><a  onclick="fnRedirection(\''.$Row['redirectionPath'].'\','.$Row['menuId'].')">'. utf8_encode($Row['name']).'</a></li>');
+            if ($Row['menuId'] == $_SESSION["gmenuId"]){
+            $path = $Row['redirectionPath'];
+            }
           }
+          echo('</ul>');
         }
-        echo('</ul>');          
         echo('</li>');
         if ($Row['menuId'] == $_SESSION["gmenuId"]){
         $path = $Row['redirectionPath'];
