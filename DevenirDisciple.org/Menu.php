@@ -9,57 +9,56 @@ include 'Menu_pr.php';
 $conn = OpenCon();
 
 ?>
-<!doctype html>
-<html lang="en">
+  <!doctype html>
+  <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <title>Devenir Disciple</title>
-  <!--<link rel="stylesheet" type="text/css" href="myStyle.css" />-->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/include.css">
+  <head>
+    <meta charset="UTF-8">
+    <title>Devenir Disciple</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/include.css">
+    <script src="https://kit.fontawesome.com/30dce125f3.js" crossorigin="anonymous"></script>
 
-  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-  <script>
-    function fnRedirection(Path, menuId) {
-      document.getElementById('PageContent').src = Path;
-      $(function() {
-        $.ajax({
-          type: 'post',
-          url: 'Menu.php',
-          data: ({
-            action: 'redirect',
-            menuId: menuId
-          })
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script>
+      function fnRedirection(Path, menuId) {
+        document.getElementById('PageContent').src = Path;
+        $(function() {
+          $.ajax({
+            type: 'post',
+            url: 'Menu.php',
+            data: ({
+              action: 'redirect',
+              menuId: menuId
+            })
+          });
         });
-      });
-    }
+      }
 
-    function fnDeconnexion() {
-      $(function() {
-        $.ajax({
-          type: 'post',
-          url: 'Menu.php',
-          data: ({
-            action: 'deconnexion'
-          }),
-          success: function(data) {
-            if (data == 'success') {
-              alert('Déconnexion effectué.');
-              window.top.location.reload();
+      function fnDeconnexion() {
+        $(function() {
+          $.ajax({
+            type: 'post',
+            url: 'Menu.php',
+            data: ({
+              action: 'deconnexion'
+            }),
+            success: function(data) {
+              if (data == 'success') {
+                alert('Déconnexion effectué.');
+                window.top.location.reload();
+              }
             }
-          }
+          });
         });
-      });
-    }
+      }
 
-  </script>
-</head>
+    </script>
+  </head>
 
-<body>
-  <ul>
-    <?php
-        echo $_SESSION["gadminId"];
+  <body>
+    <ul>
+      <?php
         $SQL = "SELECT menu.menuId, menu.name, menu.redirectionPath FROM menu where parentId = 0";
         $RSSQL2 = $conn->query($SQL);
 
@@ -86,17 +85,17 @@ $conn = OpenCon();
         }
         
         if($_SESSION["gadminId"] <> 0){
-          echo '<li class="dropdown" ><input type="button" name="btnDeconnexion" onclick="fnDeconnexion()" value="Déconnexion"></li>';
+          echo '<li  ><input type="button" name="btnDeconnexion" onclick="fnDeconnexion()" value="Déconnexion" style=width:'.$width.'%;></li>';
         }else{
-          echo '<li class="dropdown"><input type="button" name="btnConnexion" onclick="fnRedirection(\'Connexion/ConnexionAdmin.php\',5)" value="Connexion"></li>';
+          echo '<li ><input type="button" name="btnConnexion" onclick="fnRedirection(\'Connexion/ConnexionAdmin.php\',5)" value="Connexion" style=width:'.$width.'%;></li>';
         }
       ?>
-  </ul>
-  <iframe id="PageContent" src="<?php if(isset($path)){echo $path;}else{echo 'Accueil/Accueil.php';}?>" frameborder="0" style="width:100%;height:100%"></iframe>
-</body>
+    </ul>
+    <iframe id="PageContent" src="<?php if(isset($path)){echo $path;}else{echo 'Accueil/Accueil.php';}?>" frameborder="0" style="width:100%;height:100%"></iframe>
+  </body>
 
-</html>
+  </html>
 
-<?php
+  <?php
 CloseCon($conn);
 ?>
