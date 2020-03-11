@@ -2,7 +2,7 @@
 
 session_start();
 
-include 'ConnexionDB.php';
+include '/../ConnexionDB.php';
 
 include 'ConnexionAdmin_pr.php';
 
