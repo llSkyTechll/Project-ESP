@@ -34,6 +34,7 @@ $conn = OpenCon();
           })
         });
       }
+        )}
 
       function fnDeconnexion() {
         $(function() {
@@ -107,6 +108,9 @@ $conn = OpenCon();
     ?>
   </ul>
   <iframe id="PageContent" src="<?php if(isset($path)){echo $path;}else{echo 'Accueil/Accueil.php';}?>" frameborder="0"></iframe>
+  <footer>
+    <p>sssssssssssssssssssssssssssss</p>
+  </footer>
 </body>
 
   </html>
