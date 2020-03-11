@@ -12,7 +12,13 @@ if (isset($_POST['action'])){
 function FNRedirect(){
   $menuId = $_POST["menuId"];
   $_SESSION["gmenuId"] = $menuId;
-  echo $_SESSION["gmenuId"];
+  //echo $_SESSION["gmenuId"];
+}
+
+function FNDeconnexion(){
+  $_SESSION["gadminId"] = 0;
+  $_SESSION["gmenuId"]  = 0;
+  exit('success');
 }
 
 ?>
