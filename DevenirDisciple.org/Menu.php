@@ -21,6 +21,7 @@ $conn = OpenCon();
   <link rel="stylesheet" href="css/include.css">
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
   <script src="https://kit.fontawesome.com/30dce125f3.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script>
     function fnRedirection(Path, menuId) {
       document.getElementById('PageContent').src = Path;
@@ -34,7 +35,7 @@ $conn = OpenCon();
           })
         });
       }
-        )}
+    )}
 
       function fnDeconnexion() {
         $(function() {
@@ -46,7 +47,7 @@ $conn = OpenCon();
             }),
             success: function(data) {
               if (data == 'success') {
-                alert('Déconnexion effectué.');
+                swal('Déconnexion effectué.');
                 window.top.location.reload();
               }
             }

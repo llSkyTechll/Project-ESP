@@ -14,6 +14,7 @@ include 'ConnexionAdmin_pr.php';
   <meta charset="UTF-8">
   <title>Devenir Disciple</title>
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
   <script>
     function fnConnexion() {
       $(function() {
@@ -23,9 +24,9 @@ include 'ConnexionAdmin_pr.php';
           data: ({action: 'connexion', email: document.getElementById('femail').value , password: document.getElementById('fpassword').value}),
           success: function(data){
             if (data == 'fail'){
-              alert('Email et/ou mot de passe incorrect.');
+              Swal.fire('Email et/ou mot de passe incorrect.','','warning');
             }else if(data == 'success'){
-              alert('Connexion réussi.');
+              Swal.fire('Connexion réussi.','','success');
               window.top.location.reload();
             }
           }
