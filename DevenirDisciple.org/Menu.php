@@ -21,7 +21,7 @@ $conn = OpenCon();
   <link rel="stylesheet" href="css/include.css">
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
   <script src="https://kit.fontawesome.com/30dce125f3.js" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
   <script>
     function fnRedirection(Path, menuId) {
       document.getElementById('PageContent').src = Path;
@@ -47,8 +47,13 @@ $conn = OpenCon();
             }),
             success: function(data) {
               if (data == 'success') {
-                swal('Déconnexion effectué.');
-                window.top.location.reload();
+                Swal.fire({
+                title:'Déconnexion réussi.',
+                icon: 'success'
+                }).then((result)=>{
+                    window.top.location.reload();
+                  }
+                );
               }
             }
           });

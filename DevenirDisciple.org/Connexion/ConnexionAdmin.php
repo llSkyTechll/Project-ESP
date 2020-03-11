@@ -26,13 +26,18 @@ include 'ConnexionAdmin_pr.php';
             if (data == 'fail'){
               Swal.fire('Email et/ou mot de passe incorrect.','','warning');
             }else if(data == 'success'){
-              Swal.fire('Connexion réussi.','','success');
-              window.top.location.reload();
+              Swal.fire({
+                title:'Connexion réussi.',
+                icon: 'success'
+              }).then((result)=>{
+                  window.top.location.reload();
+                }
+              );
             }
           }
-        });
-      });
-    }
+        })
+      })
+    };
 
   </script>
 </head>
