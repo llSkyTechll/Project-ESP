@@ -91,7 +91,14 @@ $conn = OpenCon();
           $RSSQL3 = $conn->query($SQL);
 
           while ($Row = $RSSQL3->fetch_assoc()){
-            echo ('<li><a  onclick="fnRedirection(\''.$Row['redirectionPath'].'\','.$Row['menuId'].')">'. utf8_encode($Row['name']).'</a></li>');
+            echo ('<li><a  onclick="fnRedirection(\''.$Row['redirectionPath'].'\','.$Row['menuId'].')">'. utf8_encode($Row['name']).'</a>');
+            echo('<ul class="dropdown-content-content">');
+              echo('<li>premier</li>');
+              echo('<li>second</li>');
+              echo('<li>trois</li>');
+              
+            echo('</ul>');
+            echo('</li>');
             if ($Row['menuId'] == $_SESSION["gmenuId"]){
             $path = $Row['redirectionPath'];
             }

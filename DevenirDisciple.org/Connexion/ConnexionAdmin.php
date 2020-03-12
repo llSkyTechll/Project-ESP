@@ -15,6 +15,10 @@ include 'ConnexionAdmin_pr.php';
   <title>Devenir Disciple</title>
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+  <link rel="stylesheet" href="../css/include.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  
+  
   <script>
     function fnConnexion() {
       $(function() {
