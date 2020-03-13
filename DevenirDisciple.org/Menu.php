@@ -34,39 +34,38 @@ $conn = OpenCon();
             menuId: menuId
           })
         });
-      }
-    )}
+      })
+    }
 
-      function fnDeconnexion() {
-        $(function() {
-          $.ajax({
-            type: 'post',
-            url: 'Menu.php',
-            data: ({
-              action: 'deconnexion'
-            }),
-            success: function(data) {
-              if (data == 'success') {
-                Swal.fire({
-                title:'Déconnexion réussi.',
+    function fnDeconnexion() {
+      $(function() {
+        $.ajax({
+          type: 'post',
+          url: 'Menu.php',
+          data: ({
+            action: 'deconnexion'
+          }),
+          success: function(data) {
+            if (data == 'success') {
+              Swal.fire({
+                title: 'Déconnexion réussi.',
                 icon: 'success'
-                }).then((result)=>{
-                    window.top.location.reload();
-                  }
-                );
-              }
+              }).then((result) => {
+                window.top.location.reload();
+              });
             }
-          });
+          }
         });
-      }
+      });
+    }
 
-    </script>
-  </head>
+  </script>
+</head>
 
 <body>
   <ul>
     <?php
-        
+    
     $SQL = "SELECT menu.menuId, menu.name, menu.redirectionPath FROM menu where parentId = 0";
     $RSSQL = $conn->query($SQL);
     
@@ -126,8 +125,8 @@ $conn = OpenCon();
   </footer>
 </body>
 
-  </html>
+</html>
 
-  <?php
+<?php
 CloseCon($conn);
 ?>
