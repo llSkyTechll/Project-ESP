@@ -44,6 +44,111 @@ INSERT INTO `admin` VALUES (1,'eric.larivière1999@hotmail.com','admin01'),(2,'A
 UNLOCK TABLES;
 
 --
+-- Table structure for table `formulairebenevolat`
+--
+
+DROP TABLE IF EXISTS `formulairebenevolat`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `formulairebenevolat` (
+  `formulaireid` int(11) NOT NULL AUTO_INCREMENT,
+  `prenom` varchar(50) NOT NULL DEFAULT '',
+  `nom` varchar(50) NOT NULL DEFAULT '',
+  `adresse` varchar(50) NOT NULL DEFAULT '',
+  `telephone` varchar(50) NOT NULL DEFAULT '',
+  `cellulaire` varchar(50) NOT NULL DEFAULT '',
+  `courriel` varchar(100) NOT NULL DEFAULT '',
+  `benevolat1` varchar(500) NOT NULL DEFAULT '',
+  `benevolat2` varchar(500) NOT NULL DEFAULT '',
+  `benevolat3` varchar(500) NOT NULL DEFAULT '',
+  `benevolat4` varchar(500) NOT NULL DEFAULT '',
+  `paroisseid` int(11) NOT NULL DEFAULT '0',
+  `lundiam` tinyint(1) NOT NULL DEFAULT '0',
+  `lundipm` tinyint(1) NOT NULL DEFAULT '0',
+  `lundisoiree` tinyint(1) NOT NULL DEFAULT '0',
+  `mardiam` tinyint(1) NOT NULL DEFAULT '0',
+  `mardipm` tinyint(1) NOT NULL DEFAULT '0',
+  `mardisoiree` tinyint(1) NOT NULL DEFAULT '0',
+  `mercrediam` tinyint(1) NOT NULL DEFAULT '0',
+  `mercredipm` tinyint(1) NOT NULL DEFAULT '0',
+  `mercredisoiree` tinyint(1) NOT NULL DEFAULT '0',
+  `jeudiam` tinyint(1) NOT NULL DEFAULT '0',
+  `jeudipm` tinyint(1) NOT NULL DEFAULT '0',
+  `jeudisoiree` tinyint(1) NOT NULL DEFAULT '0',
+  `vendrediam` tinyint(1) NOT NULL DEFAULT '0',
+  `vendredipm` tinyint(1) NOT NULL DEFAULT '0',
+  `vendredisoiree` tinyint(1) NOT NULL DEFAULT '0',
+  `samediam` tinyint(1) NOT NULL DEFAULT '0',
+  `samedipm` tinyint(1) NOT NULL DEFAULT '0',
+  `samedisoiree` tinyint(1) NOT NULL DEFAULT '0',
+  `dimancheam` tinyint(1) NOT NULL DEFAULT '0',
+  `dimanchepm` tinyint(1) NOT NULL DEFAULT '0',
+  `dimanchesoiree` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`formulaireid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `formulairebenevolat`
+--
+
+LOCK TABLES `formulairebenevolat` WRITE;
+/*!40000 ALTER TABLE `formulairebenevolat` DISABLE KEYS */;
+/*!40000 ALTER TABLE `formulairebenevolat` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `labels`
+--
+
+DROP TABLE IF EXISTS `labels`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `labels` (
+  `labelsId` int(11) NOT NULL AUTO_INCREMENT,
+  `labelname` varchar(50) NOT NULL DEFAULT '',
+  `description` varchar(100) NOT NULL DEFAULT '',
+  `langid` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`labelsId`),
+  UNIQUE KEY `labelsUnioqueLanguage` (`langid`,`labelname`)
+) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `labels`
+--
+
+LOCK TABLES `labels` WRITE;
+/*!40000 ALTER TABLE `labels` DISABLE KEYS */;
+INSERT INTO `labels` VALUES (1,'accueil','Accueil',1),(2,'accueil','Home',2),(3,'firstname','Prénom',1),(4,'firstname','First name',2),(5,'lastname','Last name',2),(6,'lastname','Nom',1),(7,'address','Adresse',1),(8,'address','Address',2),(9,'phone','Tél.',1),(10,'phone','Phone.',2),(11,'cellphone','Cell phone.',2),(12,'cellphone','Tél. cell.',1),(13,'email','Courriel',1),(14,'email','Email',2),(15,'monday','Monday',2),(16,'monday','Lundi',1),(17,'tuesday','Mardi',1),(18,'tuesday','Tuesday',2),(19,'wednesday','Wednesday',2),(20,'wednesday','Mercredi',1),(21,'thursday','Jeudi',1),(22,'thursday','Thursday',2),(23,'friday','Friday',2),(24,'friday','Vendredi',1),(25,'saturday','Samedi',1),(26,'saturday','Saturday',2),(27,'sunday','Sunday',2),(28,'sunday','Dimanche',1),(29,'afternoon','Après-midi',1),(30,'afternoon','Afternoon',2);
+/*!40000 ALTER TABLE `labels` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `langage`
+--
+
+DROP TABLE IF EXISTS `langage`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `langage` (
+  `langid` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL DEFAULT '',
+  PRIMARY KEY (`langid`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `langage`
+--
+
+LOCK TABLES `langage` WRITE;
+/*!40000 ALTER TABLE `langage` DISABLE KEYS */;
+INSERT INTO `langage` VALUES (1,'Français'),(2,'English');
+/*!40000 ALTER TABLE `langage` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `menu`
 --
 
@@ -66,7 +171,7 @@ CREATE TABLE `menu` (
 
 LOCK TABLES `menu` WRITE;
 /*!40000 ALTER TABLE `menu` DISABLE KEYS */;
-INSERT INTO `menu` VALUES (1,'0','Accueil','Accueil/Accueil.php',0),(2,'0','Paroisses-Communautés','ParoissesCommunaute/ParoissesCommunaute.php',0),(3,'0','Sacrements','Sacrements/Sacrements.php',0),(4,'0','Chemins de foi','CheminsDeFoi/CheminsDeFoi.php',0),(5,'0','Funérailles','Funerailles/Funerailles.php',0),(6,'0','Feuillets','Feuillets/Feuillets.php',0),(7,'0','Financement','Financement/Financement.php',0),(8,'2','Assomption de la BVM (St-Georges-de-Sartigan)','Financement/Financement.php',0),(9,'2','Notre-Dame-de-la-Providence (St-Georges-de-Sartigan)','ParoissesCommunaute/ParoissesCommunaute.php',0),(10,'2','Saint-Benjamin (St-Georges-de-Sartigan)','ParoissesCommunaute/ParoissesCommunaute.php',0),(11,'2','Saint-Côme (St-Georges-de-Sartigan)','ParoissesCommunaute/ParoissesCommunaute.php',0),(12,'2','Sainte-Aurélie (St-Georges-de-Sartigan)','ParoissesCommunaute/ParoissesCommunaute.php',0),(13,'2','Saint-Gédéon (Saint-Jean-Paul II)','ParoissesCommunaute/ParoissesCommunaute.php',0),(14,'2','Saint-Georges (St-Georges-de-Sartigan)','ParoissesCommunaute/ParoissesCommunaute.php',0),(15,'2','Saint-Jean-de-la-Lande (St-Georges-de-Sartigan)','ParoissesCommunaute/ParoissesCommunaute.php',0),(16,'2','Saint-Ludger (Saint-Jean-Paul II)','ParoissesCommunaute/ParoissesCommunaute.php',0),(17,'2','Saint-Martin (Saint-Jean-Paul II)','ParoissesCommunaute/ParoissesCommunaute.php',0),(18,'2','Saint-Philibert (St-Georges-de-Sartigan)','ParoissesCommunaute/ParoissesCommunaute.php',0),(19,'2','Saint-Prosper (St-Georges-de-Sartigan)','ParoissesCommunaute/ParoissesCommunaute.php',0),(20,'2','Saint-René-Goupil (St-Georges-de-Sartigan)','ParoissesCommunaute/ParoissesCommunaute.php',0),(21,'2','Saint-Robert-Bellarmin (Saint-Jean-Paul II)','ParoissesCommunaute/ParoissesCommunaute.php',0),(22,'2','Saint-Simon (St-Georges-de-Sartigan)','ParoissesCommunaute/ParoissesCommunaute.php',0),(23,'2','Saint-Théophile (Saint-Jean-Paul II)','ParoissesCommunaute/ParoissesCommunaute.php',0),(24,'2','Saint-Zacharie (St-Georges-de-Sartigan)','ParoissesCommunaute/ParoissesCommunaute.php',0),(25,'3','Baptême','Sacrements/Sacrements.php',1),(26,'3','Premier pardon - réconciliation','Sacrements/Sacrements.php',2),(27,'3','Première communion','Sacrements/Sacrements.php',3),(28,'3','Confirmation','Sacrements/Sacrements.php',4),(29,'3','Mariage','Sacrements/Sacrements.php',5),(30,'3','Onction des malades','Sacrements/Sacrements.php',6),(31,'3','Initiation chrétienne des adultes','Sacrements/Sacrements.php',7),(32,'4','Liturgie','CheminsDeFoi/CheminsDeFoi.php',1),(33,'4','Enfants','CheminsDeFoi/CheminsDeFoi.php',2),(34,'4','Pastorale jeunesse','CheminsDeFoi/CheminsDeFoi.php',3),(35,'4','Équipes de fraternité','CheminsDeFoi/CheminsDeFoi.php',4),(36,'4','Croissance spirituelle','CheminsDeFoi/CheminsDeFoi.php',5),(37,'4','Comité Création Verte','CheminsDeFoi/CheminsDeFoi.php',6),(38,'4','Je veux m\'impliquer','CheminsDeFoi/JeVeuxMimpliquer.php',7);
+INSERT INTO `menu` VALUES (1,'0','Accueil','Accueil/Accueil.php',0),(2,'0','Paroisses-Communautés','ParoissesCommunaute/ParoissesCommunaute.php',0),(3,'0','Sacrements','Sacrements/Sacrements.php',0),(4,'0','Chemins de foi','CheminsDeFoi/CheminsDeFoi.php',0),(5,'0','Funérailles','Funerailles/Funerailles.php',0),(6,'0','Feuillets','Feuillets/Feuillets.php',0),(7,'0','Financement','Financement/Financement.php',0),(8,'2','Assomption de la BVM (St-Georges-de-Sartigan)','Financement/Financement.php',0),(9,'2','Notre-Dame-de-la-Providence (St-Georges-de-Sartigan)','ParoissesCommunaute/ParoissesCommunaute.php',0),(10,'2','Saint-Benjamin (St-Georges-de-Sartigan)','ParoissesCommunaute/ParoissesCommunaute.php',0),(11,'2','Saint-Côme (St-Georges-de-Sartigan)','ParoissesCommunaute/ParoissesCommunaute.php',0),(12,'2','Sainte-Aurélie (St-Georges-de-Sartigan)','ParoissesCommunaute/ParoissesCommunaute.php',0),(13,'2','Saint-Gédéon (Saint-Jean-Paul II)','ParoissesCommunaute/ParoissesCommunaute.php',0),(14,'2','Saint-Georges (St-Georges-de-Sartigan)','ParoissesCommunaute/ParoissesCommunaute.php',0),(15,'2','Saint-Jean-de-la-Lande (St-Georges-de-Sartigan)','ParoissesCommunaute/ParoissesCommunaute.php',0),(16,'2','Saint-Ludger (Saint-Jean-Paul II)','ParoissesCommunaute/ParoissesCommunaute.php',0),(17,'2','Saint-Martin (Saint-Jean-Paul II)','ParoissesCommunaute/ParoissesCommunaute.php',0),(18,'2','Saint-Philibert (St-Georges-de-Sartigan)','ParoissesCommunaute/ParoissesCommunaute.php',0),(19,'2','Saint-Prosper (St-Georges-de-Sartigan)','ParoissesCommunaute/ParoissesCommunaute.php',0),(20,'2','Saint-René-Goupil (St-Georges-de-Sartigan)','ParoissesCommunaute/ParoissesCommunaute.php',0),(21,'2','Saint-Robert-Bellarmin (Saint-Jean-Paul II)','ParoissesCommunaute/ParoissesCommunaute.php',0),(22,'2','Saint-Simon (St-Georges-de-Sartigan)','ParoissesCommunaute/ParoissesCommunaute.php',0),(23,'2','Saint-Théophile (Saint-Jean-Paul II)','ParoissesCommunaute/ParoissesCommunaute.php',0),(24,'2','Saint-Zacharie (St-Georges-de-Sartigan)','ParoissesCommunaute/ParoissesCommunaute.php',0),(25,'3','Baptême','Sacrements/Sacrements.php',1),(26,'3','Premier pardon - réconciliation','Sacrements/Sacrements.php',2),(27,'3','Première communion','Sacrements/Sacrements.php',3),(28,'3','Confirmation','Sacrements/Sacrements.php',4),(29,'3','Mariage','Sacrements/Sacrements.php',5),(30,'3','Onction des malades','Sacrements/Sacrements.php',6),(31,'3','Initiation chrétienne des adultes','Sacrements/Sacrements.php',7),(32,'4','Liturgie','CheminsDeFoi/CheminsDeFoi.php',1),(33,'4','Enfants','CheminsDeFoi/CheminsDeFoi.php',2),(34,'4','Pastorale jeunesse','CheminsDeFoi/CheminsDeFoi.php',3),(35,'4','Équipes de fraternité','CheminsDeFoi/CheminsDeFoi.php',4),(36,'4','Croissance spirituelle','CheminsDeFoi/CheminsDeFoi.php',5),(37,'4','Comité Création Verte','CheminsDeFoi/CheminsDeFoi.php',6),(38,'4','Je veux m\'impliquer','CheminsDeFoi/CheminsDeFoi.php',7);
 /*!40000 ALTER TABLE `menu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -108,4 +213,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-03-13 10:09:42
+-- Dump completed on 2020-03-13 15:01:26
