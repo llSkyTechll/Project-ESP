@@ -28,7 +28,6 @@ include 'FormulaireBenevolat_pr.php';
   
   <script>
     function fnConnexion() {
-    function fnConnexion() {
       $(function() {
         $.ajax({
           type: 'post',
