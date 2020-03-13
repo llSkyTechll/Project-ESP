@@ -120,6 +120,7 @@ $conn = OpenCon();
     <iframe id="PageContent" src="<?php if(isset($path)){echo $path;}else{echo 'Accueil/Accueil.php';}?>" frameborder="0" style="background-color: transparent;"></iframe>
     <footer>
       <p>footer</p>
+      <input type="button" name="btnConnexion" onclick="fnRedirection('Formulaire/FormulaireBenevolat.php',5)" value="FormulaireBenevolat">
     </footer>
 
   </body>
