@@ -80,7 +80,7 @@ $conn = OpenCon();
 </head>
 
 <body>
-  <ul>
+  <ul class="Menu">
     <?php
 
     $SQL = "SELECT menu.menuId, menu.name, menu.redirectionPath FROM menu where parentId = 0";

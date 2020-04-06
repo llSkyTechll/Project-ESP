@@ -1,13 +1,13 @@
 * {}
 
-ul {
+.Menu ul {
   padding: 0;
   background: orange;
   margin: 0;
 
 }
 
-ul * {
+.Menu ul * {
   cursor: pointer;
 }
 
