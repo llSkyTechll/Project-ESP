@@ -27,21 +27,22 @@ include 'FormulaireBenevolat_pr.php';
   </style>
 
   <script>
-    function fnConnexion() {
+    function fnSubmit() {
       $(function() {
         $.ajax({
           type: 'post',
-          url: 'FormulaireBenevolat.php',
-          data: ({action: 'envoie', email: document.getElementById('femail').value , password: document.getElementById('fpassword').value}),
+          url: 'FormulaireBenevolat_pr.php',
+          data: ({action: 'submit', email: document.getElementById('femail').value , firstname: document.getElementById('ffirstname').value}),
           success: function(data){
             if (data == 'fail'){
-              Swal.fire('Email et/ou mot de passe incorrect.','','warning');
+              Swal.fire("Erreur lors de l'envoie du formulaire",'','error');
             }else if(data == 'success'){
               Swal.fire({
-                title:'Connexion réussi.',
+                title:'Envoie effectué avec succès',
                 icon: 'success'
               }).then((result)=>{
-                  window.top.location.reload();
+                  Swal.fire('Test','','warning');
+                  //window.top.location.reload();
                 }
               );
             }
@@ -160,6 +161,9 @@ include 'FormulaireBenevolat_pr.php';
         </tr>
       </table>
     </table>
+
+    <input type="button" name="btnSubmitForm" value="Envoyer" onclick="fnSubmit();">
+
   </form>
 </body>
 
