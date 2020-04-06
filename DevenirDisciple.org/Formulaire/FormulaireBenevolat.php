@@ -1,8 +1,8 @@
 <?php
 
-include '/../PHPFunctions.php';
+include '../PHPFunctions.php';
 
-include '/../ConnexionDB.php';
+include '../ConnexionDB.php';
 
 include 'FormulaireBenevolat_pr.php';
 
