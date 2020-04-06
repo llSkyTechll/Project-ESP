@@ -13,10 +13,45 @@
   <title>Devenir Disciple</title>
 </head>
 
+    
 <body>
 
   <p>Accueil</p>
 
+    <div id="carouselExampleIndicators" class="carousel slide w-50" data-ride="carousel" data-interval="10000">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+        </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img class="d-block " style="widht: 100%;height:100%" src="jesus1.jpg" alt="Première Nouvelle">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block "style="widht: 100%;height:100%" src="jesus2.jpg" alt="Deuxième Nouvelle">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block " style="widht: 100%;height:100%"src="jesus3.jpg" alt="Third Nouvelle">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block "style="widht: 100%;height:100%" src="jesus4.jpg" alt="Quatrième Nouvelle">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block " style="widht: 100%;height:100%"src="jesus5.jpg" alt="Cinquième Nouvelle">
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+    </div>
 </body>
 
 </html>

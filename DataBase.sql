@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `devenirdisciple.org` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `devenirdisciple.org`;
--- MySQL dump 10.17  Distrib 10.3.20-MariaDB, for Win64 (AMD64)
+-- MariaDB dump 10.17  Distrib 10.4.10-MariaDB, for Win64 (AMD64)
 --
 -- Host: localhost    Database: devenirdisciple.org
 -- ------------------------------------------------------
--- Server version	10.3.20-MariaDB
+-- Server version	10.4.10-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -125,33 +125,31 @@ INSERT INTO `menu` VALUES (1,'0','Accueil','Accueil/Accueil.php',0),(2,'0','Paro
 UNLOCK TABLES;
 
 --
--- Dumping events for database 'devenirdisciple.org'
+-- Table structure for table `nouvelle`
 --
 
+DROP TABLE IF EXISTS `nouvelle`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `nouvelle` (
+  `nouvelleId` int(11) NOT NULL AUTO_INCREMENT,
+  `resume` varchar(100) DEFAULT NULL,
+  `intervaleDateDebut` date DEFAULT NULL,
+  `intervaleDateFin` date DEFAULT NULL,
+  `actif` tinyint(1) DEFAULT NULL,
+  `imagePath` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`nouvelleId`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
 --
--- Dumping routines for database 'devenirdisciple.org'
+-- Dumping data for table `nouvelle`
 --
-/*!50003 DROP PROCEDURE IF EXISTS `ConnexionAdmin` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `ConnexionAdmin`(IN inEmail NVARCHAR(100), IN inPassword NVARCHAR(500), OUT AdminId INT)
-BEGIN
-	SET AdminId = 0;
-	SET AdminId = (SELECT admin.adminId FROM admin WHERE admin.email = inEmail AND admin.password = inPassword);
-    SELECT IF(ISNULL(AdminId) = 0, AdminId, 0) AS AdminId;
-END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
+
+LOCK TABLES `nouvelle` WRITE;
+/*!40000 ALTER TABLE `nouvelle` DISABLE KEYS */;
+/*!40000 ALTER TABLE `nouvelle` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -162,4 +160,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-06 13:55:23
+-- Dump completed on 2020-04-06 16:10:03

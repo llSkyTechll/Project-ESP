@@ -41,7 +41,19 @@ $conn = OpenCon();
           });
         })
       }
-
+ function fnRedirectionNouvelle(Path, menuId,nouvelleId) {
+        document.getElementById('PageContent').src = Path;
+        $(function() {
+          $.ajax({
+            type: 'post',
+            url: 'Menu.php',
+            data: ({
+              action: 'redirect',
+              menuId: menuId
+            })
+          });
+        })
+      }
     function fnDeconnexion() {
       $(function() {
         $.ajax({
