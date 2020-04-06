@@ -18,14 +18,6 @@ include 'FormulaireBenevolat_pr.php';
   <link rel="stylesheet" href="../css/include.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-  <style>
-    td, th {
-      border: 1px solid #dddddd;
-      text-align: left;
-      padding: 8px;
-    }
-  </style>
-
   <script>
     function fnSubmit() {
       $(function() {
@@ -56,25 +48,26 @@ include 'FormulaireBenevolat_pr.php';
 
 <body>
   <form>
-    <table style="width:75%;height:100%;align:center">
-      <tr colspan="4">
-        <td align="right" style="width:50%">
-          <?=GetLabel("firstname", $_SESSION["glangId"])?>
+    <br>
+    <table style="width:75%;height:100%;margin-left:auto;margin-right:auto;border-collapse: collapse;">
+      <tr>
+        <td align="left" style="width:7%">
+          Prénom :
         </td>
         <td>
-          <input type="text" name="ffirstname" id="ffirstname" value="">
+          <input type="text" name="ffirstname" id="ffirstname" style="width:95%" value="">
         </td>
-        <td align="right">
-          <?=GetLabel("lastname", $_SESSION["glangId"])?>
+        <td style="align:left;width:7%">
+          Nom :
         </td>
         <td>
-          <input type="text" name="flastname" id="flastname" value="">
+          <input type="left" name="flastname" id="flastname" style="width:100%" value="">
         </td>
       </tr>
 
       <tr>
-        <td align="right">
-          <?=GetLabel("address", $_SESSION["glangId"])?>
+        <td align="left">
+          Adresse :
         </td>
         <td colspan="3" align="left">
           <input type="text" name="faddress" id="faddress" style="width:100%" value="">
@@ -82,8 +75,8 @@ include 'FormulaireBenevolat_pr.php';
       </tr>
 
       <tr>
-        <td align="right">
-          <?=GetLabel("phone", $_SESSION["glangId"])?>
+        <td align="left">
+          Tél. :
         </td>
         <td colspan="3" align="left">
           <input type="text" name="fphone" id="fphone" style="width:100%" value="">
@@ -91,8 +84,8 @@ include 'FormulaireBenevolat_pr.php';
       </tr>
 
       <tr>
-        <td align="right">
-          <?=GetLabel("cellphone", $_SESSION["glangId"])?>
+        <td align="left">
+          Tél. cell:
         </td>
         <td colspan="3" align="left">
           <input type="text" name="fcellphone" id="fcellphone" style="width:100%" value="">
@@ -100,70 +93,121 @@ include 'FormulaireBenevolat_pr.php';
       </tr>
 
       <tr>
-        <td align="right">
-          <?=GetLabel("email", $_SESSION["glangId"])?>
+        <td align="left">
+          Courriel :
         </td>
         <td colspan="3" align="left">
           <input type="text" name="femail" id="femail" style="width:100%" value="">
         </td>
       </tr>
 
-      <tr></tr>
+      <tr>
+        <td colspan="4">
+          <br>
+          Plusieurs services ou compétences sont requis dans nos communautés. Il y a d’abord les services liés à
+          la vie liturgique (lecteurs, servants de messe, membres des chorales, comités de liturgie, catéchètes,
+          etc). Des bénévoles sont aussi requis pour divers services (aide à la correspondance, secrétariat,
+          réception, menuiserie, construction, etc). D’autres compétences plus pointues sont recherchées dans
+          certaines situations (en droit, en informatique, en gestion, en communication, en ingénierie, en marketing,
+          en comptabilité et finance, etc).
+        </td>
+      </tr>
 
-      <table align="center">
-        <tr>
-          <td style="width:25%"></td>
-          <td style="width:25%">avant-midi</td>
-          <td style="width:25%"><?=GetLabel("afternoon", $_SESSION["glangId"])?></td>
-          <td style="width:25%">soir</td>
-        </tr>
-        <tr>
-          <td><?=GetLabel("monday", $_SESSION["glangId"])?></td>
-          <td><input type="checkbox" name=""></td>
-          <td><input type="checkbox" name=""></td>
-          <td><input type="checkbox" name=""></td>
-        </tr>
-        <tr>
-          <td><?=GetLabel("tuesday", $_SESSION["glangId"])?></td>
-          <td><input type="checkbox" name=""></td>
-          <td><input type="checkbox" name=""></td>
-          <td><input type="checkbox" name=""></td>
-        </tr>
-        <tr>
-          <td><?=GetLabel("wednesday", $_SESSION["glangId"])?></td>
-          <td><input type="checkbox" name=""></td>
-          <td><input type="checkbox" name=""></td>
-          <td><input type="checkbox" name=""></td>
-        </tr>
-        <tr>
-          <td><?=GetLabel("thursday", $_SESSION["glangId"])?></td>
-          <td><input type="checkbox" name=""></td>
-          <td><input type="checkbox" name=""></td>
-          <td><input type="checkbox" name=""></td>
-        </tr>
-        <tr>
-          <td><?=GetLabel("friday", $_SESSION["glangId"])?></td>
-          <td><input type="checkbox" name=""></td>
-          <td><input type="checkbox" name=""></td>
-          <td><input type="checkbox" name=""></td>
-        </tr>
-        <tr>
-          <td><?=GetLabel("saturday", $_SESSION["glangId"])?></td>
-          <td><input type="checkbox" name=""></td>
-          <td><input type="checkbox" name=""></td>
-          <td><input type="checkbox" name=""></td>
-        </tr>
-        <tr>
-          <td><?=GetLabel("sunday", $_SESSION["glangId"])?></td>
-          <td><input type="checkbox" name=""></td>
-          <td><input type="checkbox" name=""></td>
-          <td><input type="checkbox" name=""></td>
-        </tr>
-      </table>
+      <tr>
+        <td colspan="4" style="width:75%">
+          <br>
+          Indiquez, le ou les bénévolats que vous seriez prêt à faire pour votre communauté ou l’une ou
+          l’autre des paroisses.
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <ul>
+            <li>
+                <input type="text" name="fbenevolat1" id="fbenevolat1" style="width:100%" length="500" value="">
+            </li>
+            <li>
+                <input type="text" name="fbenevolat2" id="fbenevolat2" style="width:100%" length="500" value="">
+            </li>
+            <li>
+                <input type="text" name="fbenevolat3" id="fbenevolat3" style="width:100%" length="500" value="">
+            </li>
+            <li>
+                <input type="text" name="fbenevolat4" id="fbenevolat4" style="width:100%" length="500" value="">
+            </li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="4">
+          <br>
+          Pour quelle communauté ou paroisse souhaitez-vous faire votre bénévolat? Vous pouvez
+          sélectionner plus d’un choix.
+        </td>
+      </tr>
     </table>
 
-    <input type="button" name="btnSubmitForm" value="Envoyer" onclick="fnSubmit();">
+    <br>
+    <p class="Bold">
+      DISPONIBILITÉ
+    </p>
+    <br>
 
+    <table class="Bold TableBorder" align="center">
+      <tr>
+        <td style="width:25%"></td>
+        <td class="Center" style="width:25%">AVANT-MIDI</td>
+        <td class="Center" style="width:25%">APRÈS-MIDI</td>
+        <td class="Center" style="width:25%">SOIR</td>
+      </tr>
+      <tr>
+        <td>Lundi</td>
+        <td class="Center"><input type="checkbox" value="1" name=""></td>
+        <td class="Center"><input type="checkbox" value="1" name=""></td>
+        <td class="Center"><input type="checkbox" value="1" name=""></td>
+      </tr>
+      <tr>
+        <td>Mardi</td>
+        <td class="Center"><input type="checkbox" value="1" name=""></td>
+        <td class="Center"><input type="checkbox" value="1" name=""></td>
+        <td class="Center"><input type="checkbox" value="1" name=""></td>
+      </tr>
+      <tr>
+        <td>Mercredi</td>
+        <td class="Center"><input type="checkbox" value="1" name=""></td>
+        <td class="Center"><input type="checkbox" value="1" name=""></td>
+        <td class="Center"><input type="checkbox" value="1" name=""></td>
+      </tr>
+      <tr>
+        <td>Jeudi</td>
+        <td class="Center"><input type="checkbox" value="1" name=""></td>
+        <td class="Center"><input type="checkbox" value="1" name=""></td>
+        <td class="Center"><input type="checkbox" value="1" name=""></td>
+      </tr>
+      <tr>
+        <td>Vendredi</td>
+        <td class="Center"><input type="checkbox" value="1" name=""></td>
+        <td class="Center"><input type="checkbox" value="1" name=""></td>
+        <td class="Center"><input type="checkbox" value="1" name=""></td>
+      </tr>
+      <tr>
+        <td>Samedi</td>
+        <td class="Center"><input type="checkbox" value="1" name=""></td>
+        <td class="Center"><input type="checkbox" value="1" name=""></td>
+        <td class="Center"><input type="checkbox" value="1" name=""></td>
+      </tr>
+      <tr>
+        <td>Dimanche</td>
+        <td class="Center"><input type="checkbox" value="1" name=""></td>
+        <td class="Center"><input type="checkbox" value="1" name=""></td>
+        <td class="Center"><input type="checkbox" value="1" name=""></td>
+      </tr>
+    </table>
+
+    <br>
+    <div class="Center">
+      <input type="button" name="btnSubmitForm" value="Envoyer" onclick="fnSubmit();">
+    </div>
   </form>
 </body>
 
