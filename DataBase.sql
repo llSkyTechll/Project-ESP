@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `devenirdisciple.org` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `devenirdisciple.org`;
--- MySQL dump 10.13  Distrib 5.7.21, for Win64 (x86_64)
+-- MySQL dump 10.17  Distrib 10.3.20-MariaDB, for Win64 (AMD64)
 --
--- Host: 127.0.0.1    Database: devenirdisciple.org
+-- Host: localhost    Database: devenirdisciple.org
 -- ------------------------------------------------------
--- Server version	5.7.21
+-- Server version	10.3.20-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -62,28 +62,28 @@ CREATE TABLE `formulairebenevolat` (
   `benevolat2` varchar(500) NOT NULL DEFAULT '',
   `benevolat3` varchar(500) NOT NULL DEFAULT '',
   `benevolat4` varchar(500) NOT NULL DEFAULT '',
-  `paroisseid` int(11) NOT NULL DEFAULT '0',
-  `lundiam` tinyint(1) NOT NULL DEFAULT '0',
-  `lundipm` tinyint(1) NOT NULL DEFAULT '0',
-  `lundisoiree` tinyint(1) NOT NULL DEFAULT '0',
-  `mardiam` tinyint(1) NOT NULL DEFAULT '0',
-  `mardipm` tinyint(1) NOT NULL DEFAULT '0',
-  `mardisoiree` tinyint(1) NOT NULL DEFAULT '0',
-  `mercrediam` tinyint(1) NOT NULL DEFAULT '0',
-  `mercredipm` tinyint(1) NOT NULL DEFAULT '0',
-  `mercredisoiree` tinyint(1) NOT NULL DEFAULT '0',
-  `jeudiam` tinyint(1) NOT NULL DEFAULT '0',
-  `jeudipm` tinyint(1) NOT NULL DEFAULT '0',
-  `jeudisoiree` tinyint(1) NOT NULL DEFAULT '0',
-  `vendrediam` tinyint(1) NOT NULL DEFAULT '0',
-  `vendredipm` tinyint(1) NOT NULL DEFAULT '0',
-  `vendredisoiree` tinyint(1) NOT NULL DEFAULT '0',
-  `samediam` tinyint(1) NOT NULL DEFAULT '0',
-  `samedipm` tinyint(1) NOT NULL DEFAULT '0',
-  `samedisoiree` tinyint(1) NOT NULL DEFAULT '0',
-  `dimancheam` tinyint(1) NOT NULL DEFAULT '0',
-  `dimanchepm` tinyint(1) NOT NULL DEFAULT '0',
-  `dimanchesoiree` tinyint(1) NOT NULL DEFAULT '0',
+  `paroisseid` int(11) NOT NULL DEFAULT 0,
+  `lundiam` tinyint(1) NOT NULL DEFAULT 0,
+  `lundipm` tinyint(1) NOT NULL DEFAULT 0,
+  `lundisoiree` tinyint(1) NOT NULL DEFAULT 0,
+  `mardiam` tinyint(1) NOT NULL DEFAULT 0,
+  `mardipm` tinyint(1) NOT NULL DEFAULT 0,
+  `mardisoiree` tinyint(1) NOT NULL DEFAULT 0,
+  `mercrediam` tinyint(1) NOT NULL DEFAULT 0,
+  `mercredipm` tinyint(1) NOT NULL DEFAULT 0,
+  `mercredisoiree` tinyint(1) NOT NULL DEFAULT 0,
+  `jeudiam` tinyint(1) NOT NULL DEFAULT 0,
+  `jeudipm` tinyint(1) NOT NULL DEFAULT 0,
+  `jeudisoiree` tinyint(1) NOT NULL DEFAULT 0,
+  `vendrediam` tinyint(1) NOT NULL DEFAULT 0,
+  `vendredipm` tinyint(1) NOT NULL DEFAULT 0,
+  `vendredisoiree` tinyint(1) NOT NULL DEFAULT 0,
+  `samediam` tinyint(1) NOT NULL DEFAULT 0,
+  `samedipm` tinyint(1) NOT NULL DEFAULT 0,
+  `samedisoiree` tinyint(1) NOT NULL DEFAULT 0,
+  `dimancheam` tinyint(1) NOT NULL DEFAULT 0,
+  `dimanchepm` tinyint(1) NOT NULL DEFAULT 0,
+  `dimanchesoiree` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`formulaireid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -98,57 +98,6 @@ LOCK TABLES `formulairebenevolat` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `labels`
---
-
-DROP TABLE IF EXISTS `labels`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `labels` (
-  `labelsId` int(11) NOT NULL AUTO_INCREMENT,
-  `labelname` varchar(50) NOT NULL DEFAULT '',
-  `description` varchar(100) NOT NULL DEFAULT '',
-  `langid` int(11) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`labelsId`),
-  UNIQUE KEY `labelsUnioqueLanguage` (`langid`,`labelname`)
-) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `labels`
---
-
-LOCK TABLES `labels` WRITE;
-/*!40000 ALTER TABLE `labels` DISABLE KEYS */;
-INSERT INTO `labels` VALUES (1,'accueil','Accueil',1),(2,'accueil','Home',2),(3,'firstname','Prénom',1),(4,'firstname','First name',2),(5,'lastname','Last name',2),(6,'lastname','Nom',1),(7,'address','Adresse',1),(8,'address','Address',2),(9,'phone','Tél.',1),(10,'phone','Phone.',2),(11,'cellphone','Cell phone.',2),(12,'cellphone','Tél. cell.',1),(13,'email','Courriel',1),(14,'email','Email',2),(15,'monday','Monday',2),(16,'monday','Lundi',1),(17,'tuesday','Mardi',1),(18,'tuesday','Tuesday',2),(19,'wednesday','Wednesday',2),(20,'wednesday','Mercredi',1),(21,'thursday','Jeudi',1),(22,'thursday','Thursday',2),(23,'friday','Friday',2),(24,'friday','Vendredi',1),(25,'saturday','Samedi',1),(26,'saturday','Saturday',2),(27,'sunday','Sunday',2),(28,'sunday','Dimanche',1),(29,'afternoon','Après-midi',1),(30,'afternoon','Afternoon',2);
-/*!40000 ALTER TABLE `labels` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `langage`
---
-
-DROP TABLE IF EXISTS `langage`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `langage` (
-  `langid` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) NOT NULL DEFAULT '',
-  PRIMARY KEY (`langid`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `langage`
---
-
-LOCK TABLES `langage` WRITE;
-/*!40000 ALTER TABLE `langage` DISABLE KEYS */;
-INSERT INTO `langage` VALUES (1,'Français'),(2,'English');
-/*!40000 ALTER TABLE `langage` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `menu`
 --
 
@@ -160,7 +109,7 @@ CREATE TABLE `menu` (
   `parentId` varchar(45) NOT NULL DEFAULT '0',
   `name` varchar(100) NOT NULL DEFAULT '',
   `redirectionPath` varchar(500) NOT NULL DEFAULT '',
-  `sequence` int(11) NOT NULL DEFAULT '0',
+  `sequence` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`menuId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -213,4 +162,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-03-13 15:01:26
+-- Dump completed on 2020-04-06 13:55:23
