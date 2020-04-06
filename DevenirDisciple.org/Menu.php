@@ -87,11 +87,11 @@ $conn = OpenCon();
     if ($RSSQL->num_rows > 0){
       while ($Row = $RSSQL->fetch_assoc()){
         $width = 100/($RSSQL->num_rows + 1);
-        echo ('<li class="dropdown" style=width:'.$width.'%;> <a  onclick="fnRedirection(\''.$Row['redirectionPath'].'\','.$Row['menuId'].')">'. utf8_encode($Row['name']).'</a>');
+        echo ('<li class="dropdown" onclick="fnRedirection(\''.$Row['redirectionPath'].'\','.$Row['menuId'].')" style=width:'.$width.'%;> <a>'. utf8_encode($Row['name']).'</a>');
         if(in_array($Row['menuId'], $menuArray)){
           echo ('&nbsp;&nbsp;<i class="fas fa-caret-down"></i>');
           echo ('<ul class="dropdown-content">');
-          $SQL = "SELECT * from menu where parentId = ".$Row["menuId"]." order by sequence,name ";
+          $SQL = "SELECT * FROM menu WHERE parentId = ".$Row["menuId"]." order by sequence,name ";
           $RSSQL3 = $conn->query($SQL);
 
           while ($Row = $RSSQL3->fetch_assoc()){
