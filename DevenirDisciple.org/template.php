@@ -1,3 +1,5 @@
+<!--Template pour les pages dans le iframe de menu-->
+
 <!doctype html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="../css/include.css">
-    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="../JavaScript/JQuery1.9.1.js"></script> <!--S'assurer que le lien est bon-->
     <script src="https://kit.fontawesome.com/30dce125f3.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
   <title>Devenir Disciple</title>

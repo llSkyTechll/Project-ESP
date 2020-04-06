@@ -12,9 +12,9 @@
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  
+
   <link rel="stylesheet" href="../css/include.css">
-  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="../JavaScript/JQuery1.9.1.js"></script>
   <script src="https://kit.fontawesome.com/30dce125f3.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
@@ -58,11 +58,11 @@
 </head>
 
 <body >
-  
+
   <p>À ton baptême, tu as reçu un appel du Christ à participer à sa mission. Si tu veux faire connaître et aimer le Père, t’engager au sein de ta communauté peut être un bon moyen pour participer à cette mission.</p>
   <p>Si ça te tente, nous t’invitons à compléter ce formulaire qui nous permettra de t’aider à t’engager dans le milieu qui t’intéresse pour la fonction qui te plaît selon tes disponibilités.</p>
   <button>Bouton formulaire bénévolat</button>
-  
+
   <p>Tu peux aussi nous rejoindre pour en savoir plus.</p>
   <button>Bouton Contactez-nous</button>
 
