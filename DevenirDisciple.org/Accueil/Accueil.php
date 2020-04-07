@@ -68,7 +68,7 @@
         </video>
         </div>
         <div>
-                <input class="btn btn-primary" type="button" name="btnConnexion" onclick="fnRedirection('Formulaire/FormulaireBenevolat.php',5)" value="FormulaireBenevolat">
+            <input class="btn btn-primary" type="button" name="btnConnexion" onclick="parent.fnRedirection('Formulaire/FormulaireBenevolat.php',5)" value="FormulaireBenevolat">
 
         </div>
     </div>
