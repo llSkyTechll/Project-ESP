@@ -1,7 +1,5 @@
 <?php
 
-include '../PHPFunctions.php';
-
 include '../ConnexionDB.php';
 
 include 'FormulaireBenevolat_pr.php';
@@ -23,20 +21,21 @@ include 'FormulaireBenevolat_pr.php';
       $(function() {
         $.ajax({
           type: 'post',
-          url: 'FormulaireBenevolat_pr.php',
-          data: ({action: 'submit', email: document.getElementById('femail').value , firstname: document.getElementById('ffirstname').value}),
+          url: 'FormulaireBenevolat.php',
+          data: ({formdata: $("#formSubmit").serialize()}),
           success: function(data){
-            if (data == 'fail'){
-              Swal.fire("Erreur lors de l'envoie du formulaire",'','error');
-            }else if(data == 'success'){
+            if (data == 'EmptyFields'){
+              Swal.fire("Formulaire invalide",'Veuillez remplir tous les champs obligatoires.','warning');
+            }else if(data == 'Success'){
               Swal.fire({
                 title:'Envoie effectué avec succès',
                 icon: 'success'
               }).then((result)=>{
-                  Swal.fire('Test','','warning');
-                  //window.top.location.reload();
+                  window.top.location.reload();
                 }
               );
+            }else if(data == "Fail"){
+              Swal.fire("Erreur lors de l'envoie","Impossible d'envoyer le formulaire",'error');
             }
           }
         })
@@ -47,7 +46,8 @@ include 'FormulaireBenevolat_pr.php';
 </head>
 
 <body>
-  <form>
+  <form name="formSubmit" id="formSubmit">
+    <input type="hidden" name="action" id="action" value="submit">
     <br>
     <table style="width:75%;height:100%;margin-left:auto;margin-right:auto;border-collapse: collapse;">
       <tr>
@@ -57,7 +57,7 @@ include 'FormulaireBenevolat_pr.php';
         <td>
           <input type="text" name="ffirstname" id="ffirstname" style="width:95%" value="">
         </td>
-        <td style="align:left;width:7%">
+        <td style="align:left;width:5%">
           Nom :
         </td>
         <td>
@@ -145,10 +145,21 @@ include 'FormulaireBenevolat_pr.php';
           sélectionner plus d’un choix.
         </td>
       </tr>
+      <tr>
+        <td colspan="2">
+          <select name="fparoisseid" id="fparoisseid" style="width:50%">
+            <option value="0"></option>
+            <option value="1">TEST1</option>
+            <option value="2">TEST2</option>
+            <option value="3">TEST3</option>
+            <option value="4">TEST4</option>
+          </select>
+        </td>
+      </tr>
     </table>
 
     <br>
-    <p class="Bold">
+    <p class="Bold Center" style="text-decoration: underline;">
       DISPONIBILITÉ
     </p>
     <br>
@@ -162,45 +173,45 @@ include 'FormulaireBenevolat_pr.php';
       </tr>
       <tr>
         <td>Lundi</td>
-        <td class="Center"><input type="checkbox" value="1" name=""></td>
-        <td class="Center"><input type="checkbox" value="1" name=""></td>
-        <td class="Center"><input type="checkbox" value="1" name=""></td>
+        <td class="Center"><input type="checkbox" value="1" name="flundiam"></td>
+        <td class="Center"><input type="checkbox" value="1" name="flundipm"></td>
+        <td class="Center"><input type="checkbox" value="1" name="flundisoir"></td>
       </tr>
       <tr>
         <td>Mardi</td>
-        <td class="Center"><input type="checkbox" value="1" name=""></td>
-        <td class="Center"><input type="checkbox" value="1" name=""></td>
-        <td class="Center"><input type="checkbox" value="1" name=""></td>
+        <td class="Center"><input type="checkbox" value="1" name="fmardiam"></td>
+        <td class="Center"><input type="checkbox" value="1" name="fmardipm"></td>
+        <td class="Center"><input type="checkbox" value="1" name="fmardisoir"></td>
       </tr>
       <tr>
         <td>Mercredi</td>
-        <td class="Center"><input type="checkbox" value="1" name=""></td>
-        <td class="Center"><input type="checkbox" value="1" name=""></td>
-        <td class="Center"><input type="checkbox" value="1" name=""></td>
+        <td class="Center"><input type="checkbox" value="1" name="fmercrediam"></td>
+        <td class="Center"><input type="checkbox" value="1" name="fmercredipm"></td>
+        <td class="Center"><input type="checkbox" value="1" name="fmercredisoir"></td>
       </tr>
       <tr>
         <td>Jeudi</td>
-        <td class="Center"><input type="checkbox" value="1" name=""></td>
-        <td class="Center"><input type="checkbox" value="1" name=""></td>
-        <td class="Center"><input type="checkbox" value="1" name=""></td>
+        <td class="Center"><input type="checkbox" value="1" name="fjeudiam"></td>
+        <td class="Center"><input type="checkbox" value="1" name="fjeudipm"></td>
+        <td class="Center"><input type="checkbox" value="1" name="fjeudisoir"></td>
       </tr>
       <tr>
         <td>Vendredi</td>
-        <td class="Center"><input type="checkbox" value="1" name=""></td>
-        <td class="Center"><input type="checkbox" value="1" name=""></td>
-        <td class="Center"><input type="checkbox" value="1" name=""></td>
+        <td class="Center"><input type="checkbox" value="1" name="fvendrediam"></td>
+        <td class="Center"><input type="checkbox" value="1" name="fvendredipm"></td>
+        <td class="Center"><input type="checkbox" value="1" name="fvendredisoir"></td>
       </tr>
       <tr>
         <td>Samedi</td>
-        <td class="Center"><input type="checkbox" value="1" name=""></td>
-        <td class="Center"><input type="checkbox" value="1" name=""></td>
-        <td class="Center"><input type="checkbox" value="1" name=""></td>
+        <td class="Center"><input type="checkbox" value="1" name="fsamediam"></td>
+        <td class="Center"><input type="checkbox" value="1" name="fsamedipm"></td>
+        <td class="Center"><input type="checkbox" value="1" name="fsamedisoir"></td>
       </tr>
       <tr>
         <td>Dimanche</td>
-        <td class="Center"><input type="checkbox" value="1" name=""></td>
-        <td class="Center"><input type="checkbox" value="1" name=""></td>
-        <td class="Center"><input type="checkbox" value="1" name=""></td>
+        <td class="Center"><input type="checkbox" value="1" name="fdimancheam"></td>
+        <td class="Center"><input type="checkbox" value="1" name="fdimanchepm"></td>
+        <td class="Center"><input type="checkbox" value="1" name="fdimanchesoir"></td>
       </tr>
     </table>
 

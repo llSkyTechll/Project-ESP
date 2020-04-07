@@ -41,7 +41,11 @@ iframe {
 }
 
 .TableBorder td, .TableBorder tr{
-    border: 1px solid #dddddd;
+    border: 1px solid black;
     text-align: left;
     padding: 8px;
+}
+
+td ul li {
+  margin-top: 2px;
 }
