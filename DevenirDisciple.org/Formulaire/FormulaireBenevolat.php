@@ -217,9 +217,11 @@ include 'FormulaireBenevolat_pr.php';
 
     <br>
     <div class="Center">
-      <input type="button" name="btnSubmitForm" value="Envoyer" onclick="fnSubmit();">
+      <input class="btn btn-primary" type="button" name="btnSubmitForm" value="Envoyer" onclick="fnSubmit();">
     </div>
   </form>
+    
+    
 </body>
 
 </html>

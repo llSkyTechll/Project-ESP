@@ -74,7 +74,7 @@ include 'ConnexionAdmin_pr.php';
       </tr>
       <tr>
         <td colspan="2" align="center">
-          <input type="button" name="btnConnect" value="Se connecter" onclick="fnConnexion();">
+          <input class="btn btn-primary" type="button" name="btnConnect" value="Se connecter" onclick="fnConnexion();">
         </td>
       </tr>
     </table>

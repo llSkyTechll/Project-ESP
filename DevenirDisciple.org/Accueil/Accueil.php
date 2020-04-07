@@ -26,31 +26,51 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
         </ol>
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img class="d-block " style="widht: 100%;height:100%" src="jesus1.jpg" alt="Première Nouvelle">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block " style="widht: 1000px;height:400px" src="jesus1.jpg" alt="Première Nouvelle">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block "style="widht: 1000px;height:400px" src="jesus2.jpg" alt="Deuxième Nouvelle">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block " style="widht: 1000px;height:400px" src="jesus3.jpg" alt="Third Nouvelle">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block " style="widht: 1000px;height:400px" src="jesus4.jpg" alt="Quatrième Nouvelle">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block " style="widht: 1000px;height:400px" src="jesus5.jpg" alt="Cinquième Nouvelle">
+            </div>
         </div>
-        <div class="carousel-item">
-            <img class="d-block "style="widht: 100%;height:100%" src="jesus2.jpg" alt="Deuxième Nouvelle">
-        </div>
-        <div class="carousel-item">
-            <img class="d-block " style="widht: 100%;height:100%"src="jesus3.jpg" alt="Third Nouvelle">
-        </div>
-        <div class="carousel-item">
-            <img class="d-block "style="widht: 100%;height:100%" src="jesus4.jpg" alt="Quatrième Nouvelle">
-        </div>
-        <div class="carousel-item">
-            <img class="d-block " style="widht: 100%;height:100%"src="jesus5.jpg" alt="Cinquième Nouvelle">
-        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
+    
+    <div>
+        <div>
+        <p>oméli du curé</p>
+        </div>
+        <div>
+                <input class="btn btn-primary" type="button" nam+e="btnTemoignage" value="témoinage">
+
+        </div>
+        <div>
+        <video width="400" height="222" controls="controls">
+            <source src="jesus-taime.mp4" type="video/mp4" />
+        vidéo curé
+        </video>
+        </div>
+        <div>
+            <input class="btn btn-primary" type="button" name="btnConnexion" onclick="parent.fnRedirection('Formulaire/FormulaireBenevolat.php',5)" value="FormulaireBenevolat">
+
+        </div>
     </div>
 </body>
 
