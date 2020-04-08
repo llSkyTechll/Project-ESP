@@ -14,6 +14,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="../css/include.css">
+  <script src="../JavaScript/JSFunction.js"></script>
   <script src="../JavaScript/JQuery1.9.1.js"></script>
   <script src="https://kit.fontawesome.com/30dce125f3.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>

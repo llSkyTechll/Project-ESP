@@ -11,21 +11,39 @@ include 'FormulaireBenevolat_pr.php';
 <head>
   <meta charset="UTF-8">
   <title>Devenir Disciple</title>
+  <script src="../JavaScript/JSFunction.js"></script>
   <script src="../JavaScript/JQuery1.9.1.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
   <link rel="stylesheet" href="../css/include.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
   <script>
+
     function fnSubmit() {
+      document.getElementById("ffirstname").style.borderColor = "";
+      document.getElementById("flastname").style.borderColor = "";
+      document.getElementById("femail").style.borderColor = "";
+      document.getElementById("fphone").style.borderColor = "";
+      document.getElementById("fcellphone").style.borderColor = "";
       $(function() {
         $.ajax({
           type: 'post',
           url: 'FormulaireBenevolat.php',
           data: ({formdata: $("#formSubmit").serialize()}),
           success: function(data){
-            if (data == 'EmptyFields'){
-              Swal.fire("Formulaire invalide",'Veuillez remplir tous les champs obligatoires.','warning');
+            if (data == 'firstname'){
+              document.getElementById("ffirstname").style.borderColor = "red";
+              Swal.fire("Formulaire invalide",'Le champ Prénom ne peut pas être vide.','warning');
+            }else if(data == "lastname"){
+              document.getElementById("flastname").style.borderColor = "red";
+              Swal.fire("Formulaire invalide",'Le champ Nom ne peut pas être vide.','warning');
+            }else if(data == "email"){
+              document.getElementById("femail").style.borderColor = "red";
+              Swal.fire("Formulaire invalide",'Le champ Courriel ne peut pas être vide.','warning');
+            }else if(data == "phone"){
+              document.getElementById("fphone").style.borderColor = "red";
+              document.getElementById("fcellphone").style.borderColor = "red";
+              Swal.fire("Formulaire invalide","Il faut entrer au moins un téléphone.",'warning');
             }else if(data == 'Success'){
               Swal.fire({
                 title:'Envoie effectué avec succès',
@@ -55,13 +73,13 @@ include 'FormulaireBenevolat_pr.php';
           Prénom :
         </td>
         <td>
-          <input type="text" name="ffirstname" id="ffirstname" style="width:95%" value="">
+          <input type="text" name="ffirstname" id="ffirstname" style="width:95%" length="50" value="">
         </td>
         <td style="align:left;width:5%">
           Nom :
         </td>
         <td>
-          <input type="left" name="flastname" id="flastname" style="width:100%" value="">
+          <input type="left" name="flastname" id="flastname" style="width:100%" length="50" value="">
         </td>
       </tr>
 
@@ -97,7 +115,7 @@ include 'FormulaireBenevolat_pr.php';
           Courriel :
         </td>
         <td colspan="3" align="left">
-          <input type="text" name="femail" id="femail" style="width:100%" value="">
+          <input type="text" name="femail" id="femail" style="width:100%" length="100" value="">
         </td>
       </tr>
 
@@ -220,7 +238,6 @@ include 'FormulaireBenevolat_pr.php';
       <input class="btn btn-primary" type="button" name="btnSubmitForm" value="Envoyer" onclick="fnSubmit();">
     </div>
   </form>
-
 
 </body>
 

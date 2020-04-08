@@ -12,14 +12,8 @@ if( !isset( $_SESSION['gadminId'] ) ) {
   $_SESSION['gadminId'] = 0;
 }
 
-function FNSQL(&$string){
-  $string = str_replace("'", "''", $string);
+function FNSQL($string){
+  return str_replace("'", "''", $string);
 }
 
-function IfEmpty($var){
-  echo "test2";
-  if(!isset($var)){
-    $var =  0;
-  }
-}
 ?>
