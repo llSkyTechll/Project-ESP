@@ -6,6 +6,8 @@ require_once 'ConnexionDB.php';  //Garder les includes dans cet ordre
 
 require_once 'Menu_pr.php';
 
+require_once 'Class/clsMenu.php';
+
 $conn = OpenCon();
 
 ?>
@@ -41,7 +43,7 @@ $conn = OpenCon();
           });
         })
       }
-      
+
       function fnRedirectionNouvelle(Path, menuId,nouvelleId) {
         document.getElementById('PageContent').src = Path;
         $(function() {
@@ -55,7 +57,7 @@ $conn = OpenCon();
           });
         })
       }
-      
+
     function fnDeconnexion() {
       $(function() {
         $.ajax({
@@ -81,18 +83,20 @@ $conn = OpenCon();
   </script>
 </head>
 
-<body>   
-    
-    <div class="container fixed-top">    
+<body>
+
+    <div class="container fixed-top">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-        </button>    
-   
+        </button>
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ">
 
             <?php
+            $menu = new Menu();
+            $result = $menu->getMenu();
 
             $SQL = "SELECT menu.menuId, menu.name, menu.redirectionPath FROM menu where parentId = 0";
             $RSSQL = $conn->query($SQL);
@@ -121,9 +125,9 @@ $conn = OpenCon();
                   while ($Row = $RSSQL3->fetch_assoc()){
                     $SQL = "SELECT * FROM menu WHERE parentId = ".$Row["menuId"]." order by sequence,name ";
                     $RSSQL4 = $conn->query($SQL);
-                      
+
                       if(in_array($Row['menuId'], $menuArray)){
-                          
+
                         echo('<ul class="p-0"><li class="nav-item dropright"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >'.utf8_encode($Row['name']).'</a><div class="dropdown-menu" aria-labelledby="navbarDropdown">');
                       while ($Row = $RSSQL4->fetch_assoc()){
                           echo ('<a class="dropdown-item" onclick="fnRedirection(\''.$Row['redirectionPath'].'\','.$Row['menuId'].')">'.utf8_encode($Row['name']).'</a>');
@@ -131,18 +135,18 @@ $conn = OpenCon();
                             $path = $Row['redirectionPath'];
                         }
                       }
-                      
+
                         echo('</div></li></ul>');
                       }
                       else{
-                        echo ('<a class="dropdown-item" onclick="fnRedirection(\''.$Row['redirectionPath'].'\','.$Row['menuId'].')">'.utf8_encode($Row['name']).'</a>');      
+                        echo ('<a class="dropdown-item" onclick="fnRedirection(\''.$Row['redirectionPath'].'\','.$Row['menuId'].')">'.utf8_encode($Row['name']).'</a>');
                       }
-                      
+
                     if ($Row['menuId'] == $_SESSION["gmenuId"]){
                     $path = $Row['redirectionPath'];
                     }
                   }
-                  echo('</div></li>'); 
+                  echo('</div></li>');
                 }
                   else{
                       echo('<li class="nav-item"><a  class="nav-link" onclick="fnRedirection(\''.$Row['redirectionPath'].'\','.$Row['menuId'].')">'.utf8_encode($Row['name']).'</a> </li>');
@@ -153,7 +157,7 @@ $conn = OpenCon();
                 $path = $Row['redirectionPath'];
                 }
               }
-            }       
+            }
 
             ?>
                 <li>
@@ -164,8 +168,8 @@ $conn = OpenCon();
     </nav>
     </div>
     <iframe class="mt-5" id="PageContent" src="<?php if(isset($path)){echo $path;}else{echo 'Accueil/Accueil.php';}?>" frameborder="0" style="background-color: transparent;"></iframe>
-            
-    
+
+
   </body>
 
   </html>
