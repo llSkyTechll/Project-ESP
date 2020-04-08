@@ -12,7 +12,8 @@ if (isset($_POST['formdata'])){
   }
 }
 
-function FNSubmit($formdata){
+function FNSubmit($formdata){  
+
   if($formdata['ffirstname'] <> ''){
     if ($formdata['flastname'] <> '') {
       if ($formdata['femail'] <> '') {
@@ -41,9 +42,15 @@ function FNSubmit($formdata){
             $dimancheam   = isset($formdata['fdimancheam'])   ? 1 : 0;
             $dimanchepm   = isset($formdata['fdimanchepm'])   ? 1 : 0;
             $dimanchesoir = isset($formdata['fdimanchesoir']) ? 1 : 0;
-
+            
+            $paroisseid   = $formdata['fparoisseid'];
+            $communityid  = 0;
+            if ($paroisseid <> 0){
+              $communityid  = $formdata['fcommunityid'.$paroisseid.'']; 
+            }
+            
             $param = "'".FNSQL($formdata['femail'])."', '".FNSQL($formdata['ffirstname'])."', '".FNSQL($formdata['flastname'])."','".FNSQL($formdata['faddress'])."','".FNSQL($formdata['fphone'])."','".FNSQL($formdata['fcellphone']).
-            "','".FNSQL($formdata['fbenevolat1'])."','".FNSQL($formdata['fbenevolat2'])."','".FNSQL($formdata['fbenevolat3'])."','".FNSQL($formdata['fbenevolat4'])."','".$formdata['fparoisseid']."','".$lundiam.
+            "','".FNSQL($formdata['fbenevolat1'])."','".FNSQL($formdata['fbenevolat2'])."','".FNSQL($formdata['fbenevolat3'])."','".FNSQL($formdata['fbenevolat4'])."','".$paroisseid."','".$communityid."','".$lundiam.
             "','".$lundipm."','".$lundisoir."','".$mardiam."','".$mardipm."','".$mardisoir."','".$mercrediam.
             "','".$mercredipm."','".$mercredisoir."','".$jeudiam."','".$jeudipm."','".$jeudisoir."','".$vendrediam.
             "','".$vendredipm."','".$vendredisoir."','".$samediam."','".$samedipm."','".$samedisoir."','".$dimancheam.
