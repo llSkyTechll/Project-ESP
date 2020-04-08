@@ -1,8 +1,10 @@
 <?php
 
-include '../ConnexionDB.php';
+require_once '../ConnexionDB.php';
 
-include 'FormulaireBenevolat_pr.php';
+require_once 'FormulaireBenevolat_pr.php';
+
+require_once '../Class/clsParoisseCommunaute.php';
 
 $conn = OpenCon();
 
@@ -184,11 +186,12 @@ $conn = OpenCon();
             <option value="0"></option>
             <?php           
               
-              $SQL = 'SELECT nom, paroisseid FROM paroisse ORDER BY nom, paroisseid';
-              $RSSQL = $conn->query($SQL);
+              $paroissecommunaute = new ParoisseCommunaute();
               
-              if ($RSSQL->num_rows > 0){
-                while ($Row = $RSSQL->fetch_assoc()){
+              $Result = $paroissecommunaute->getAllParoisse();
+              
+              if ($Result->num_rows > 0){
+                while ($Row = $Result->fetch_assoc()){
                   echo '<option value="'.$Row['paroisseid'].'">'.utf8_encode($Row['nom']).'</option>';
                 }
               }  
@@ -202,13 +205,13 @@ $conn = OpenCon();
       <tr>
         <td colspan="2">
           
-            <?php           
-              $SQL = 'SELECT nom, communauteid, paroisseid FROM communaute ORDER BY paroisseid, nom, communauteid';
-              $RSSQL = $conn->query($SQL);
-              
-              if ($RSSQL->num_rows > 0){
+            <?php          
+            
+              $Result = $paroissecommunaute->getAllCommunauteOrderParoisse();
+
+              if ($Result->num_rows > 0){
                 $paroisseid = 0;
-                while ($Row = $RSSQL->fetch_assoc()){
+                while ($Row = $Result->fetch_assoc()){
                   if ($paroisseid != $Row['paroisseid']){
                     if ($paroisseid <> 0){
                       echo '</select>' ;
@@ -294,7 +297,7 @@ $conn = OpenCon();
     </div>
   </form>
   
-  <?php require('../Footer.php');?>
+  <?php require_once '../Footer.php';?>
 
 </body>
 

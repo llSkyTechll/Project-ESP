@@ -2,9 +2,9 @@
 
 session_start();
 
-include '../ConnexionDB.php';
+require_once '../ConnexionDB.php';
 
-include 'ConnexionAdmin_pr.php';
+require_once 'ConnexionAdmin_pr.php';
 
 ?>
 <!doctype html>
@@ -81,6 +81,6 @@ include 'ConnexionAdmin_pr.php';
   </form>
 </body>
 
-<?php require('../Footer.php');?>
+<?php require_once '../Footer.php';?>
 
 </html>

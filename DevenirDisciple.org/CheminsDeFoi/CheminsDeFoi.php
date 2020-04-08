@@ -21,6 +21,6 @@
 
 </body>
 
-<?php require('../Footer.php');?>
+<?php require_once '../Footer.php';?>
 
 </html>

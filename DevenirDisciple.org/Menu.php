@@ -1,10 +1,10 @@
 <?php
 
-include 'PHPFunctions.php';
+require_once 'PHPFunctions.php';
 
-include 'ConnexionDB.php';  //Garder les includes dans cet ordre
+require_once 'ConnexionDB.php';  //Garder les includes dans cet ordre
 
-include 'Menu_pr.php';
+require_once 'Menu_pr.php';
 
 $conn = OpenCon();
 
@@ -41,7 +41,8 @@ $conn = OpenCon();
           });
         })
       }
- function fnRedirectionNouvelle(Path, menuId,nouvelleId) {
+      
+      function fnRedirectionNouvelle(Path, menuId,nouvelleId) {
         document.getElementById('PageContent').src = Path;
         $(function() {
           $.ajax({
@@ -54,6 +55,7 @@ $conn = OpenCon();
           });
         })
       }
+      
     function fnDeconnexion() {
       $(function() {
         $.ajax({

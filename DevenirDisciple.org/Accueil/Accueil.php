@@ -1,6 +1,6 @@
 <?php
 
-include '../PHPFunctions.php';
+require_once '../PHPFunctions.php';
 
 ?>
 <!doctype html>
@@ -77,7 +77,7 @@ include '../PHPFunctions.php';
         </div>
     </div>
 
-<?php require('../Footer.php');?>    
+<?php require_once '../Footer.php';?>    
 </body>
 
 

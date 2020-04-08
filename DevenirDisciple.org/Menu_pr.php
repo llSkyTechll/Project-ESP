@@ -1,5 +1,7 @@
 <?php
 
+require_once 'Class/clsAdmin.php';
+
 if (isset($_POST['action'])){
   $action = $_POST['action'];
   
@@ -20,8 +22,8 @@ function FNRedirect(){
 }
 
 function FNDeconnexion(){
-  $_SESSION["gadminId"] = 0;
-  $_SESSION["gmenuId"]  = 0;
+  $admin = new Admin();
+  $admin->deconnexion();
   exit('success');
 }
 
