@@ -18,7 +18,7 @@
 
   <p>Accueil</p>
 
-    <div id="carouselExampleIndicators" class="carousel slide w-50" data-ride="carousel" data-interval="10000">
+    <div id="carouselExampleIndicators" class="carousel slide w-50 container" data-ride="carousel" data-interval="10000">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -53,23 +53,21 @@
         </a>
     </div>
     
-    <div>
-        <div>
-        <p>oméli du curé</p>
+    <div class="container row">
+        <div class="">
+            <p>oméli du curé</p>
         </div>
-        <div>
-                <input class="btn btn-primary" type="button" nam+e="btnTemoignage" value="témoinage">
-
+        <div class="">
+            <input class="btn btn-primary" type="button" nam+e="btnTemoignage" value="témoinage">
         </div>
-        <div>
-        <video width="400" height="222" controls="controls">
-            <source src="jesus-taime.mp4" type="video/mp4" />
-        vidéo curé
-        </video>
+        <div class="">
+            <video width="400" height="222" controls="controls">
+                <source src="jesus-taime.mp4" type="video/mp4" />
+            vidéo curé
+            </video>
         </div>
-        <div>
+        <div class="">
             <input class="btn btn-primary" type="button" name="btnConnexion" onclick="parent.fnRedirection('Formulaire/FormulaireBenevolat.php',5)" value="FormulaireBenevolat">
-
         </div>
     </div>
 </body>
