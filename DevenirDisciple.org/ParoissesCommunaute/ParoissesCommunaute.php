@@ -26,9 +26,9 @@ $conn = OpenCon();
 
 <body>
   <header>
-      <h1>Paroisse-Communauté</h1>  
+      <h1>Paroisse-Communauté</h1>
   </header>
-    
+
     <div>
         <h1>Heures de bureau</h1>
         <ul>
@@ -399,9 +399,9 @@ $conn = OpenCon();
     </div>
   </div>
 </div>
-    
+
     <a>lien feuillet</a>
-    <?php require('../Footer.php');?>
+    <?php require_once '../Footer.php';?>
 </body>
 
 
