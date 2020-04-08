@@ -1,3 +1,8 @@
+<?php
+
+include '../PHPFunctions.php';
+
+?>
 <!doctype html>
 <html lang="en">
 

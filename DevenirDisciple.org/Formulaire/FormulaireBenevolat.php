@@ -4,6 +4,8 @@ include '../ConnexionDB.php';
 
 include 'FormulaireBenevolat_pr.php';
 
+$conn = OpenCon();
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -18,6 +20,19 @@ include 'FormulaireBenevolat_pr.php';
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
   <script>
+  
+    function fnCommunityList(){
+      if (document.getElementById("fparoisseid").value == 0){
+        document.getElementById("fcommunityid1").style.display = "none";
+        document.getElementById("fcommunityid2").style.display = "none";
+      }else if (document.getElementById("fparoisseid").value == 1){
+        document.getElementById("fcommunityid1").style.display = "";
+        document.getElementById("fcommunityid2").style.display = "none";
+      }else{
+        document.getElementById("fcommunityid1").style.display = "none";
+        document.getElementById("fcommunityid2").style.display = "";
+      }
+    }
 
     function fnSubmit() {
       document.getElementById("ffirstname").style.borderColor = "";
@@ -165,13 +180,53 @@ include 'FormulaireBenevolat_pr.php';
       </tr>
       <tr>
         <td colspan="2">
-          <select name="fparoisseid" id="fparoisseid" style="width:50%">
+          <select name="fparoisseid" id="fparoisseid" style="width:50%" onchange="fnCommunityList()">
             <option value="0"></option>
-            <option value="1">TEST1</option>
-            <option value="2">TEST2</option>
-            <option value="3">TEST3</option>
-            <option value="4">TEST4</option>
+            <?php           
+              
+              $SQL = 'SELECT nom, paroisseid FROM paroisse ORDER BY nom, paroisseid';
+              $RSSQL = $conn->query($SQL);
+              
+              if ($RSSQL->num_rows > 0){
+                while ($Row = $RSSQL->fetch_assoc()){
+                  echo '<option value="'.$Row['paroisseid'].'">'.utf8_encode($Row['nom']).'</option>';
+                }
+              }  
+              
+            ?>
+            
           </select>
+        </td>
+      </tr>
+      
+      <tr>
+        <td colspan="2">
+          
+            <?php           
+              $SQL = 'SELECT nom, communauteid, paroisseid FROM communaute ORDER BY paroisseid, nom, communauteid';
+              $RSSQL = $conn->query($SQL);
+              
+              if ($RSSQL->num_rows > 0){
+                $paroisseid = 0;
+                while ($Row = $RSSQL->fetch_assoc()){
+                  if ($paroisseid != $Row['paroisseid']){
+                    if ($paroisseid <> 0){
+                      echo '</select>' ;
+                    }
+                    $paroisseid = $Row['paroisseid'];
+                    echo '<select name="fcommunityid'.$paroisseid.'" id="fcommunityid'.$paroisseid.'" style="width:50%;display:none">';
+                    echo '<option value="0"></option>';
+                    echo '<option value="'.$Row['communauteid'].'">'.utf8_encode($Row['nom']).'</option>';
+                  }else{
+                    echo '<option value="'.$Row['communauteid'].'">'.utf8_encode($Row['nom']).'</option>';
+                  }
+                }
+                echo '</select>';
+              }  
+              
+            ?>
+            
+         
         </td>
       </tr>
     </table>
@@ -238,9 +293,13 @@ include 'FormulaireBenevolat_pr.php';
       <input class="btn btn-primary" type="button" name="btnSubmitForm" value="Envoyer" onclick="fnSubmit();">
     </div>
   </form>
+  
+  <?php require('../Footer.php');?>
 
 </body>
 
-<?php require('../Footer.php');?>
-
 </html>
+
+<?php
+CloseCon($conn);
+?>
