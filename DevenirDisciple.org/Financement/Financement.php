@@ -20,4 +20,6 @@
 
 </body>
 
+<?php require('../Footer.php');?>
+
 </html>

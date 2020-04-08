@@ -241,4 +241,6 @@ include 'FormulaireBenevolat_pr.php';
 
 </body>
 
+<?php require('../Footer.php');?>
+
 </html>

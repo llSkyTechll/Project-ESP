@@ -81,4 +81,6 @@ include 'ConnexionAdmin_pr.php';
   </form>
 </body>
 
+<?php require('../Footer.php');?>
+
 </html>
