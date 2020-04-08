@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `devenirdisciple.org` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `devenirdisciple.org`;
--- MariaDB dump 10.17  Distrib 10.4.10-MariaDB, for Win64 (AMD64)
+-- MySQL dump 10.17  Distrib 10.3.20-MariaDB, for Win64 (AMD64)
 --
 -- Host: localhost    Database: devenirdisciple.org
 -- ------------------------------------------------------
--- Server version	10.4.10-MariaDB
+-- Server version	10.3.20-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -63,29 +63,29 @@ CREATE TABLE `formulairebenevolat` (
   `benevolat3` varchar(500) NOT NULL DEFAULT '',
   `benevolat4` varchar(500) NOT NULL DEFAULT '',
   `paroisseid` int(11) NOT NULL DEFAULT 0,
-  `lundiam` tinyint(1) NOT NULL DEFAULT 0,
-  `lundipm` tinyint(1) NOT NULL DEFAULT 0,
-  `lundisoiree` tinyint(1) NOT NULL DEFAULT 0,
-  `mardiam` tinyint(1) NOT NULL DEFAULT 0,
-  `mardipm` tinyint(1) NOT NULL DEFAULT 0,
-  `mardisoiree` tinyint(1) NOT NULL DEFAULT 0,
-  `mercrediam` tinyint(1) NOT NULL DEFAULT 0,
-  `mercredipm` tinyint(1) NOT NULL DEFAULT 0,
-  `mercredisoiree` tinyint(1) NOT NULL DEFAULT 0,
-  `jeudiam` tinyint(1) NOT NULL DEFAULT 0,
-  `jeudipm` tinyint(1) NOT NULL DEFAULT 0,
-  `jeudisoiree` tinyint(1) NOT NULL DEFAULT 0,
-  `vendrediam` tinyint(1) NOT NULL DEFAULT 0,
-  `vendredipm` tinyint(1) NOT NULL DEFAULT 0,
-  `vendredisoiree` tinyint(1) NOT NULL DEFAULT 0,
-  `samediam` tinyint(1) NOT NULL DEFAULT 0,
-  `samedipm` tinyint(1) NOT NULL DEFAULT 0,
-  `samedisoiree` tinyint(1) NOT NULL DEFAULT 0,
-  `dimancheam` tinyint(1) NOT NULL DEFAULT 0,
-  `dimanchepm` tinyint(1) NOT NULL DEFAULT 0,
-  `dimanchesoiree` tinyint(1) NOT NULL DEFAULT 0,
+  `lundiam` tinyint(4) NOT NULL DEFAULT 0,
+  `lundipm` tinyint(4) NOT NULL DEFAULT 0,
+  `lundisoiree` tinyint(4) NOT NULL DEFAULT 0,
+  `mardiam` tinyint(4) NOT NULL DEFAULT 0,
+  `mardipm` tinyint(4) NOT NULL DEFAULT 0,
+  `mardisoiree` tinyint(4) NOT NULL DEFAULT 0,
+  `mercrediam` tinyint(4) NOT NULL DEFAULT 0,
+  `mercredipm` tinyint(4) NOT NULL DEFAULT 0,
+  `mercredisoiree` tinyint(4) NOT NULL DEFAULT 0,
+  `jeudiam` tinyint(4) NOT NULL DEFAULT 0,
+  `jeudipm` tinyint(4) NOT NULL DEFAULT 0,
+  `jeudisoiree` tinyint(4) NOT NULL DEFAULT 0,
+  `vendrediam` tinyint(4) NOT NULL DEFAULT 0,
+  `vendredipm` tinyint(4) NOT NULL DEFAULT 0,
+  `vendredisoiree` tinyint(4) NOT NULL DEFAULT 0,
+  `samediam` tinyint(4) NOT NULL DEFAULT 0,
+  `samedipm` tinyint(4) NOT NULL DEFAULT 0,
+  `samedisoiree` tinyint(4) NOT NULL DEFAULT 0,
+  `dimancheam` tinyint(4) NOT NULL DEFAULT 0,
+  `dimanchepm` tinyint(4) NOT NULL DEFAULT 0,
+  `dimanchesoiree` tinyint(4) NOT NULL DEFAULT 0,
   PRIMARY KEY (`formulaireid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -94,6 +94,7 @@ CREATE TABLE `formulairebenevolat` (
 
 LOCK TABLES `formulairebenevolat` WRITE;
 /*!40000 ALTER TABLE `formulairebenevolat` DISABLE KEYS */;
+INSERT INTO `formulairebenevolat` VALUES (1,'Alexandre','Reny','','','','Alexandre.Reny98@gmail.com','','','','',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(2,'Alexandre','Reny','735','4108','373','Alexandre.Reny98@gmail.com','test1','test2','test3','test4',3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1),(3,'Alexandre','Reny','','','','Alexandre.Reny98@gmail.com','','','','',0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1),(4,'','','','','','','','','','',0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1),(5,'','','','','','','','','','',0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1),(6,'','','','','','','','','','',0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1),(7,'','','','','','','','','','',2,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,1),(8,'','','','','','','','','','',2,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,1),(9,'','','','','','','','','','',2,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,1),(10,'','','','','','','','','','',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(11,'','','','','','','','','','',0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1),(12,'Alexandre\'Test','Reny\'Test','','','','areny\'\'1998@gmail\'\'.com','','','','',0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1),(13,'Alexandre\'Test','Reny\'Test','','987897','','Alexandre.Reny98@gmail.com','','','','',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(14,'Alexandre\'Test','Reny\'Test','','987897','','areny\'1998@gmail\'.com','','','','',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
 /*!40000 ALTER TABLE `formulairebenevolat` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -111,7 +112,7 @@ CREATE TABLE `menu` (
   `redirectionPath` varchar(500) NOT NULL DEFAULT '',
   `sequence` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`menuId`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -120,36 +121,127 @@ CREATE TABLE `menu` (
 
 LOCK TABLES `menu` WRITE;
 /*!40000 ALTER TABLE `menu` DISABLE KEYS */;
-INSERT INTO `menu` VALUES (1,'0','Accueil','Accueil/Accueil.php',0),(2,'0','Paroisses-Communautés','ParoissesCommunaute/ParoissesCommunaute.php',0),(3,'0','Sacrements','Sacrements/Sacrements.php',0),(4,'0','Chemins de foi','CheminsDeFoi/CheminsDeFoi.php',0),(5,'0','Funérailles','Funerailles/Funerailles.php',0),(6,'0','Feuillets','Feuillets/Feuillets.php',0),(7,'0','Financement','Financement/Financement.php',0),(8,'2','Assomption de la BVM (St-Georges-de-Sartigan)','Financement/Financement.php',0),(9,'2','Notre-Dame-de-la-Providence (St-Georges-de-Sartigan)','ParoissesCommunaute/ParoissesCommunaute.php',0),(10,'2','Saint-Benjamin (St-Georges-de-Sartigan)','ParoissesCommunaute/ParoissesCommunaute.php',0),(11,'2','Saint-Côme (St-Georges-de-Sartigan)','ParoissesCommunaute/ParoissesCommunaute.php',0),(12,'2','Sainte-Aurélie (St-Georges-de-Sartigan)','ParoissesCommunaute/ParoissesCommunaute.php',0),(13,'2','Saint-Gédéon (Saint-Jean-Paul II)','ParoissesCommunaute/ParoissesCommunaute.php',0),(14,'2','Saint-Georges (St-Georges-de-Sartigan)','ParoissesCommunaute/ParoissesCommunaute.php',0),(15,'2','Saint-Jean-de-la-Lande (St-Georges-de-Sartigan)','ParoissesCommunaute/ParoissesCommunaute.php',0),(16,'2','Saint-Ludger (Saint-Jean-Paul II)','ParoissesCommunaute/ParoissesCommunaute.php',0),(17,'2','Saint-Martin (Saint-Jean-Paul II)','ParoissesCommunaute/ParoissesCommunaute.php',0),(18,'2','Saint-Philibert (St-Georges-de-Sartigan)','ParoissesCommunaute/ParoissesCommunaute.php',0),(19,'2','Saint-Prosper (St-Georges-de-Sartigan)','ParoissesCommunaute/ParoissesCommunaute.php',0),(20,'2','Saint-René-Goupil (St-Georges-de-Sartigan)','ParoissesCommunaute/ParoissesCommunaute.php',0),(21,'2','Saint-Robert-Bellarmin (Saint-Jean-Paul II)','ParoissesCommunaute/ParoissesCommunaute.php',0),(22,'2','Saint-Simon (St-Georges-de-Sartigan)','ParoissesCommunaute/ParoissesCommunaute.php',0),(23,'2','Saint-Théophile (Saint-Jean-Paul II)','ParoissesCommunaute/ParoissesCommunaute.php',0),(24,'2','Saint-Zacharie (St-Georges-de-Sartigan)','ParoissesCommunaute/ParoissesCommunaute.php',0),(25,'3','Baptême','Sacrements/Sacrements.php',1),(26,'3','Premier pardon - réconciliation','Sacrements/Sacrements.php',2),(27,'3','Première communion','Sacrements/Sacrements.php',3),(28,'3','Confirmation','Sacrements/Sacrements.php',4),(29,'3','Mariage','Sacrements/Sacrements.php',5),(30,'3','Onction des malades','Sacrements/Sacrements.php',6),(31,'3','Initiation chrétienne des adultes','Sacrements/Sacrements.php',7),(32,'4','Liturgie','CheminsDeFoi/CheminsDeFoi.php',1),(33,'4','Enfants','CheminsDeFoi/CheminsDeFoi.php',2),(34,'4','Pastorale jeunesse','CheminsDeFoi/CheminsDeFoi.php',3),(35,'4','Équipes de fraternité','CheminsDeFoi/CheminsDeFoi.php',4),(36,'4','Croissance spirituelle','CheminsDeFoi/CheminsDeFoi.php',5),(37,'4','Comité Création Verte','CheminsDeFoi/CheminsDeFoi.php',6);
+INSERT INTO `menu` VALUES (1,'0','Accueil','Accueil/Accueil.php',0),(2,'0','Paroisses-Communautés','ParoissesCommunaute/ParoissesCommunaute.php',0),(3,'0','Sacrements','Sacrements/Sacrements.php',0),(4,'0','Chemins de foi','CheminsDeFoi/CheminsDeFoi.php',0),(5,'0','Funérailles','Funerailles/Funerailles.php',0),(6,'0','Feuillets','Feuillets/Feuillets.php',0),(7,'0','Financement','Financement/Financement.php',0),(8,'2','St-Georges-de-Sartigan','Financement/Financement.php',0),(9,'2','Saint-Jean-Paul-II','ParoissesCommunaute/ParoissesCommunaute.php',0),(10,'8','Saint-Benjamin','ParoissesCommunaute/ParoissesCommunaute.php',0),(11,'8','Saint-Côme','ParoissesCommunaute/ParoissesCommunaute.php',0),(12,'8','Sainte-Aurélie','ParoissesCommunaute/ParoissesCommunaute.php',0),(13,'9','Saint-Gédéon','ParoissesCommunaute/ParoissesCommunaute.php',0),(14,'8','Saint-Georges','ParoissesCommunaute/ParoissesCommunaute.php',0),(15,'8','Saint-Jean-de-la-Lande','ParoissesCommunaute/ParoissesCommunaute.php',0),(16,'9','Saint-Ludger','ParoissesCommunaute/ParoissesCommunaute.php',0),(17,'9','Saint-Martin','ParoissesCommunaute/ParoissesCommunaute.php',0),(18,'8','Saint-Philibert','ParoissesCommunaute/ParoissesCommunaute.php',0),(19,'8','Saint-Prosper','ParoissesCommunaute/ParoissesCommunaute.php',0),(20,'8','Saint-René-Goupil','ParoissesCommunaute/ParoissesCommunaute.php',0),(21,'9','Saint-Robert-Bellarmin','ParoissesCommunaute/ParoissesCommunaute.php',0),(22,'8','Saint-Simon','ParoissesCommunaute/ParoissesCommunaute.php',0),(23,'9','Saint-Théophile','ParoissesCommunaute/ParoissesCommunaute.php',0),(24,'8','Saint-Zacharie','ParoissesCommunaute/ParoissesCommunaute.php',0),(25,'3','Baptême','Sacrements/Sacrements.php',1),(26,'3','Premier pardon - réconciliation','Sacrements/Sacrements.php',2),(27,'3','Première communion','Sacrements/Sacrements.php',3),(28,'3','Confirmation','Sacrements/Sacrements.php',4),(29,'3','Mariage','Sacrements/Sacrements.php',5),(30,'3','Onction des malades','Sacrements/Sacrements.php',6),(31,'3','Initiation chrétienne des adultes','Sacrements/Sacrements.php',7),(32,'4','Liturgie','CheminsDeFoi/CheminsDeFoi.php',1),(33,'4','Enfants','CheminsDeFoi/CheminsDeFoi.php',2),(34,'4','Pastorale jeunesse','CheminsDeFoi/CheminsDeFoi.php',3),(35,'4','Équipes de fraternité','CheminsDeFoi/CheminsDeFoi.php',4),(36,'4','Croissance spirituelle','CheminsDeFoi/CheminsDeFoi.php',5),(37,'4','Comité Création Verte','CheminsDeFoi/CheminsDeFoi.php',6),(38,'4','Je veux m\'impliquer','CheminsDeFoi/JeVeuxMimpliquer.php',7),(39,'8','Assomption de la BVM','ParoissesCommunaute/ParoissesCommunaute.php',0),(40,'8','Notre-Dame-de-la-Providence','Notre-Dame-de-la-Providence',0);
 /*!40000 ALTER TABLE `menu` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `nouvelle`
+-- Dumping events for database 'devenirdisciple.org'
 --
 
-DROP TABLE IF EXISTS `nouvelle`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `nouvelle` (
-  `nouvelleId` int(11) NOT NULL AUTO_INCREMENT,
-  `resume` varchar(100) DEFAULT NULL,
-  `intervaleDateDebut` date DEFAULT NULL,
-  `intervaleDateFin` date DEFAULT NULL,
-  `actif` tinyint(1) DEFAULT NULL,
-  `imagePath` varchar(500) DEFAULT NULL,
-  PRIMARY KEY (`nouvelleId`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
 --
--- Dumping data for table `nouvelle`
+-- Dumping routines for database 'devenirdisciple.org'
 --
+/*!50003 DROP PROCEDURE IF EXISTS `ConnexionAdmin` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ConnexionAdmin`(IN inEmail NVARCHAR(100), IN inPassword NVARCHAR(500), OUT AdminId INT)
+BEGIN
+	SET AdminId = 0;
+	SET AdminId = (SELECT admin.adminId FROM admin WHERE admin.email = inEmail AND admin.password = inPassword);
+    SELECT IF(ISNULL(AdminId) = 0, AdminId, 0) AS AdminId;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `FormulaireBenevolatSave` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `FormulaireBenevolatSave`(IN inEmail VARCHAR(100), IN inFirstName VARCHAR(50), IN inLastName VARCHAR(50), IN inAdresse VARCHAR(50), IN inTelephone VARCHAR(50),
+																	  IN inCellulaire VARCHAR(50), IN inBenevolat1 VARCHAR(500), IN inBenevolat2 VARCHAR(500), IN inBenevolat3 VARCHAR(500), IN inBenevolat4 VARCHAR(500),
+                                                                      IN inParoisseId INT(11), IN inLundiAM TINYINT(4), IN inLundiPM TINYINT(4), IN inLundiSOIR TINYINT(4), IN inMardiAM TINYINT(4), IN inMardiPM TINYINT(4), IN inMardiSOIR TINYINT(4), IN inMercrediAM TINYINT(4), IN inMercrediPM TINYINT(4), IN inMercrediSOIR TINYINT(4),
+																	  IN inJeudiAM TINYINT(4), IN inJeudiPM TINYINT(4), IN inJeudiSOIR TINYINT(4), IN inVendrediAM TINYINT(4), IN inVendrediPM TINYINT(4), IN inVendrediSOIR TINYINT(4), IN inSamediAM TINYINT(4), IN inSamediPM TINYINT(4), IN inSamediSOIR TINYINT(4),
+                                                                      IN inDimancheAM TINYINT(4), IN inDimanchePM TINYINT(4), IN inDimancheSOIR TINYINT(4))
+BEGIN
+	INSERT INTO formulairebenevolat
+	(`prenom`,
+	`nom`,
+	`adresse`,
+	`telephone`,
+	`cellulaire`,
+	`courriel`,
+	`benevolat1`,
+	`benevolat2`,
+	`benevolat3`,
+	`benevolat4`,
+	`paroisseid`,
+	`lundiam`,
+	`lundipm`,
+	`lundisoiree`,
+	`mardiam`,
+	`mardipm`,
+	`mardisoiree`,
+	`mercrediam`,
+	`mercredipm`,
+	`mercredisoiree`,
+	`jeudiam`,
+	`jeudipm`,
+	`jeudisoiree`,
+	`vendrediam`,
+	`vendredipm`,
+	`vendredisoiree`,
+	`samediam`,
+	`samedipm`,
+	`samedisoiree`,
+	`dimancheam`,
+	`dimanchepm`,
+	`dimanchesoiree`)
+	VALUES
+	(inFirstName,
+	inLastName,
+	inAdresse,
+	inTelephone,
+	inCellulaire,
+	inEmail,
+	inBenevolat1,
+	inBenevolat2,
+	inBenevolat3,
+	inBenevolat4,
+	inParoisseId,
+	inLundiAM,
+	inLundiPM,
+	inLundiSOIR,
+	inMardiAM,
+	inMardiPM,
+	inMardiSOIR,
+	inMercrediAM,
+	inMercrediPM,
+	inMercrediSOIR,
+	inJeudiAM,
+	inJeudiPM,
+	inJeudiSOIR,
+	inVendrediAM,
+	inVendrediPM,
+	inVendrediSOIR,
+	inSamediAM,
+	inSamediPM,
+	inSamediSOIR,
+	inDimancheAM,
+	inDimanchePM,
+	inDimancheSOIR);
 
-LOCK TABLES `nouvelle` WRITE;
-/*!40000 ALTER TABLE `nouvelle` DISABLE KEYS */;
-/*!40000 ALTER TABLE `nouvelle` ENABLE KEYS */;
-UNLOCK TABLES;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -160,4 +252,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-08  8:22:48
+-- Dump completed on 2020-04-08  9:56:21
