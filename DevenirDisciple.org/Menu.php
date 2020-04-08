@@ -124,7 +124,10 @@ $conn = OpenCon();
                           
                         echo('<ul class="p-0"><li class="nav-item dropright"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >'.utf8_encode($Row['name']).'</a><div class="dropdown-menu" aria-labelledby="navbarDropdown">');
                       while ($Row = $RSSQL4->fetch_assoc()){
-                          echo ('<a class="dropdown-item" onclick="fnRedirection(\''.$Row['redirectionPath'].'\','.$Row['menuId'].')">'.utf8_encode($Row['name']).'</a>'); 
+                          echo ('<a class="dropdown-item" onclick="fnRedirection(\''.$Row['redirectionPath'].'\','.$Row['menuId'].')">'.utf8_encode($Row['name']).'</a>');
+                          if ($Row['menuId'] == $_SESSION["gmenuId"]){
+                            $path = $Row['redirectionPath'];
+                        }
                       }
                       
                         echo('</div></li></ul>');
