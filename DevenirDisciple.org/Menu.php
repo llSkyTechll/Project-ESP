@@ -144,14 +144,7 @@ $conn = OpenCon();
     </nav>
     </div>
     <iframe class="mt-5" id="PageContent" src="<?php if(isset($path)){echo $path;}else{echo 'Accueil/Accueil.php';}?>" frameborder="0" style="background-color: transparent;"></iframe>
-        <?php 
-         if($_SESSION["gadminId"] <> 0){
-          echo '<input class="btn btn-primary" type="button" name="btnDeconnexion" onclick="fnDeconnexion()" value="Déconnexion">';
-        }else{
-          echo '<input  class="btn btn-primary" type="button" name="btnConnexion" onclick="fnRedirection(\'Connexion/ConnexionAdmin.php\',5)" value="Connexion">';
-        }
-        ?>
-      
+            
     
   </body>
 

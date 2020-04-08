@@ -17,5 +17,14 @@
     <div>
         <input class="btn btn-primary" type="button" name="btnConnexion" onclick="fnRedirection('Formulaire/FormulaireBenevolat.php',5)" value="FormulaireBenevolat">
     </div>
+    <div>
+     <?php 
+         if($_SESSION["gadminId"] <> 0){
+          echo '<input class="btn btn-primary" type="button" name="btnDeconnexion" onclick="fnDeconnexion()" value="Déconnexion">';
+        }else{
+          echo '<input  class="btn btn-primary" type="button" name="btnConnexion" onclick="fnRedirection(\'Connexion/ConnexionAdmin.php\',5)" value="Connexion">';
+        }
+        ?>
+    </div>
 
 </div>
