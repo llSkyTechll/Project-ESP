@@ -71,8 +71,9 @@
             <input class="btn btn-primary" type="button" name="btnConnexion" onclick="parent.fnRedirection('Formulaire/FormulaireBenevolat.php',5)" value="FormulaireBenevolat">
         </div>
     </div>
+
+<?php require('../Footer.php');?>    
 </body>
 
-<?php require('../Footer.php');?>
 
 </html>

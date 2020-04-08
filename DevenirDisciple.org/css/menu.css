@@ -126,7 +126,9 @@ i {
   }
 
 
-
+.navbar-nav ul,.navbar-nav ul li {
+    list-style: none !important;
+}
 
 
 .navbar-nav * {

@@ -18,8 +18,9 @@
 
   <p>Paroisse-Communauté</p>
 
+    <?php require('../Footer.php');?>
 </body>
 
-<?php require('../Footer.php');?>
+
 
 </html>

@@ -117,7 +117,22 @@ $conn = OpenCon();
                   $RSSQL3 = $conn->query($SQL);
 
                   while ($Row = $RSSQL3->fetch_assoc()){
-                    echo ('<a class="dropdown-item" onclick="fnRedirection(\''.$Row['redirectionPath'].'\','.$Row['menuId'].')">'.utf8_encode($Row['name']).'</a>');
+                    $SQL = "SELECT * FROM menu WHERE parentId = ".$Row["menuId"]." order by sequence,name ";
+                    $RSSQL4 = $conn->query($SQL);
+                      
+                      if(in_array($Row['menuId'], $menuArray)){
+                          
+                        echo('<ul class="p-0"><li class="nav-item dropright"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >'.utf8_encode($Row['name']).'</a><div class="dropdown-menu" aria-labelledby="navbarDropdown">');
+                      while ($Row = $RSSQL4->fetch_assoc()){
+                          echo ('<a class="dropdown-item" onclick="fnRedirection(\''.$Row['redirectionPath'].'\','.$Row['menuId'].')">'.utf8_encode($Row['name']).'</a>'); 
+                      }
+                      
+                        echo('</div></li></ul>');
+                      }
+                      else{
+                        echo ('<a class="dropdown-item" onclick="fnRedirection(\''.$Row['redirectionPath'].'\','.$Row['menuId'].')">'.utf8_encode($Row['name']).'</a>');      
+                      }
+                      
                     if ($Row['menuId'] == $_SESSION["gmenuId"]){
                     $path = $Row['redirectionPath'];
                     }
