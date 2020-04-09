@@ -7,12 +7,29 @@ class Menu{
   public $redirectionPath;
   public $submenu;
 
+  
+  function get_name(){
+    return $this->name;
+  }
+
+  function get_menuid(){
+    return $this->menuid;
+  }
+
+  function get_redirectionPath(){
+    return $this->redirectionPath;
+  }
+
+  function get_submenu(){
+    return $this->submenu;
+  }
+
   public function getMenu($parentid = 0){
     if (!isset($conn)){
       $conn = OpenCon();
     }
 
-    $SQL = "SELECT menu.menuId, menu.name, menu.redirectionPath FROM menu where parentId = ".$parentid;
+    $SQL = "CALL GetMenus(".$parentid.");";
     $RSSQL = $conn->query($SQL);
 
     if ($RSSQL->num_rows > 0){
