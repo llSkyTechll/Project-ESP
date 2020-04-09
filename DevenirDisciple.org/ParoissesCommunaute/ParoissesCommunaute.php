@@ -403,6 +403,10 @@ require_once 'ParoissesCommunaute_pr.php';
 </div>
 
     <a>lien feuillet</a>
+    <a>lien Facebook</a>
+    <div>
+        <p>Données</p>
+    </div>
     <?php require_once '../Footer.php';?>
 </body>
 
