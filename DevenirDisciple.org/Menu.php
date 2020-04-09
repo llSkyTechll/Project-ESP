@@ -112,55 +112,7 @@ $conn = OpenCon();
               }else{
                 echo('<li class="nav-item"><a  class="nav-link" onclick="fnRedirection(\''.$menurow->get_redirectionPath().'\','.$menurow->get_menuid().')">'.utf8_encode($menurow->get_name()).'</a> </li>');
               }
-            }              
-           
-
-            /*if ($RSSQL->num_rows > 0){
-              while ($Row = $RSSQL->fetch_assoc()){
-
-                if(in_array($Row['menuId'], $menuArray)){
-                    echo('<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'.utf8_encode($Row['name']).'</a><div class="dropdown-menu" aria-labelledby="navbarDropdown">');
-
-                    $SQL = "SELECT * FROM menu WHERE parentId = ".$Row["menuId"]." order by sequence,name ";
-                    $RSSQL3 = $conn->query($SQL);
-  
-                    while ($Row = $RSSQL3->fetch_assoc()){
-                      $SQL = "SELECT * FROM menu WHERE parentId = ".$Row["menuId"]." order by sequence,name ";
-                      $RSSQL4 = $conn->query($SQL);
-  
-                        if(in_array($Row['menuId'], $menuArray)){
-  
-                          echo('<ul class="p-0"><li class="nav-item dropright"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >'.utf8_encode($Row['name']).'</a><div class="dropdown-menu" aria-labelledby="navbarDropdown">');
-                        while ($Row = $RSSQL4->fetch_assoc()){
-                            echo ('<a class="dropdown-item" onclick="fnRedirection(\''.$Row['redirectionPath'].'\','.$Row['menuId'].')">'.utf8_encode($Row['name']).'</a>');
-                            if ($Row['menuId'] == $_SESSION["gmenuId"]){
-                              $path = $Row['redirectionPath'];
-                          }
-                        }
-  
-                          echo('</div></li></ul>');
-                        }
-                        else{
-                          echo ('<a class="dropdown-item" onclick="fnRedirection(\''.$Row['redirectionPath'].'\','.$Row['menuId'].')">'.utf8_encode($Row['name']).'</a>');
-                        }
-  
-                      if ($Row['menuId'] == $_SESSION["gmenuId"]){
-                      $path = $Row['redirectionPath'];
-                      }
-                    }
-                    echo('</div></li>');
-                  }
-                  
-                  else{
-                      echo('<li class="nav-item"><a  class="nav-link" onclick="fnRedirection(\''.$Row['redirectionPath'].'\','.$Row['menuId'].')">'.utf8_encode($Row['name']).'</a> </li>');
-                  }
-
-                echo('</li>');
-                if ($Row['menuId'] == $_SESSION["gmenuId"]){
-                $path = $Row['redirectionPath'];
-                }
-              }
-            }*/
+            }
 
             ?>
                 <li>
