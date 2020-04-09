@@ -35,7 +35,7 @@ function LoadSubMenu($submenuarray){
       echo('<ul class="p-0"><li class="nav-item dropright"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >'.utf8_encode($submenu->get_name()).'</a><div class="dropdown-menu" aria-labelledby="navbarDropdown">');
       
       LoadSubMenu($submenu->get_submenu());
-      echo('</ul>');
+      echo('</div></ul>');
 
     }else{
       echo ('<a class="dropdown-item" onclick="fnRedirection(\''.$submenu->get_redirectionPath().'\','.$submenu->get_menuid().')">'.utf8_encode($submenu->get_name()).'</a>');
