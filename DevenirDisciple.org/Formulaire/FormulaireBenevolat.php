@@ -9,6 +9,7 @@ require_once '../Class/clsParoisseCommunaute.php';
 $conn = OpenCon();
 
 ?>
+
 <!doctype html>
 <html lang="en">
 
@@ -87,88 +88,88 @@ $conn = OpenCon();
     <table style="width:75%;height:100%;margin-left:auto;margin-right:auto;border-collapse: collapse;">
       <tr>
         <td align="left" style="width:7%">
-          Prénom :
+          <input class="form-control-plaintext" type="text" readonly value="Prénom :">
         </td>
         <td>
-          <input type="text" name="ffirstname" id="ffirstname" style="width:95%" length="50" value="">
+          <input class="form-control" type="text" name="ffirstname" id="ffirstname" style="width:95%" length="50" value="">
         </td>
         <td style="align:left;width:5%">
-          Nom :
+          <input class="form-control-plaintext" type="text" readonly value="Nom :">
         </td>
         <td>
-          <input type="left" name="flastname" id="flastname" style="width:100%" length="50" value="">
+          <input class="form-control" type="text" name="flastname" id="flastname" style="width:100%" length="50" value="">
         </td>
       </tr>
 
       <tr>
         <td align="left">
-          Adresse :
+          <input class="form-control-plaintext" type="text" readonly value="Adresse :">
         </td>
         <td colspan="3" align="left">
-          <input type="text" name="faddress" id="faddress" style="width:100%" value="">
+          <input class="form-control" type="text" name="faddress" id="faddress" style="width:100%" value="">
         </td>
       </tr>
 
       <tr>
         <td align="left">
-          Tél. :
+          <input class="form-control-plaintext" type="text" readonly value="Tél. :">
         </td>
         <td colspan="3" align="left">
-          <input type="text" name="fphone" id="fphone" style="width:100%" value="">
+          <input class="form-control" type="text" name="fphone" id="fphone" style="width:100%" value="">
         </td>
       </tr>
 
       <tr>
         <td align="left">
-          Tél. cell:
+          <input class="form-control-plaintext" type="text" readonly value="Tél. cell:">
         </td>
         <td colspan="3" align="left">
-          <input type="text" name="fcellphone" id="fcellphone" style="width:100%" value="">
+          <input class="form-control" type="text" name="fcellphone" id="fcellphone" style="width:100%" value="">
         </td>
       </tr>
 
       <tr>
         <td align="left">
-          Courriel :
+          <input class="form-control-plaintext" type="text" readonly value="Courriel :">          
         </td>
         <td colspan="3" align="left">
-          <input type="text" name="femail" id="femail" style="width:100%" length="100" value="">
+          <input class="form-control" type="text" name="femail" id="femail" style="width:100%" length="100" value="">
         </td>
       </tr>
 
       <tr>
         <td colspan="4">
           <br>
-          Plusieurs services ou compétences sont requis dans nos communautés. Il y a d’abord les services liés à
+          <p>Plusieurs services ou compétences sont requis dans nos communautés. Il y a d’abord les services liés à
           la vie liturgique (lecteurs, servants de messe, membres des chorales, comités de liturgie, catéchètes,
           etc). Des bénévoles sont aussi requis pour divers services (aide à la correspondance, secrétariat,
           réception, menuiserie, construction, etc). D’autres compétences plus pointues sont recherchées dans
           certaines situations (en droit, en informatique, en gestion, en communication, en ingénierie, en marketing,
-          en comptabilité et finance, etc).
+          en comptabilité et finance, etc).</p>
         </td>
       </tr>
 
       <tr>
         <td colspan="4" style="width:75%">
           <br>
-          Indiquez, le ou les bénévolats que vous seriez prêt à faire pour votre communauté ou l’une ou
-          l’autre des paroisses.
+          <p>Indiquez, le ou les bénévolats que vous seriez prêt à faire pour votre communauté ou l’une ou
+          l’autre des paroisses.</p>
         </td>
       </tr>
       <tr>
         <td colspan="2">
           <ul>
             <li>
-                <input type="text" name="fbenevolat1" id="fbenevolat1" style="width:100%" length="500" value="">
+                <input class="form-control" type="text" name="fbenevolat1" id="fbenevolat1" style="width:100%" length="500" value="">
             </li>
             <li>
-                <input type="text" name="fbenevolat2" id="fbenevolat2" style="width:100%" length="500" value="">
+                <input class="form-control" type="text" name="fbenevolat2" id="fbenevolat2" style="width:100%" length="500" value="">
             </li>
             <li>
-                <input type="text" name="fbenevolat3" id="fbenevolat3" style="width:100%" length="500" value="">
+                <input class="form-control" type="text" name="fbenevolat3" id="fbenevolat3" style="width:100%" length="500" value="">
             </li>
             <li>
-                <input type="text" name="fbenevolat4" id="fbenevolat4" style="width:100%" length="500" value="">
+                <input class="form-control" type="text" name="fbenevolat4" id="fbenevolat4" style="width:100%" length="500" value="">
             </li>
           </ul>
         </td>
@@ -176,13 +177,13 @@ $conn = OpenCon();
       <tr>
         <td colspan="4">
           <br>
-          Pour quelle communauté ou paroisse souhaitez-vous faire votre bénévolat? Vous pouvez
-          sélectionner plus d’un choix.
+          <p>Pour quelle communauté ou paroisse souhaitez-vous faire votre bénévolat? Vous pouvez
+          sélectionner plus d’un choix.</p>
         </td>
       </tr>
       <tr>
         <td colspan="2">
-          <select name="fparoisseid" id="fparoisseid" style="width:50%" onchange="fnCommunityList()">
+          <select class="form-control" name="fparoisseid" id="fparoisseid" style="width:50%" onchange="fnCommunityList()">
             <option value="0"></option>
             <?php           
               
@@ -217,7 +218,7 @@ $conn = OpenCon();
                       echo '</select>' ;
                     }
                     $paroisseid = $Row['paroisseid'];
-                    echo '<select name="fcommunityid'.$paroisseid.'" id="fcommunityid'.$paroisseid.'" style="width:50%;display:none">';
+                    echo '<select class="form-control" name="fcommunityid'.$paroisseid.'" id="fcommunityid'.$paroisseid.'" style="width:50%;display:none">';
                     echo '<option value="0"></option>';
                     echo '<option value="'.$Row['communauteid'].'">'.utf8_encode($Row['nom']).'</option>';
                   }else{
@@ -243,51 +244,51 @@ $conn = OpenCon();
     <table class="Bold TableBorder" align="center">
       <tr>
         <td style="width:25%"></td>
-        <td class="Center" style="width:25%">AVANT-MIDI</td>
-        <td class="Center" style="width:25%">APRÈS-MIDI</td>
-        <td class="Center" style="width:25%">SOIR</td>
+        <td class="Center" style="width:25%"><input class="form-control-plaintext" type="text" readonly value="AVANT-MIDI"></td>
+        <td class="Center" style="width:25%"><input class="form-control-plaintext" type="text" readonly value="APRÈS-MIDI"></td>
+        <td class="Center" style="width:25%"><input class="form-control-plaintext" type="text" readonly value="SOIR"></td>
       </tr>
       <tr>
-        <td>Lundi</td>
-        <td class="Center"><input type="checkbox" value="1" name="flundiam"></td>
-        <td class="Center"><input type="checkbox" value="1" name="flundipm"></td>
-        <td class="Center"><input type="checkbox" value="1" name="flundisoir"></td>
+        <td><input class="form-control-plaintext" type="text" readonly value="Lundi"></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="flundiam"></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="flundipm"></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="flundisoir"></td>
       </tr>
       <tr>
-        <td>Mardi</td>
-        <td class="Center"><input type="checkbox" value="1" name="fmardiam"></td>
-        <td class="Center"><input type="checkbox" value="1" name="fmardipm"></td>
-        <td class="Center"><input type="checkbox" value="1" name="fmardisoir"></td>
+        <td><input class="form-control-plaintext" type="text" readonly value="Mardi"></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="fmardiam"></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="fmardipm"></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="fmardisoir"></td>
       </tr>
       <tr>
-        <td>Mercredi</td>
-        <td class="Center"><input type="checkbox" value="1" name="fmercrediam"></td>
-        <td class="Center"><input type="checkbox" value="1" name="fmercredipm"></td>
-        <td class="Center"><input type="checkbox" value="1" name="fmercredisoir"></td>
+        <td><input class="form-control-plaintext" type="text" readonly value="Mercredi"></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="fmercrediam"></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="fmercredipm"></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="fmercredisoir"></td>
       </tr>
       <tr>
-        <td>Jeudi</td>
-        <td class="Center"><input type="checkbox" value="1" name="fjeudiam"></td>
-        <td class="Center"><input type="checkbox" value="1" name="fjeudipm"></td>
-        <td class="Center"><input type="checkbox" value="1" name="fjeudisoir"></td>
+        <td><input class="form-control-plaintext" type="text" readonly value="Jeudi"></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="fjeudiam"></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="fjeudipm"></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="fjeudisoir"></td>
       </tr>
       <tr>
-        <td>Vendredi</td>
-        <td class="Center"><input type="checkbox" value="1" name="fvendrediam"></td>
-        <td class="Center"><input type="checkbox" value="1" name="fvendredipm"></td>
-        <td class="Center"><input type="checkbox" value="1" name="fvendredisoir"></td>
+        <td><input class="form-control-plaintext" type="text" readonly value="Vendredi"></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="fvendrediam"></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="fvendredipm"></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="fvendredisoir"></td>
       </tr>
       <tr>
-        <td>Samedi</td>
-        <td class="Center"><input type="checkbox" value="1" name="fsamediam"></td>
-        <td class="Center"><input type="checkbox" value="1" name="fsamedipm"></td>
-        <td class="Center"><input type="checkbox" value="1" name="fsamedisoir"></td>
+        <td><input class="form-control-plaintext" type="text" readonly value="Samedi"></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="fsamediam"></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="fsamedipm"></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="fsamedisoir"></td>
       </tr>
       <tr>
-        <td>Dimanche</td>
-        <td class="Center"><input type="checkbox" value="1" name="fdimancheam"></td>
-        <td class="Center"><input type="checkbox" value="1" name="fdimanchepm"></td>
-        <td class="Center"><input type="checkbox" value="1" name="fdimanchesoir"></td>
+        <td><input class="form-control-plaintext" type="text" readonly value="Dimanche"></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="fdimancheam"></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="fdimanchepm"></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="fdimanchesoir"></td>
       </tr>
     </table>
 

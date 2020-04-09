@@ -13,9 +13,6 @@
           <p>contact</p>
       </div>
       <div>
-          <input class="btn btn-primary" type="button" name="btnConnexion" onclick="parent.fnRedirection('Formulaire/FormulaireBenevolat.php',5)" value="FormulaireBenevolat">
-      </div>
-      <div>
         <?php 
           if($_SESSION["gadminId"] <> 0){
             echo '<input class="btn btn-primary" type="button" name="btnDeconnexion" onclick="parent.fnDeconnexion()" value="Déconnexion">';
