@@ -54,8 +54,11 @@ CREATE TABLE `communaute` (
   `communauteid` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(100) NOT NULL DEFAULT '',
   `paroisseid` int(11) NOT NULL DEFAULT 0,
+  `menuid` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`communauteid`),
   KEY `FK_Paroisse` (`paroisseid`),
+  KEY `FK_Menuidcommunaute` (`menuid`),
+  CONSTRAINT `FK_Menuidcommunaute` FOREIGN KEY (`menuid`) REFERENCES `menu` (`menuId`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `FK_Paroisse` FOREIGN KEY (`paroisseid`) REFERENCES `paroisse` (`paroisseid`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -66,7 +69,7 @@ CREATE TABLE `communaute` (
 
 LOCK TABLES `communaute` WRITE;
 /*!40000 ALTER TABLE `communaute` DISABLE KEYS */;
-INSERT INTO `communaute` VALUES (1,'Saint-Benjamin',1),(2,'Saint-Côme',1),(3,'Sainte-Aurélie',1),(4,'Saint-Gédéon',2),(5,'Saint-Georges',1),(6,'Saint-Jean-de-la-Lande',1),(7,'Saint-Ludger',2),(8,'Saint-Martin',2),(9,'Saint-Philibert',1),(10,'Saint-Prosper',1),(11,'Saint-René-Goupil',1),(12,'Saint-Robert-Bellarmin',2),(13,'Saint-Simon',1),(14,'Saint-Théophile',2),(15,'Saint-Zacharie',1),(16,'Assomption de la BVM',1),(17,'Notre-Dame-de-la-Providence',1);
+INSERT INTO `communaute` VALUES (1,'Saint-Benjamin',1,10),(2,'Saint-Côme',1,11),(3,'Sainte-Aurélie',1,12),(4,'Saint-Gédéon',2,13),(5,'Saint-Georges',1,14),(6,'Saint-Jean-de-la-Lande',1,15),(7,'Saint-Ludger',2,16),(8,'Saint-Martin',2,17),(9,'Saint-Philibert',1,18),(10,'Saint-Prosper',1,19),(11,'Saint-René-Goupil',1,20),(12,'Saint-Robert-Bellarmin',2,21),(13,'Saint-Simon',1,22),(14,'Saint-Théophile',2,23),(15,'Saint-Zacharie',1,24),(16,'Assomption de la BVM',1,39),(17,'Notre-Dame-de-la-Providence',1,40);
 /*!40000 ALTER TABLE `communaute` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -140,7 +143,7 @@ CREATE TABLE `menu` (
   `redirectionPath` varchar(500) NOT NULL DEFAULT '',
   `sequence` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`menuId`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -363,4 +366,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-09  9:13:24
+-- Dump completed on 2020-04-09 11:05:28
