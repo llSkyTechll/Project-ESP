@@ -40,6 +40,9 @@ function LoadSubMenu($submenuarray){
     }else{
       echo ('<a class="dropdown-item" onclick="fnRedirection(\''.$submenu->get_redirectionPath().'\','.$submenu->get_menuid().')">'.utf8_encode($submenu->get_name()).'</a>');
     }
+    if($submenu->get_menuid() == $_SESSION['gmenuId']){
+      $_SESSION['path'] = $submenu->get_redirectionPath();
+    }
   }
 }
 

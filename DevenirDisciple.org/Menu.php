@@ -92,37 +92,40 @@ $conn = OpenCon();
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav">
+          <ul class="navbar-nav">
 
-                <?php
-                $menu = new Menu();
-                $result = $menu->getMenu();
+              <?php
+              $menu = new Menu();
+              $result = $menu->getMenu();
 
-                $resultlength = count($result);
+              $resultlength = count($result);
 
-                for($x = 0; $x < $resultlength; $x++) {
-                  $menurow = $result[$x];
+              for($x = 0; $x < $resultlength; $x++) {
+                $menurow = $result[$x];
 
-                  if($menurow->get_submenu() != null){
-                    echo('<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'.utf8_encode($menurow->get_name()).'</a><div class="dropdown-menu" aria-labelledby="navbarDropdown">');
+                if($menurow->get_submenu() != null){
+                  echo('<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'.utf8_encode($menurow->get_name()).'</a><div class="dropdown-menu" aria-labelledby="navbarDropdown">');
 
-                    LoadSubMenu($menurow->get_submenu());
-                    echo('</div></li>');
+                  LoadSubMenu($menurow->get_submenu());
+                  echo('</div></li>');
 
-                  }else{
-                    echo('<li class="nav-item"><a  class="nav-link" onclick="fnRedirection(\''.$menurow->get_redirectionPath().'\','.$menurow->get_menuid().')">'.utf8_encode($menurow->get_name()).'</a> </li>');
-                  }
+                }else{
+                  echo('<li class="nav-item"><a  class="nav-link" onclick="fnRedirection(\''.$menurow->get_redirectionPath().'\','.$menurow->get_menuid().')">'.utf8_encode($menurow->get_name()).'</a> </li>');
                 }
-
-                ?>
-                <li>
-                    <input class="btn btn-primary" type="button" name="btnDon" value="Don">
-                </li>
-            </ul>
+                if($menurow->get_menuid() == $_SESSION['gmenuId']){
+                  $_SESSION['path'] = $menurow->get_redirectionPath();
+                }
+              }
+              
+              ?>
+              <li>
+                  <input class="btn btn-primary" type="button" name="btnDon" value="Don">
+              </li>
+          </ul>
         </div>
     </nav>
     </div>
-    <iframe class="mt-5" id="PageContent" src="<?php if(isset($path)){echo $path;}else{echo 'Accueil/Accueil.php';}?>" frameborder="0" style="background-color: transparent;"></iframe>
+    <iframe class="mt-5" id="PageContent" src="<?php if(isset($_SESSION['path'])){echo $_SESSION['path'];}else{echo 'Accueil/Accueil.php';}?>" frameborder="0" style="background-color: transparent;"></iframe>
 
 
   </body>

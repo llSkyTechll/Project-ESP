@@ -1,10 +1,10 @@
 <?php
 
-include '../ConnexionDB.php';
+require_once '../ConnexionDB.php';
 
-include '../PHPFunctions.php';
+require_once '../PHPFunctions.php';
 
-$conn = OpenCon();
+require_once 'ParoissesCommunaute_pr.php';
 
 ?>
 
@@ -28,6 +28,8 @@ $conn = OpenCon();
   <header>
       <h1>Paroisse-Communauté</h1>
   </header>
+
+  <p><?php echo GetCommunityName(); ?></p>
 
     <div>
         <h1>Heures de bureau</h1>
