@@ -75,7 +75,7 @@ require_once '../PHPFunctions.php';
            
         </div>
         <div class="col-md-2">
-            <input class="btn btn-primary" type="button" name="btnConnexion" onclick="parent.fnRedirection('Formulaire/FormulaireBenevolat.php',5)" value="Formulaire Benevolat">
+            <input class="btn btn-primary" type="button" name="btnFormulaire" onclick="parent.fnRedirection('Formulaire/FormulaireBenevolat.php',0)" value="FormulaireBenevolat">
         </div>
         </div>
         

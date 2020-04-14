@@ -6,6 +6,8 @@ require_once 'FormulaireBenevolat_pr.php';
 
 require_once '../Class/clsParoisseCommunaute.php';
 
+require_once '../Class/clsEncrypt.php';
+
 $conn = OpenCon();
 
 ?>
