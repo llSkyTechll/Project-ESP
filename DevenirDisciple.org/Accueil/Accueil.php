@@ -22,8 +22,6 @@ require_once '../PHPFunctions.php';
 
 <body>
 
-  <p>Accueil</p>
-
     <div id="carouselExampleIndicators" class="carousel slide w-50 container" data-ride="carousel" data-interval="10000">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -59,22 +57,28 @@ require_once '../PHPFunctions.php';
         </a>
     </div>
     
-    <div class="container row">
-        <div class="">
+    <div class="container mt-5">
+        <div class="row"> 
+            <div class="col-md-4">
             <p>oméli du curé</p>
         </div>
-        <div class="">
+        <div class="col-md-2">
             <input class="btn btn-primary" type="button" nam+e="btnTemoignage" value="témoinage">
         </div>
-        <div class="">
-            <video width="400" height="222" controls="controls">
-                <source src="jesus-taime.mp4" type="video/mp4" />
-            vidéo curé
-            </video>
+        <div class="col-md-4">
+            <div class="embed-responsive embed-responsive-4by3">
+                 <video class="embed-responsive-item" controls="controls">
+                    <source src="jesus-taime.mp4" type="video/mp4" />
+                vidéo curé
+                </video>
+            </div>
+           
         </div>
-        <div class="">
-            <input class="btn btn-primary" type="button" name="btnConnexion" onclick="parent.fnRedirection('Formulaire/FormulaireBenevolat.php',5)" value="FormulaireBenevolat">
+        <div class="col-md-2">
+            <input class="btn btn-primary" type="button" name="btnConnexion" onclick="parent.fnRedirection('Formulaire/FormulaireBenevolat.php',5)" value="Formulaire Benevolat">
         </div>
+        </div>
+        
     </div>
 
 <?php require_once '../Footer.php';?>    
