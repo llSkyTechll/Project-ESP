@@ -38,7 +38,8 @@ $conn = OpenCon();
             url: 'Menu.php',
             data: ({
               action: 'redirect',
-              menuId: menuId
+              menuId: menuId,
+              path:   Path
             })
           });
         })
@@ -113,7 +114,7 @@ $conn = OpenCon();
                   echo('<li class="nav-item"><a  class="nav-link" onclick="fnRedirection(\''.$menurow->get_redirectionPath().'\','.$menurow->get_menuid().')">'.utf8_encode($menurow->get_name()).'</a> </li>');
                 }
                 if($menurow->get_menuid() == $_SESSION['gmenuId']){
-                  $_SESSION['path'] = $menurow->get_redirectionPath();
+                  $_SESSION['gpath'] = $menurow->get_redirectionPath();
                 }
               }
               
@@ -125,7 +126,7 @@ $conn = OpenCon();
         </div>
     </nav>
     </div>
-    <iframe class="mt-5" id="PageContent" src="<?php if(isset($_SESSION['path'])){echo $_SESSION['path'];}else{echo 'Accueil/Accueil.php';}?>" frameborder="0" style="background-color: transparent;"></iframe>
+    <iframe class="mt-5" id="PageContent" src="<?php if(isset($_SESSION['gpath'])){echo $_SESSION['gpath'];}else{echo 'Accueil/Accueil.php';}?>" frameborder="0" style="background-color: transparent;"></iframe>
 
 
   </body>

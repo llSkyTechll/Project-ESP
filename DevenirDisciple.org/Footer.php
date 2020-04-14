@@ -1,5 +1,9 @@
 <footer>
-
+  <script>
+    if (window.top === window.self){
+      window.top.location.replace('Menu.php');
+    }
+  </script>
   <div>
       <div>
           <a href="#">Logo 1</a>

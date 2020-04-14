@@ -14,6 +14,8 @@ if (isset($_POST['action'])){
 function FNConnexion(){
   $admin = new Admin();
   if($admin->connexion($_POST['email'], $_POST['password'])){
+    $_SESSION["gpath"]   = 'Accueil/Accueil.php';
+    $_SESSION["gmenuid"] = 1;
     exit('success');
   }else{
     exit('fail');

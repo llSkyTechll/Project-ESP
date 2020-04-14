@@ -17,13 +17,16 @@ if (isset($_POST['action'])){
 
 function FNRedirect(){
   $menuId = $_POST["menuId"];
+  $path   = $_POST["path"];
   $_SESSION["gmenuId"] = $menuId;
-  //echo $_SESSION["gmenuId"];
+  $_SESSION["gpath"]   = $path;
 }
 
 function FNDeconnexion(){
   $admin = new Admin();
   $admin->deconnexion();
+  $_SESSION["gmenuId"] = 1;
+  $_SESSION["gpath"]   = 'Accueil/Accueil.php';
   exit('success');
 }
 
