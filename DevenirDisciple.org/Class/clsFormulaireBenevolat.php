@@ -1,5 +1,7 @@
 <?php
 
+require_once 'clsEncrypt.php';
+
 class FormulaireBenevolat{
   
   public function saveForm($formdata){
@@ -9,6 +11,17 @@ class FormulaireBenevolat{
           if ($formdata['fphone'] <> '' || $formdata['fcellphone'] <> '') {
             try{
               $conn = OpenCon();
+              
+              $encrypt      = new Encryption();
+              $key          = $encrypt->generateKey();
+              $iv           = $encrypt->generateIV();
+              
+              $email        = $encrypt->encryptData(FNSQL($formdata['femail']), $key, $iv);
+              $firstname    = $encrypt->encryptData(FNSQL($formdata['ffirstname']), $key, $iv);
+              $lastname     = $encrypt->encryptData(FNSQL($formdata['flastname']), $key, $iv);
+              $address      = $encrypt->encryptData(FNSQL($formdata['faddress']), $key, $iv); 
+              $phone        = $encrypt->encryptData(FNSQL($formdata['fphone']), $key, $iv);
+              $cellphone    = $encrypt->encryptData(FNSQL($formdata['fcellphone']), $key, $iv);
 
               $lundiam      = isset($formdata['flundiam'])      ? 1 : 0;
               $lundipm      = isset($formdata['flundipm'])      ? 1 : 0;
@@ -38,12 +51,12 @@ class FormulaireBenevolat{
                 $communityid  = $formdata['fcommunityid'.$paroisseid.'']; 
               }
               
-              $param = "'".FNSQL($formdata['femail'])."', '".FNSQL($formdata['ffirstname'])."', '".FNSQL($formdata['flastname'])."','".FNSQL($formdata['faddress'])."','".FNSQL($formdata['fphone'])."','".FNSQL($formdata['fcellphone']).
+              $param = "'".$email."', '".$firstname."', '".$lastname."','".$address."','".$phone."','".$cellphone.
               "','".FNSQL($formdata['fbenevolat1'])."','".FNSQL($formdata['fbenevolat2'])."','".FNSQL($formdata['fbenevolat3'])."','".FNSQL($formdata['fbenevolat4'])."','".$paroisseid."','".$communityid."','".$lundiam.
               "','".$lundipm."','".$lundisoir."','".$mardiam."','".$mardipm."','".$mardisoir."','".$mercrediam.
               "','".$mercredipm."','".$mercredisoir."','".$jeudiam."','".$jeudipm."','".$jeudisoir."','".$vendrediam.
               "','".$vendredipm."','".$vendredisoir."','".$samediam."','".$samedipm."','".$samedisoir."','".$dimancheam.
-              "','".$dimanchepm."','".$dimanchesoir."'";
+              "','".$dimanchepm."','".$dimanchesoir."','".$key."','".$iv."'";
 
               $SQL = "CALL FormulaireBenevolatSave(".$param.");";
 

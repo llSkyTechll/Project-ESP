@@ -39,7 +39,7 @@ CREATE TABLE `admin` (
 
 LOCK TABLES `admin` WRITE;
 /*!40000 ALTER TABLE `admin` DISABLE KEYS */;
-INSERT INTO `admin` VALUES (1,'eric.larivière1999@hotmail.com','admin01'),(2,'Alexandre.Reny98@gmail.com','admin01!');
+INSERT INTO `admin` VALUES (1,'eric.lariviÃ¨re1999@hotmail.com','admin01'),(2,'Alexandre.Reny98@gmail.com','admin01!');
 /*!40000 ALTER TABLE `admin` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -69,7 +69,7 @@ CREATE TABLE `communaute` (
 
 LOCK TABLES `communaute` WRITE;
 /*!40000 ALTER TABLE `communaute` DISABLE KEYS */;
-INSERT INTO `communaute` VALUES (1,'Saint-Benjamin',1,10),(2,'Saint-Côme',1,11),(3,'Sainte-Aurélie',1,12),(4,'Saint-Gédéon',2,13),(5,'Saint-Georges',1,14),(6,'Saint-Jean-de-la-Lande',1,15),(7,'Saint-Ludger',2,16),(8,'Saint-Martin',2,17),(9,'Saint-Philibert',1,18),(10,'Saint-Prosper',1,19),(11,'Saint-René-Goupil',1,20),(12,'Saint-Robert-Bellarmin',2,21),(13,'Saint-Simon',1,22),(14,'Saint-Théophile',2,23),(15,'Saint-Zacharie',1,24),(16,'Assomption de la BVM',1,39),(17,'Notre-Dame-de-la-Providence',1,40);
+INSERT INTO `communaute` VALUES (1,'Saint-Benjamin',1,10),(2,'Saint-CÃ´me',1,11),(3,'Sainte-AurÃ©lie',1,12),(4,'Saint-GÃ©dÃ©on',2,13),(5,'Saint-Georges',1,14),(6,'Saint-Jean-de-la-Lande',1,15),(7,'Saint-Ludger',2,16),(8,'Saint-Martin',2,17),(9,'Saint-Philibert',1,18),(10,'Saint-Prosper',1,19),(11,'Saint-RenÃ©-Goupil',1,20),(12,'Saint-Robert-Bellarmin',2,21),(13,'Saint-Simon',1,22),(14,'Saint-ThÃ©ophile',2,23),(15,'Saint-Zacharie',1,24),(16,'Assomption de la BVM',1,39),(17,'Notre-Dame-de-la-Providence',1,40);
 /*!40000 ALTER TABLE `communaute` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -82,12 +82,12 @@ DROP TABLE IF EXISTS `formulairebenevolat`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `formulairebenevolat` (
   `formulaireid` int(11) NOT NULL AUTO_INCREMENT,
-  `prenom` varchar(50) NOT NULL DEFAULT '',
-  `nom` varchar(50) NOT NULL DEFAULT '',
-  `adresse` varchar(50) NOT NULL DEFAULT '',
-  `telephone` varchar(50) NOT NULL DEFAULT '',
-  `cellulaire` varchar(50) NOT NULL DEFAULT '',
-  `courriel` varchar(100) NOT NULL DEFAULT '',
+  `prenom` varbinary(1000) NOT NULL DEFAULT '',
+  `nom` varbinary(1000) NOT NULL DEFAULT '',
+  `adresse` varbinary(1000) NOT NULL DEFAULT '',
+  `telephone` varbinary(1000) NOT NULL DEFAULT '',
+  `cellulaire` varbinary(1000) NOT NULL DEFAULT '',
+  `courriel` varbinary(1000) NOT NULL DEFAULT '',
   `benevolat1` varchar(500) NOT NULL DEFAULT '',
   `benevolat2` varchar(500) NOT NULL DEFAULT '',
   `benevolat3` varchar(500) NOT NULL DEFAULT '',
@@ -115,19 +115,11 @@ CREATE TABLE `formulairebenevolat` (
   `dimancheam` tinyint(4) NOT NULL DEFAULT 0,
   `dimanchepm` tinyint(4) NOT NULL DEFAULT 0,
   `dimanchesoiree` tinyint(4) NOT NULL DEFAULT 0,
+  `key` varbinary(1000) NOT NULL DEFAULT '0',
+  `iv` varbinary(1000) NOT NULL DEFAULT '0',
   PRIMARY KEY (`formulaireid`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `formulairebenevolat`
---
-
-LOCK TABLES `formulairebenevolat` WRITE;
-/*!40000 ALTER TABLE `formulairebenevolat` DISABLE KEYS */;
-INSERT INTO `formulairebenevolat` VALUES (1,'Alexandre','Reny','','','','Alexandre.Reny98@gmail.com','','','','',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(2,'Alexandre','Reny','735','4108','373','Alexandre.Reny98@gmail.com','test1','test2','test3','test4',3,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1),(3,'Alexandre','Reny','','','','Alexandre.Reny98@gmail.com','','','','',0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1),(4,'','','','','','','','','','',0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1),(5,'','','','','','','','','','',0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1),(6,'','','','','','','','','','',0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1),(7,'','','','','','','','','','',2,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,1),(8,'','','','','','','','','','',2,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,1),(9,'','','','','','','','','','',2,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,1),(10,'','','','','','','','','','',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(11,'','','','','','','','','','',0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1),(12,'Alexandre\'Test','Reny\'Test','','','','areny\'\'1998@gmail\'\'.com','','','','',0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1),(13,'Alexandre\'Test','Reny\'Test','','987897','','Alexandre.Reny98@gmail.com','','','','',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(14,'Alexandre\'Test','Reny\'Test','','987897','','areny\'1998@gmail\'.com','','','','',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),(15,'Alexandre','Reny','','418-957-9527','','Alexandre.Reny98@gmail.com','','','','',1,10,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0),(16,'Alexandre','Reny','','418-957-9527','','Alexandre.Reny98@gmail.com','','','','',2,12,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0);
-/*!40000 ALTER TABLE `formulairebenevolat` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `menu`
@@ -152,7 +144,7 @@ CREATE TABLE `menu` (
 
 LOCK TABLES `menu` WRITE;
 /*!40000 ALTER TABLE `menu` DISABLE KEYS */;
-INSERT INTO `menu` VALUES (1,'0','Accueil','Accueil/Accueil.php',1),(2,'0','Paroisses-Communautés','ParoissesCommunaute/ParoissesCommunaute.php',2),(3,'0','Sacrements','Sacrements/Sacrements.php',3),(4,'0','Chemins de foi','CheminsDeFoi/CheminsDeFoi.php',4),(5,'0','Funérailles','Funerailles/Funerailles.php',5),(6,'0','Feuillets','Feuillets/Feuillets.php',6),(7,'0','Financement','Financement/Financement.php',7),(8,'2','St-Georges-de-Sartigan','ParoissesCommunaute/ParoissesCommunaute.php',2),(9,'2','Saint-Jean-Paul II','ParoissesCommunaute/ParoissesCommunaute.php',1),(10,'8','Saint-Benjamin','ParoissesCommunaute/ParoissesCommunaute.php',0),(11,'8','Saint-Côme','ParoissesCommunaute/ParoissesCommunaute.php',0),(12,'8','Sainte-Aurélie','ParoissesCommunaute/ParoissesCommunaute.php',0),(13,'9','Saint-Gédéon','ParoissesCommunaute/ParoissesCommunaute.php',0),(14,'8','Saint-Georges','ParoissesCommunaute/ParoissesCommunaute.php',0),(15,'8','Saint-Jean-de-la-Lande','ParoissesCommunaute/ParoissesCommunaute.php',0),(16,'9','Saint-Ludger','ParoissesCommunaute/ParoissesCommunaute.php',0),(17,'9','Saint-Martin','ParoissesCommunaute/ParoissesCommunaute.php',0),(18,'8','Saint-Philibert','ParoissesCommunaute/ParoissesCommunaute.php',0),(19,'8','Saint-Prosper','ParoissesCommunaute/ParoissesCommunaute.php',0),(20,'8','Saint-René-Goupil','ParoissesCommunaute/ParoissesCommunaute.php',0),(21,'9','Saint-Robert-Bellarmin','ParoissesCommunaute/ParoissesCommunaute.php',0),(22,'8','Saint-Simon','ParoissesCommunaute/ParoissesCommunaute.php',0),(23,'9','Saint-Théophile','ParoissesCommunaute/ParoissesCommunaute.php',0),(24,'8','Saint-Zacharie','ParoissesCommunaute/ParoissesCommunaute.php',0),(25,'3','Baptême','Sacrements/Sacrements.php',1),(26,'3','Premier pardon - réconciliation','Sacrements/Sacrements.php',2),(27,'3','Première communion','Sacrements/Sacrements.php',3),(28,'3','Confirmation','Sacrements/Sacrements.php',4),(29,'3','Mariage','Sacrements/Sacrements.php',5),(30,'3','Onction des malades','Sacrements/Sacrements.php',6),(31,'3','Initiation chrétienne des adultes','Sacrements/Sacrements.php',7),(32,'4','Liturgie','CheminsDeFoi/CheminsDeFoi.php',1),(33,'4','Enfants','CheminsDeFoi/CheminsDeFoi.php',2),(34,'4','Pastorale jeunesse','CheminsDeFoi/CheminsDeFoi.php',3),(35,'4','Équipes de fraternité','CheminsDeFoi/CheminsDeFoi.php',4),(36,'4','Croissance spirituelle','CheminsDeFoi/CheminsDeFoi.php',5),(37,'4','Comité Création Verte','CheminsDeFoi/CheminsDeFoi.php',6),(39,'8','Assomption de la BVM','ParoissesCommunaute/ParoissesCommunaute.php',0),(40,'8','Notre-Dame-de-la-Providence','Notre-Dame-de-la-Providence',0);
+INSERT INTO `menu` VALUES (1,'0','Accueil','Accueil/Accueil.php',1),(2,'0','Paroisses-CommunautÃ©s','ParoissesCommunaute/ParoissesCommunaute.php',2),(3,'0','Sacrements','Sacrements/Sacrements.php',3),(4,'0','Chemins de foi','CheminsDeFoi/CheminsDeFoi.php',4),(5,'0','FunÃ©railles','Funerailles/Funerailles.php',5),(6,'0','Feuillets','Feuillets/Feuillets.php',6),(7,'0','Financement','Financement/Financement.php',7),(8,'2','St-Georges-de-Sartigan','ParoissesCommunaute/ParoissesCommunaute.php',2),(9,'2','Saint-Jean-Paul II','ParoissesCommunaute/ParoissesCommunaute.php',1),(10,'8','Saint-Benjamin','ParoissesCommunaute/ParoissesCommunaute.php',0),(11,'8','Saint-CÃ´me','ParoissesCommunaute/ParoissesCommunaute.php',0),(12,'8','Sainte-AurÃ©lie','ParoissesCommunaute/ParoissesCommunaute.php',0),(13,'9','Saint-GÃ©dÃ©on','ParoissesCommunaute/ParoissesCommunaute.php',0),(14,'8','Saint-Georges','ParoissesCommunaute/ParoissesCommunaute.php',0),(15,'8','Saint-Jean-de-la-Lande','ParoissesCommunaute/ParoissesCommunaute.php',0),(16,'9','Saint-Ludger','ParoissesCommunaute/ParoissesCommunaute.php',0),(17,'9','Saint-Martin','ParoissesCommunaute/ParoissesCommunaute.php',0),(18,'8','Saint-Philibert','ParoissesCommunaute/ParoissesCommunaute.php',0),(19,'8','Saint-Prosper','ParoissesCommunaute/ParoissesCommunaute.php',0),(20,'8','Saint-RenÃ©-Goupil','ParoissesCommunaute/ParoissesCommunaute.php',0),(21,'9','Saint-Robert-Bellarmin','ParoissesCommunaute/ParoissesCommunaute.php',0),(22,'8','Saint-Simon','ParoissesCommunaute/ParoissesCommunaute.php',0),(23,'9','Saint-ThÃ©ophile','ParoissesCommunaute/ParoissesCommunaute.php',0),(24,'8','Saint-Zacharie','ParoissesCommunaute/ParoissesCommunaute.php',0),(25,'3','BaptÃªme','Sacrements/Sacrements.php',1),(26,'3','Premier pardon - rÃ©conciliation','Sacrements/Sacrements.php',2),(27,'3','PremiÃ¨re communion','Sacrements/Sacrements.php',3),(28,'3','Confirmation','Sacrements/Sacrements.php',4),(29,'3','Mariage','Sacrements/Sacrements.php',5),(30,'3','Onction des malades','Sacrements/Sacrements.php',6),(31,'3','Initiation chrÃ©tienne des adultes','Sacrements/Sacrements.php',7),(32,'4','Liturgie','CheminsDeFoi/CheminsDeFoi.php',1),(33,'4','Enfants','CheminsDeFoi/CheminsDeFoi.php',2),(34,'4','Pastorale jeunesse','CheminsDeFoi/CheminsDeFoi.php',3),(35,'4','Ãquipes de fraternitÃ©','CheminsDeFoi/CheminsDeFoi.php',4),(36,'4','Croissance spirituelle','CheminsDeFoi/CheminsDeFoi.php',5),(37,'4','ComitÃ© CrÃ©ation Verte','CheminsDeFoi/CheminsDeFoi.php',6),(39,'8','Assomption de la BVM','ParoissesCommunaute/ParoissesCommunaute.php',0),(40,'8','Notre-Dame-de-la-Providence','Notre-Dame-de-la-Providence',0);
 /*!40000 ALTER TABLE `menu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -218,11 +210,11 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `FormulaireBenevolatSave`(IN inEmail VARCHAR(100), IN inFirstName VARCHAR(50), IN inLastName VARCHAR(50), IN inAdresse VARCHAR(50), IN inTelephone VARCHAR(50),
-																	  IN inCellulaire VARCHAR(50), IN inBenevolat1 VARCHAR(500), IN inBenevolat2 VARCHAR(500), IN inBenevolat3 VARCHAR(500), IN inBenevolat4 VARCHAR(500),
+CREATE DEFINER=`root`@`localhost` PROCEDURE `FormulaireBenevolatSave`(IN inEmail VARBINARY(1000), IN inFirstName VARBINARY(1000), IN inLastName VARBINARY(1000), IN inAdresse VARBINARY(1000), IN inTelephone VARBINARY(1000),
+																	  IN inCellulaire VARBINARY(1000), IN inBenevolat1 VARCHAR(500), IN inBenevolat2 VARCHAR(500), IN inBenevolat3 VARCHAR(500), IN inBenevolat4 VARCHAR(500),
                                                                       IN inParoisseId INT(11), IN inCommunauteId INT(11),IN inLundiAM TINYINT(4), IN inLundiPM TINYINT(4), IN inLundiSOIR TINYINT(4), IN inMardiAM TINYINT(4), IN inMardiPM TINYINT(4), IN inMardiSOIR TINYINT(4), IN inMercrediAM TINYINT(4), IN inMercrediPM TINYINT(4), IN inMercrediSOIR TINYINT(4),
 																	  IN inJeudiAM TINYINT(4), IN inJeudiPM TINYINT(4), IN inJeudiSOIR TINYINT(4), IN inVendrediAM TINYINT(4), IN inVendrediPM TINYINT(4), IN inVendrediSOIR TINYINT(4), IN inSamediAM TINYINT(4), IN inSamediPM TINYINT(4), IN inSamediSOIR TINYINT(4),
-                                                                      IN inDimancheAM TINYINT(4), IN inDimanchePM TINYINT(4), IN inDimancheSOIR TINYINT(4))
+                                                                      IN inDimancheAM TINYINT(4), IN inDimanchePM TINYINT(4), IN inDimancheSOIR TINYINT(4), IN inKey VARBINARY(1000), IN inIV VARBINARY(1000))
 BEGIN
 	INSERT INTO formulairebenevolat
 	(`prenom`,
@@ -257,7 +249,9 @@ BEGIN
 	`samedisoiree`,
 	`dimancheam`,
 	`dimanchepm`,
-	`dimanchesoiree`)
+	`dimanchesoiree`,
+    `key`,
+    `iv`)
 	VALUES
 	(inFirstName,
 	inLastName,
@@ -291,7 +285,9 @@ BEGIN
 	inSamediSOIR,
 	inDimancheAM,
 	inDimanchePM,
-	inDimancheSOIR);
+	inDimancheSOIR,
+    inKey,
+    inIV);
 
 END ;;
 DELIMITER ;
@@ -366,4 +362,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-09 11:05:28
+-- Dump completed on 2020-04-14 16:00:13
