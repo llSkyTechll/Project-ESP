@@ -89,7 +89,51 @@ $conn = OpenCon();
 </head>
 
 <body>
-  <form name="formSubmit" id="formSubmit">
+    
+        
+    
+    
+    <form class="container">
+        <div class="form-group row">
+            <label for="inputPassword3" class="col-md-1 col-form-label">Password</label>
+            <div class="col-md-5">
+                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+            </div>
+            <label for="inputPassword3" class="col-md-1 col-form-label">Password</label>
+            <div class="col-md-5">
+                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword3" class="col-md-1 col-form-label">Password</label>
+            <div class="col-md-11">
+                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword3" class="col-md-1 col-form-label">Password</label>
+            <div class="col-md-11">
+                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword3" class="col-md-1 col-form-label">Password</label>
+            <div class="col-md-11">
+                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword3" class="col-md-1 col-form-label">Password</label>
+            <div class="col-md-11">
+                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+            </div>
+        </div>
+
+</form>
+    
+    
+    
+  <form class=""name="formSubmit" id="formSubmit">
     <input type="hidden" name="action" id="action" value="submit">
     <br>
     <table style="width:75%;height:100%;margin-left:auto;margin-right:auto;border-collapse: collapse;">
@@ -243,11 +287,13 @@ $conn = OpenCon();
     </table>
 
     <br>
-    <p class="Bold Center" style="text-decoration: underline;">
-      DISPONIBILITÉ
-    </p>
+        <p class="Bold Center" style="text-decoration: underline;">
+          DISPONIBILITÉ
+        </p>
     <br>
 
+      
+      
     <table class="Bold TableBorder" align="center">
       <tr>
         <td style="width:25%"></td>
