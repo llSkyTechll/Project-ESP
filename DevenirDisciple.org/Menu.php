@@ -127,7 +127,7 @@ $conn = OpenCon();
         </div>
     </nav>
     </div>
-    <iframe class="mt-5" id="PageContent" src="<?php if(isset($_SESSION['gpath'])){echo $_SESSION['gpath'];}else{echo 'Accueil/Accueil.php';}?>" frameborder="0" style="background-color: transparent;"></iframe>
+    <iframe class="mt-6" id="PageContent" src="<?php if(isset($_SESSION['gpath'])){echo $_SESSION['gpath'];}else{echo 'Accueil/Accueil.php';}?>" frameborder="0" style="background-color: transparent;"></iframe>
 
 
   </body>

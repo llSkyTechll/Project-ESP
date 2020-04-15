@@ -1,4 +1,4 @@
-<footer>
+<footer class="mt-3">
   <script>
     if (window.top === window.self){
       window.top.location.replace('Menu.php');
@@ -12,10 +12,10 @@
         </div>
 
         <div class="col-md-4">
-            <p>lien intérésent</p>
+            <input class="btn btn-primary" type="button" name="btnDeconnexion" value="lien intérésent">
         </div>
         <div class="col-md-4">
-            <p>contact</p>
+            <input class="btn btn-primary" type="button" name="btnDeconnexion" value="contact">
         </div>
         <div class="col-md-2">
             <?php 
