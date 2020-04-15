@@ -73,81 +73,79 @@ i {
 }
 */
 
-.dropdown-menu{
-    margin:0;
+.dropdown-menu {
+	margin: 0;
 }
 
-.dropdown:hover>.dropdown-menu {
-  display: block;
+.dropdown:hover > .dropdown-menu {
+	display: block;
 }
 
-.dropdown>.dropdown-toggle:active {
-  /*Without this, clicking will make it sticky*/
-    pointer-events: none;
-}
-
-
-.dropright:hover>.dropdown-menu {
-  display: block;
-}
-
-.dropright>.dropdown-toggle:active {
-  /*Without this, clicking will make it sticky*/
-    pointer-events: none;
+.dropdown > .dropdown-toggle:active {
+	/*Without this, clicking will make it sticky*/
+	pointer-events: none;
 }
 
 
-.dropleft:hover>.dropdown-menu {
-  display: block;
+.dropright:hover > .dropdown-menu {
+	display: block;
 }
 
-.dropleft>.dropdown-toggle:active {
-  /*Without this, clicking will make it sticky*/
-    pointer-events: none;
+.dropright > .dropdown-toggle:active {
+	/*Without this, clicking will make it sticky*/
+	pointer-events: none;
 }
 
-.dropup:hover>.dropdown-menu {
-  display: block;
+
+.dropleft:hover > .dropdown-menu {
+	display: block;
 }
 
-.dropup>.dropdown-toggle:active {
-  /*Without this, clicking will make it sticky*/
-    pointer-events: none;
+.dropleft > .dropdown-toggle:active {
+	/*Without this, clicking will make it sticky*/
+	pointer-events: none;
+}
+
+.dropup:hover > .dropdown-menu {
+	display: block;
+}
+
+.dropup > .dropdown-toggle:active {
+	/*Without this, clicking will make it sticky*/
+	pointer-events: none;
 }
 
 .dropright .dropdown-menu {
-    margin-left: 0;
-  }
+	margin-left: 0;
+}
+
 .dropleft .dropdown-menu {
-    margin-right: 0;
-  }
+	margin-right: 0;
+}
+
 .dropup .dropdown-menu {
-    margin-bottom: 0;
-  }
+	margin-bottom: 0;
+}
 
 
-.navbar-nav ul,.navbar-nav ul li {
-    list-style: none !important;
+.navbar-nav ul,
+.navbar-nav ul li {
+	list-style: none !important;
 }
 
 
 .navbar-nav * {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 input[type=button] {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 button {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .nav-link * {
-    color: rgba(0,0,0,.5); 
+	color: rgba(0, 0, 0, .5);
 }
-
-
-
-
-
