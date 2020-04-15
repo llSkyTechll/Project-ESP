@@ -55,14 +55,14 @@ require_once 'ConnexionAdmin_pr.php';
 </head>
 
 <body>
-  <form id="formConnexion">
+ <!-- <form class=""id="formConnexion">
     <table style="width:100%;height:100%">
       <tr>
         <td align="right" style="width:50%">
           Courriel:
         </td>
-        <td class="col-md-3">
-          <input class="form-control" type="text" name="femail" tabindex="10" id="femail" value="">
+        <td class="mx-sm-4 col-md-3">
+          <input class="" type="text" name="femail" tabindex="10" id="femail" value="">
         </td>
       </tr>
       <tr>
@@ -70,16 +70,27 @@ require_once 'ConnexionAdmin_pr.php';
           Mot de passe:
         </td>
         <td class="col-md-3">
-          <input class="form-control" type="password" name="fpassword" tabindex="20" id="fpassword" value="">
+          <input class="" type="password" name="fpassword" tabindex="20" id="fpassword" value="">
         </td>
       </tr>
       <tr>
         <td colspan="2" align="center">
-          <input class="btn btn-primary" type="button" tabindex="30" name="btnConnect" value="Se connecter" onclick="fnConnexion();">
         </td>
       </tr>
     </table>
-  </form>
+  </form>-->
+    <form class="container col-md-6" id="formConnexion">
+        <div class="form-group">
+            <label for="femail">Courriel</label>
+            <input class="form-control" type="email " name="femail" tabindex="10" id="femail" placeholder="Entrer votre email">
+        </div>
+        <div class="form-group">
+            <label for="fpassword">Mot de passe</label>
+            <input class="form-control" type="password" name="fpassword" tabindex="20" id="fpassword" placeholder="Entrer votre mot de passe">
+        </div>
+        <input class="btn btn-primary" type="button" tabindex="30" name="btnConnect" value="Se connecter" onclick="fnConnexion();">
+
+    </form>
   
   <script>
     
