@@ -1,8 +1,10 @@
--- MySQL dump 10.17  Distrib 10.3.20-MariaDB, for Win64 (AMD64)
+CREATE DATABASE  IF NOT EXISTS `devenirdisciple.org` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `devenirdisciple.org`;
+-- MariaDB dump 10.17  Distrib 10.4.10-MariaDB, for Win64 (AMD64)
 --
 -- Host: localhost    Database: devenirdisciple.org
 -- ------------------------------------------------------
--- Server version	10.3.20-MariaDB
+-- Server version	10.4.10-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -125,7 +127,7 @@ CREATE TABLE `formulairebenevolat` (
 
 LOCK TABLES `formulairebenevolat` WRITE;
 /*!40000 ALTER TABLE `formulairebenevolat` DISABLE KEYS */;
-INSERT INTO `formulairebenevolat` VALUES (26,'Alexandre','Reny','','418-957-9527','','Ecz1XIHj6A3ajxpohWQC4/QmoqDaEekz8IWUZsf0+28n1fP4YgZGwYDIW+9UETYm','','','','',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'u∆éÊ∆,WÇçwÅˇè_¸<¨Ûä»?Õ2~Â}1ÆÈ','√3ZkÅÔ·+≤∑Óå´üI');
+INSERT INTO `formulairebenevolat` VALUES (26,'Alexandre','Reny','','418-957-9527','','Ecz1XIHj6A3ajxpohWQC4/QmoqDaEekz8IWUZsf0+28n1fP4YgZGwYDIW+9UETYm','','','','',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'u∆éÊêÜ,W¬ç∑Åø–üº¨≥Àà?Õ≤~ÊΩ±œ©','√≥Zk¬Ø·´≤ÿÆÃ´‡†â');
 /*!40000 ALTER TABLE `formulairebenevolat` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -154,6 +156,33 @@ LOCK TABLES `menu` WRITE;
 /*!40000 ALTER TABLE `menu` DISABLE KEYS */;
 INSERT INTO `menu` VALUES (1,'0','Accueil','Accueil/Accueil.php',1),(2,'0','Paroisses-Communaut√©s','ParoissesCommunaute/ParoissesCommunaute.php',2),(3,'0','Sacrements','Sacrements/Sacrements.php',3),(4,'0','Chemins de foi','CheminsDeFoi/CheminsDeFoi.php',4),(5,'0','Fun√©railles','Funerailles/Funerailles.php',5),(6,'0','Feuillets','Feuillets/Feuillets.php',6),(7,'0','Financement','Financement/Financement.php',7),(8,'2','St-Georges-de-Sartigan','ParoissesCommunaute/ParoissesCommunaute.php',2),(9,'2','Saint-Jean-Paul II','ParoissesCommunaute/ParoissesCommunaute.php',1),(10,'8','Saint-Benjamin','ParoissesCommunaute/ParoissesCommunaute.php',0),(11,'8','Saint-C√¥me','ParoissesCommunaute/ParoissesCommunaute.php',0),(12,'8','Sainte-Aur√©lie','ParoissesCommunaute/ParoissesCommunaute.php',0),(13,'9','Saint-G√©d√©on','ParoissesCommunaute/ParoissesCommunaute.php',0),(14,'8','Saint-Georges','ParoissesCommunaute/ParoissesCommunaute.php',0),(15,'8','Saint-Jean-de-la-Lande','ParoissesCommunaute/ParoissesCommunaute.php',0),(16,'9','Saint-Ludger','ParoissesCommunaute/ParoissesCommunaute.php',0),(17,'9','Saint-Martin','ParoissesCommunaute/ParoissesCommunaute.php',0),(18,'8','Saint-Philibert','ParoissesCommunaute/ParoissesCommunaute.php',0),(19,'8','Saint-Prosper','ParoissesCommunaute/ParoissesCommunaute.php',0),(20,'8','Saint-Ren√©-Goupil','ParoissesCommunaute/ParoissesCommunaute.php',0),(21,'9','Saint-Robert-Bellarmin','ParoissesCommunaute/ParoissesCommunaute.php',0),(22,'8','Saint-Simon','ParoissesCommunaute/ParoissesCommunaute.php',0),(23,'9','Saint-Th√©ophile','ParoissesCommunaute/ParoissesCommunaute.php',0),(24,'8','Saint-Zacharie','ParoissesCommunaute/ParoissesCommunaute.php',0),(25,'3','Bapt√™me','Sacrements/Sacrements.php',1),(26,'3','Premier pardon - r√©conciliation','Sacrements/Sacrements.php',2),(27,'3','Premi√®re communion','Sacrements/Sacrements.php',3),(28,'3','Confirmation','Sacrements/Sacrements.php',4),(29,'3','Mariage','Sacrements/Sacrements.php',5),(30,'3','Onction des malades','Sacrements/Sacrements.php',6),(31,'3','Initiation chr√©tienne des adultes','Sacrements/Sacrements.php',7),(32,'4','Liturgie','CheminsDeFoi/CheminsDeFoi.php',1),(33,'4','Enfants','CheminsDeFoi/CheminsDeFoi.php',2),(34,'4','Pastorale jeunesse','CheminsDeFoi/CheminsDeFoi.php',3),(35,'4','√âquipes de fraternit√©','CheminsDeFoi/CheminsDeFoi.php',4),(36,'4','Croissance spirituelle','CheminsDeFoi/CheminsDeFoi.php',5),(37,'4','Comit√© Cr√©ation Verte','CheminsDeFoi/CheminsDeFoi.php',6),(39,'8','Assomption de la BVM','ParoissesCommunaute/ParoissesCommunaute.php',0),(40,'8','Notre-Dame-de-la-Providence','Notre-Dame-de-la-Providence',0);
 /*!40000 ALTER TABLE `menu` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `nouvelle`
+--
+
+DROP TABLE IF EXISTS `nouvelle`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `nouvelle` (
+  `nouvelleId` int(11) NOT NULL AUTO_INCREMENT,
+  `resume` varchar(100) DEFAULT NULL,
+  `intervaleDateDebut` date DEFAULT NULL,
+  `intervaleDateFin` date DEFAULT NULL,
+  `actif` tinyint(1) DEFAULT NULL,
+  `imagePath` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`nouvelleId`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `nouvelle`
+--
+
+LOCK TABLES `nouvelle` WRITE;
+/*!40000 ALTER TABLE `nouvelle` DISABLE KEYS */;
+/*!40000 ALTER TABLE `nouvelle` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -370,4 +399,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-15  8:41:45
+-- Dump completed on 2020-04-15  8:50:23
