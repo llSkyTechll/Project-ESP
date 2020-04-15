@@ -105,19 +105,19 @@ $conn = OpenCon();
                 $menurow = $result[$x];
 
                 if($menurow->get_submenu() != null){
-                  echo('<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'.$menurow->get_name().'</a><div class="dropdown-menu" aria-labelledby="navbarDropdown">');
+                  echo('<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'.utf8_encode($menurow->get_name()).'</a><div class="dropdown-menu" aria-labelledby="navbarDropdown">');
 
                   LoadSubMenu($menurow->get_submenu());
                   echo('</div></li>');
 
                 }else{
-                  echo('<li class="nav-item"><a  class="nav-link" onclick="fnRedirection(\''.$menurow->get_redirectionPath().'\','.$menurow->get_menuid().')">'.$menurow->get_name().'</a> </li>');
+                  echo('<li class="nav-item"><a  class="nav-link" onclick="fnRedirection(\''.$menurow->get_redirectionPath().'\','.$menurow->get_menuid().')">'.utf8_encode($menurow->get_name()).'</a> </li>');
                 }
                 if($menurow->get_menuid() == $_SESSION['gmenuId']){
                   $_SESSION['gpath'] = $menurow->get_redirectionPath();
                 }
               }
-              
+
               ?>
               <li>
                   <input class="btn btn-primary" type="button" name="btnDon" value="Don">
