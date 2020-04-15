@@ -6,7 +6,7 @@ class FormulaireBenevolat{
   
   public function saveForm($formdata){
     
-    $result = $this->validationEmpty();
+    $result = $this->validationEmpty($formdata);
     if ($result == 'success'){
       $conn = OpenCon();
     
@@ -68,7 +68,7 @@ class FormulaireBenevolat{
     }
   }
   
-  public function validationEmpty(){
+  public function validationEmpty($formdata){
     
     if($formdata['ffirstname'] == ''){
       return 'firstname';
@@ -82,7 +82,7 @@ class FormulaireBenevolat{
       return 'email';
     }
 
-    if ($formdata['fphone'] == '' || $formdata['fcellphone'] == '') {
+    if ($formdata['fphone'] == '' && $formdata['fcellphone'] == '') {
       return 'phone';
     }
     
