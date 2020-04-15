@@ -61,7 +61,7 @@ require_once 'ConnexionAdmin_pr.php';
           Courriel:
         </td>
         <td>
-          <input type="text" name="femail" id="femail" value="">
+          <input class="form-control" type="text" name="femail" tabindex="10" id="femail" value="">
         </td>
       </tr>
       <tr>
@@ -69,12 +69,12 @@ require_once 'ConnexionAdmin_pr.php';
           Mot de passe:
         </td>
         <td>
-          <input type="password" name="fpassword" id="fpassword" value="">
+          <input class="form-control" type="password" name="fpassword" tabindex="20" id="fpassword" value="">
         </td>
       </tr>
       <tr>
         <td colspan="2" align="center">
-          <input class="btn btn-primary" type="button" name="btnConnect" value="Se connecter" onclick="fnConnexion();">
+          <input class="btn btn-primary" type="button" tabindex="30" name="btnConnect" value="Se connecter" onclick="fnConnexion();">
         </td>
       </tr>
     </table>

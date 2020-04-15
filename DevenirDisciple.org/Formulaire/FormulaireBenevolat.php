@@ -95,52 +95,52 @@ $conn = OpenCon();
     <table style="width:75%;height:100%;margin-left:auto;margin-right:auto;border-collapse: collapse;">
       <tr>
         <td align="left" style="width:7%">
-          <input class="form-control-plaintext" type="text" readonly value="Prénom :">
+          <label>Prénom :</label>
         </td>
         <td>
-          <input class="form-control" type="text" name="ffirstname" id="ffirstname" style="width:95%" length="50" value="">
+          <input class="form-control" type="text" tabindex="10" name="ffirstname" id="ffirstname" style="width:95%" length="50" value="">
         </td>
         <td style="align:left;width:5%">
-          <input class="form-control-plaintext" type="text" readonly value="Nom :">
+          <label>Nom :</label>
         </td>
         <td>
-          <input class="form-control" type="text" name="flastname" id="flastname" style="width:100%" length="50" value="">
+          <input class="form-control" type="text" tabindex="20" name="flastname" id="flastname" style="width:100%" length="50" value="">
         </td>
       </tr>
 
       <tr>
         <td align="left">
-          <input class="form-control-plaintext" type="text" readonly value="Adresse :">
+          <label>Adresse :</label>
         </td>
         <td colspan="3" align="left">
-          <input class="form-control" type="text" name="faddress" id="faddress" style="width:100%" value="">
+          <input class="form-control" type="text" tabindex="30" name="faddress" id="faddress" style="width:100%" value="">
         </td>
       </tr>
 
       <tr>
         <td align="left">
-          <input class="form-control-plaintext" type="text" readonly value="Tél. :">
+          <label>Tél. :</label>
         </td>
         <td colspan="3" align="left">
-          <input class="form-control" type="text" name="fphone" id="fphone" style="width:100%" value="">
+          <input class="form-control" type="text" tabindex="40" name="fphone" id="fphone" style="width:100%" value="">
         </td>
       </tr>
 
       <tr>
         <td align="left">
-          <input class="form-control-plaintext" type="text" readonly value="Tél. cell:">
+          <label>Tél. cell:</label>
         </td>
         <td colspan="3" align="left">
-          <input class="form-control" type="text" name="fcellphone" id="fcellphone" style="width:100%" value="">
+          <input class="form-control" type="text" tabindex="50" name="fcellphone" id="fcellphone" style="width:100%" value="">
         </td>
       </tr>
 
       <tr>
         <td align="left">
-          <input class="form-control-plaintext" type="text" readonly value="Courriel :">          
+          <label>Courriel</label>          
         </td>
         <td colspan="3" align="left">
-          <input class="form-control" type="text" name="femail" id="femail" style="width:100%" length="100" value="">
+          <input class="form-control" type="text" tabindex="60" name="femail" id="femail" style="width:100%" length="100" value="">
         </td>
       </tr>
 
@@ -167,16 +167,16 @@ $conn = OpenCon();
         <td colspan="2">
           <ul>
             <li>
-                <input class="form-control" type="text" name="fbenevolat1" id="fbenevolat1" style="width:100%" length="500" value="">
+                <input class="form-control" type="text" tabindex="70" name="fbenevolat1" id="fbenevolat1" style="width:100%" length="500" value="">
             </li>
             <li>
-                <input class="form-control" type="text" name="fbenevolat2" id="fbenevolat2" style="width:100%" length="500" value="">
+                <input class="form-control" type="text" tabindex="80" name="fbenevolat2" id="fbenevolat2" style="width:100%" length="500" value="">
             </li>
             <li>
-                <input class="form-control" type="text" name="fbenevolat3" id="fbenevolat3" style="width:100%" length="500" value="">
+                <input class="form-control" type="text" tabindex="90" name="fbenevolat3" id="fbenevolat3" style="width:100%" length="500" value="">
             </li>
             <li>
-                <input class="form-control" type="text" name="fbenevolat4" id="fbenevolat4" style="width:100%" length="500" value="">
+                <input class="form-control" type="text" tabindex="100" name="fbenevolat4" id="fbenevolat4" style="width:100%" length="500" value="">
             </li>
           </ul>
         </td>
@@ -190,7 +190,7 @@ $conn = OpenCon();
       </tr>
       <tr>
         <td colspan="2">
-          <select class="form-control" name="fparoisseid" id="fparoisseid" style="width:50%" onchange="fnCommunityList()">
+          <select class="form-control" tabindex="110" name="fparoisseid" id="fparoisseid" style="width:50%" onchange="fnCommunityList()">
             <option value="0"></option>
             <?php           
               
@@ -225,7 +225,7 @@ $conn = OpenCon();
                       echo '</select>' ;
                     }
                     $paroisseid = $Row['paroisseid'];
-                    echo '<select class="form-control" name="fcommunityid'.$paroisseid.'" id="fcommunityid'.$paroisseid.'" style="width:50%;display:none">';
+                    echo '<select class="form-control" tabindex="120" name="fcommunityid'.$paroisseid.'" id="fcommunityid'.$paroisseid.'" style="width:50%;display:none">';
                     echo '<option value="0"></option>';
                     echo '<option value="'.$Row['communauteid'].'">'.utf8_encode($Row['nom']).'</option>';
                   }else{
@@ -251,57 +251,57 @@ $conn = OpenCon();
     <table class="Bold TableBorder" align="center">
       <tr>
         <td style="width:25%"></td>
-        <td class="Center" style="width:25%"><input class="form-control-plaintext" type="text" readonly value="AVANT-MIDI"></td>
-        <td class="Center" style="width:25%"><input class="form-control-plaintext" type="text" readonly value="APRÈS-MIDI"></td>
-        <td class="Center" style="width:25%"><input class="form-control-plaintext" type="text" readonly value="SOIR"></td>
+        <td class="Center" style="width:25%"><label>AVANT-MIDI</label></td>
+        <td class="Center" style="width:25%"><label>APRÈS-MIDI</label></td>
+        <td class="Center" style="width:25%"><label>SOIR</label></td>
       </tr>
       <tr>
-        <td><input class="form-control-plaintext" type="text" readonly value="Lundi"></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="flundiam"></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="flundipm"></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="flundisoir"></td>
+        <td><label>Lundi</label></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="130" name="flundiam"></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="140" name="flundipm"></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="150" name="flundisoir"></td>
       </tr>
       <tr>
-        <td><input class="form-control-plaintext" type="text" readonly value="Mardi"></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="fmardiam"></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="fmardipm"></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="fmardisoir"></td>
+        <td><label>Mardi</label></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="160" name="fmardiam"></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="170" name="fmardipm"></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="180" name="fmardisoir"></td>
       </tr>
       <tr>
-        <td><input class="form-control-plaintext" type="text" readonly value="Mercredi"></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="fmercrediam"></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="fmercredipm"></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="fmercredisoir"></td>
+        <td><label>Mercredi</label></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="190" name="fmercrediam"></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="200" name="fmercredipm"></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="210" name="fmercredisoir"></td>
       </tr>
       <tr>
-        <td><input class="form-control-plaintext" type="text" readonly value="Jeudi"></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="fjeudiam"></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="fjeudipm"></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="fjeudisoir"></td>
+        <td><label>Jeudi</label></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="220" name="fjeudiam"></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="230" name="fjeudipm"></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="240" name="fjeudisoir"></td>
       </tr>
       <tr>
-        <td><input class="form-control-plaintext" type="text" readonly value="Vendredi"></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="fvendrediam"></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="fvendredipm"></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="fvendredisoir"></td>
+        <td><label>Vendredi</label></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="250" name="fvendrediam"></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="260" name="fvendredipm"></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="270" name="fvendredisoir"></td>
       </tr>
       <tr>
-        <td><input class="form-control-plaintext" type="text" readonly value="Samedi"></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="fsamediam"></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="fsamedipm"></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="fsamedisoir"></td>
+        <td><label>Samedi</label></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="280" name="fsamediam"></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="290" name="fsamedipm"></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="300" name="fsamedisoir"></td>
       </tr>
       <tr>
-        <td><input class="form-control-plaintext" type="text" readonly value="Dimanche"></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="fdimancheam"></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="fdimanchepm"></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" name="fdimanchesoir"></td>
+        <td><label>Dimanche</label></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="310" name="fdimancheam"></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="320" name="fdimanchepm"></td>
+        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="330" name="fdimanchesoir"></td>
       </tr>
     </table>
 
     <br>
     <div class="Center">
-      <input class="btn btn-primary" type="button" name="btnSubmitForm" value="Envoyer" onclick="fnSubmit();">
+      <input class="btn btn-primary" type="button" tabindex="340" name="btnSubmitForm" value="Envoyer" onclick="fnSubmit();">
     </div>
   </form>
   
