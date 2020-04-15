@@ -47,6 +47,9 @@ td ul li {
 }
 
 .mt-6{
-        margin-top: 4rem!important;
+  margin-top: 4rem!important;
+}
 
+.big-checkbox {
+  width: 30px; height: 30px;
 }

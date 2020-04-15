@@ -27,6 +27,7 @@ require_once 'ConnexionAdmin_pr.php';
 
 
   <script>
+  
     function fnConnexion() {
       $(function() {
         $.ajax({
@@ -54,13 +55,13 @@ require_once 'ConnexionAdmin_pr.php';
 </head>
 
 <body>
-  <form>
+  <form id="formConnexion">
     <table style="width:100%;height:100%">
       <tr>
         <td align="right" style="width:50%">
           Courriel:
         </td>
-        <td>
+        <td class="col-md-3">
           <input class="form-control" type="text" name="femail" tabindex="10" id="femail" value="">
         </td>
       </tr>
@@ -68,7 +69,7 @@ require_once 'ConnexionAdmin_pr.php';
         <td align="right">
           Mot de passe:
         </td>
-        <td>
+        <td class="col-md-3">
           <input class="form-control" type="password" name="fpassword" tabindex="20" id="fpassword" value="">
         </td>
       </tr>
@@ -79,6 +80,19 @@ require_once 'ConnexionAdmin_pr.php';
       </tr>
     </table>
   </form>
+  
+  <script>
+    
+    var form = document.getElementById("formConnexion");
+    
+    form.addEventListener("keyup", function(event) {
+      if (event.keyCode === 13) {
+        fnConnexion();
+      }
+    });
+    
+  </script>  
+  
 </body>
 
 <?php require_once '../Footer.php';?>
