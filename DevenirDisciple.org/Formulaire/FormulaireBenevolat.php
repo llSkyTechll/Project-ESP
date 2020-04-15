@@ -257,45 +257,45 @@ $conn = OpenCon();
       </tr>
       <tr>
         <td><label>Lundi</label></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="130" name="flundiam"></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="140" name="flundipm"></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="150" name="flundisoir"></td>
+        <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="130" name="flundiam"></td>
+        <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="140" name="flundipm"></td>
+        <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="150" name="flundisoir"></td>
       </tr>
       <tr>
         <td><label>Mardi</label></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="160" name="fmardiam"></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="170" name="fmardipm"></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="180" name="fmardisoir"></td>
+        <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="160" name="fmardiam"></td>
+        <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="170" name="fmardipm"></td>
+        <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="180" name="fmardisoir"></td>
       </tr>
       <tr>
         <td><label>Mercredi</label></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="190" name="fmercrediam"></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="200" name="fmercredipm"></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="210" name="fmercredisoir"></td>
+        <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="190" name="fmercrediam"></td>
+        <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="200" name="fmercredipm"></td>
+        <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="210" name="fmercredisoir"></td>
       </tr>
       <tr>
         <td><label>Jeudi</label></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="220" name="fjeudiam"></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="230" name="fjeudipm"></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="240" name="fjeudisoir"></td>
+        <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="220" name="fjeudiam"></td>
+        <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="230" name="fjeudipm"></td>
+        <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="240" name="fjeudisoir"></td>
       </tr>
       <tr>
         <td><label>Vendredi</label></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="250" name="fvendrediam"></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="260" name="fvendredipm"></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="270" name="fvendredisoir"></td>
+        <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="250" name="fvendrediam"></td>
+        <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="260" name="fvendredipm"></td>
+        <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="270" name="fvendredisoir"></td>
       </tr>
       <tr>
         <td><label>Samedi</label></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="280" name="fsamediam"></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="290" name="fsamedipm"></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="300" name="fsamedisoir"></td>
+        <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="280" name="fsamediam"></td>
+        <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="290" name="fsamedipm"></td>
+        <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="300" name="fsamedisoir"></td>
       </tr>
       <tr>
         <td><label>Dimanche</label></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="310" name="fdimancheam"></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="320" name="fdimanchepm"></td>
-        <td class="Center"><input class="form-check-input" type="checkbox" value="1" tabindex="330" name="fdimanchesoir"></td>
+        <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="310" name="fdimancheam"></td>
+        <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="320" name="fdimanchepm"></td>
+        <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="330" name="fdimanchesoir"></td>
       </tr>
     </table>
 
