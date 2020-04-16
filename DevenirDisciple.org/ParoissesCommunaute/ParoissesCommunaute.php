@@ -622,6 +622,7 @@ require_once 'ParoissesCommunaute_pr.php';
 			</div>
 		</div>
 
+  <div class="col-md-9">
 		<div class="p-5">
 			<h2 class="mb-4">Calendrier des événements</h2>
 			<div class="card">
@@ -651,37 +652,37 @@ require_once 'ParoissesCommunaute_pr.php';
 				<div class="modal-content">
 					<form id="add-event">
 						<div class="modal-body">
-							<h4>Add Event Detail</h4>
+							<h4>Ajout un événement</h4>
 							<div class="form-group">
-								<label>Event name</label>
+								<label>Nom de l'événement</label>
 								<input type="text" class="form-control" name="ename">
 							</div>
 							<div class="form-group">
-								<label>Event Date</label>
+								<label>Date de l'événement</label>
 								<input type='text' class="datetimepicker form-control" name="edate">
 							</div>
 							<div class="form-group">
-								<label>Event Description</label>
+								<label>Description de l'événement</label>
 								<textarea class="form-control" name="edesc"></textarea>
 							</div>
 							<div class="form-group">
-								<label>Event Color</label>
+								<label>Couleur de l'événement</label>
 								<select class="form-control" name="ecolor">
-									<option value="fc-bg-default">fc-bg-default</option>
-									<option value="fc-bg-blue">fc-bg-blue</option>
-									<option value="fc-bg-lightgreen">fc-bg-lightgreen</option>
-									<option value="fc-bg-pinkred">fc-bg-pinkred</option>
-									<option value="fc-bg-deepskyblue">fc-bg-deepskyblue</option>
+									<option value="fc-bg-default">Défaut</option>
+									<option value="fc-bg-blue">Bleu</option>
+									<option value="fc-bg-lightgreen">Vert</option>
+									<option value="fc-bg-pinkred">Rose</option>
+									<option value="fc-bg-deepskyblue">Bleu ciel</option>
 								</select>
 							</div>
 							<div class="form-group">
-								<label>Event Icon</label>
+								<label>Icône de l'événement</label>
 								<select class="form-control" name="eicon">
-									<option value="circle">circle</option>
-									<option value="cog">cog</option>
-									<option value="group">group</option>
-									<option value="suitcase">suitcase</option>
-									<option value="calendar">calendar</option>
+									<option value="circle">Cercle</option>
+									<option value="cog">Dent</option>
+									<option value="group">Groupe</option>
+									<option value="suitcase">Valise</option>
+									<option value="calendar">Calendrier</option>
 								</select>
 							</div>
 						</div>
@@ -693,6 +694,7 @@ require_once 'ParoissesCommunaute_pr.php';
 				</div>
 			</div>
 		</div>
+    </div>
 
 		<div><a>lien feuillet</a></div>
 		<div><a>lien Facebook</a></div>
