@@ -5,7 +5,7 @@ class Admin{
   public function connexion($email, $password){
     $conn = OpenCon();
     
-    $param = "'".$email."', '".utf8_encode($password)."', @AdminId";  
+    $param = "'".$email."', '".$password."', @AdminId";  
     $SQL = "CALL ConnexionAdmin(".$param.");";
     $RSSQL = $conn->query($SQL);
     $Result = $RSSQL->fetch_assoc();
