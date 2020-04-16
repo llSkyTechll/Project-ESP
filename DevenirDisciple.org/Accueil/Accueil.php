@@ -32,19 +32,19 @@ require_once '../PHPFunctions.php';
 		</ol>
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<img class="d-block " style="widht: 1000px;height:400px" src="jesus1.jpg" alt="Première Nouvelle">
+				<img class="d-block img-fluid" style="widht: 1000px;height:400px" src="../Ressource/Image/jesus1.jpg" alt="Première Nouvelle" title="Première Nouvelle">
 			</div>
 			<div class="carousel-item">
-				<img class="d-block " style="widht: 1000px;height:400px" src="jesus2.jpg" alt="Deuxième Nouvelle">
+				<img class="d-block img-fluid" style="widht: 1000px;height:400px" src="../Ressource/Image/jesus2.jpg" alt="Deuxième Nouvelle" title="Deuxième Nouvelle">
 			</div>
 			<div class="carousel-item">
-				<img class="d-block " style="widht: 1000px;height:400px" src="jesus3.jpg" alt="Third Nouvelle">
+				<img class="d-block img-fluid" style="widht: 1000px;height:400px" src="../Ressource/Image/jesus3.jpg" alt="Third Nouvelle" title="Third Nouvelle">
 			</div>
 			<div class="carousel-item">
-				<img class="d-block " style="widht: 1000px;height:400px" src="jesus4.jpg" alt="Quatrième Nouvelle">
+				<img class="d-block img-fluid" style="widht: 1000px;height:400px" src="../Ressource/Image/jesus4.jpg" alt="Quatrième Nouvelle" title="Quatrième Nouvelle">
 			</div>
 			<div class="carousel-item">
-				<img class="d-block " style="widht: 1000px;height:400px" src="jesus5.jpg" alt="Cinquième Nouvelle">
+				<img class="d-block img-fluid" style="widht: 1000px;height:400px" src="../Ressource/Image/jesus5.jpg" alt="Cinquième Nouvelle" title="Cinquième Nouvelle">
 			</div>
 		</div>
 		<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -59,23 +59,34 @@ require_once '../PHPFunctions.php';
 
 	<div class="container mt-5">
 		<div class="row">
-			<div class="col-md-4">
-				<p>oméli du curé</p>
+			<div class="col-md-3">
+				<!--<p>oméli du curé</p>-->
+				<a onclick="parent.fnRedirection('Formulaire/FormulaireBenevolat.php',0)">
+					<img class="d-block img-fluid" style="widht: 150px;height:150px" src="../Ressource/Image/homelie.jpg" alt="Homéli du curé" title="Homéli du curé">
+				</a>
+
+
 			</div>
-			<div class="col-md-2">
-				<input class="btn btn-primary" type="button" nam+e="btnTemoignage" value="témoinage">
+			<div class="col-md-3">
+				<a onclick="parent.fnRedirection('Formulaire/FormulaireBenevolat.php',0)">
+					<img class="d-block img-fluid" style="widht: 150px;height:150px" src="../Ressource/Image/temoignages.jpg" alt="Témoinage" title="Témoinage">
+				</a>
+				
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-3">
 				<div class="embed-responsive embed-responsive-4by3">
 					<video class="embed-responsive-item" controls="controls">
-						<source src="jesus-taime.mp4" type="video/mp4" />
+						<source src="../Ressource/Video/jesus-taime.mp4" type="video/mp4" />
 						vidéo curé
 					</video>
 				</div>
 
 			</div>
-			<div class="col-md-2">
-				<input class="btn btn-primary" type="button" name="btnFormulaire" onclick="parent.fnRedirection('Formulaire/FormulaireBenevolat.php',0)" value="Formulaire Bénévolat">
+			<div class="col-md-3">
+				<a onclick="parent.fnRedirection('Formulaire/FormulaireBenevolat.php',0)">
+					<img class="d-block img-fluid" style="widht: 150px;height:150px" src="../Ressource/Image/formulaire.png" alt="Formulaire Bénévolat" title="Formulaire Bénévolat">
+				</a>
+				
 			</div>
 		</div>
 

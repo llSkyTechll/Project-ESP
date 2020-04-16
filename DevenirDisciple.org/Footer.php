@@ -8,8 +8,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-2">
-				<a href="#">Logo 1</a>
-				<a href="#">Logo 2</a>
+				<img class="d-block img-fluid" style="widht: 100px;height:100px" src="../Ressource/Image/Logo_St-Jean-Paul_II.jpg" alt="Logo St-Jean-Paul II" title="Logo St-Jean-Paul II">
+				<img class="d-block img-fluid" style="widht: 100px;height:100px" src="../Ressource/Image/Logo_SGS.png" alt="Logo SGS" title="Logo SGS">
 			</div>
 
 			<div class="col-md-4">

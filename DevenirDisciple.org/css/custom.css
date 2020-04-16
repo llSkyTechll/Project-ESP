@@ -55,3 +55,9 @@ td ul li {
 	width: 20px;
 	height: 20px;
 }
+
+
+
+a img {
+	cursor: pointer;
+}
