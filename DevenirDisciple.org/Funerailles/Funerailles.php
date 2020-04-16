@@ -20,12 +20,56 @@ require_once '../PHPFunctions.php';
 	<title>Devenir Disciple</title>
 </head>
 
-<body>
+<body class="container">
 
-	<p>Funérailles</p>
+	<header>
+		<h1>Funérailles</h1>
+	</header>
 
+	<p> Vous venez de perdre une personne qui vous est chère; votre mère, votre père, un grand-parent, un oncle ou une tante dont vous avez pris soin.</p>
+
+	<h2>Que faire? Comment procéder?</h2>
+
+	<div>
+		<p> Vous devez prendre plusieurs décisions en ce qui concerne la personne défunte, dont celle de l’exposer ou non, ainsi que de célébrer des funérailles à l’église si tel est sa volonté ou la vôtre.</p>
+		<p>La famille s’adresse à la secrétaire de coordination de la fabrique Saint-Georges-de-Sartigan au</p>
+		<p>418-228-2558 poste 22</p>
+	</div>
+
+
+	<div>
+		<p>La famille doit aussi prendre contact avec une maison funéraire pour les aviser de ses décisions et procéder aux arrangements concernant les soins du corps de la personne décédée</p>
+
+		<p>La préparation des funérailles est un moment fort pour la famille car elle est l’occasion d’exprimer les émotions intenses qui marquent les premières étapes du processus de deuil, le besoin d’écoute, de solidarité et d’amitié. </p>
+	</div>
+
+	<div>
+		<p> On abordera avec la famille les points suivants :</p>
+		<ul>
+			<li>La parcours de vie de la personne défunte et les circonstances de son décès.</li>
+			<li>Le sens qu’on veut donner à la célébration des funérailles en tenant compte de l’assemblée et du cadre que propose l’Église en pareille circonstance.</li>
+			<li>Avec ou sans la messe </li>
+			<li>Le choix des textes sacrés.</li>
+			<li>Les intentions de prières pour la personne défunte et sa famille.</li>
+			<li>Le choix des chants et de la musique adaptés au rite sacré célébré dans une église.</li>
+			<li>Le choix non obligatoire d’une prise de parole par une personne au nom de la famille ou des proches, concernant la personne défunte, généralement au début de la célébration.</li>
+			<li>Le choix des personnes qui peuvent participer à divers services lors de la célébration : lectures, service de l’autel – porter la croix et autres.</li>
+		</ul>
+	</div>
+
+	<div>
+		<p>Pour vous guider dans la préparation et vos choix, vous pouvez remplir les formulaires à votre disposition en cliquant sur les boutons ci-dessous. </p>
+
+		<input class="btn btn-primary" type="button" tabindex="340" name="btnSubmitForm" value="Vie de la personne défunte">
+
+		<input class="btn btn-primary" type="button" tabindex="340" name="btnSubmitForm" value="Choix des lectures & services">
+
+	</div>
+
+
+	<?php require_once '../Footer.php'; ?>
 </body>
 
-<?php require_once '../Footer.php'; ?>
+
 
 </html>

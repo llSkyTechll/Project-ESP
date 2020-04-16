@@ -89,9 +89,8 @@ $conn = OpenCon();
 </head>
 
 <body>
-
 	<form class="container" name="formSubmit" id="formSubmit">
-    <input type="hidden" name="action" id="action" value="submit">
+		<input type="hidden" name="action" id="action" value="submit">
 		<div class="form-group row">
 			<label for="ffirstname" class="col-md-1 col-form-label">Prénom:</label>
 			<div class="col-md-5">
@@ -111,13 +110,13 @@ $conn = OpenCon();
 		<div class="form-group row">
 			<label for="fphone" class="col-md-1 col-form-label">Tél. :</label>
 			<div class="col-md-11">
-				<input type="tel" class="form-control" id="fphone" name="fphone" tabindex="40" placeholder="Tél.">
+				<input type="tel" class="form-control" id="fphone" name="fphone" tabindex="40" placeholder="Tél." pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
 			</div>
 		</div>
 		<div class="form-group row">
 			<label for="fcellphone" class="col-md-1 col-form-label">Tél. cell:</label>
 			<div class="col-md-11">
-				<input type="tel" class="form-control" id="fcellphone" name="fcellphone" tabindex="50" placeholder="Tél. cell">
+				<input type="tel" class="form-control" id="fcellphone" name="fcellphone" tabindex="50" placeholder="Tél. cell" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
 			</div>
 		</div>
 		<div class="form-group row">
@@ -127,16 +126,16 @@ $conn = OpenCon();
 			</div>
 		</div>
 
-	<table style="width:100%;height:100%;margin-left:auto;margin-right:auto;border-collapse: collapse;">
-    <tr>
-			<td colspan="4">
-				<br>
-				<p>Plusieurs services ou compétences sont requis dans nos communautés. Il y a d’abord les services liés à
-					la vie liturgique (lecteurs, servants de messe, membres des chorales, comités de liturgie, catéchètes,
-					etc). Des bénévoles sont aussi requis pour divers services (aide à la correspondance, secrétariat,
-					réception, menuiserie, construction, etc). D’autres compétences plus pointues sont recherchées dans
-					certaines situations (en droit, en informatique, en gestion, en communication, en ingénierie, en marketing,
-					en comptabilité et finance, etc).</p>
+		<table style="width:100%;height:100%;margin-left:auto;margin-right:auto;border-collapse: collapse;">
+			<tr>
+				<td colspan="4">
+					<br>
+					<p>Plusieurs services ou compétences sont requis dans nos communautés. Il y a d’abord les services liés à
+						la vie liturgique (lecteurs, servants de messe, membres des chorales, comités de liturgie, catéchètes,
+						etc). Des bénévoles sont aussi requis pour divers services (aide à la correspondance, secrétariat,
+						réception, menuiserie, construction, etc). D’autres compétences plus pointues sont recherchées dans
+						certaines situations (en droit, en informatique, en gestion, en communication, en ingénierie, en marketing,
+						en comptabilité et finance, etc).</p>
 				</td>
 			</tr>
 
