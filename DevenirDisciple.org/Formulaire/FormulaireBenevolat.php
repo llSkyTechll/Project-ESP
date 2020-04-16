@@ -90,108 +90,53 @@ $conn = OpenCon();
 
 <body>
 
-	<form class="container">
+	<form class="container" name="formSubmit" id="formSubmit">
+    <input type="hidden" name="action" id="action" value="submit">
 		<div class="form-group row">
-			<label for="inputPassword3" class="col-md-1 col-form-label">Password</label>
+			<label for="ffirstname" class="col-md-1 col-form-label">Prénom:</label>
 			<div class="col-md-5">
-				<input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+				<input type="text" class="form-control" id="ffirstname" name="ffirstname" tabindex="10" placeholder="Prénom">
 			</div>
-			<label for="inputPassword3" class="col-md-1 col-form-label">Password</label>
+			<label for="flastname" class="col-md-1 col-form-label">Nom:</label>
 			<div class="col-md-5">
-				<input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+				<input type="text" class="form-control" id="flastname" name="flastname" tabindex="20" placeholder="Nom">
 			</div>
 		</div>
 		<div class="form-group row">
-			<label for="inputPassword3" class="col-md-1 col-form-label">Password</label>
+			<label for="faddress" class="col-md-1 col-form-label">Adresse</label>
 			<div class="col-md-11">
-				<input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+				<input type="text" class="form-control" id="faddress" name="faddress" tabindex="30" placeholder="Adresse">
 			</div>
 		</div>
 		<div class="form-group row">
-			<label for="inputPassword3" class="col-md-1 col-form-label">Password</label>
+			<label for="fphone" class="col-md-1 col-form-label">Tél. :</label>
 			<div class="col-md-11">
-				<input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+				<input type="tel" class="form-control" id="fphone" name="fphone" tabindex="40" placeholder="Tél.">
 			</div>
 		</div>
 		<div class="form-group row">
-			<label for="inputPassword3" class="col-md-1 col-form-label">Password</label>
+			<label for="fcellphone" class="col-md-1 col-form-label">Tél. cell:</label>
 			<div class="col-md-11">
-				<input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+				<input type="tel" class="form-control" id="fcellphone" name="fcellphone" tabindex="50" placeholder="Tél. cell">
 			</div>
 		</div>
 		<div class="form-group row">
-			<label for="inputPassword3" class="col-md-1 col-form-label">Password</label>
+			<label for="femail" class="col-md-1 col-form-label">Courriel</label>
 			<div class="col-md-11">
-				<input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+				<input type="email" class="form-control" id="femail" name="femail" tabindex="60" placeholder="Courriel">
 			</div>
 		</div>
 
-	</form>
-
-	<form class="" name="formSubmit" id="formSubmit">
-		<input type="hidden" name="action" id="action" value="submit">
-		<br>
-		<table style="width:75%;height:100%;margin-left:auto;margin-right:auto;border-collapse: collapse;">
-			<tr>
-				<td align="left" style="width:7%">
-					<label>Prénom :</label>
-				</td>
-				<td>
-					<input class="form-control" type="text" tabindex="10" name="ffirstname" id="ffirstname" style="width:95%" length="50" value="">
-				</td>
-				<td style="align:left;width:5%">
-					<label>Nom :</label>
-				</td>
-				<td>
-					<input class="form-control" type="text" tabindex="20" name="flastname" id="flastname" style="width:100%" length="50" value="">
-				</td>
-			</tr>
-
-			<tr>
-				<td align="left">
-					<label>Adresse :</label>
-				</td>
-				<td colspan="3" align="left">
-					<input class="form-control" type="text" tabindex="30" name="faddress" id="faddress" style="width:100%" value="">
-				</td>
-			</tr>
-
-			<tr>
-				<td align="left">
-					<label>Tél. :</label>
-				</td>
-				<td colspan="3" align="left">
-					<input class="form-control" type="text" tabindex="40" name="fphone" id="fphone" style="width:100%" value="">
-				</td>
-			</tr>
-
-			<tr>
-				<td align="left">
-					<label>Tél. cell:</label>
-				</td>
-				<td colspan="3" align="left">
-					<input class="form-control" type="text" tabindex="50" name="fcellphone" id="fcellphone" style="width:100%" value="">
-				</td>
-			</tr>
-
-			<tr>
-				<td align="left">
-					<label>Courriel</label>
-				</td>
-				<td colspan="3" align="left">
-					<input class="form-control" type="text" tabindex="60" name="femail" id="femail" style="width:100%" length="100" value="">
-				</td>
-			</tr>
-
-			<tr>
-				<td colspan="4">
-					<br>
-					<p>Plusieurs services ou compétences sont requis dans nos communautés. Il y a d’abord les services liés à
-						la vie liturgique (lecteurs, servants de messe, membres des chorales, comités de liturgie, catéchètes,
-						etc). Des bénévoles sont aussi requis pour divers services (aide à la correspondance, secrétariat,
-						réception, menuiserie, construction, etc). D’autres compétences plus pointues sont recherchées dans
-						certaines situations (en droit, en informatique, en gestion, en communication, en ingénierie, en marketing,
-						en comptabilité et finance, etc).</p>
+	<table style="width:100%;height:100%;margin-left:auto;margin-right:auto;border-collapse: collapse;">
+    <tr>
+			<td colspan="4">
+				<br>
+				<p>Plusieurs services ou compétences sont requis dans nos communautés. Il y a d’abord les services liés à
+					la vie liturgique (lecteurs, servants de messe, membres des chorales, comités de liturgie, catéchètes,
+					etc). Des bénévoles sont aussi requis pour divers services (aide à la correspondance, secrétariat,
+					réception, menuiserie, construction, etc). D’autres compétences plus pointues sont recherchées dans
+					certaines situations (en droit, en informatique, en gestion, en communication, en ingénierie, en marketing,
+					en comptabilité et finance, etc).</p>
 				</td>
 			</tr>
 
@@ -239,7 +184,7 @@ $conn = OpenCon();
               
               if ($Result->num_rows > 0){
                 while ($Row = $Result->fetch_assoc()){
-                  echo '<option value="'.$Row['paroisseid'].'">'.utf8_encode($Row['nom']).'</option>';
+                  echo '<option value="'.$Row['paroisseid'].'">'.$Row['nom'].'</option>';
                 }
               }  
               
@@ -266,9 +211,9 @@ $conn = OpenCon();
 									$paroisseid = $Row['paroisseid'];
 									echo '<select class="form-control" tabindex="120" name="fcommunityid'.$paroisseid.'" id="fcommunityid'.$paroisseid.'" style="width:50%;display:none">';
 									echo '<option value="0"></option>';
-									echo '<option value="'.$Row['communauteid'].'">'.utf8_encode($Row['nom']).'</option>';
+									echo '<option value="'.$Row['communauteid'].'">'.$Row['nom'].'</option>';
 								}else{
-									echo '<option value="'.$Row['communauteid'].'">'.utf8_encode($Row['nom']).'</option>';
+									echo '<option value="'.$Row['communauteid'].'">'.$Row['nom'].'</option>';
 								}
 							}
 							echo '</select>';
@@ -344,7 +289,10 @@ $conn = OpenCon();
 		<div class="Center">
 			<input class="btn btn-primary" type="button" tabindex="340" name="btnSubmitForm" value="Envoyer" onclick="fnSubmit();">
 		</div>
+
+
 	</form>
+
 
 	<?php require_once '../Footer.php';?>
 
