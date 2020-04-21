@@ -39,6 +39,38 @@ require_once 'ParoissesCommunaute_pr.php';
 	<title>Devenir Disciple</title>
 
 	<script>
+  
+    function fnAddEvent(){
+      $(function() {
+					$.ajax({
+						type: 'post',
+						url: 'ParoissesCommunaute.php',
+						data: ({
+							action: 'addEvent',
+							name: document.getElementById('ename').value,
+							date: document.getElementById('edate').value,
+							description: document.getElementById('edesc').value,
+							color: document.getElementById('ecolor').value,
+							icon: document.getElementById('eicon').value,
+						}),
+						success: function(data) {
+							if (data == 'fail') {
+								Swal.fire("Une erreur c'est produite", '', 'warning');
+							} else if (data == 'success') {
+								Swal.fire({
+									title: 'Connexion réussi.',
+									icon: 'success'
+								}).then((result) => {
+									window.top.location.reload();
+								});
+							} else if (data == 'empty'){
+                Swal.fire("Veuillez remplir tous les champs", '', 'warning');
+              }
+						}
+					})
+        });
+    }
+
 		jQuery(document).ready(function() {
 			jQuery('.datetimepicker').datepicker({
 				timepicker: true,
@@ -47,17 +79,7 @@ require_once 'ParoissesCommunaute_pr.php';
 				multipleDates: true,
 				multipleDatesSeparator: " - "
 			});
-			jQuery("#add-event").submit(function() {
-				alert("Submitted");
-				var values = {};
-				$.each($('#add-event').serializeArray(), function(i, field) {
-					values[field.name] = field.value;
-				});
-				console.log(
-					values
-				);
-			});
-		});
+    });
 
 		(function() {
 			'use strict';
@@ -234,7 +256,13 @@ require_once 'ParoissesCommunaute_pr.php';
 			<h1>Paroisse-Communauté</h1>
 		</header>
 
-		<p><?php echo GetCommunityName(); ?></p>
+		<p>
+      <?php  
+        if (isset($_SESSION['gcommunityid'])){
+          echo GetCommunityName(); 
+        }
+      ?>
+    </p>
 
 		<div>
 			<h1>Heures de bureau</h1>
@@ -655,19 +683,19 @@ require_once 'ParoissesCommunaute_pr.php';
 							<h4>Ajout un événement</h4>
 							<div class="form-group">
 								<label>Nom de l'événement</label>
-								<input type="text" class="form-control" name="ename">
+								<input type="text" class="form-control" name="ename" id="ename">
 							</div>
 							<div class="form-group">
 								<label>Date de l'événement</label>
-								<input type='text' class="datetimepicker form-control" name="edate">
+								<input type='text' class="datetimepicker form-control" name="edate" id="edate">
 							</div>
 							<div class="form-group">
 								<label>Description de l'événement</label>
-								<textarea class="form-control" name="edesc"></textarea>
+								<textarea class="form-control" name="edesc" id="edesc"></textarea>
 							</div>
 							<div class="form-group">
 								<label>Couleur de l'événement</label>
-								<select class="form-control" name="ecolor">
+								<select class="form-control" name="ecolor" id="ecolor">
 									<option value="fc-bg-default">Défaut</option>
 									<option value="fc-bg-blue">Bleu</option>
 									<option value="fc-bg-lightgreen">Vert</option>
@@ -677,7 +705,7 @@ require_once 'ParoissesCommunaute_pr.php';
 							</div>
 							<div class="form-group">
 								<label>Icône de l'événement</label>
-								<select class="form-control" name="eicon">
+								<select class="form-control" name="eicon" id="eicon">
 									<option value="circle">Cercle</option>
 									<option value="cog">Dent</option>
 									<option value="group">Groupe</option>
@@ -687,7 +715,7 @@ require_once 'ParoissesCommunaute_pr.php';
 							</div>
 						</div>
 						<div class="modal-footer">
-							<button type="submit" class="btn btn-primary">Enregistrer</button>
+							<button type="button" class="btn btn-primary" onclick="fnAddEvent();">Enregistrer</button>
 							<button type="button" class="btn btn-primary" data-dismiss="modal">Fermer</button>
 						</div>
 					</form>
