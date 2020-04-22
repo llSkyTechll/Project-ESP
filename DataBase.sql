@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `devenirdisciple.org` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `devenirdisciple.org`;
--- MySQL dump 10.17  Distrib 10.3.20-MariaDB, for Win64 (AMD64)
+-- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
 --
 -- Host: localhost    Database: devenirdisciple.org
 -- ------------------------------------------------------
--- Server version	10.3.20-MariaDB
+-- Server version	5.5.5-10.4.10-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -41,6 +41,36 @@ LOCK TABLES `admin` WRITE;
 /*!40000 ALTER TABLE `admin` DISABLE KEYS */;
 INSERT INTO `admin` VALUES (1,'eric.larivière1999@hotmail.com','admin01'),(2,'Alexandre.Reny98@gmail.com','admin01!');
 /*!40000 ALTER TABLE `admin` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `calendarevent`
+--
+
+DROP TABLE IF EXISTS `calendarevent`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `calendarevent` (
+  `eventId` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL DEFAULT '',
+  `date` varchar(100) NOT NULL DEFAULT '',
+  `descr` varchar(500) NOT NULL DEFAULT '',
+  `color` varchar(50) NOT NULL DEFAULT '',
+  `icon` varchar(50) NOT NULL DEFAULT '',
+  `communityId` int(11) DEFAULT NULL,
+  PRIMARY KEY (`eventId`),
+  KEY `FK_communityId` (`communityId`),
+  CONSTRAINT `FK_communityId` FOREIGN KEY (`communityId`) REFERENCES `communaute` (`communauteid`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `calendarevent`
+--
+
+LOCK TABLES `calendarevent` WRITE;
+/*!40000 ALTER TABLE `calendarevent` DISABLE KEYS */;
+/*!40000 ALTER TABLE `calendarevent` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -118,8 +148,17 @@ CREATE TABLE `formulairebenevolat` (
   `key` varbinary(1000) NOT NULL DEFAULT '0',
   `iv` varbinary(1000) NOT NULL DEFAULT '0',
   PRIMARY KEY (`formulaireid`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `formulairebenevolat`
+--
+
+LOCK TABLES `formulairebenevolat` WRITE;
+/*!40000 ALTER TABLE `formulairebenevolat` DISABLE KEYS */;
+/*!40000 ALTER TABLE `formulairebenevolat` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `menu`
@@ -179,6 +218,26 @@ UNLOCK TABLES;
 --
 -- Dumping routines for database 'devenirdisciple.org'
 --
+/*!50003 DROP PROCEDURE IF EXISTS `AddEvent` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `AddEvent`(IN inName NVARCHAR(100), IN inDate NVARCHAR(100), IN inDescr NVARCHAR(500), IN inColor NVARCHAR(50), IN inIcon NVARCHAR(50), IN inCommunityID INT(11))
+BEGIN
+	INSERT INTO calendarevent (name, date, descr, color, icon, communityId)
+    VALUES (inName, inDate, inDescr, inColor, inIcon, inCommunityID);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `ConnexionAdmin` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -334,6 +393,25 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `GetCommunityID` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GetCommunityID`(IN inMenuID INT(11))
+BEGIN
+	SELECT communauteid FROM communaute WHERE menuid = inMenuID;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `GetMenus` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -363,4 +441,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-15 16:02:26
+-- Dump completed on 2020-04-22 11:52:16

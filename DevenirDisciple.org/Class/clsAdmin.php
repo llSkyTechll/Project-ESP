@@ -26,6 +26,17 @@ class Admin{
     $_SESSION["gmenuId"]  = 0;
   }
   
+  public function isConnected(){
+    if ($_SESSION['gadminId'] <> 0){
+      return true;
+    }
+    return false;
+  }
+  
+  public function setDefaultSession(){
+    $_SESSION['gadminId'] = 0; 
+  }
+  
 }
 
 ?>

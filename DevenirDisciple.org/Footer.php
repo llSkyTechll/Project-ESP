@@ -1,3 +1,6 @@
+<?php
+  require_once 'Class/clsAdmin.php';
+?>
 <footer class="mt-3">
 	<script>
 		if (window.top === window.self) {
@@ -20,7 +23,8 @@
 			</div>
 			<div class="col-md-2">
 				<?php 
-					if($_SESSION["gadminId"] <> 0){
+          $admin = new Admin();
+					if($admin->isConnected()){
 						echo '<input class="btn btn-primary" type="button" name="btnDeconnexion" onclick="parent.fnDeconnexion()" value="Déconnexion">';
 					}else{
 						echo '<input  class="btn btn-primary" type="button" name="btnConnexion" onclick="parent.fnRedirection(\'Connexion/ConnexionAdmin.php\',0)" value="Connexion">';

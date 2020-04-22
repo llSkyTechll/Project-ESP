@@ -4,12 +4,15 @@ session_start();
 
 header('Content-Type: text/html; charset=UTF-8');
 
+require_once 'Class/clsAdmin.php';
+
 if(!isset($_SESSION['gmenuId'])) {
   $_SESSION['gmenuId'] = 0;
 }
 
-if(!isset($_SESSION['gadminId'])) {
-  $_SESSION['gadminId'] = 0;
+$admin = new Admin();
+if($admin->isConnected() == false){
+  $admin->setDefaultSession();
 }
 
 if (!isset($_SESSION['gcommunityid'])){

@@ -6,6 +6,8 @@ require_once '../PHPFunctions.php';
 
 require_once 'ParoissesCommunaute_pr.php';
 
+require_once '../Class/clsAdmin.php';
+
 ?>
 
 <!doctype html>
@@ -131,7 +133,8 @@ require_once 'ParoissesCommunaute_pr.php';
 						}
 					},
           <?php
-            if ($_SESSION['gadminId'] != 0){
+            $admin = new Admin();
+            if ($admin->isConnected()){
           ?>
 					dayClick: function() {
 						jQuery('#modal-view-event-add').modal();
