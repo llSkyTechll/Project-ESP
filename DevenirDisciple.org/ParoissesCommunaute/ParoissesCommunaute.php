@@ -31,11 +31,13 @@ require_once 'ParoissesCommunaute_pr.php';
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/js/datepicker.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/js/i18n/datepicker.en.js"></script>
+  
 
 	<link rel="stylesheet" href="../css/include.css">
 	<link rel="stylesheet" href="../css/calendar.css">
 	<script src="../JavaScript/JSFunction.js"></script>
 	<!--<script src="../JavaScript/JSCalendar.js"></script>-->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 	<title>Devenir Disciple</title>
 
 	<script>
@@ -58,12 +60,12 @@ require_once 'ParoissesCommunaute_pr.php';
 								Swal.fire("Une erreur c'est produite", '', 'warning');
 							} else if (data == 'success') {
 								Swal.fire({
-									title: 'Connexion réussi.',
+									title: 'Ajout réussi.',
 									icon: 'success'
 								}).then((result) => {
 									window.top.location.reload();
 								});
-							} else if (data == 'empty'){
+							} else if (data == 'emptyFields'){
                 Swal.fire("Veuillez remplir tous les champs", '', 'warning');
               }
 						}
@@ -104,135 +106,39 @@ require_once 'ParoissesCommunaute_pr.php';
 					events: [
 						<?php
           $conn = OpenCon();
-          $SQL = "SELECT NAME, redirectionpath FROM MENU LIMIT 0, 1;";
+          $SQL = "SELECT name, descr, date, color, icon FROM calendarevent WHERE communityid =".$_SESSION['gcommunityid'].";";
           $RSSQL = $conn->query($SQL);
-          $TEST = '';
+ 
           if ($RSSQL->num_rows > 0) {
           // output data of each row
             while($row = $RSSQL->fetch_assoc()) {
-              $TEST = $row['NAME'];
+              $date  = explode("-", $row['date']);
+              $start = $date[0];
+              $end   = '';
+              if (isset($date[1])){
+                $end   = $date[1];
+              }
+              
+              echo "{ title: '".$row['name']."', description: '".$row['descr']."', start: '".$start."', end: '".$end."', className: '".$row['color']."', icon:'".$row['icon']."'},";
             }
           }
           CLoseCon($conn);
-        ?> {
-							title: 'Barber',
-							description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-							start: '2019-07-07',
-							end: '2019-07-07',
-							className: 'fc-bg-default',
-							icon: "circle"
-						},
-						{
-							title: 'Flight Paris',
-							description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-							start: '2019-08-08T14:00:00',
-							end: '2019-08-08T20:00:00',
-							className: 'fc-bg-deepskyblue',
-							icon: "cog",
-							allDay: false
-						},
-						{
-							title: 'Team Meeting',
-							description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-							start: '2019-07-10T13:00:00',
-							end: '2019-07-10T16:00:00',
-							className: 'fc-bg-pinkred',
-							icon: "group",
-							allDay: false
-						},
-						{
-							title: 'Meeting',
-							description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-							start: '2019-08-12',
-							className: 'fc-bg-lightgreen',
-							icon: "suitcase"
-						},
-						{
-							title: 'Conference',
-							description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-							start: '2019-08-13',
-							end: '2019-08-15',
-							className: 'fc-bg-blue',
-							icon: "calendar"
-						},
-						{
-							title: 'Baby Shower',
-							description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-							start: '2019-08-13',
-							end: '2019-08-14',
-							className: 'fc-bg-default',
-							icon: "child"
-						},
-						{
-							title: 'Birthday',
-							description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-							start: '2019-09-13',
-							end: '2019-09-13',
-							className: 'fc-bg-default',
-							icon: "birthday-cake",
-							allDay: false
-						},
-						{
-							title: 'Birthday',
-							description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-							start: '2019-09-15',
-							end: '2019-09-16',
-							className: 'fc-bg-default',
-							icon: "birthday-cake",
-							allDay: true
-						},
-						{
-							title: 'Restaurant',
-							description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-							start: '2019-10-15T09:30:00',
-							end: '2019-10-15T11:45:00',
-							className: 'fc-bg-default',
-							icon: "glass",
-							allDay: false
-						},
-						{
-							title: 'Dinner',
-							description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-							start: '2019-11-15T20:00:00',
-							end: '2019-11-15T22:30:00',
-							className: 'fc-bg-default',
-							icon: "cutlery",
-							allDay: false
-						},
-						{
-							title: 'Shooting',
-							description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-							start: '2019-08-25',
-							end: '2019-08-25',
-							className: 'fc-bg-blue',
-							icon: "camera"
-						},
-						{
-							title: 'Go Space :)',
-							description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-							start: '2019-12-27',
-							end: '2019-12-27',
-							className: 'fc-bg-default',
-							icon: "rocket"
-						},
-						{
-							title: 'Dentist',
-							description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-							start: '2019-12-29T11:30:00',
-							end: '2019-12-29T012:30:00',
-							className: 'fc-bg-blue',
-							icon: "medkit",
-							allDay: false
-						}
+        ?> 
 					],
 					eventRender: function(event, element) {
 						if (event.icon) {
 							element.find(".fc-title").prepend("<i class='fa fa-" + event.icon + "'></i>");
 						}
 					},
+          <?php
+            if ($_SESSION['gadminId'] != 0){
+          ?>
 					dayClick: function() {
 						jQuery('#modal-view-event-add').modal();
 					},
+          <?php
+            }
+          ?>
 					eventClick: function(event, jsEvent, view) {
 						jQuery('.event-icon').html("<i class='fa fa-" + event.icon + "'></i>");
 						jQuery('.event-title').html(event.title);
@@ -687,7 +593,7 @@ require_once 'ParoissesCommunaute_pr.php';
 							</div>
 							<div class="form-group">
 								<label>Date de l'événement</label>
-								<input type='text' class="datetimepicker form-control" name="edate" id="edate">
+								<input type='text' class="datetimepicker form-control" readonly name="edate" id="edate">
 							</div>
 							<div class="form-group">
 								<label>Description de l'événement</label>

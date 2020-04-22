@@ -10,6 +10,7 @@ class ParoisseCommunaute{
     
     CloseCon($conn);
     
+   
     return $RSSQL;
   }
   
@@ -22,6 +23,21 @@ class ParoisseCommunaute{
     CloseCon($conn);
     
     return $RSSQL;
+  }
+  
+  public function getCommunityId(){
+    $SQL = 'CALL GetCommunityID('.$_SESSION['gmenuId'].');';
+    $conn = OpenCon();
+    $RSSQL = $conn->query($SQL);
+    
+    CloseCon($conn);
+    
+    if ($RSSQL->num_rows > 0){
+      $Result = $RSSQL->fetch_assoc();
+      return $Result['communauteid'];
+    }
+    
+    return 0;
   }
   
 }

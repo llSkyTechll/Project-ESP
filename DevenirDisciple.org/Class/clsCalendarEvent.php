@@ -4,17 +4,18 @@ class CalendarEvent{
   
   public function saveNewEvent($name, $date, $descr, $color, $icon){
     
-    if (!isset($_SESSION['gcommunityid'])){
-      echo 'fail';
+    if ($_SESSION['gcommunityid'] == 0){
+      exit('fail');
     }
     $conn = OpenCon();
     
-    $SQL = 'CALL AddEvent('.$name.','. $date.','. $descr.','. $color.','. $icon.','.$_SESSION['gcommunityid'].');';
+    $SQL = "CALL AddEvent('".$name."','". $date."','". $descr."','". $color."','". $icon."','".$_SESSION['gcommunityid']."');";
+
     $RSSQL = $conn->query($SQL);    
     
-    Close($conn);
+    CloseCon($conn);
     
-    echo 'success';
+    exit('success');
   }
   
 }

@@ -2,13 +2,13 @@
 
 require_once '../Class/clsCalendarEvent.php';
 
-if (isset($_SESSION['gmenuid'])){
-  $SQL = 'CALL GetCommunityID('.$_SESSION['gmenuid'].');';
-  $conn = OpenCon();
-  $RSSQL = $conn->query($SQL);
-  CloseCon($conn);
+require_once '../Class/clsParoisseCommunaute.php';
+
+if (isset($_SESSION['gmenuId'])){
+  $community = new ParoisseCommunaute();
+  $communityid = $community->getCommunityId();
   
-  $_SESSION['gcommunityid'] = $RSSQL['communityid'];
+  $_SESSION['gcommunityid'] = $communityid;
 }
 
 if (isset($_POST['action'])){
@@ -26,15 +26,16 @@ function GetCommunityName(){
 
 function FNAddEvent(){
   if ($_POST['name'] == '' || $_POST['description'] == '' || $_POST['date'] == '' || $_POST['color'] == '' || $_POST['icon'] == ''){
-    echo 'emptyFields';
+    exit('emptyFields');
   }
+  
   $Event = new CalendarEvent();
   
-  if ($Event->saveNewEvent($_POST['name'], $_POST['date'], $_POST['description'], $_POST['color'], $_POST['icon']) == 'success'){
-    echo 'success';
+  if ($Event->saveNewEvent(FNSQL($_POST['name']), FNSQL($_POST['date']), FNSQL($_POST['description']), FNSQL($_POST['color']), FNSQL($_POST['icon'])) == 'success'){
+    exit('success');
   }
   
-  echo 'fail';
+  exit('fail');
 }
 
 ?>
