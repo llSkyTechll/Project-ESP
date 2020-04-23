@@ -49,6 +49,11 @@ $conn = OpenCon();
 			document.getElementById("femail").style.borderColor = "";
 			document.getElementById("fphone").style.borderColor = "";
 			document.getElementById("fcellphone").style.borderColor = "";
+      if (fnValidateEmptyFields() == false){
+        Swal.fire("Formulaire invalide", 'Veuillez remplir les champs obligatoires', 'warning');
+        return;
+      }
+      
 			$(function() {
 				$.ajax({
 					type: 'post',
@@ -57,19 +62,10 @@ $conn = OpenCon();
 						formdata: $("#formSubmit").serialize()
 					}),
 					success: function(data) {
-						if (data == 'firstname') {
-							document.getElementById("ffirstname").style.borderColor = "red";
-							Swal.fire("Formulaire invalide", 'Le champ Prénom ne peut pas être vide.', 'warning');
-						} else if (data == "lastname") {
-							document.getElementById("flastname").style.borderColor = "red";
-							Swal.fire("Formulaire invalide", 'Le champ Nom ne peut pas être vide.', 'warning');
-						} else if (data == "email") {
-							document.getElementById("femail").style.borderColor = "red";
-							Swal.fire("Formulaire invalide", 'Le champ Courriel ne peut pas être vide.', 'warning');
-						} else if (data == "phone") {
-							document.getElementById("fphone").style.borderColor = "red";
-							document.getElementById("fcellphone").style.borderColor = "red";
-							Swal.fire("Formulaire invalide", "Il faut entrer au moins un téléphone.", 'warning');
+						if (data == 'emptyFields') {
+               if (fnValidateEmptyFields() == false){
+                Swal.fire("Formulaire invalide", 'Veuillez remplir les champs obligatoires', 'warning');
+              }
 						} else if (data == 'Success') {
 							Swal.fire({
 								title: 'Envoie effectué avec succès',
@@ -84,6 +80,28 @@ $conn = OpenCon();
 				})
 			})
 		};
+    
+    function fnValidateEmptyFields(){
+      var result = true;
+      if (document.getElementById("ffirstname").value.trim() == ''){
+        document.getElementById("ffirstname").style.borderColor = "red";
+        result = false;
+      }
+      if (document.getElementById("flastname").value.trim() == ''){
+        document.getElementById("flastname").style.borderColor = "red";
+        result = false;
+      }
+      if (document.getElementById("femail").value.trim() == ''){
+        document.getElementById("femail").style.borderColor = "red";
+        result = false;
+      }
+      if (document.getElementById("fphone").value.trim() == '' || document.getElementById("fcellphone").value.trim() == ''){
+        document.getElementById("fphone").style.borderColor = "red";
+        document.getElementById("fcellphone").style.borderColor = "red";
+        result = false;
+      }
+      return result;
+    }
 
 	</script>
 </head>

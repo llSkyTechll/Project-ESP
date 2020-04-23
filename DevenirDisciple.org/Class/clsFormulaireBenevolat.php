@@ -70,20 +70,8 @@ class FormulaireBenevolat{
   
   public function validationEmpty($formdata){
     
-    if($formdata['ffirstname'] == ''){
-      return 'firstname';
-    }
-    
-    if ($formdata['flastname'] == '') {
-      return 'lastname';
-    }
-
-    if ($formdata['femail'] == '') {
-      return 'email';
-    }
-
-    if ($formdata['fphone'] == '' && $formdata['fcellphone'] == '') {
-      return 'phone';
+    if(trim($formdata['ffirstname']) == '' || trim($formdata['flastname']) == '' || trim($formdata['femail']) == '' || (trim($formdata['fphone']) == '' && trim($formdata['fcellphone']) == '')){
+      return 'emptyFields';
     }
     
     return 'success';
