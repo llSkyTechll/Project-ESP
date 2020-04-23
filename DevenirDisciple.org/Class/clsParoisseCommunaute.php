@@ -19,17 +19,17 @@ class ParoisseCommunaute{
     
     $SQL = 'CALL GetAllCommunauteOrderParoisse();';
     $RSSQL = $conn->query($SQL);
-    
+
     CloseCon($conn);
     
     return $RSSQL;
   }
   
-  public function getCommunityId(){
+  public static function getCommunityId(){
     $SQL = 'CALL GetCommunityID('.$_SESSION['gmenuId'].');';
     $conn = OpenCon();
     $RSSQL = $conn->query($SQL);
-    
+
     CloseCon($conn);
     
     if ($RSSQL->num_rows > 0){

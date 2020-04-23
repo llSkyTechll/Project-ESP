@@ -8,6 +8,10 @@ require_once 'ParoissesCommunaute_pr.php';
 
 require_once '../Class/clsAdmin.php';
 
+if (isset($_SESSION['gmenuId'])){
+  $_SESSION['gcommunityid'] = ParoisseCommunaute::getCommunityId();
+}
+
 ?>
 
 <!doctype html>

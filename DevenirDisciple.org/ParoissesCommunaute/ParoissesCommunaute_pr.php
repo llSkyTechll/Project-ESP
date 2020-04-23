@@ -7,7 +7,6 @@ require_once '../Class/clsParoisseCommunaute.php';
 if (isset($_SESSION['gmenuId'])){
   $community = new ParoisseCommunaute();
   $communityid = $community->getCommunityId();
-  
   $_SESSION['gcommunityid'] = $communityid;
 }
 
