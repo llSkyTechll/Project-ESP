@@ -107,25 +107,13 @@ require_once '../Class/clsAdmin.php';
 					},
 					events: [
 						<?php
-          $conn = OpenCon();
-          $SQL = "SELECT name, descr, date, color, icon FROM calendarevent WHERE communityid =".$_SESSION['gcommunityid'].";";
-          $RSSQL = $conn->query($SQL);
- 
-          if ($RSSQL->num_rows > 0) {
-          // output data of each row
-            while($row = $RSSQL->fetch_assoc()) {
-              $date  = explode("-", $row['date']);
-              $start = $date[0];
-              $end   = '';
-              if (isset($date[1])){
-                $end   = $date[1];
+              $eventArray = CalendarEventDAO::getAllCalendarEvents();
+              if($eventArray != null){
+                for($x = 0; $x < count($eventArray); $x++){
+                  $eventArray[$x]->getCalendarEventFormat();
+                }
               }
-              
-              echo "{ title: '".$row['name']."', description: '".$row['descr']."', start: '".$start."', end: '".$end."', className: '".$row['color']."', icon:'".$row['icon']."'},";
-            }
-          }
-          CLoseCon($conn);
-        ?> 
+            ?> 
 					],
 					eventRender: function(event, element) {
 						if (event.icon) {
@@ -133,8 +121,7 @@ require_once '../Class/clsAdmin.php';
 						}
 					},
           <?php
-            $admin = new Admin();
-            if ($admin->isConnected()){
+            if (Admin::isConnected()){
           ?>
 					dayClick: function() {
 						jQuery('#modal-view-event-add').modal();

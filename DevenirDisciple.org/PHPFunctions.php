@@ -10,9 +10,8 @@ if(!isset($_SESSION['gmenuId'])) {
   $_SESSION['gmenuId'] = 0;
 }
 
-$admin = new Admin();
-if($admin->isConnected() == false){
-  $admin->setDefaultSession();
+if(Admin::isConnected() == false){
+  Admin::setDefaultSession();
 }
 
 if (!isset($_SESSION['gcommunityid'])){

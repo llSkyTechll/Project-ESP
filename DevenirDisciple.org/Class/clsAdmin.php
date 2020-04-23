@@ -2,7 +2,7 @@
 
 class Admin{
   
-  public function connexion($email, $password){
+  public static function connexion($email, $password){
     $conn = OpenCon();
     
     $param = "'".$email."', '".$password."', @AdminId";  
@@ -21,19 +21,22 @@ class Admin{
     }    
   }
   
-  public function deconnexion(){
+  public static function deconnexion(){
     $_SESSION["gadminId"] = 0;
     $_SESSION["gmenuId"]  = 0;
   }
   
-  public function isConnected(){
-    if ($_SESSION['gadminId'] <> 0){
-      return true;
+  public static function isConnected(){
+    if (isset($_SESSION['gadminId'])){
+      if ($_SESSION['gadminId'] <> 0){
+        return true;
+      }
     }
+    
     return false;
   }
   
-  public function setDefaultSession(){
+  public static function setDefaultSession(){
     $_SESSION['gadminId'] = 0; 
   }
   

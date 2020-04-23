@@ -1,6 +1,6 @@
 <?php 
 
-require_once '../Class/clsCalendarEvent.php';
+require_once '../Class/clsCalendarEventDAO.php';
 
 require_once '../Class/clsParoisseCommunaute.php';
 
@@ -29,9 +29,7 @@ function FNAddEvent(){
     exit('emptyFields');
   }
   
-  $Event = new CalendarEvent();
-  
-  if ($Event->saveNewEvent(FNSQL($_POST['name']), FNSQL($_POST['date']), FNSQL($_POST['description']), FNSQL($_POST['color']), FNSQL($_POST['icon'])) == 'success'){
+  if (CalendarEventDAO::saveNewEvent($_POST['name'], $_POST['date'], $_POST['description'], $_POST['color'], $_POST['icon']) == 'success'){
     exit('success');
   }
   

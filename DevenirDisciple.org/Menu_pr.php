@@ -23,8 +23,7 @@ function FNRedirect(){
 }
 
 function FNDeconnexion(){
-  $admin = new Admin();
-  $admin->deconnexion();
+  Admin::deconnexion();
   $_SESSION["gmenuId"] = 1;
   $_SESSION["gpath"]   = 'Accueil/Accueil.php';
   exit('success');

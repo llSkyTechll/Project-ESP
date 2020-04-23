@@ -23,8 +23,7 @@
 			</div>
 			<div class="col-md-2">
 				<?php 
-          $admin = new Admin();
-					if($admin->isConnected()){
+					if(Admin::isConnected()){
 						echo '<input class="btn btn-primary" type="button" name="btnDeconnexion" onclick="parent.fnDeconnexion()" value="Déconnexion">';
 					}else{
 						echo '<input  class="btn btn-primary" type="button" name="btnConnexion" onclick="parent.fnRedirection(\'Connexion/ConnexionAdmin.php\',0)" value="Connexion">';

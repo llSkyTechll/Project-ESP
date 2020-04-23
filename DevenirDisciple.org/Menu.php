@@ -96,7 +96,7 @@ $conn = OpenCon();
 				<ul class="navbar-nav">
 
 					<?php
-						$menu = new Menu();
+						$menu   = new Menu();
 						$result = $menu->getMenu();
 
 						$resultlength = count($result);
