@@ -413,7 +413,7 @@
 	}
 
 	var defaultCalendar = {
-		sameDay: '[Today at] LT',
+		sameDay: '[today at] LT',
 		nextDay: '[Tomorrow at] LT',
 		nextWeek: 'dddd [at] LT',
 		lastDay: '[Yesterday at] LT',
@@ -4171,7 +4171,7 @@
 		// check: https://github.com/moment/moment/issues/2166
 		if (!((milliseconds >= 0 && days >= 0 && months >= 0) ||
 				(milliseconds <= 0 && days <= 0 && months <= 0))) {
-			milliseconds += absCeil(monthsToDays(months) + days) * 864e5;
+			milliseconds += absCeil(monthstodays(months) + days) * 864e5;
 			days = 0;
 			months = 0;
 		}
@@ -4194,7 +4194,7 @@
 		// convert days to months
 		monthsFromDays = absFloor(daysToMonths(days));
 		months += monthsFromDays;
-		days -= absCeil(monthsToDays(monthsFromDays));
+		days -= absCeil(monthstodays(monthsFromDays));
 
 		// 12 months -> 1 year
 		years = absFloor(months / 12);
@@ -4213,7 +4213,7 @@
 		return days * 4800 / 146097;
 	}
 
-	function monthsToDays(months) {
+	function monthstodays(months) {
 		// the reverse of daysToMonths
 		return months * 146097 / 4800;
 	}
@@ -4234,7 +4234,7 @@
 			return units === 'month' ? months : months / 12;
 		} else {
 			// handle milliseconds separately because of floating point math errors (issue #1867)
-			days = this._days + Math.round(monthsToDays(this._months));
+			days = this._days + Math.round(monthstodays(this._months));
 			switch (units) {
 				case 'week':
 					return days / 7 + milliseconds / 6048e5;

@@ -4,12 +4,6 @@ require_once '../Class/clsCalendarEventDAO.php';
 
 require_once '../Class/clsParoisseCommunaute.php';
 
-if (isset($_SESSION['gmenuId'])){
-  $community = new ParoisseCommunaute();
-  $communityid = $community->getCommunityId();
-  $_SESSION['gcommunityid'] = $communityid;
-}
-
 if (isset($_POST['action'])){
   $action = $_POST['action'];
   
