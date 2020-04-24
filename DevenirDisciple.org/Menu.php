@@ -27,7 +27,7 @@ $conn = OpenCon();
 	<link rel="stylesheet" href="css/include.css">
 	<link rel="shortcut icon" href="Ressource/Image/faviconJesus.png" type="image/ico" />
 	<script src="JavaScript/JQuery1.9.1.js"></script>
-	<script src="https://kit.fontawesome.com/30dce125f3.js" crossorigin="anonymous"></script>
+	<!--<script src="https://kit.fontawesome.com/30dce125f3.js" crossorigin="anonymous"></script>-->
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 	<script>
 		function fnRedirection(Path, menuId) {
