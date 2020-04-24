@@ -31,7 +31,6 @@ $conn = OpenCon();
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 	<script>
 		function fnRedirection(Path, menuId) {
-			document.getElementById('PageContent').src = Path;
 			$(function() {
 				$.ajax({
 					type: 'post',
@@ -42,6 +41,7 @@ $conn = OpenCon();
 						path: Path
 					})
 				});
+        document.getElementById('PageContent').src = Path;
 			})
 		}
 

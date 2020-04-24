@@ -27,7 +27,8 @@ class ParoisseCommunaute{
   
   public static function getCommunityId(){
     $SQL = 'CALL GetCommunityID('.$_SESSION['gmenuId'].');';
-    $conn = OpenCon();
+    
+    $conn  = OpenCon();
     $RSSQL = $conn->query($SQL);
 
     CloseCon($conn);
@@ -38,6 +39,10 @@ class ParoisseCommunaute{
     }
     
     return 0;
+  }
+  
+  public static function getCommunityName(){
+    //À compléter
   }
   
 }

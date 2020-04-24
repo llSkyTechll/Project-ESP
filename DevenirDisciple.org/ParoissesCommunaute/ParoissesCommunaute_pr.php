@@ -14,7 +14,7 @@ if (isset($_POST['action'])){
 }
 
 function GetCommunityName(){
-  echo $_SESSION['gcommunityid'];
+  ParoisseCommunaute::getCommunityName();
 }
 
 function FNAddEvent(){
