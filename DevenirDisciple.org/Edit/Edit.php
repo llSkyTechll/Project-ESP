@@ -1,8 +1,5 @@
-<?php
+<!--Template pour les pages dans le iframe de menu-->
 
-require_once '../PHPFunctions.php';
-
-?>
 <!doctype html>
 <html lang="en">
 
@@ -20,25 +17,20 @@ require_once '../PHPFunctions.php';
 </head>
 
 <body>
-
-	<p>Feuillets</p>
-
-	<!-- simple-->
-	<form action="../Uploads/UploadImage.php" method="post" enctype="multipart/form-data">
-    <label for="fileToUpload">Select image to upload:</label>
-    <input type="file" name="fileToUpload" id="fileToUpload">
-    <input type="submit" value="Upload Image" name="submit">
-</form>
-	
-	<!-- multiple-->
-	<form action="/action_page.php">
-  <label for="myfile">Select files:</label>
-  <input type="file" id="myfile" name="myfile" multiple><br><br>
-  <input type="submit">
-</form>
-	
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 
-<?php require_once '../Footer.php';?>
+
+<select class="form-control" tabindex="120" name="fcommunityid'.$paroisseid.'" id="fcommunityid'.$paroisseid.'" style="width:50%;display:none">';
+	<option value="0">test0</option>
+	<option value="1">test1</option>
+	<option value="2">test2</option>
+	<option value="3">test3</option>
+	<option value="4">test4</option>
+</select>
+
+
 
 </html>
