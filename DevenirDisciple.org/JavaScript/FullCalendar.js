@@ -1317,12 +1317,12 @@
 				prevYear: "prev year",
 				nextYear: "next year",
 				year: "year",
-				today: "today",
-				month: "month",
-				week: "week",
-				day: "day"
+				today: "Aujourd\'hui",
+				month: "Mois",
+				week: "Semaine",
+				day: "Jour"
 			},
-			allDayText: "all-day",
+			allDayText: "Journée complète",
 			agendaEventMinHeight: 0,
 			theme: !1,
 			dragOpacity: .75,

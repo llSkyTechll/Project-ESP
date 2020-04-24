@@ -546,7 +546,7 @@ if (isset($_SESSION['gmenuId'])){
 			</div>
 		</div>
 
-  <div class="col-md-9">
+  <div class="col-md-12">
 		<div class="p-5">
 			<h2 class="mb-4">Calendrier des événements</h2>
 			<div class="card">
