@@ -22,4 +22,10 @@ function FNSQL($string){
   return str_replace("'", "''", $string);
 }
 
+function validateAdminEditing(){
+  if (Admin::isConnected()) {
+    echo 'contentEditable'; 
+  }
+}
+
 ?>

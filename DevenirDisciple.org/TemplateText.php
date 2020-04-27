@@ -1,7 +1,9 @@
 <!--Template pour les pages dans le iframe de menu-->
 <?php
 
-require_once '../ConnexionDB.php';
+require_once 'ConnexionDB.php';
+
+require_once 'PHPFunctions.php';
 
 require_once 'Class/clsTemplateText.php'
 
@@ -25,6 +27,25 @@ require_once 'Class/clsTemplateText.php'
 
   <body>
     
+    <div <?php validateAdminEditing(); ?>>
+    </div>
+    <div <?php validateAdminEditing(); ?>>
+    </div>
+    <div <?php validateAdminEditing(); ?>>
+    </div>
+    <div <?php validateAdminEditing(); ?>>
+    </div>
+    <div <?php validateAdminEditing(); ?>>
+    </div>
+    
+    
+    <?php 
+      if (Admin::isConnected()){
+        echo '<div>
+                <input type="button" name="btnsave" value="SAVE">
+              </div>';
+      }
+    ?>
     
     
   </body>
