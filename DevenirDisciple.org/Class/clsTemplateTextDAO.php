@@ -24,7 +24,7 @@ class TemplateTextDAO{
   
   public static function savePageContent($contentId, $menuid, $title, $header, $subtitle, $content){
     $SQL = "CALL SavePageContentTemplateText('".$contentId."','".$menuid."','".$title."','".$header."','".$subtitle."','".$content."');";
-   echo $SQL;
+
     $conn = OpenCon();
     
     $conn->query($SQL);
