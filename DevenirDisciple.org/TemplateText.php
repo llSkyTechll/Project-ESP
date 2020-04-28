@@ -28,6 +28,7 @@ require_once 'Class/clsTemplateText.php'
   <body>
     
     <div <?php validateAdminEditing(); ?>>
+      <?php?>
     </div>
     <div <?php validateAdminEditing(); ?>>
     </div>
