@@ -11,12 +11,12 @@ class CalendarEvent{
   private $communityid;
   
   function __construct($eventid,$name, $date, $descr, $color, $icon, $communityid){
-    $this->name = $name;
-    $this->date = $date;
-    $this->descr = $descr;
-    $this->color = $color;
-    $this->icon = $icon;
-    $this->eventid = $eventid;
+    $this->name        = $name;
+    $this->date        = $date;
+    $this->descr       = $descr;
+    $this->color       = $color;
+    $this->icon        = $icon;
+    $this->eventid     = $eventid;
     $this->communityid = $communityid;
   }
   
