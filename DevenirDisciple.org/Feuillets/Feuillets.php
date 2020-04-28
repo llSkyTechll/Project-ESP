@@ -23,22 +23,24 @@ require_once '../PHPFunctions.php';
 
 	<p>Feuillets</p>
 
-	<!-- simple-->
-	<form action="../Uploads/UploadImage.php" method="post" enctype="multipart/form-data">
+	<!--<form action="../Uploads/UploadImage.php" method="post" enctype="multipart/form-data">
     <label for="fileToUpload">Select image to upload:</label>
-    <input type="file" name="fileToUpload" id="fileToUpload">
+    <input type="file" name="fileToUpload[]" id="fileToUpload" multiple>
     <input type="submit" value="Upload Image" name="submit">
 </form>
-	
-	<!-- multiple-->
-	<form action="/action_page.php">
-  <label for="myfile">Select files:</label>
-  <input type="file" id="myfile" name="myfile" multiple><br><br>
-  <input type="submit">
+	<form action="../Uploads/UploadPDF.php" method="post" enctype="multipart/form-data">
+    <label for="fileToUpload">Select PDF to upload:</label>
+    <input type="file" name="fileToUpload[]" id="fileToUpload" multiple>
+    <input type="submit" value="Upload Image" name="submit">
 </form>
+	<form action="../Uploads/UploadVideo.php" method="post" enctype="multipart/form-data">
+    <label for="fileToUpload">Select Video to upload:</label>
+    <input type="file" name="fileToUpload[]" id="fileToUpload" multiple>
+    <input type="submit" value="Upload Image" name="submit">
+</form>-->
+<?php require_once '../Footer.php';?>
 	
 </body>
 
-<?php require_once '../Footer.php';?>
 
 </html>
