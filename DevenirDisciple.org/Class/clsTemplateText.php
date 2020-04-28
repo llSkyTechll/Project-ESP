@@ -25,22 +25,29 @@ class TemplateText{
     if (validateAdminEditing()){
       $contentEditable = 'contentEditable';
     }
-    echo '<input type="hidden" id="contentId" value="'.$this->pageContentTemplateTextId.'">
-          <div id="image" '.$contentEditable.'> 
-            '.$this->image.'
-          </div>
-          <div id="title" '.$contentEditable.'> 
-            '.$this->title.'
-          </div>
-          <div id="header" '.$contentEditable.'> 
-            '.$this->header.'
-          </div>
-          <div id="subtitle" '.$contentEditable.'> 
-            '.$this->subtitle.'
-          </div>
-          <div id="content" '.$contentEditable.'> 
-            '.$this->content.'
-          </div>';
+    echo '<div class="container">
+						<input type="hidden" id="contentId" value="'.$this->pageContentTemplateTextId.'">
+					
+						<header>
+						<div id="image"> 
+							<img src="'.$this->image.'" alt="Image Titre" height="200" width="200">
+						</div>	
+						
+							<h1 id="title" '.$contentEditable.'> 
+								'.$this->title.'
+							</h1>
+							<div id="header" '.$contentEditable.'> 
+							'.$this->header.'
+							</div>
+						</header>						
+						<h2 id="subtitle" '.$contentEditable.'> 
+							'.$this->subtitle.'
+						</h2>
+						<div id="content" '.$contentEditable.'> 
+							'.$this->content.'
+						</div>
+					</div>';
+					
   } 
   
 }

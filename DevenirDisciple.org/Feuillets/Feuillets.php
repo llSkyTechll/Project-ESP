@@ -38,6 +38,12 @@ require_once '../PHPFunctions.php';
     <input type="file" name="fileToUpload[]" id="fileToUpload" multiple>
     <input type="submit" value="Upload Image" name="submit">
 </form>-->
+	
+	
+	<!--lire PDF-->
+	<!--<a href="../Ressource/PDF/Travail2.pdf" >ok</a>-->
+	<!--Download PDF-->
+	<!--<a href="../Ressource/PDF/Travail2.pdf" download>ok</a>-->
 <?php require_once '../Footer.php';?>
 	
 </body>
