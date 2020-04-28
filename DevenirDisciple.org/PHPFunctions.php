@@ -24,8 +24,9 @@ function FNSQL($string){
 
 function validateAdminEditing(){
   if (Admin::isConnected()) {
-    echo 'contentEditable'; 
+    return true;
   }
+  return false;
 }
 
 ?>
