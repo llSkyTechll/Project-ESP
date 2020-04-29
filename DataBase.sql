@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `devenirdisciple.org` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `devenirdisciple.org`;
--- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
+-- MariaDB dump 10.17  Distrib 10.4.10-MariaDB, for Win64 (AMD64)
 --
 -- Host: localhost    Database: devenirdisciple.org
 -- ------------------------------------------------------
--- Server version	5.5.5-10.4.10-MariaDB
+-- Server version	10.4.10-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -158,7 +158,7 @@ CREATE TABLE `formulairebenevolat` (
 
 LOCK TABLES `formulairebenevolat` WRITE;
 /*!40000 ALTER TABLE `formulairebenevolat` DISABLE KEYS */;
-INSERT INTO `formulairebenevolat` VALUES (1,'GAecdq0BhnH27WAH0Vb6+oyVvnDNuf7qe+9ffXuqE2Q=','NuROQltZkTxjciE3pIBZXhYaOiuSMONH/XyHMnhzLWc=','j9ZhixIe/aSvzcQCeVa3kajwOyqO6NO3lXbBEK/4GWg=','1oxW5u+PG2xo1LneJ3WRfP6O0wgzHUgXGNigPLje3Ks=','567QfQTLU1FADKzLuhkrDg9qHh2zHj/MSQq52t++C+w=','3OKO2sy9mguIf5vWZIAExf6YfrqPQhLXBUiR8B8ezHOCF0t757sS6XmixVjzF9DA','','','','',0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'oj\Éû\Ëù0´úk¯\Äv\Æn{›F\Ù\Ó<†B§P\ZU*8','?Øªš¥dµ\0u’1µ');
+INSERT INTO `formulairebenevolat` VALUES (1,'GAecdq0BhnH27WAH0Vb6+oyVvnDNuf7qe+9ffXuqE2Q=','NuROQltZkTxjciE3pIBZXhYaOiuSMONH/XyHMnhzLWc=','j9ZhixIe/aSvzcQCeVa3kajwOyqO6NO3lXbBEK/4GWg=','1oxW5u+PG2xo1LneJ3WRfP6O0wgzHUgXGNigPLje3Ks=','567QfQTLU1FADKzLuhkrDg9qHh2zHj/MSQq52t++C+w=','3OKO2sy9mguIf5vWZIAExf6YfrqPQhLXBUiR8B8ezHOCF0t757sS6XmixVjzF9DA','','','','',0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'ojÉûËù0´úk¯ÄvÆn{›FÙÓ<†B§P\ZU*8','?Øªš¥dµ\0u’1µ');
 /*!40000 ALTER TABLE `formulairebenevolat` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -185,8 +185,37 @@ CREATE TABLE `menu` (
 
 LOCK TABLES `menu` WRITE;
 /*!40000 ALTER TABLE `menu` DISABLE KEYS */;
-INSERT INTO `menu` VALUES (1,'0','Accueil','Accueil/Accueil.php',1),(2,'0','Paroisses-CommunautÃ©s','ParoissesCommunaute/ParoissesCommunaute.php',2),(3,'0','Sacrements','Sacrements/Sacrements.php',3),(4,'0','Chemins de foi','CheminsDeFoi/CheminsDeFoi.php',4),(5,'0','FunÃ©railles','Funerailles/Funerailles.php',5),(6,'0','Feuillets','Feuillets/Feuillets.php',6),(7,'0','Financement','Financement/Financement.php',7),(8,'2','St-Georges-de-Sartigan','ParoissesCommunaute/ParoissesCommunaute.php',2),(9,'2','Saint-Jean-Paul II','ParoissesCommunaute/ParoissesCommunaute.php',1),(10,'8','Saint-Benjamin','ParoissesCommunaute/ParoissesCommunaute.php',0),(11,'8','Saint-CÃ´me','ParoissesCommunaute/ParoissesCommunaute.php',0),(12,'8','Sainte-AurÃ©lie','ParoissesCommunaute/ParoissesCommunaute.php',0),(13,'9','Saint-GÃ©dÃ©on','ParoissesCommunaute/ParoissesCommunaute.php',0),(14,'8','Saint-Georges','ParoissesCommunaute/ParoissesCommunaute.php',0),(15,'8','Saint-Jean-de-la-Lande','ParoissesCommunaute/ParoissesCommunaute.php',0),(16,'9','Saint-Ludger','ParoissesCommunaute/ParoissesCommunaute.php',0),(17,'9','Saint-Martin','ParoissesCommunaute/ParoissesCommunaute.php',0),(18,'8','Saint-Philibert','ParoissesCommunaute/ParoissesCommunaute.php',0),(19,'8','Saint-Prosper','ParoissesCommunaute/ParoissesCommunaute.php',0),(20,'8','Saint-RenÃ©-Goupil','ParoissesCommunaute/ParoissesCommunaute.php',0),(21,'9','Saint-Robert-Bellarmin','ParoissesCommunaute/ParoissesCommunaute.php',0),(22,'8','Saint-Simon','ParoissesCommunaute/ParoissesCommunaute.php',0),(23,'9','Saint-ThÃ©ophile','ParoissesCommunaute/ParoissesCommunaute.php',0),(24,'8','Saint-Zacharie','ParoissesCommunaute/ParoissesCommunaute.php',0),(25,'3','BaptÃªme','InformationPages/TemplateText.php',1),(26,'3','Premier pardon - rÃ©conciliation','InformationPages/TemplateText.php',2),(27,'3','PremiÃ¨re communion','InformationPages/TemplateText.php',3),(28,'3','Confirmation','InformationPages/TemplateText.php',4),(29,'3','Mariage','InformationPages/TemplateText.php',5),(30,'3','Onction des malades','InformationPages/TemplateText.php',6),(31,'3','Initiation chrÃ©tienne des adultes','InformationPages/TemplateText.php',7),(32,'4','Liturgie','CheminsDeFoi/CheminsDeFoi.php',1),(33,'4','Enfants','CheminsDeFoi/CheminsDeFoi.php',2),(34,'4','Pastorale jeunesse','InformationPages/TemplateText.php',3),(35,'4','Ã‰quipes de fraternitÃ©','InformationPages/TemplateText.php',4),(36,'4','Croissance spirituelle','InformationPages/TemplateText.php',5),(37,'4','ComitÃ© CrÃ©ation Verte','InformationPages/TemplateText.php',6),(39,'8','Assomption de la BVM','ParoissesCommunaute/ParoissesCommunaute.php',0),(40,'8','Notre-Dame-de-la-Providence','ParoissesCommunaute/ParoissesCommunaute.php',0),(41,'32','Liturgie et thÃ¨mes liturgiques','InformationPages/TemplateText.php',1),(42,'32','Servants de messes','InformationPages/TemplateText.php',2),(43,'33','Ã‰veil Ã  la foi','CheminsDeFoi/CheminsDeFoi.php',1),(44,'33','Brebis de JÃ©sus','InformationPages/TemplateText.php',2),(45,'33','CatÃ©chÃ¨se','InformationPages/TemplateText.php',3),(46,'43','Agnelets','InformationPages/TemplateText.php',1),(47,'43','Liens intÃ©ressants','InformationPages/TemplateText.php',2),(48,'43','P\'tite Pasto','InformationPages/TemplateText.php',3),(49,'36','CatÃ©chÃ¨se des adultes','InformationPages/TemplateText.php',1),(50,'36','Cellules paroissiales d\'Ã©vangÃ©lisation','InformationPages/TemplateText.php',2),(51,'36','Chapelles d\'adoration','InformationPages/TemplateText.php',3),(52,'36','Curcillo','InformationPages/TemplateText.php',4),(53,'36','Groupes de priÃ¨re','InformationPages/TemplateText.php',5);
+INSERT INTO `menu` VALUES (1,'0','Accueil','Accueil/Accueil.php',1),(2,'0','Paroisses-CommunautÃ©s','ParoissesCommunaute/ParoissesCommunaute.php',2),(3,'0','Sacrements','Sacrements/Sacrements.php',3),(4,'0','Chemins de foi','CheminsDeFoi/CheminsDeFoi.php',4),(5,'0','FunÃ©railles','Funerailles/Funerailles.php',5),(6,'0','Feuillets','Feuillets/Feuillets.php',6),(7,'0','Financement','Nouvelles/Nouvelles.php',7),(8,'2','St-Georges-de-Sartigan','ParoissesCommunaute/ParoissesCommunaute.php',2),(9,'2','Saint-Jean-Paul II','ParoissesCommunaute/ParoissesCommunaute.php',1),(10,'8','Saint-Benjamin','ParoissesCommunaute/ParoissesCommunaute.php',0),(11,'8','Saint-CÃ´me','ParoissesCommunaute/ParoissesCommunaute.php',0),(12,'8','Sainte-AurÃ©lie','ParoissesCommunaute/ParoissesCommunaute.php',0),(13,'9','Saint-GÃ©dÃ©on','ParoissesCommunaute/ParoissesCommunaute.php',0),(14,'8','Saint-Georges','ParoissesCommunaute/ParoissesCommunaute.php',0),(15,'8','Saint-Jean-de-la-Lande','ParoissesCommunaute/ParoissesCommunaute.php',0),(16,'9','Saint-Ludger','ParoissesCommunaute/ParoissesCommunaute.php',0),(17,'9','Saint-Martin','ParoissesCommunaute/ParoissesCommunaute.php',0),(18,'8','Saint-Philibert','ParoissesCommunaute/ParoissesCommunaute.php',0),(19,'8','Saint-Prosper','ParoissesCommunaute/ParoissesCommunaute.php',0),(20,'8','Saint-RenÃ©-Goupil','ParoissesCommunaute/ParoissesCommunaute.php',0),(21,'9','Saint-Robert-Bellarmin','ParoissesCommunaute/ParoissesCommunaute.php',0),(22,'8','Saint-Simon','ParoissesCommunaute/ParoissesCommunaute.php',0),(23,'9','Saint-ThÃ©ophile','ParoissesCommunaute/ParoissesCommunaute.php',0),(24,'8','Saint-Zacharie','ParoissesCommunaute/ParoissesCommunaute.php',0),(25,'3','BaptÃªme','InformationPages/TemplateText.php',1),(26,'3','Premier pardon - rÃ©conciliation','InformationPages/TemplateText.php',2),(27,'3','PremiÃ¨re communion','InformationPages/TemplateText.php',3),(28,'3','Confirmation','InformationPages/TemplateText.php',4),(29,'3','Mariage','InformationPages/TemplateText.php',5),(30,'3','Onction des malades','InformationPages/TemplateText.php',6),(31,'3','Initiation chrÃ©tienne des adultes','InformationPages/TemplateText.php',7),(32,'4','Liturgie','CheminsDeFoi/CheminsDeFoi.php',1),(33,'4','Enfants','CheminsDeFoi/CheminsDeFoi.php',2),(34,'4','Pastorale jeunesse','InformationPages/TemplateText.php',3),(35,'4','Ã‰quipes de fraternitÃ©','InformationPages/TemplateText.php',4),(36,'4','Croissance spirituelle','InformationPages/TemplateText.php',5),(37,'4','ComitÃ© CrÃ©ation Verte','InformationPages/TemplateText.php',6),(39,'8','Assomption de la BVM','ParoissesCommunaute/ParoissesCommunaute.php',0),(40,'8','Notre-Dame-de-la-Providence','ParoissesCommunaute/ParoissesCommunaute.php',0),(41,'32','Liturgie et thÃ¨mes liturgiques','InformationPages/TemplateText.php',1),(42,'32','Servants de messes','InformationPages/TemplateText.php',2),(43,'33','Ã‰veil Ã  la foi','CheminsDeFoi/CheminsDeFoi.php',1),(44,'33','Brebis de JÃ©sus','InformationPages/TemplateText.php',2),(45,'33','CatÃ©chÃ¨se','InformationPages/TemplateText.php',3),(46,'43','Agnelets','InformationPages/TemplateText.php',1),(47,'43','Liens intÃ©ressants','InformationPages/TemplateText.php',2),(48,'43','P\'tite Pasto','InformationPages/TemplateText.php',3),(49,'36','CatÃ©chÃ¨se des adultes','InformationPages/TemplateText.php',1),(50,'36','Cellules paroissiales d\'Ã©vangÃ©lisation','InformationPages/TemplateText.php',2),(51,'36','Chapelles d\'adoration','InformationPages/TemplateText.php',3),(52,'36','Curcillo','InformationPages/TemplateText.php',4),(53,'36','Groupes de priÃ¨re','InformationPages/TemplateText.php',5);
 /*!40000 ALTER TABLE `menu` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `nouvelles`
+--
+
+DROP TABLE IF EXISTS `nouvelles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `nouvelles` (
+  `nouvellesId` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(50) DEFAULT NULL,
+  `descrSomm` varchar(100) DEFAULT NULL,
+  `descrTot` longtext DEFAULT NULL,
+  `date` varchar(100) DEFAULT NULL,
+  `actif` tinyint(1) DEFAULT NULL,
+  `imagePath` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`nouvellesId`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `nouvelles`
+--
+
+LOCK TABLES `nouvelles` WRITE;
+/*!40000 ALTER TABLE `nouvelles` DISABLE KEYS */;
+INSERT INTO `nouvelles` VALUES (2,'titraae','somm','total','date',0,'../Ressource/Image/jesus2.jpg'),(3,'asd','asd','asd','ss',1,'../Ressource/Image/jesus3.jpg');
+/*!40000 ALTER TABLE `nouvelles` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -271,6 +300,32 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `AddNouvelles` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `AddNouvelles`(
+	in title varchar(50),
+	descrSomm VARCHAR(100),
+	descrTot LONGTEXT,
+	date VARCHAR(100),
+	actif tinyint,
+	imagePath varchar(500))
+BEGIN
+	insert into nouvelles(title, descrSomm, descrTot, date, actif, imagePath)
+    values (title, descrSomm, descrTot, date, actif, imagePath);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `ConnexionAdmin` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -287,6 +342,26 @@ BEGIN
 	SET AdminId = (SELECT admin.adminId FROM admin WHERE admin.email = inEmail COLLATE utf8_general_ci AND admin.password LIKE BINARY inPassword);
 
     SELECT IF(ISNULL(AdminId) = 0, AdminId, 0) AS AdminId;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `DeleteNouvelles` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DeleteNouvelles`(
+	in nouvelleId INT(11))
+BEGIN
+DELETE FROM `nouvelles` WHERE nouvellesId = nouvelleId;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -426,6 +501,25 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `GetAllNouvelles` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GetAllNouvelles`()
+BEGIN
+	SELECT  nouvellesId, title, descrSomm, descrTot, date, actif, imagePath from nouvelles order by actif, date;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `GetAllParoisse` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -523,6 +617,41 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `UpdateNouvelles` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateNouvelles`(
+	in nouvelleId int(11), 
+    title varchar(50),
+	descrSomm VARCHAR(100),
+	descrTot LONGTEXT,
+	date VARCHAR(100),
+	actif tinyint,
+	imagePath varchar(500))
+BEGIN
+	update `nouvelles`
+    SET 
+		title = title,
+		descrSomm = descrSomm,
+		descrTot = descrTot,
+		date = date,
+		actif = actif,
+		imagePath = imagePath
+	WHERE
+    nouvellesId = nouvelleId;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -533,4 +662,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-28 15:54:03
+-- Dump completed on 2020-04-29 16:23:39
