@@ -43,6 +43,27 @@ class ParoisseCommunaute{
   
   public static function getCommunityName(){
     //À compléter
+    
+  }
+  
+  public static function getCommunitySchedule(){
+    $conn = OpenCon();
+    
+    $SQL = 'CALL GetCommunitySchedule();';
+    
+    CloseCon($conn);
+    
+    echo 'test';
+  }
+  
+  public static function getScheduleHTML(){
+    $conn = OpenCon();
+    
+    $SQL = "CALL GetCommunitySchedule('".$_SESSION['gcommunityid']."')";
+    
+    $RSSQL = $conn->query($SQL);
+    
+    CloseCon($conn);
   }
   
 }

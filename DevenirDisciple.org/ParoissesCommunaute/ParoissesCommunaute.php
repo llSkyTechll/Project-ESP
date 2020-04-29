@@ -44,35 +44,139 @@ if (isset($_SESSION['gmenuId'])){
 
 	<script>
   
+    function fnAdaptDate(inDate){
+      var targetTime = new Date(inDate);
+      var tzDifference = targetTime.getTimezoneOffset();
+      var offsetTime = new Date(targetTime.getTime() + tzDifference * 60 * 1000);
+      
+      return offsetTime;
+    }
+  
+    function fnFormatDate(inDate){
+      var newDate;
+      
+      var curr_date = inDate.getDate();
+      var curr_month = inDate.getMonth();
+      curr_month++;
+      var curr_year = inDate.getFullYear();
+      newDate = curr_month + "/" + curr_date + "/" + curr_year;
+      
+      var curr_hour = inDate.getHours();
+      
+      if (curr_hour < 12){
+        a_p = "am";
+      }else{
+        a_p = "pm";
+      }
+      if (curr_hour == 0){
+        curr_hour = 12;
+      }
+      if (curr_hour > 12){
+        curr_hour = curr_hour - 12;
+      }
+      
+      var curr_min = inDate.getMinutes();
+      curr_min = curr_min + "";
+
+      if (curr_min.length == 1){
+        curr_min = "0" + curr_min;
+      }
+      
+      if (curr_hour.length == 1){
+        curr_hour = "0" + curr_hour;
+      }
+      
+      newDate += ' ' + curr_hour + ':' + curr_min + ' ' + a_p;
+      
+      return newDate;
+    }
+  
     function fnAddEvent(){
       $(function() {
-					$.ajax({
-						type: 'post',
-						url: 'ParoissesCommunaute.php',
-						data: ({
-							action: 'addEvent',
-							name: document.getElementById('ename').value,
-							date: document.getElementById('edate').value,
-							description: document.getElementById('edesc').value,
-							color: document.getElementById('ecolor').value,
-							icon: document.getElementById('eicon').value,
-						}),
-						success: function(data) {
-							if (data == 'fail') {
-								Swal.fire("Une erreur c'est produite", '', 'warning');
-							} else if (data == 'success') {
-								Swal.fire({
-									title: 'Ajout réussi.',
-									icon: 'success'
-								}).then((result) => {
-									window.top.location.reload();
-								});
-							} else if (data == 'emptyFields'){
-                Swal.fire("Veuillez remplir tous les champs", '', 'warning');
-              }
-						}
-					})
-        });
+        $.ajax({
+          type: 'post',
+          url: 'ParoissesCommunaute.php',
+          data: ({
+            action: 'addEvent',
+            name: document.getElementById('ename').value,
+            date: document.getElementById('edate').value,
+            description: document.getElementById('edesc').value,
+            color: document.getElementById('ecolor').value,
+            icon: document.getElementById('eicon').value,
+          }),
+          success: function(data) {
+            if (data == 'fail') {
+              Swal.fire("Une erreur c'est produite", '', 'warning');
+            } else if (data == 'success') {
+              Swal.fire({
+                title: 'Ajout réussi.',
+                icon: 'success'
+              }).then((result) => {
+                window.top.location.reload();
+              });
+            } else if (data == 'emptyFields'){
+              Swal.fire("Veuillez remplir tous les champs", '', 'warning');
+            }
+          }
+        })
+      });
+    }
+    
+    function fnDeleteEvent(){
+      $(function() {
+        $.ajax({
+          type: 'post',
+          url: 'ParoissesCommunaute.php',
+          data: ({
+            action: 'deleteEvent',
+            eventid: document.getElementById('eventid').value            
+          }),
+          success: function(data) {
+            if (data == 'fail') {
+              Swal.fire("Une erreur c'est produite", '', 'warning');
+            } else if (data == 'success') {
+              Swal.fire({
+                title: 'Supression réussi.',
+                icon: 'success'
+              }).then((result) => {
+                window.top.location.reload();
+              });
+            } 
+          }
+        })
+      });
+    }
+    
+    function fnUpdateEvent(){
+      $(function() {
+        $.ajax({
+          type: 'post',
+          url: 'ParoissesCommunaute.php',
+          data: ({
+            action: 'updateEvent',
+            eventid: document.getElementById('eventid').value,
+            name: document.getElementById('ename').value,
+            date: document.getElementById('edate').value,
+            description: document.getElementById('edesc').value,
+            color: document.getElementById('ecolor').value,
+            icon: document.getElementById('eicon').value
+          }),
+          success: function(data) {
+            if (data == 'fail') {
+              Swal.fire("Une erreur c'est produite", '', 'warning');
+            } else if (data == 'success') {
+              Swal.fire({
+                title: 'Modification réussi.',
+                icon: 'success'
+              }).then((result) => {
+                window.top.location.reload();
+              });
+            }else if (data == 'emptyFields'){
+              Swal.fire("Veuillez remplir tous les champs", '', 'warning');
+            }
+          }
+        })
+      });
     }
 
 		jQuery(document).ready(function() {
@@ -124,17 +228,51 @@ if (isset($_SESSION['gmenuId'])){
             if (Admin::isConnected()){
           ?>
 					dayClick: function() {
+            jQuery('#btnAdd').show();
+            jQuery('#btnDelete').hide();
+            jQuery('#btnUpdate').hide();
+            jQuery('#ename').val('');
+            jQuery('#edesc').val('');
+            jQuery('#ecolor').val('');
+            jQuery('#eicon').val('');
+            jQuery('#edate').val('');
 						jQuery('#modal-view-event-add').modal();
 					},
           <?php
             }
           ?>
 					eventClick: function(event, jsEvent, view) {
+            <?php
+              if (Admin::isConnected()){
+            ?> 
+              jQuery('#eventid').val(event.eventid);
+              jQuery('#ename').val(event.title);
+              jQuery('#edesc').val(event.description);
+              jQuery('#ecolor').val(event.className);
+              jQuery('#eicon').val(event.icon);
+              
+              var startDate = fnAdaptDate(event.start);
+              
+              if (event.end == null){
+                jQuery('#edate').val(fnFormatDate(new Date(startDate)));
+              }else{
+                jQuery('#edate').val(fnFormatDate(new Date(startDate)) + ' - ' + fnFormatDate(new Date(event.end)) );
+              }
+              jQuery('#btnAdd').hide();
+              jQuery('#btnDelete').show();
+              jQuery('#btnUpdate').show();
+              jQuery('#modal-view-event-add').modal();
+            <?php
+              }else{
+            ?>
 						jQuery('.event-icon').html("<i class='fa fa-" + event.icon + "'></i>");
 						jQuery('.event-title').html(event.title);
 						jQuery('.event-body').html(event.description);
 						jQuery('.eventUrl').attr('href', event.url);
 						jQuery('#modal-view-event').modal();
+            <?php
+            }
+            ?>
 					},
 				})
 			});
@@ -160,9 +298,16 @@ if (isset($_SESSION['gmenuId'])){
       ?>
     </p>
 
-		<div>
-			<h1>Heures de bureau</h1>
-			<ul>
+    <h1>Heures de bureau</h1>
+		<div <?php if (Admin::isConnected()){echo 'contentEditable';}; ?>>
+			
+			<?php
+        //ParoisseCommunaute::getScheduleHTML();
+      ?>
+      
+		</div>
+    
+    <ul >
 				<li>
 					<p>Lnndi de 9h à 12h30 et de 13h30 à 16h</p>
 				</li>
@@ -185,8 +330,6 @@ if (isset($_SESSION['gmenuId'])){
 					<p>Dimanche de 9h à 12h30 et de 13h30 à 16h</p>
 				</li>
 			</ul>
-		</div>
-
 		
   <div class="col-md-12">
 		<div class="p-5">
@@ -218,6 +361,7 @@ if (isset($_SESSION['gmenuId'])){
 				<div class="modal-content">
 					<form id="add-event">
 						<div class="modal-body">
+              <input type="hidden" name="eventid" id="eventid" value="0">
 							<h4>Ajout un événement</h4>
 							<div class="form-group">
 								<label>Nom de l'événement</label>
@@ -253,7 +397,9 @@ if (isset($_SESSION['gmenuId'])){
 							</div>
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-primary" onclick="fnAddEvent();">Enregistrer</button>
+              <button type="button" class="btn btn-primary" id="btnDelete" onclick="fnDeleteEvent();">Supprimer</button>
+              <button type="button" class="btn btn-primary" id="btnUpdate" onclick="fnUpdateEvent();">Enregistrer</button>
+							<button type="button" class="btn btn-primary" id="btnAdd" onclick="fnAddEvent();">Enregistrer</button>
 							<button type="button" class="btn btn-primary" data-dismiss="modal">Fermer</button>
 						</div>
 					</form>

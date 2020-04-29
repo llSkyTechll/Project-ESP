@@ -18,9 +18,7 @@ class CalendarEvent{
     $this->icon        = $icon;
     $this->eventid     = $eventid;
     $this->communityid = $communityid;
-  }
-  
-  
+  }  
   
   public function getCalendarEventFormat(){
     $date  = explode("-", $this->date);
@@ -30,7 +28,7 @@ class CalendarEvent{
       $end   = $date[1];
     }
     
-    echo "{ title: '".$this->name."', description: '".$this->descr."', start: '".$start."', end: '".$end."', className: '".$this->color."', icon:'".$this->icon."'},";
+    echo "{ eventid: '".$this->eventid."', title: '".str_replace('\'','\\\'',$this->name)."', description: '".str_replace('\'','\\\'',$this->descr)."', start: '".str_replace('\'','\\\'',$start)."', end: '".str_replace('\'','\\\'',$end)."', className: '".str_replace('\'','\\\'',$this->color)."', icon:'".str_replace('\'','\\\'',$this->icon)."'},";
   }
   
 }

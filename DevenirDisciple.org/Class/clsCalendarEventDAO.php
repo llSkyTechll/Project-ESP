@@ -36,6 +36,30 @@ class CalendarEventDAO{
     exit('success');
   }
   
+  public static function deleteEvent($inEventID){
+    $conn = OpenCon();
+    
+    $SQL = "CALL DeleteEvent('".$inEventID."');";
+
+    $RSSQL = $conn->query($SQL);    
+    
+    CloseCon($conn);
+    
+    exit('success');
+  }
+  
+  public static function updateEvent($inEventID, $name, $date, $descr, $color, $icon){
+    $conn = OpenCon();
+    
+    $SQL = "CALL UpdateEvent('".$inEventID."','".$name."','". $date."','". $descr."','". $color."','". $icon."');";
+
+    $RSSQL = $conn->query($SQL);    
+    
+    CloseCon($conn);
+    
+    exit('success');
+  }
+  
 }
 
 ?>

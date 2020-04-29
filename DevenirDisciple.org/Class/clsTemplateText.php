@@ -48,7 +48,7 @@ class TemplateText{
           
     if (Admin::isConnected()){
       echo '<div>
-              <input type="button" name="btnsave" value="SAVE" onclick="fnSavePageContent()">
+              <input type="button" name="btnsave" value="Sauvegarder" onclick="fnSavePageContent()">
             </div>';
     }
   } 
