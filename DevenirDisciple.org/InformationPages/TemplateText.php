@@ -6,7 +6,7 @@ require_once '../PHPFunctions.php';
 
 require_once '../Class/clsTemplateTextDAO.php';
 
-require_once 'TemplateText_pr.php';
+require_once '../InformationPages/TemplateText_pr.php';
 
 ?>
 
@@ -50,8 +50,8 @@ require_once 'TemplateText_pr.php';
                 }).then((result) => {
                   window.top.location.reload();
                 });
-              } else if (data == "Fail") {
-                Swal.fire("Erreur lors de l'envoie", "Impossible d'envoyer le formulaire", 'error');
+              } else if (data == "admin") {
+                Swal.fire("Erreur", "Seul un administrateur du site peut effectuer des changements.", 'error');
               }
             }
           })
@@ -63,20 +63,18 @@ require_once 'TemplateText_pr.php';
   </head>
 
   <body>
+  
+    <div class="container">
     
     <?php
     
       $pageContent = TemplateTextDAO::loadPageContent();  
       
       $pageContent->getHTMLPageContent();
-    
-      if (Admin::isConnected()){
-        echo '<div>
-                <input type="button" name="btnsave" value="SAVE" onclick="fnSavePageContent()">
-              </div>';
-      }
-      
+     
     ?>
+    
+    </div>
 
   </body>
   <?php require_once '../Footer.php';?>

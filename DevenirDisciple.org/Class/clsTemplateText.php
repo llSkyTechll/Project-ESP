@@ -25,8 +25,7 @@ class TemplateText{
     if (validateAdminEditing()){
       $contentEditable = 'contentEditable';
     }
-    echo '<div class="container">
-						<input type="hidden" id="contentId" value="'.$this->pageContentTemplateTextId.'">
+    echo '<input type="hidden" id="contentId" value="'.$this->pageContentTemplateTextId.'">
 					
 						<header>
 						<div id="image"> 
@@ -45,9 +44,13 @@ class TemplateText{
 						</h2>
 						<div id="content" '.$contentEditable.'> 
 							'.$this->content.'
-						</div>
-					</div>';
-					
+						</div>';
+          
+    if (Admin::isConnected()){
+      echo '<div>
+              <input type="button" name="btnsave" value="SAVE" onclick="fnSavePageContent()">
+            </div>';
+    }
   } 
   
 }

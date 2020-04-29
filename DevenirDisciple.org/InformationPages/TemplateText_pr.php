@@ -12,14 +12,19 @@ if (isset($_POST['action'])){
 }
 
 function FNSavePageContent(){  
-  $title    = FNSQL($_POST['title']);
-  $header   = FNSQL($_POST['header']);
-  $subtitle = FNSQL($_POST['subtitle']);
-  $content  = FNSQL($_POST['content']);
+
+  if (Admin::isConnected()){
+    $title    = FNSQL($_POST['title']);
+    $header   = FNSQL($_POST['header']);
+    $subtitle = FNSQL($_POST['subtitle']);
+    $content  = FNSQL($_POST['content']);
+    
+    TemplateTextDAO::savePageContent($_POST['contentId'], $_SESSION['gmenuId'], $title, $header, $subtitle, $content);  
+    
+    exit ('success');
+  }
+  exit ('admin');
   
-  TemplateTextDAO::savePageContent($_POST['contentId'], $_SESSION['gmenuId'], $title, $header, $subtitle, $content);  
-  
-  exit ('success');
 }
 
 ?>
