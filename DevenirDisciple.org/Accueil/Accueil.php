@@ -2,6 +2,9 @@
 
 require_once '../PHPFunctions.php';
 
+require_once 'Accueil_pr.php';
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -22,7 +25,7 @@ require_once '../PHPFunctions.php';
 
 <body>
 
-	<div id="carouselExampleIndicators" class="carousel slide w-50 container" data-ride="carousel" data-interval="10000">
+	<!--<div id="carouselExampleIndicators" class="carousel slide w-50 container" data-ride="carousel" data-interval="10000">
 		<ol class="carousel-indicators">
 			<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
 			<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -56,7 +59,11 @@ require_once '../PHPFunctions.php';
 			<span class="sr-only">Next</span>
 		</a>
 	</div>
-
+-->
+	
+	<?php
+		GetHmtlBandeau(NouvellesDAO::getNouvellesBandeau());	
+	?>
 	<div class="container mt-5">
 		<div class="row">
 			<div class="col-md-3">

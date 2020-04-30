@@ -6,7 +6,8 @@ class Nouvelles{
 	private $title;
   private $descrSomm;
   private $descrTot;
-  private $date;
+  private $dateDebut;
+  private $dateFin;
   private $actif;
   private $imagePath;
 
@@ -14,12 +15,13 @@ class Nouvelles{
 	
 	
   
-  function __construct($NouvellesId, $title, $descrSomm, $descrTot , $date, $actif, $imagePath){
+  function __construct($NouvellesId, $title, $descrSomm, $descrTot , $dateDebut, $dateFin, $actif, $imagePath){
     $this->NouvellesId 	= $NouvellesId;
     $this->title 				= $title;
 		$this->descrSomm  	= $descrSomm;
     $this->descrTot 		= $descrTot;
-    $this->date         = $date;
+    $this->dateDebut    = $dateDebut;
+    $this->dateFin      = $dateFin;
     $this->actif      	= $actif;
     $this->imagePath   	= $imagePath;
   }
@@ -38,8 +40,11 @@ class Nouvelles{
 	public function getDescrTot(){
 		return $this->descrTot;
 	} 
-	public function getDate(){
-		return $this->date ;
+	public function getDateDebut(){
+		return $this->dateDebut ;
+	} 
+	public function getDateFin(){
+		return $this->dateFin ;
 	} 
 	public function getActif(){
 		return $this->actif;

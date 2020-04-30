@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+require_once '../ConnexionDB.php';
 
 require_once '../Class/clsNouvellesDAO.php';
 
@@ -36,35 +38,6 @@ function GetHmtlBandeau($arrayNouvelles){
 		</a>
 		</div>
 		</div>';
-	
-	echo $html;
-
-}
-
-
-function GetHmtlnouvelles($arrayNouvelles){
-	
-	$html = '';
-	
-	for($x = 0; $x <count($arrayNouvelles);$x++){
-		
-		$html .= '<div class=" justify-content-center"><header>
-						<div id="image"> 
-							<img src="'.$arrayNouvelles[$x]->getImagePath().'" alt="Image de '.$arrayNouvelles[$x]->getTitle().'" height="200" width="200">
-						</div>	
-						
-							<h1 id="title"> 
-								'.$arrayNouvelles[$x]->getTitle().'
-							</h1>
-						</header>						
-						
-						<div id="content"> 
-							'.$arrayNouvelles[$x]->getDescrTot().'
-						</div>
-						</div>
-						<hr>';
-	}
-	
 	
 	echo $html;
 
