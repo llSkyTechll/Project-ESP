@@ -62,7 +62,7 @@ require_once 'Accueil_pr.php';
 -->
 	
 	<?php
-		GetHmtlBandeau(NouvellesDAO::getNouvellesBandeau());	
+		GetHTMLBandeau(NouvellesDAO::getNouvellesBandeau());	
 	?>
 	<div class="container mt-5">
 		<div class="row">

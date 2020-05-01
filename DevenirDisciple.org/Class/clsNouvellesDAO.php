@@ -34,6 +34,7 @@ class NouvellesDAO{
     CLoseCon($conn);
   }
 	
+	
   
   public static function saveNewNouvelles($title, $descrSomm, $descrTot ,$dateStart, $dateEnd, $actif, $imagePath){
     
@@ -50,6 +51,24 @@ class NouvellesDAO{
     CloseCon($conn);
     
     exit('success');
+  }
+	
+	
+	
+	 public static function getNouvelles($nouvelleId){
+    $conn = OpenCon();
+    $SQL = 'CALL GetNouvelle('.$nouvelleId.');';
+    $RSSQL = $conn->query($SQL);
+		
+		 
+    if (!is_null($RSSQL)) {
+			$row = $RSSQL->fetch_assoc();			
+      $nouvelles = new Nouvelles($row['nouvellesId'], $row['title'], $row['descrSomm'], $row['descrTot'], $row['dateDebut'],$row['dateFin'], $row['actif'], $row['imagePath']);
+			
+      return $nouvelles;
+    }
+		 
+    CLoseCon($conn);
   }
   
 }

@@ -4,7 +4,7 @@ require_once '../Class/clsNouvellesDAO.php';
 
 require_once '../Class/clsNouvelles.php';
 
-function GetHmtlBandeau($arrayNouvelles){
+function GetHTMLBandeau($arrayNouvelles){
 	
 	//print_r($arrayNouvelles[0]);
 	$html = '';
@@ -42,32 +42,91 @@ function GetHmtlBandeau($arrayNouvelles){
 }
 
 
-function GetHmtlnouvelles($arrayNouvelles){
+function GetHTMLAllnouvelles($arrayNouvelles){
 	
 	$html = '';
 	
 	for($x = 0; $x <count($arrayNouvelles);$x++){
 		
-		$html .= '<div class=" justify-content-center"><header>
-						<div id="image"> 
-							<img src="'.$arrayNouvelles[$x]->getImagePath().'" alt="Image de '.$arrayNouvelles[$x]->getTitle().'" height="200" width="200">
-						</div>	
-						
-							<h1 id="title"> 
-								'.$arrayNouvelles[$x]->getTitle().'
-							</h1>
-						</header>						
-						
-						<div id="content"> 
-							'.$arrayNouvelles[$x]->getDescrTot().'
-						</div>
-						</div>
-						<hr>';
+		$html .= GetHTMLNouvelle($arrayNouvelles[$x]);
 	}
 	
 	
 	echo $html;
 
+}
+
+function GetHTMLNouvelle($Nouvelles){
+	
+	$html = '';	
+
+	$html .= '<div class=" justify-content-center"><header>
+					<div id="image"> 
+						<img src="'.$Nouvelles->getImagePath().'" alt="Image de '.$Nouvelles->getTitle().'" height="200" width="200">
+					</div>	
+
+						<h1 id="title"> 
+							'.$Nouvelles->getTitle().'
+						</h1>
+					</header>						
+
+					<div id="content"> 
+						'.$Nouvelles->getDescrTot().'
+					</div>
+					</div>
+					<hr>';
+
+
+
+	echo $html;
+
+}
+
+function GetHTMLAllNouvellesEdit($arrayNouvelles){
+	
+	$html = '';
+	$html = '
+		<table class="table table-striped">
+		<thead>
+			<tr>
+				<th scope="col">Titre</th>
+				<th scope="col">Date de début</th>
+				<th scope="col">Date de fin</th>
+				<th scope="col">Actif</th>
+			</tr>
+		</thead>
+		<tbody>';
+			
+			
+			for($x = 0; $x <count($arrayNouvelles);$x++){
+				$epochDebut = $arrayNouvelles[$x]->getDateDebut();
+				$epochFin = $arrayNouvelles[$x]->getDateFin();
+				$dateDebut = new DateTime("@$epochDebut");  
+				$dateFin = new DateTime("@$epochFin");  
+				
+					$html .= 
+				'<tr>
+					<th scope="row">'.$arrayNouvelles[$x]->getTitle().'</th>
+					<td>'.$dateDebut->format('Y-m-d').'</td>
+					<td>'.$dateFin->format('Y-m-d').'</td>
+					<td><input type="checkbox" id="checkbox'.$arrayNouvelles[$x]->getNouvellesId().'" name="checkbox'.$arrayNouvelles[$x]->getTitle().'" value="'.$arrayNouvelles[$x]->getActif().'" ';
+					
+				if($arrayNouvelles[$x]->getActif() == 1)
+				{
+					$html.= "checked";
+				}
+				
+				$html .='>
+					</td>
+				</tr>';
+				}
+	
+	$html .='</tbody>
+	</table>';
+	
+	
+	
+	echo $html;
 }
 
 ?>

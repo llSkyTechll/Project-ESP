@@ -54,17 +54,7 @@ class Nouvelles{
 	}
 	
 	
-	
-	public function getNouvellesHTML(){
-		$date  = explode("-", $this->date);
-    $start = $date[0];
-    $end   = '';
-    if (isset($date[1])){
-      $end   = $date[1];
-    }
-		
-		
-	}
+
   
 }
 

@@ -63,31 +63,33 @@ require_once 'Nouvelles_pr.php';
 
 <body>
 	<?php
-		GetHmtlNouvelles(NouvellesDAO::getAllNouvelles());	
+		GetHTMLAllnouvelles(NouvellesDAO::getAllNouvelles());
+		//GetHTMLNouvelle(NouvellesDAO::getNouvelles(23));
+		GetHTMLAllNouvellesEdit(NouvellesDAO::getAllNouvelles());
 	?>
 
 
-	
-	
-<div class="d-none">
-	
-	<div id="imageSommaire">
-		<!-- faire le get pour l'image et la faire afficher-->
-	</div>
-	<div id="date">
-		<!-- faire le get pour l'image et la faire afficher-->
-	</div>
-	<div>
-		<label for="descriptionSommaire">Description Sommaire</label>
-		<p id="descriptionSommaire" contentEditable></p>
-	</div>
-	<div>
-		<label for="descriptionTotal">Description Complète</label>
-		<p id="descriptionTotal" contentEditable></p>
-	</div>
 
-	<button type="button" class="btn btn-primary" onclick="fnAddNouvelle();">Enregistrer</button>
-</div>
+
+	<div class="d-none">
+
+		<div id="imageSommaire">
+			<!-- faire le get pour l'image et la faire afficher-->
+		</div>
+		<div id="date">
+			<!-- faire le get pour l'image et la faire afficher-->
+		</div>
+		<div>
+			<label for="descriptionSommaire">Description Sommaire</label>
+			<p id="descriptionSommaire" contentEditable></p>
+		</div>
+		<div>
+			<label for="descriptionTotal">Description Complète</label>
+			<p id="descriptionTotal" contentEditable></p>
+		</div>
+
+		<button type="button" class="btn btn-primary" onclick="fnAddNouvelle();">Enregistrer</button>
+	</div>
 
 </body>
 

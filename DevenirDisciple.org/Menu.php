@@ -46,16 +46,19 @@ $conn = OpenCon();
 		}
 
 		function fnRedirectionNouvelle(Path, menuId, nouvelleId) {
-			document.getElementById('PageContent').src = Path;
+			
 			$(function() {
 				$.ajax({
 					type: 'post',
 					url: 'Menu.php',
 					data: ({
-						action: 'redirect',
-						menuId: menuId
+						action: 'redirectNouvelle',
+						menuId: menuId,
+						nouvelleId: nouvelleId,
+						path: Path
 					})
 				});
+				document.getElementById('PageContent').src = Path;
 			})
 		}
 

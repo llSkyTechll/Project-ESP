@@ -12,6 +12,9 @@ if (isset($_POST['action'])){
     case 'deconnexion':
       FNDeconnexion();
       break;
+		case 'redirectNouvelle':
+      FNRedirectionNouvelle();
+      break;
   }
 }
 
@@ -20,6 +23,12 @@ function FNRedirect(){
   $path   = $_POST["path"];
   $_SESSION["gmenuId"] = $menuId;
   $_SESSION["gpath"]   = $path;
+}
+function FNRedirectionNouvelle(){
+  
+  $_SESSION["gmenuId"] 		= $_POST["menuId"];
+  $_SESSION["gpath"]   		= $_POST["path"];;
+	$_SESSION["nouvelleId"] = $_POST["nouvelleId"];;
 }
 
 function FNDeconnexion(){

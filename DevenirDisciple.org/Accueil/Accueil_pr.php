@@ -6,7 +6,7 @@ require_once '../Class/clsNouvellesDAO.php';
 
 require_once '../Class/clsNouvelles.php';
 
-function GetHmtlBandeau($arrayNouvelles){
+function GetHTMLBandeau($arrayNouvelles){
 	
 	//print_r($arrayNouvelles[0]);
 	$html = '';
@@ -25,7 +25,9 @@ function GetHmtlBandeau($arrayNouvelles){
 		$html .= '<div class="carousel-item';
 		if($x==0){ $html.=' active';	}
 		$html .= '">
-						<img class="d-block img-fluid" style="widht: 1000px;height:400px" src="'.$arrayNouvelles[$x]->getImagePath().'" alt="'.$arrayNouvelles[$x]->getTitle().'" title="'.$arrayNouvelles[$x]->getTitle().'">
+							<a onclick="parent.fnRedirectionNouvelle(\'Nouvelles/Nouvelles.php\',0,'.$arrayNouvelles[$x]->getNouvellesId().')">
+								<img class="d-block img-fluid" style="widht: 1000px;height:400px" src="'.$arrayNouvelles[$x]->getImagePath().'" alt="'.$arrayNouvelles[$x]->getTitle().'" title="'.$arrayNouvelles[$x]->getTitle().'">
+							</a>
 						</div>';
 	}
 	$html.='<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
