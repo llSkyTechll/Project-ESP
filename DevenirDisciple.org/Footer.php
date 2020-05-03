@@ -8,7 +8,7 @@
 		}
 
 	</script>
-	<div class="container">
+	<div class="container footer pt-3" >
 		<div class="row">
 			<div class="col-md-2">
 				<img class="d-block img-fluid" style="widht: 100px;height:100px" src="../Ressource/Image/Logo_St-Jean-Paul_II.jpg" alt="Logo St-Jean-Paul II" title="Logo St-Jean-Paul II">
@@ -16,7 +16,7 @@
 			</div>
 
 			<div class="col-md-4">
-				<input class="btn btn-primary" type="button" name="btnDeconnexion" value="lien intérésent">
+				<input class="btn btn-primary" type="button" name="btnDeconnexion" value="lien intéressant">
 			</div>
 			<div class="col-md-4">
 				<input class="btn btn-primary" type="button" name="btnDeconnexion" value="contact">
@@ -35,7 +35,7 @@
     
     <div id="block-block-9" class="block block-block region-odd even region-count-1 count-2">
       <div class="block-inner">
-        <h2 class="block-title">Don en ligne</h2>
+        
         <div class="block-content">
           <div class="block-content-inner">
             <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">

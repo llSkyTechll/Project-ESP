@@ -206,7 +206,7 @@ CREATE TABLE `nouvelles` (
   `actif` tinyint(1) DEFAULT NULL,
   `imagePath` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`nouvellesId`)
-) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -215,7 +215,7 @@ CREATE TABLE `nouvelles` (
 
 LOCK TABLES `nouvelles` WRITE;
 /*!40000 ALTER TABLE `nouvelles` DISABLE KEYS */;
-INSERT INTO `nouvelles` VALUES (20,'titraae','somm','total',1588252052,1588252630,1,'../Ressource/Image/Jesus1.jpg'),(21,'titraae','somm','total',1588252052,1585713600,0,'../Ressource/Image/Jesus2.jpg'),(22,'titraae','somm','total',1588252052,1588252630,1,'../Ressource/Image/Jesus3.jpg'),(23,'titraae','somm','total',1588252052,1588252630,1,'../Ressource/Image/Jesus4.jpg');
+INSERT INTO `nouvelles` VALUES (20,'titraae','somm','total',1588252052,1588252630,1,'../Ressource/Image/Jesus1.jpg'),(21,'titraae','somm','total',1588252052,1585713600,0,'../Ressource/Image/Jesus2.jpg'),(22,'titraae','somm','total',1588252052,1588252630,1,'../Ressource/Image/Jesus3.jpg'),(23,'titraae','somm','total',1588252052,1588252630,1,'../Ressource/Image/Jesus4.jpg'),(24,'asd','sss','ss',1589581860,1589668260,0,'http://project-esp/DevenirDisciple.org/Nouvelles/Nouvelles.php'),(25,'asd','sss','ss',1589581860,1589668260,0,'http://project-esp/DevenirDisciple.org/Nouvelles/Nouvelles.php'),(26,'a','a','a',1589582580,1589409780,0,'http://project-esp/DevenirDisciple.org/Nouvelles/Nouvelles.php'),(27,'a','a','a',1589582580,1589409780,0,'http://project-esp/DevenirDisciple.org/Nouvelles/Nouvelles.php'),(28,'ss','ss','ss',1589669640,1590015240,0,'http://project-esp/DevenirDisciple.org/Nouvelles/Nouvelles.php'),(29,'ss','ss','ss',1589583360,1589324160,0,'http://project-esp/DevenirDisciple.org/Nouvelles/Nouvelles.php'),(30,'s','ss','ss',1588806000,1588719600,0,'http://project-esp/DevenirDisciple.org/Nouvelles/Nouvelles.php'),(31,'sssssssssssss','sssssssssssssssss','sssssssssssss',1588806000,1588892400,0,'http://project-esp/DevenirDisciple.org/Nouvelles/Nouvelles.php');
 /*!40000 ALTER TABLE `nouvelles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -722,4 +722,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-05-01 14:46:58
+-- Dump completed on 2020-05-03 19:09:43
