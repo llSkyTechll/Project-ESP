@@ -38,13 +38,23 @@ class NouvellesDAO{
   
   public static function saveNewNouvelles($title, $descrSomm, $descrTot ,$dateStart, $dateEnd, $actif, $imagePath){
     
-    if ($_SESSION['gcommunityid'] == 0){
-      exit('fail');
-    }
     
     $conn = OpenCon();
     
-    $SQL = "CALL AddNouvelles('".$name."','". $date."','". $descr."','". $color."','". $icon."','".$_SESSION['gcommunityid']."');";
+    $SQL = "CALL AddNouvelles('".$title."','". $descrSomm."','". $descrTot."','". $dateStart."','". $dateEnd."','".$actif."','".$imagePath."');";
+		
+    $RSSQL = $conn->query($SQL);    
+    
+    CloseCon($conn);
+    
+    exit('success');
+  }  
+	public static function updateNouvelles($nouvelleId, $title, $descrSomm, $descrTot ,$dateStart, $dateEnd, $actif, $imagePath){
+    
+    
+    $conn = OpenCon();
+    
+    $SQL = "CALL UpdateNouvelles('".$nouvelleId."','".$title."','". $descrSomm."','". $descrTot."','". $dateStart."','". $dateEnd."','".$actif."','".$imagePath."');";
 
     $RSSQL = $conn->query($SQL);    
     

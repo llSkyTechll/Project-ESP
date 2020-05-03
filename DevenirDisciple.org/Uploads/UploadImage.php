@@ -22,7 +22,7 @@
 
 for($x = 0; $x <count($_FILES["fileToUpload"]["name"]);$x++ ){
 	
-echo($phpFileUploadErrors[$_FILES["fileToUpload"]["error"][$x]]);
+//echo($phpFileUploadErrors[$_FILES["fileToUpload"]["error"][$x]]);
 	$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"][$x]);
 	$uploadOk = 1;
 	$file_type=$_FILES['fileToUpload']['type'][$x];
@@ -30,7 +30,6 @@ echo($phpFileUploadErrors[$_FILES["fileToUpload"]["error"][$x]]);
 			$check = getimagesize($_FILES["fileToUpload"]["tmp_name"][$x]);
 
 			if($check !== false) {
-					echo "File is an image - " . $check["mime"] . ".";
 					$uploadOk = 1;
 			} else {
 					echo "File is not an image.";
@@ -63,7 +62,7 @@ echo($phpFileUploadErrors[$_FILES["fileToUpload"]["error"][$x]]);
 			}
 	}
 	
-	echo'<br><br><br>';
+	
 	}
 
 
