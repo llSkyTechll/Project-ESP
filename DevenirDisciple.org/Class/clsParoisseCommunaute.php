@@ -43,17 +43,6 @@ class ParoisseCommunaute{
   
   public static function getCommunityName(){
     //À compléter
-    
-  }
-  
-  public static function getCommunitySchedule(){
-    $conn = OpenCon();
-    
-    $SQL = 'CALL GetCommunitySchedule();';
-    
-    CloseCon($conn);
-    
-    echo 'test';
   }
   
   public static function getScheduleHTML(){
@@ -63,9 +52,35 @@ class ParoisseCommunaute{
     
     $RSSQL = $conn->query($SQL);
     
+    $Row = $RSSQL->fetch_assoc();
+
+    $contentEditable = '';
+    if (Admin::isConnected()){
+      $contentEditable = 'contentEditable';
+    }
+    $scheduleid = 0;
+    if ($Row['scheduleid'] != null){
+      $scheduleid = $Row['scheduleid'];
+    }
+    echo '<input type="hidden" name="scheduleid" id="scheduleid" value="'.$scheduleid.'">';
+    echo '<div id="schedule" name="schedule" '.$contentEditable.'>'.
+          $Row['schedule']
+          .'</div>';    
+
     CloseCon($conn);
   }
-  
+
+  public static function saveSchedule($scheduleid, $schedule, $communityid){
+    $conn = OpenCon();
+    
+    $SQL = "CALL SaveCommunitySchedule('".$scheduleid."','".$schedule."','".$communityid."');";
+    
+    $RSSQL = $conn->query($SQL);
+
+    CloseCon($conn);
+
+    exit('success');
+  }
 }
 
 ?>

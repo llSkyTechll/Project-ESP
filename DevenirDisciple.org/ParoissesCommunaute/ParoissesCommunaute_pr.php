@@ -14,6 +14,8 @@ if (isset($_POST['action'])){
     FNDeleteEvent();
   case 'updateEvent':
     FNUpdateEvent();
+  case 'saveSchedule':
+    FNSaveSchedule();
   }
 }
 
@@ -56,6 +58,16 @@ function FNValidateEmptyFields(){
   if ($_POST['name'] == '' || $_POST['description'] == '' || $_POST['date'] == '' || $_POST['color'] == '' || $_POST['icon'] == ''){
     exit('emptyFields');
   }
+}
+
+function FNSaveSchedule(){
+  $schedule    = FNSQL($_POST['schedule']);
+  $scheduleid  = $_POST['scheduleid'];
+  $communityid = $_SESSION['gcommunityid'];
+  if (ParoisseCommunaute::saveSchedule($scheduleid, $schedule, $communityid) == 'success'){
+    exit('success');
+  }
+  exit('fail');
 }
 
 ?>

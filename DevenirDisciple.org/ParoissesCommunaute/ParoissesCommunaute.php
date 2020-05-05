@@ -179,6 +179,30 @@ if (isset($_SESSION['gmenuId'])){
       });
     }
 
+    function fnSaveSchedule(){
+      $.ajax({
+          type: 'post',
+          url: 'ParoissesCommunaute.php',
+          data: ({
+            action: 'saveSchedule',
+            scheduleid: document.getElementById('scheduleid').value,
+            schedule: document.getElementById('schedule').innerHTML
+          }),
+          success: function(data) {
+            if (data == 'fail') {
+              Swal.fire("Une erreur c'est produite", '', 'warning');
+            } else if (data == 'success') {
+              Swal.fire({
+                title: 'Modification réussi.',
+                icon: 'success'
+              }).then((result) => {
+                window.top.location.reload();
+              });
+            }
+          }
+        })
+    }
+
 		jQuery(document).ready(function() {
 			jQuery('.datetimepicker').datepicker({
 				timepicker: true,
@@ -299,37 +323,16 @@ if (isset($_SESSION['gmenuId'])){
     </p>
 
     <h1>Heures de bureau</h1>
-		<div <?php if (Admin::isConnected()){echo 'contentEditable';}; ?>>
-			
-			<?php
-        //ParoisseCommunaute::getScheduleHTML();
-      ?>
-      
-		</div>
     
-    <ul >
-				<li>
-					<p>Lnndi de 9h à 12h30 et de 13h30 à 16h</p>
-				</li>
-				<li>
-					<p>Mardi de 9h à 12h30 et de 13h30 à 16h</p>
-				</li>
-				<li>
-					<p>Mercredi de 9h à 12h30 et de 13h30 à 16h</p>
-				</li>
-				<li>
-					<p>Jeudi de 9h à 12h30 et de 13h30 à 16h</p>
-				</li>
-				<li>
-					<p>Vendredi de 9h à 12h30 et de 13h30 à 16h</p>
-				</li>
-				<li>
-					<p>Samedi de 9h à 12h30 et de 13h30 à 16h</p>
-				</li>
-				<li>
-					<p>Dimanche de 9h à 12h30 et de 13h30 à 16h</p>
-				</li>
-			</ul>
+    <?php
+      ParoisseCommunaute::getScheduleHTML();
+    ?>
+		
+    <?php 
+      if (Admin::isConnected()){
+        echo '<input type="button" name="btnSaveSchedule" id="btnSaveSchedule" value="Sauvegarder" onclick="fnSaveSchedule()">';
+      }
+    ?>
 		
   <div class="col-md-12">
 		<div class="p-5">
