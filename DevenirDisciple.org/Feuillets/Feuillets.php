@@ -23,7 +23,7 @@ require_once '../PHPFunctions.php';
 
 	<p>Feuillets</p>
 
-	<!--<form action="../Uploads/UploadImage.php" method="post" enctype="multipart/form-data">
+	<form action="../Uploads/UploadImage.php" method="post" enctype="multipart/form-data">
     <label for="fileToUpload">Select image to upload:</label>
     <input type="file" name="fileToUpload[]" id="fileToUpload" multiple>
     <input type="submit" value="Upload Image" name="submit">
@@ -37,7 +37,7 @@ require_once '../PHPFunctions.php';
     <label for="fileToUpload">Select Video to upload:</label>
     <input type="file" name="fileToUpload[]" id="fileToUpload" multiple>
     <input type="submit" value="Upload Image" name="submit">
-</form>-->
+</form>
 	
 	
 	<!--lire PDF-->

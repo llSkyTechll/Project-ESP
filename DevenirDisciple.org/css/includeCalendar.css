@@ -1607,7 +1607,7 @@ be a descendant of the grid when it is being dragged.
 
 body {
 	font-family: 'Nunito', sans-serif;
-	background: #F3F5F9;
+	/*background: #F3F5F9;*/
 }
 
 .card {

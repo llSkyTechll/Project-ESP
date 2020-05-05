@@ -83,11 +83,26 @@ $conn = OpenCon();
 				});
 			});
 		}
+		
+		/*$('iframe').load( function() {
+			$('iframe').contents().find("head")
+				.append($("<style type='text/css'>  body{background:none transparent !important;background-color:none  !important;}  </style>"));
+	});*/
 
+		/*$(document).ready(function() {	
+			$('#PageContent').contents().find('body').css({
+            background:'none transparent !important'
+        });
+			
+		});*/
+	  
 	</script>
 </head>
 
-<body>
+<body style="	background-image: url('Ressource/Image/homme%20sac%20%C3%A0%20dos%203.jpeg');
+	background-repeat: no-repeat;
+  background-attachment: fixed;
+background-size: cover;">
 
 	<div class="container fixed-top">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -129,7 +144,7 @@ $conn = OpenCon();
 			</div>
 		</nav>
 	</div>
-	<iframe class="mt-6" id="PageContent" src="<?php if(isset($_SESSION['gpath'])){echo $_SESSION['gpath'];}else{echo 'Accueil/Accueil.php';}?>" frameborder="0" style="background-color: transparent;"></iframe>
+	<iframe class="mt-6" id="PageContent" src="<?php if(isset($_SESSION['gpath'])){echo $_SESSION['gpath'];}else{echo 'Accueil/Accueil.php';}?>" frameborder="0" allowtransparency="true"></iframe>
 
 </body>
 

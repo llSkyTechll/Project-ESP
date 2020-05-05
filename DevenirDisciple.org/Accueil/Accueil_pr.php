@@ -26,7 +26,7 @@ function GetHTMLBandeau($arrayNouvelles){
 		if($x==0){ $html.=' active';	}
 		$html .= '">
 							<a onclick="parent.fnRedirectionNouvelle(\'Nouvelles/Nouvelles.php\',0,'.$arrayNouvelles[$x]->getNouvellesId().')">
-								<img class="d-block img-fluid" style="widht: 1000px;height:400px" src="'.$arrayNouvelles[$x]->getImagePath().'" alt="'.$arrayNouvelles[$x]->getTitle().'" title="'.$arrayNouvelles[$x]->getTitle().'">
+								<img class="d-block img-fluid" style="width:950px;height:300px;" src="'.$arrayNouvelles[$x]->getImagePath().'" alt="'.$arrayNouvelles[$x]->getTitle().'" title="'.$arrayNouvelles[$x]->getTitle().'">
 							</a>
 						</div>';
 	}

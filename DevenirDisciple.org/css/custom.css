@@ -1,3 +1,9 @@
+/*body{
+	background-image: url('../Ressource/Image/homme%20sac%20%C3%A0%20dos%203.jpeg');
+	background-repeat: no-repeat;
+  background-attachment: fixed;
+background-size: cover;
+}*/
 
 html,
 body {
@@ -7,6 +13,10 @@ body {
 iframe {
 	width: 100%;
 	height: 90%;
+	}
+iframe body{
+	background:none transparent !important;
+	background-color:none  !important;
 }
 
 /*couleur du site*/
@@ -62,6 +72,6 @@ td ul li {
 a img {
 	cursor: pointer;
 }
-.footer{
+footer{
 	background:orange;
 }

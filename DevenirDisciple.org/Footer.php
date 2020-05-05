@@ -8,7 +8,7 @@
 		}
 
 	</script>
-	<div class="container footer pt-3" >
+	<div class="container pt-3" >
 		<div class="row">
 			<div class="col-md-2">
 				<img class="d-block img-fluid" style="widht: 100px;height:100px" src="../Ressource/Image/Logo_St-Jean-Paul_II.jpg" alt="Logo St-Jean-Paul II" title="Logo St-Jean-Paul II">
