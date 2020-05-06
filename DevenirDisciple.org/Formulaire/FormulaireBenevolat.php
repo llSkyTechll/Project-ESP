@@ -185,8 +185,7 @@ $conn = OpenCon();
 			<tr>
 				<td colspan="4">
 					<br>
-					<p>Pour quelle communauté ou paroisse souhaitez-vous faire votre bénévolat? Vous pouvez
-						sélectionner plus d’un choix.</p>
+					<p>Pour quelle communauté ou paroisse souhaitez-vous faire votre bénévolat?</p>
 				</td>
 			</tr>
 			<tr>
