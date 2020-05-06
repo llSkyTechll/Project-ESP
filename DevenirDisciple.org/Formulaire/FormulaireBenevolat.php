@@ -95,7 +95,7 @@ $conn = OpenCon();
         document.getElementById("femail").style.borderColor = "red";
         result = false;
       }
-      if (document.getElementById("fphone").value.trim() == '' || document.getElementById("fcellphone").value.trim() == ''){
+      if (document.getElementById("fphone").value.trim() == '' && document.getElementById("fcellphone").value.trim() == ''){
         document.getElementById("fphone").style.borderColor = "red";
         document.getElementById("fcellphone").style.borderColor = "red";
         result = false;
