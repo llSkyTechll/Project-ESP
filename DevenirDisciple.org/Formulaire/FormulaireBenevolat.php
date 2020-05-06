@@ -95,7 +95,7 @@ $conn = OpenCon();
         document.getElementById("femail").style.borderColor = "red";
         result = false;
       }
-      if (document.getElementById("fphone").value.trim() == '' || document.getElementById("fcellphone").value.trim() == ''){
+      if (document.getElementById("fphone").value.trim() == '' && document.getElementById("fcellphone").value.trim() == ''){
         document.getElementById("fphone").style.borderColor = "red";
         document.getElementById("fcellphone").style.borderColor = "red";
         result = false;
@@ -107,6 +107,7 @@ $conn = OpenCon();
 </head>
 
 <body>
+	<br>
 	<form class="container" name="formSubmit" id="formSubmit">
 		<input type="hidden" name="action" id="action" value="submit">
 		<div class="form-group row">
@@ -185,8 +186,7 @@ $conn = OpenCon();
 			<tr>
 				<td colspan="4">
 					<br>
-					<p>Pour quelle communauté ou paroisse souhaitez-vous faire votre bénévolat? Vous pouvez
-						sélectionner plus d’un choix.</p>
+					<p>Pour quelle communauté ou paroisse souhaitez-vous faire votre bénévolat?</p>
 				</td>
 			</tr>
 			<tr>

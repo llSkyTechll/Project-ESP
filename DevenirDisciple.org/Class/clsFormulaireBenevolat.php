@@ -72,8 +72,7 @@ class FormulaireBenevolat{
     
     if(trim($formdata['ffirstname']) == '' || trim($formdata['flastname']) == '' || trim($formdata['femail']) == '' || (trim($formdata['fphone']) == '' && trim($formdata['fcellphone']) == '')){
       return 'emptyFields';
-    }
-    
+    }    
     return 'success';
   }
   
