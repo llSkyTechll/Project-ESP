@@ -76,6 +76,8 @@ function UploadImage(){
 	
 	}
 	
+	echo $target_file;
+	
 }
 
 

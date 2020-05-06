@@ -205,6 +205,7 @@ function GetAddNouvelles(){
 			</div>';
 	echo $html;
 }
+
 function fnSaveNouvelle(){
 	 if ($_POST['dateDebut'] == '' || 
 			 $_POST['dateFin'] == '' || 

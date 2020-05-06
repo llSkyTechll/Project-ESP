@@ -1,6 +1,7 @@
 <?php
 
 require_once '../PHPFunctions.php';
+require_once 'Feuillets_pr.php';
 
 ?>
 <!doctype html>
@@ -21,9 +22,9 @@ require_once '../PHPFunctions.php';
 
 <body>
 
-	<p>Feuillets</p>
+	
 
-	<form action="../Uploads/UploadImage.php" method="post" enctype="multipart/form-data">
+	<!--<form action="../Uploads/UploadImage.php" method="post" enctype="multipart/form-data">
     <label for="fileToUpload">Select image to upload:</label>
     <input type="file" name="fileToUpload[]" id="fileToUpload" multiple>
     <input type="submit" value="Upload Image" name="submit">
@@ -37,13 +38,18 @@ require_once '../PHPFunctions.php';
     <label for="fileToUpload">Select Video to upload:</label>
     <input type="file" name="fileToUpload[]" id="fileToUpload" multiple>
     <input type="submit" value="Upload Image" name="submit">
-</form>
+</form>-->
 	
 	
 	<!--lire PDF-->
 	<!--<a href="../Ressource/PDF/Travail2.pdf" >ok</a>-->
 	<!--Download PDF-->
 	<!--<a href="../Ressource/PDF/Travail2.pdf" download>ok</a>-->
+		<div class="container">
+		<?php		
+			loadPageContent();	
+	?>
+	</div>
 <?php require_once '../Footer.php';?>
 	
 </body>

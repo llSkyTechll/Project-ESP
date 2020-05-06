@@ -33,20 +33,6 @@
 
 		</div>
     
-    <div id="block-block-9" class="block block-block region-odd even region-count-1 count-2">
-      <div class="block-inner">
-        
-        <div class="block-content">
-          <div class="block-content-inner">
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-              <input name="cmd" type="hidden" value="_s-xclick"> 
-              <input name="hosted_button_id" type="hidden" value="DMYLJ8APSPW2A"> <input alt="Donate with PayPal button" border="0" name="submit" src="https://www.paypalobjects.com/fr_CA/i/btn/btn_donateCC_LG.gif" title="PayPal - The safer, easier way to pay online!" type="image"> 
-              <img alt="" border="0" height="1" src="https://www.paypal.com/fr_CA/i/scr/pixel.gif" width="1" style="display: none !important;">
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
 
 	</div>
 

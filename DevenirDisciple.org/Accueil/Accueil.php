@@ -62,44 +62,13 @@ require_once 'Accueil_pr.php';
 -->
 	
 	<?php
-		GetHTMLBandeau(NouvellesDAO::getNouvellesBandeau());	
+		loadPageContent();	
+	
+	require_once '../Footer.php';
 	?>
-	<div class="container mt-5">
-		<div class="row">
-			<div class="col-md-3">
-				<!--<p>oméli du curé</p>-->
-				<a onclick="parent.fnRedirection('Formulaire/FormulaireBenevolat.php',0)">
-					<img class="d-block img-fluid rounded " style="widht: 200px;height:200px" src="../Ressource/Image/Bouton Homélie curé 01.jpg" alt="Homéli du curé" title="Homéli du curé">
-				</a>
 
 
-			</div>
-			<div class="col-md-3">
-				<a onclick="parent.fnRedirection('Formulaire/FormulaireBenevolat.php',0)">
-					<img class="d-block img-fluid rounded " style="widht: 200px;height:200px" src="../Ressource/Image/Bouton Témoignage 03.jpg" alt="Témoinage" title="Témoinage">
-				</a>
-				
-			</div>
-			<div class="col-md-3">
-				<div class="embed-responsive embed-responsive-4by3">
-					<video class="embed-responsive-item rounded " controls="controls">
-						<source src="../Ressource/Video/Accueil curé.mov" type="video/mp4" />
-						vidéo curé
-					</video>
-				</div>
-
-			</div>
-			<div class="col-md-3">
-				<a onclick="parent.fnRedirection('Formulaire/FormulaireBenevolat.php',0)">
-					<img class="d-block img-fluid rounded " style="widht: 200px;height:200px" src="../Ressource/Image/Bouton Bénévolat 02.jpg" alt="Formulaire Bénévolat" title="Formulaire Bénévolat">
-				</a>
-				
-			</div>
-		</div>
-
-	</div>
-
-	<?php require_once '../Footer.php';?>
+	
 </body>
 
 
