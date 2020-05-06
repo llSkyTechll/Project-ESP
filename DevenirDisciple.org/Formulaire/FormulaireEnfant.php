@@ -107,6 +107,7 @@ $conn = OpenCon();
 </head>
 
 <body>
+  <br>
   <form class="container" name="formSubmit" id="formSubmit">
     <input type="hidden" name="action" id="action" value="submit">
     <div class="form-group row">
@@ -142,11 +143,19 @@ $conn = OpenCon();
       <div class="col-md-6">
         <input type="text" class="form-control" id="fnompere" name="fnompere" tabindex="40" placeholder="Nom du père (ou tuteur)" >
       </div>
-    </div>
-    <div class="form-group row">
       <label for="ftelpere" class="col-md-1 col-form-label">Tél:</label>
       <div class="col-md-2">
         <input type="tel" class="form-control" id="ftelpere" name="ftelpere" tabindex="50" placeholder="Téléphone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="fnommere" class="col-md-3 col-form-label">Nom de la mère (ou tutrice):</label>
+      <div class="col-md-6">
+        <input type="text" class="form-control" id="fnommere" name="fnommere" tabindex="40" placeholder="Nom de la mère (ou tutrice)" >
+      </div>
+      <label for="ftelmere" class="col-md-1 col-form-label">Tél:</label>
+      <div class="col-md-2">
+        <input type="tel" class="form-control" id="ftelmere" name="ftelmere" tabindex="50" placeholder="Téléphone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
       </div>
     </div>
     <div class="form-group row">
@@ -154,6 +163,9 @@ $conn = OpenCon();
       <div class="col-md-11">
         <input type="email" class="form-control" id="femail" name="femail" tabindex="60" placeholder="Courriel">
       </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-md-12 col-form-label">Sacrements célébrés ( église et date )</label>      
     </div>
 
     <table style="width:100%;height:100%;margin-left:auto;margin-right:auto;border-collapse: collapse;">
@@ -183,7 +195,7 @@ $conn = OpenCon();
         </td>
       </tr>
       <tr>
-        <td colspan="2">
+        <td colspan="4">
           <select class="form-control" tabindex="110" name="fparoisseid" id="fparoisseid" style="width:50%" onchange="fnCommunityList()">
             <option value="0"></option>
             <?php           
@@ -205,7 +217,7 @@ $conn = OpenCon();
       </tr>
 
       <tr>
-        <td colspan="2">
+        <td colspan="4">
 
           <?php          
 
@@ -233,6 +245,29 @@ $conn = OpenCon();
 
 
         </td>
+      </tr>
+      </table>
+      <br>
+      <table class="Bold TableBorder" align="center">
+      <tr>
+        <td class="Center" style="width:16%"><label>Initiation:</label></td>
+        <td class="Center" style="width:16%"><input class="big-checkbox" type="checkbox" name="finitiation" id="finitiation" value="1"></td>
+        <td class="Center" style="width:16%"><label>P'tite Pasto:</label></td>
+        <td class="Center" style="width:16%"><input class="big-checkbox" type="checkbox" name="fptitepasto" id="fptitepasto" value="1"></td>
+        <td class="Center" style="width:16%"><label>Agnelets:</label></td>
+        <td class="Center" style="width:16%"><input class="big-checkbox" type="checkbox" name="fagnelets" id="fagnelets" value="1"></td>
+      </tr>
+      <tr>
+        <td class="Center" style="width:16%"><label>Premier pardon:</label></td>
+        <td class="Center" style="width:16%"><input class="big-checkbox" type="checkbox" name="fpremierpardon" id="fpremierpardon" value="1"></td>
+        <td class="Center" style="width:16%"><label>Première communion:</label></td>
+        <td class="Center" style="width:16%"><input class="big-checkbox" type="checkbox" name="fpremierecommunion" id="fpremierecommunion" value="1"></td>
+        <td class="Center" style="width:16%"><label>Confirmation:</label></td>
+        <td class="Center" style="width:16%"><input class="big-checkbox" type="checkbox" name="fconfirmation" id="fconfirmation" value="1"></td>
+      </tr>
+      <tr>
+        <td class="Center" style="width:16%"><label>Les Brebis de Jésus:</label></td>
+        <td class="Center" style="width:16%"><input class="big-checkbox" type="checkbox" name="fbrebis" id="fbrebis" value="1"></td>
       </tr>
     </table>
     

@@ -107,6 +107,7 @@ $conn = OpenCon();
 </head>
 
 <body>
+	<br>
 	<form class="container" name="formSubmit" id="formSubmit">
 		<input type="hidden" name="action" id="action" value="submit">
 		<div class="form-group row">
