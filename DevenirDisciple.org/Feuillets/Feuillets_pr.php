@@ -3,6 +3,7 @@
 require_once '../ConnexionDB.php';
 
 require_once '../Class/clsFeuilletDAO.php';
+require_once '../Uploads/UploadPDF.php';
 
 
 function GetHTMLAllFeuillets($arrayFeuillet){
@@ -39,7 +40,7 @@ function GetHTMLFeuillet($feuillet){
 						<th scope="row">
 							<a href="'.$feuillet->getPdfPath().'">'.$feuillet->getPdfName().'</a>							
 						</th>
-						<td>'.($feuillet->getSize()/1024).'mo</td>
+						<td>'.$feuillet->getSize().'</td>
 					</tr>';	
 
 	return $html;
@@ -140,6 +141,19 @@ function loadPageContent(){
 					GetHTMLNouvelle(NouvellesDAO::getNouvelles($_SESSION["FeuilletId"]));
 				}
 			}		*/
+}
+
+if(isset($_POST['submit']))
+{
+   print_r(UploadPDF());
+	//AddFeuillets(UploadPDF());
+} 
+function AddFeuillets($arrayFiles){
+	$arrayMessage = array();
+	
+	
+	
+	
 }
 
 

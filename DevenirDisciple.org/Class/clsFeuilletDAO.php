@@ -44,8 +44,8 @@ class FeuiletDAO{
     
   }
   
-  public static function savePageContent($contentId, $menuid, $title, $header, $subtitle, $content){
-    $SQL = "CALL SavePageContentTemplateText('".$contentId."','".$menuid."','".$title."','".$header."','".$subtitle."','".$content."');";
+  public static function AddFeuillet( $pdfPath, $pdfName, $actif, $orderDisplay, $size){
+    $SQL = "CALL AddFeuillet('".$pdfPath."','".$pdfName."','".$actif."','".$orderDisplay."','".$size."');";
 
     $conn = OpenCon();
     
