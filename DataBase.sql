@@ -97,7 +97,7 @@ CREATE TABLE `calendarevent` (
 
 LOCK TABLES `calendarevent` WRITE;
 /*!40000 ALTER TABLE `calendarevent` DISABLE KEYS */;
-INSERT INTO `calendarevent` VALUES (10,'Test','04/22/2020 08:27 am','','fc-bg-lightgreen','calendar',16),(11,'Test','04/29/2020 08:35 am','','fc-bg-lightgreen','group',16),(13,'Test','04/29/2020 08:35 am','test','fc-bg-lightgreen','group',16),(14,'Test','04/09/2020 10:40 am - 04/16/2020 11:59 pm','Test','fc-bg-default','circle',16);
+INSERT INTO `calendarevent` VALUES (10,'Test','04/22/2020 08:27 am','','fc-bg-lightgreen','calendar',16),(11,'Test','4/29/2020 8:35 am','Test','fc-bg-lightgreen','calendar',16),(14,'Test','04/09/2020 10:40 am - 04/16/2020 11:59 pm','Test','fc-bg-default','circle',16);
 /*!40000 ALTER TABLE `calendarevent` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -229,7 +229,7 @@ CREATE TABLE `formulairebenevolat` (
   `key` varbinary(1000) NOT NULL DEFAULT '0',
   `iv` varbinary(1000) NOT NULL DEFAULT '0',
   PRIMARY KEY (`formulaireid`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -238,8 +238,55 @@ CREATE TABLE `formulairebenevolat` (
 
 LOCK TABLES `formulairebenevolat` WRITE;
 /*!40000 ALTER TABLE `formulairebenevolat` DISABLE KEYS */;
-INSERT INTO `formulairebenevolat` VALUES (1,'GAecdq0BhnH27WAH0Vb6+oyVvnDNuf7qe+9ffXuqE2Q=','NuROQltZkTxjciE3pIBZXhYaOiuSMONH/XyHMnhzLWc=','j9ZhixIe/aSvzcQCeVa3kajwOyqO6NO3lXbBEK/4GWg=','1oxW5u+PG2xo1LneJ3WRfP6O0wgzHUgXGNigPLje3Ks=','567QfQTLU1FADKzLuhkrDg9qHh2zHj/MSQq52t++C+w=','3OKO2sy9mguIf5vWZIAExf6YfrqPQhLXBUiR8B8ezHOCF0t757sS6XmixVjzF9DA','','','','',0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'oj����0��k��v�n{�F��<�B�P\ZU*8','?ت��d�\0u��1�');
+INSERT INTO `formulairebenevolat` VALUES (1,'GAecdq0BhnH27WAH0Vb6+oyVvnDNuf7qe+9ffXuqE2Q=','NuROQltZkTxjciE3pIBZXhYaOiuSMONH/XyHMnhzLWc=','j9ZhixIe/aSvzcQCeVa3kajwOyqO6NO3lXbBEK/4GWg=','1oxW5u+PG2xo1LneJ3WRfP6O0wgzHUgXGNigPLje3Ks=','567QfQTLU1FADKzLuhkrDg9qHh2zHj/MSQq52t++C+w=','3OKO2sy9mguIf5vWZIAExf6YfrqPQhLXBUiR8B8ezHOCF0t757sS6XmixVjzF9DA','','','','',0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'oj\��\��0��k�\�v\�n{�F\�\�<�B�P\ZU*8','?ت��d�\0u��1�'),(2,'n9sNP3l97NVbzzkC6oZccllMaf1wjS/K54dWTTvCAAY=','IBehisM6W0UYOufvPxaIqpRTxTUrtWxkkBogNY1ccEY=','xSRMRot5BqzCfjIvfI14XXZpfTqbFEcZtXpk+OYqkoU=','z1FzkAJ1ufQyt1bczFCPWc+QsZya6BheSddl/v2LXrk=','FUrK7DHUUwrrV+SWung3UoHjQS1npT1yDFRWh2iKpkw=','w8BYQ24mVNzXndc+CUl/n7Jnue6Wju89GoeY61Qe+2extbjCZklZEstkvmrQXfzX','','','','',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'�\Z3��\��]كF��-��\�5%u�\�kIb\�ʒ�','���ݐf��-\�\�Ym\�'),(3,'U9oLPDWLo+wmq4T/uHBouvzg5r9u3joR004PTYvm1fU=','unLV33h9Q0KuZcy3A2xcv5WdgrqvgD4jGaUtHTFif4Q=','adWdV8ZOH8ndI+ak14iz/9oz0Pzr+uJrl6TWcb/QEnI=','eC/KlccppvZhs7zAAykCqBMRfoSCUpMXFX8Ln7wlIXU=','eC/KlccppvZhs7zAAykCqBMRfoSCUpMXFX8Ln7wlIXU=','yBkd8hV2H0/oDnQCsRnrxBYh91BcxvgqMQ+B8RkeDS4nKqN8h8G6ehENX8OSr9L2','','','','',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'\�hh�.a��(-R��n�U*>��Lp����','W�om@�\�\�|ݜ!'),(4,'lRu6F+H8g3qxBb1Gm9h2zEwYuFsapxRtaos1Oy76Z9w=','6cOdue7otvMpf1+Jv9T3u/6RKbf76BE+HUaMyCe7n+E=','VNaRQzHjcxRDolA1uk/rqCM5UAeZ8LViEwWEaupcRts=','BpFsGwEUisA5suy3R3OMgqSJQFcgHAKgKl/5CteNEiU=','cj5YWXcjcMxebUiCyKQzmZw7TToEhWYQf/GonPKe9Gk=','ZPcwrbaSSR/2hQPWpXLj1Yn8ynPPBNzJFQhcsEDtUamphSrOxZurKf0eNhkHhRJW','','','','',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'CA�\�w�\�s�H�)\��/\�a�4��+!\�\�k','e\�\�\�\�â;\�PB��');
 /*!40000 ALTER TABLE `formulairebenevolat` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `formulaireenfant`
+--
+
+DROP TABLE IF EXISTS `formulaireenfant`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `formulaireenfant` (
+  `formulaireid` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varbinary(1000) NOT NULL DEFAULT '',
+  `adresse` varbinary(1000) NOT NULL DEFAULT '',
+  `codepostal` varbinary(1000) NOT NULL DEFAULT '',
+  `courriel` varbinary(1000) NOT NULL DEFAULT '',
+  `datenaissance` varbinary(1000) NOT NULL DEFAULT '',
+  `nompere` varbinary(1000) NOT NULL DEFAULT '',
+  `telpere` varbinary(1000) NOT NULL DEFAULT '',
+  `nommere` varbinary(1000) NOT NULL DEFAULT '',
+  `telmere` varbinary(1000) NOT NULL DEFAULT '',
+  `bapteme` varchar(500) NOT NULL DEFAULT '',
+  `pardon` varchar(500) NOT NULL DEFAULT '',
+  `eucharistie` varchar(500) NOT NULL DEFAULT '',
+  `allergies` varchar(500) NOT NULL DEFAULT '',
+  `paroisseid` int(11) NOT NULL DEFAULT 0,
+  `communauteid` int(11) NOT NULL DEFAULT 0,
+  `initiation` tinyint(4) NOT NULL DEFAULT 0,
+  `ptitepasto` tinyint(4) NOT NULL DEFAULT 0,
+  `agnelets` tinyint(4) NOT NULL DEFAULT 0,
+  `premierpardon` tinyint(4) NOT NULL DEFAULT 0,
+  `premierecommunion` tinyint(4) NOT NULL DEFAULT 0,
+  `confirmation` tinyint(4) NOT NULL DEFAULT 0,
+  `brebis` tinyint(4) NOT NULL DEFAULT 0,
+  `key` varbinary(1000) NOT NULL DEFAULT '0',
+  `iv` varbinary(1000) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`formulaireid`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `formulaireenfant`
+--
+
+LOCK TABLES `formulaireenfant` WRITE;
+/*!40000 ALTER TABLE `formulaireenfant` DISABLE KEYS */;
+INSERT INTO `formulaireenfant` VALUES (1,'9rlvpa0feBKuHb2dsos0Xls5mRTB7wx7KZu+QGv7gFc=','8H343g4RsJfddUn1sbWwQwChn/jYeI0kX0BwLsMcoCE=','wKzZET7kQq/J7CkdHJgjgrO5SeNQjHpPNJrKUpb8yas=','rdRS/zlsf8L8bZtyBmTCNa188o/LnT8rlfxLdHCCaXF6afVFwTm56P1FToQekD05','EhZc6seQ2t3tJo3leYyqUVCJA9xqov8KenIwGqpPgEw=','Sfj3ZHk99gMbNASqSpXLP2mBksSpvODoPhRxiQ1ji8c=','Raem+u8/mLrVd1UQ7PI7nWjth+VXSprqd7aku/RRXo0=','Oi0jw1zAdChge8v4nrLFHqr5PBmBH7GVv0OGwK52+S4=','Oi0jw1zAdChge8v4nrLFHqr5PBmBH7GVv0OGwK52+S4=','test','test','test','test',2,14,1,1,0,1,1,0,0,'����Å��K���.�)�uP��:E�H��L','T:���~~�Q({m���'),(2,'BhW6zwozl/hh6/oHFX57cbEjkjRjwY210v3W+JzSiaY=','wX+VVQLO3rxJjBzBnBMQYA0mSpMWZQzOuab9QTpgNig=','f6dj/ws73sjfjvhUpxSBRevCo7vA4cVKvFZTKErtQqQ=','m3mtgxssW1P3nCXcFi0yWcZo7kl+YbhrMT0oIPv0h2E=','GqNqKMB41qjih5OxPFXr39hi1CFp44bKmnb1d9sXgk4=','X2zrffqawzXXnZKKiH+/a9LScpI8idlGQ7SoAWaxfAQ=','97y1UpkTqinpRsv4Fk+d7jLuZjzcBOzaEHoG4K9H3CQ=','9Z8ls+C+LiAGJ7/AH46GFLfGGWf+k7IjkFhGEYEJh1s=','9Z8ls+C+LiAGJ7/AH46GFLfGGWf+k7IjkFhGEYEJh1s=','test','test','test','test',1,3,1,1,1,1,1,1,1,'ԕ+��Bs��c��\�\��kqw9f�g6\0�n','^,��T\��eD)>\�z');
+/*!40000 ALTER TABLE `formulaireenfant` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -265,7 +312,7 @@ CREATE TABLE `menu` (
 
 LOCK TABLES `menu` WRITE;
 /*!40000 ALTER TABLE `menu` DISABLE KEYS */;
-INSERT INTO `menu` VALUES (1,'0','Accueil','Accueil/Accueil.php',1),(2,'0','Paroisses-Communautés','ParoissesCommunaute/ParoissesCommunaute.php',2),(3,'0','Sacrements','Sacrements/Sacrements.php',3),(4,'0','Chemins de foi','CheminsDeFoi/CheminsDeFoi.php',4),(5,'0','Funérailles','Funerailles/Funerailles.php',5),(6,'0','Feuillets','Feuillets/Feuillets.php',6),(7,'0','Financement','Nouvelles/Nouvelles.php',7),(8,'2','St-Georges-de-Sartigan','ParoissesCommunaute/ParoissesCommunaute.php',2),(9,'2','Saint-Jean-Paul II','ParoissesCommunaute/ParoissesCommunaute.php',1),(10,'8','Saint-Benjamin','ParoissesCommunaute/ParoissesCommunaute.php',0),(11,'8','Saint-Côme','ParoissesCommunaute/ParoissesCommunaute.php',0),(12,'8','Sainte-Aurélie','ParoissesCommunaute/ParoissesCommunaute.php',0),(13,'9','Saint-Gédéon','ParoissesCommunaute/ParoissesCommunaute.php',0),(14,'8','Saint-Georges','ParoissesCommunaute/ParoissesCommunaute.php',0),(15,'8','Saint-Jean-de-la-Lande','ParoissesCommunaute/ParoissesCommunaute.php',0),(16,'9','Saint-Ludger','ParoissesCommunaute/ParoissesCommunaute.php',0),(17,'9','Saint-Martin','ParoissesCommunaute/ParoissesCommunaute.php',0),(18,'8','Saint-Philibert','ParoissesCommunaute/ParoissesCommunaute.php',0),(19,'8','Saint-Prosper','ParoissesCommunaute/ParoissesCommunaute.php',0),(20,'8','Saint-René-Goupil','ParoissesCommunaute/ParoissesCommunaute.php',0),(21,'9','Saint-Robert-Bellarmin','ParoissesCommunaute/ParoissesCommunaute.php',0),(22,'8','Saint-Simon','ParoissesCommunaute/ParoissesCommunaute.php',0),(23,'9','Saint-Théophile','ParoissesCommunaute/ParoissesCommunaute.php',0),(24,'8','Saint-Zacharie','ParoissesCommunaute/ParoissesCommunaute.php',0),(25,'3','Baptême','InformationPages/TemplateText.php',1),(26,'3','Premier pardon - réconciliation','InformationPages/TemplateText.php',2),(27,'3','Première communion','InformationPages/TemplateText.php',3),(28,'3','Confirmation','InformationPages/TemplateText.php',4),(29,'3','Mariage','InformationPages/TemplateText.php',5),(30,'3','Onction des malades','InformationPages/TemplateText.php',6),(31,'3','Initiation chrétienne des adultes','InformationPages/TemplateText.php',7),(32,'4','Liturgie','CheminsDeFoi/CheminsDeFoi.php',1),(33,'4','Enfants','CheminsDeFoi/CheminsDeFoi.php',2),(34,'4','Pastorale jeunesse','InformationPages/TemplateText.php',3),(35,'4','Équipes de fraternité','InformationPages/TemplateText.php',4),(36,'4','Croissance spirituelle','InformationPages/TemplateText.php',5),(37,'4','Comité Création Verte','InformationPages/TemplateText.php',6),(39,'8','Assomption de la BVM','ParoissesCommunaute/ParoissesCommunaute.php',0),(40,'8','Notre-Dame-de-la-Providence','ParoissesCommunaute/ParoissesCommunaute.php',0),(41,'32','Liturgie et thèmes liturgiques','InformationPages/TemplateText.php',1),(42,'32','Servants de messes','InformationPages/TemplateText.php',2),(43,'33','Éveil à la foi','CheminsDeFoi/CheminsDeFoi.php',1),(44,'33','Brebis de Jésus','InformationPages/TemplateText.php',2),(45,'33','Catéchèse','InformationPages/TemplateText.php',3),(46,'43','Agnelets','InformationPages/TemplateText.php',1),(47,'43','Liens intéressants','InformationPages/TemplateText.php',2),(48,'43','P\'tite Pasto','InformationPages/TemplateText.php',3),(49,'36','Catéchèse des adultes','InformationPages/TemplateText.php',1),(50,'36','Cellules paroissiales d\'évangélisation','InformationPages/TemplateText.php',2),(51,'36','Chapelles d\'adoration','InformationPages/TemplateText.php',3),(52,'36','Curcillo','InformationPages/TemplateText.php',4),(53,'36','Groupes de prière','InformationPages/TemplateText.php',5);
+INSERT INTO `menu` VALUES (1,'0','Accueil','Accueil/Accueil.php',1),(2,'0','Paroisses-Communautés','ParoissesCommunaute/ParoissesCommunaute.php',2),(3,'0','Sacrements','Sacrements/Sacrements.php',3),(4,'0','Chemins de foi','CheminsDeFoi/CheminsDeFoi.php',4),(5,'0','Funérailles','Funerailles/Funerailles.php',5),(6,'0','Feuillets','Feuillets/Feuillets.php',6),(7,'0','Financement','Nouvelles/Nouvelles.php',7),(8,'2','St-Georges-de-Sartigan','ParoissesCommunaute/ParoissesCommunaute.php',2),(9,'2','Saint-Jean-Paul II','ParoissesCommunaute/ParoissesCommunaute.php',1),(10,'8','Saint-Benjamin','ParoissesCommunaute/ParoissesCommunaute.php',0),(11,'8','Saint-Côme','ParoissesCommunaute/ParoissesCommunaute.php',0),(12,'8','Sainte-Aurélie','ParoissesCommunaute/ParoissesCommunaute.php',0),(13,'9','Saint-Gédéon','ParoissesCommunaute/ParoissesCommunaute.php',0),(14,'8','Saint-Georges','ParoissesCommunaute/ParoissesCommunaute.php',0),(15,'8','Saint-Jean-de-la-Lande','ParoissesCommunaute/ParoissesCommunaute.php',0),(16,'9','Saint-Ludger','ParoissesCommunaute/ParoissesCommunaute.php',0),(17,'9','Saint-Martin','ParoissesCommunaute/ParoissesCommunaute.php',0),(18,'8','Saint-Philibert','ParoissesCommunaute/ParoissesCommunaute.php',0),(19,'8','Saint-Prosper','ParoissesCommunaute/ParoissesCommunaute.php',0),(20,'8','Saint-René-Goupil','ParoissesCommunaute/ParoissesCommunaute.php',0),(21,'9','Saint-Robert-Bellarmin','ParoissesCommunaute/ParoissesCommunaute.php',0),(22,'8','Saint-Simon','ParoissesCommunaute/ParoissesCommunaute.php',0),(23,'9','Saint-Théophile','ParoissesCommunaute/ParoissesCommunaute.php',0),(24,'8','Saint-Zacharie','ParoissesCommunaute/ParoissesCommunaute.php',0),(25,'3','Baptême','InformationPages/TemplateText.php',1),(26,'3','Premier pardon - réconciliation','InformationPages/TemplateAvecFormulaireEnfant.php',2),(27,'3','Première communion','InformationPages/TemplateText.php',3),(28,'3','Confirmation','InformationPages/TemplateText.php',4),(29,'3','Mariage','InformationPages/TemplateText.php',5),(30,'3','Onction des malades','InformationPages/TemplateText.php',6),(31,'3','Initiation chrétienne des adultes','InformationPages/TemplateText.php',7),(32,'4','Liturgie','CheminsDeFoi/CheminsDeFoi.php',1),(33,'4','Enfants','CheminsDeFoi/CheminsDeFoi.php',2),(34,'4','Pastorale jeunesse','InformationPages/TemplateText.php',3),(35,'4','Équipes de fraternité','InformationPages/TemplateText.php',4),(36,'4','Croissance spirituelle','InformationPages/TemplateText.php',5),(37,'4','Comité Création Verte','InformationPages/TemplateText.php',6),(39,'8','Assomption de la BVM','ParoissesCommunaute/ParoissesCommunaute.php',0),(40,'8','Notre-Dame-de-la-Providence','ParoissesCommunaute/ParoissesCommunaute.php',0),(41,'32','Liturgie et thèmes liturgiques','InformationPages/TemplateText.php',1),(42,'32','Servants de messes','InformationPages/TemplateText.php',2),(43,'33','Éveil à la foi','CheminsDeFoi/CheminsDeFoi.php',1),(44,'33','Brebis de Jésus','InformationPages/TemplateText.php',2),(45,'33','Catéchèse','InformationPages/TemplateText.php',3),(46,'43','Agnelets','InformationPages/TemplateText.php',1),(47,'43','Liens intéressants','InformationPages/TemplateText.php',2),(48,'43','P\'tite Pasto','InformationPages/TemplateText.php',3),(49,'36','Catéchèse des adultes','InformationPages/TemplateText.php',1),(50,'36','Cellules paroissiales d\'évangélisation','InformationPages/TemplateText.php',2),(51,'36','Chapelles d\'adoration','InformationPages/TemplateText.php',3),(52,'36','Curcillo','InformationPages/TemplateText.php',4),(53,'36','Groupes de prière','InformationPages/TemplateText.php',5);
 /*!40000 ALTER TABLE `menu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -598,6 +645,78 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `GetAccueil`()
 BEGIN
 	select imageHomeliePath, imageTemoignagePath, videoBienvenuePath, imageFormulairePath from accueil order by accueilId desc limit 1;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `FormulaireEnfantSave` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `FormulaireEnfantSave`(IN inName VARBINARY(1000), IN inAdresse VARBINARY(1000), IN inCodePostal VARBINARY(1000), IN inCourriel VARBINARY(1000), IN inDateNaissance VARBINARY(1000),
+																	  IN inNomPere VARBINARY(1000), IN inTelPere VARBINARY(1000), IN inNomMere VARBINARY(1000), IN inTelMere VARBINARY(1000), IN inBapteme VARCHAR(500), IN inPardon VARCHAR(500), IN inEucharistie VARCHAR(500), IN inAllergies VARCHAR(500),
+                                                                      IN inParoisseId INT(11), IN inCommunauteId INT(11),IN inInitiation TINYINT(4), IN inPtitePasto TINYINT(4), IN inAgnelets TINYINT(4), IN inPremierPardon TINYINT(4), IN inPremiereCommunion TINYINT(4), IN inConfirmation TINYINT(4), IN inBrebis TINYINT(4),
+                                                                      IN inKey VARBINARY(1000), IN inIV VARBINARY(1000))
+BEGIN
+	INSERT INTO formulaireenfant
+	(`nom`,
+	`adresse`,
+	`codepostal`,
+	`courriel`,
+	`datenaissance`,
+	`nompere`,
+	`telpere`,
+	`nommere`,
+	`telmere`,
+	`bapteme`,
+	`pardon`,
+    `eucharistie`,
+    `allergies`,
+    `paroisseid`,
+    `communauteid`,
+	`initiation`,
+	`ptitepasto`,
+	`agnelets`,
+	`premierpardon`,
+	`premierecommunion`,
+	`confirmation`,
+	`brebis`,	
+    `key`,
+    `iv`)
+	VALUES
+	(inName,
+	inAdresse,
+	inCodePostal,
+	inCourriel,
+	inDateNaissance,
+	inNomPere,
+	inTelPere,
+    inNomMere,
+    inTelMere,
+	inBapteme,
+	inPardon,
+	inEucharistie,
+    inAllergies,
+	inParoisseId,
+    inCommunauteId,
+	inInitiation,
+	inPtitePasto,
+	inAgnelets,
+	inPremierPardon,
+	inPremiereCommunion,
+	inConfirmation,
+	inBrebis,
+    inKey,
+    inIV);
+
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1004,4 +1123,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-05-07 11:33:27
+-- Dump completed on 2020-05-07 11:33:52
