@@ -44,11 +44,14 @@ $conn = OpenCon();
     }
 
     function fnSubmit() {
-      document.getElementById("ffirstname").style.borderColor = "";
-      document.getElementById("flastname").style.borderColor = "";
+      document.getElementById("fname").style.borderColor = "";
       document.getElementById("femail").style.borderColor = "";
-      document.getElementById("fphone").style.borderColor = "";
-      document.getElementById("fcellphone").style.borderColor = "";
+      document.getElementById("fdatenaissance").style.borderColor = "";
+      document.getElementById("fnompere").style.borderColor = "";
+      document.getElementById("fnommere").style.borderColor = "";
+      document.getElementById("ftelpere").style.borderColor = "";
+      document.getElementById("ftelmere").style.borderColor = "";
+
       if (fnValidateEmptyFields() == false){
         Swal.fire("Formulaire invalide", 'Veuillez remplir les champs obligatoires', 'warning');
         return;
@@ -57,7 +60,7 @@ $conn = OpenCon();
       $(function() {
         $.ajax({
           type: 'post',
-          url: 'FormulaireBenevolat.php',
+          url: 'FormulaireEnfant.php',
           data: ({
             formdata: $("#formSubmit").serialize()
           }),
@@ -66,14 +69,14 @@ $conn = OpenCon();
                if (fnValidateEmptyFields() == false){
                 Swal.fire("Formulaire invalide", 'Veuillez remplir les champs obligatoires', 'warning');
               }
-            } else if (data == 'Success') {
+            } else if (data == 'success') {
               Swal.fire({
                 title: 'Envoie effectué avec succès',
                 icon: 'success'
               }).then((result) => {
                 window.top.location.reload();
               });
-            } else if (data == "Fail") {
+            } else if (data == "fail") {
               Swal.fire("Erreur lors de l'envoie", "Impossible d'envoyer le formulaire", 'error');
             }
           }
@@ -83,21 +86,35 @@ $conn = OpenCon();
     
     function fnValidateEmptyFields(){
       var result = true;
-      if (document.getElementById("ffirstname").value.trim() == ''){
-        document.getElementById("ffirstname").style.borderColor = "red";
-        result = false;
-      }
-      if (document.getElementById("flastname").value.trim() == ''){
-        document.getElementById("flastname").style.borderColor = "red";
+      if (document.getElementById("fname").value.trim() == ''){
+        document.getElementById("fname").style.borderColor = "red";
         result = false;
       }
       if (document.getElementById("femail").value.trim() == ''){
         document.getElementById("femail").style.borderColor = "red";
         result = false;
       }
-      if (document.getElementById("fphone").value.trim() == '' || document.getElementById("fcellphone").value.trim() == ''){
-        document.getElementById("fphone").style.borderColor = "red";
-        document.getElementById("fcellphone").style.borderColor = "red";
+      if (document.getElementById("fdatenaissance").value.trim() == ''){
+        document.getElementById("fdatenaissance").style.borderColor = "red";
+        result = false;
+      }
+      if (document.getElementById("fnompere").value.trim() == '' && document.getElementById("fnommere").value.trim() == ''){
+        document.getElementById("fnompere").style.borderColor = "red";
+        document.getElementById("fnommere").style.borderColor = "red";
+        if(document.getElementById("ftelpere").value.trim() == ''){
+          document.getElementById("ftelpere").style.borderColor = "red";
+        }
+        if(document.getElementById("ftelmere").value.trim() == ''){
+          document.getElementById("ftelmere").style.borderColor = "red";
+        }
+        result = false;
+      }
+      if (document.getElementById("fnompere").value.trim() != '' && document.getElementById("ftelpere").value.trim() == '' && document.getElementById("fnommere").value.trim() == ''){
+        document.getElementById("ftelpere").style.borderColor = "red";
+        result = false;
+      }
+      if (document.getElementById("fnommere").value.trim() != '' && document.getElementById("ftelmere").value.trim() == '' && document.getElementById("fnompere").value.trim() == ''){
+        document.getElementById("ftelmere").style.borderColor = "red";
         result = false;
       }
       return result;
@@ -115,6 +132,8 @@ $conn = OpenCon();
       <div class="col-md-10">
         <input type="text" class="form-control" id="fname" name="fname" tabindex="10" placeholder="Nom">
       </div>
+    </div>
+    <div class="form-group row">
       <label for="faddress" class="col-md-2 col-form-label">Adresse complète:</label>
       <div class="col-md-10">
         <input type="text" class="form-control" id="faddress" name="faddress" tabindex="20" placeholder="Adresse">
@@ -159,35 +178,43 @@ $conn = OpenCon();
       </div>
     </div>
     <div class="form-group row">
-      <label for="femail" class="col-md-1 col-form-label">Courriel</label>
-      <div class="col-md-11">
-        <input type="email" class="form-control" id="femail" name="femail" tabindex="60" placeholder="Courriel">
-      </div>
-    </div>
-    <div class="form-group row">
-      <label class="col-md-12 col-form-label">Sacrements célébrés ( église et date )</label>      
+      <label style="text-align:center" class="col-md-12 col-form-label">Sacrements célébrés ( église et date )</label>      
     </div>
 
     <table style="width:100%;height:100%;margin-left:auto;margin-right:auto;border-collapse: collapse;">
-      
       <tr>
-        <td colspan="2">
-          <ul>
-            <li>
-              <input class="form-control" type="text" tabindex="70" name="fbenevolat1" id="fbenevolat1" style="width:100%" length="500" value="">
-            </li>
-            <li>
-              <input class="form-control" type="text" tabindex="80" name="fbenevolat2" id="fbenevolat2" style="width:100%" length="500" value="">
-            </li>
-            <li>
-              <input class="form-control" type="text" tabindex="90" name="fbenevolat3" id="fbenevolat3" style="width:100%" length="500" value="">
-            </li>
-            <li>
-              <input class="form-control" type="text" tabindex="100" name="fbenevolat4" id="fbenevolat4" style="width:100%" length="500" value="">
-            </li>
-          </ul>
+        <td style="width:10%">
+          <label for="fbapteme">Baptême:</label>
+        </td>
+        <td style="width:90%">
+          <input class="form-control" type="text" tabindex="70" name="fbapteme" id="fbapteme" style="width:100%" length="500" value="">
         </td>
       </tr>
+      <tr>
+        <td style="width:10%">
+          <label for="fpardon">Pardon:</label>
+        </td>
+        <td style="width:90%">
+          <input class="form-control" type="text" tabindex="80" name="fpardon" id="fpardon" style="width:100%" length="500" value="">
+        </td>    
+      </tr>
+      <tr>
+        <td style="width:10%">
+          <label for="feucharistie">Eucharistie:</label>
+        </td>
+        <td style="width:90%">
+          <input class="form-control" type="text" tabindex="90" name="feucharistie" id="feucharistie" style="width:100%" length="500" value="">         
+        </td>
+      </tr>
+      <tr>
+        <td style="width:10%">
+          <label for="fallergies"><i>Allergies:</i></label>
+        </td>
+        <td>
+          <input class="form-control" type="text" tabindex="100" name="fallergies" id="fallergies" style="width:100%" length="500" value="">
+        </td>
+      </tr>
+
       <tr>
         <td colspan="4">
           <br>
@@ -242,8 +269,6 @@ $conn = OpenCon();
             }  
 
           ?>
-
-
         </td>
       </tr>
       </table>
