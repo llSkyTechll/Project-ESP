@@ -17,9 +17,59 @@ require_once '../Uploads/UploadImage.php';
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 	<script src="../JavaScript/JSFunction.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	
 	<link rel="stylesheet" href="../css/include.css">
+	
+	
 	<title>Devenir Disciple</title>
 </head>
+	
+	
+	<script>
+		function fnAddFeuillets() {		
+
+			$(function() {	
+				alert(document.getElementById("fileToUpload").nodeValue);
+				$.ajax({
+					type: 'post',
+					url: 'Feuillets.php',
+					data: ({
+						action: 'AddNewFeuillets',
+						fileToUpload: document.getElementById("fileToUpload").nodeValue
+					}),
+					success: function(data) {
+						var newData = JSON.parse(data);
+						var MessageError= 0;
+						var UploadsDB= 1;
+						var message = '';
+						
+						/*for(x = 0; newData.length;x++){
+							if(newData[UploadsDB].succes =='succes'){
+								 	
+								 }
+						}*/
+						Swal.fire("Veuillez remplir tous les champs", '', 'warning');
+						
+						
+						if (data == 'fail') {
+							Swal.fire("Une erreur c'est produite", '', 'warning');
+						} else if (data == 'success') {
+							Swal.fire({
+								title: 'Ajout réussi.',
+								icon: 'success'
+							}).then((result) => {
+								window.top.location.reload();
+							});
+						} else if (data == 'emptyFields') {
+							Swal.fire("Veuillez remplir tous les champs", '', 'warning');
+						}
+					}
+				})
+			});
+		}
+	
+	</script>
 
 <body>
 
@@ -32,8 +82,8 @@ require_once '../Uploads/UploadImage.php';
 </form>-->
 	<form action="#" method="post" enctype="multipart/form-data">
     <label for="fileToUpload">Select PDF to upload:</label>
-    <input type="file" name="fileToUpload[]" id="fileToUpload" multiple>
-    <input type="submit" value="Upload Image" name="submit">
+    <input type="file" name="fileToUpload" id="fileToUpload" multiple>
+    <input type="submit" value="Upload PDF" name="submit" onClick="fnAddFeuillets()">
 </form>
 	<!--<form action="../Uploads/UploadVideo.php" method="post" enctype="multipart/form-data">
     <label for="fileToUpload">Select Video to upload:</label>

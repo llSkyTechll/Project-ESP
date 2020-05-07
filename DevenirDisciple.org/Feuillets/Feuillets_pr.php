@@ -31,7 +31,6 @@ function GetHTMLAllFeuillets($arrayFeuillet){
 	echo $html;
 
 }
-
 function GetHTMLFeuillet($feuillet){
 	
 	$html = '';
@@ -143,17 +142,83 @@ function loadPageContent(){
 			}		*/
 }
 
-if(isset($_POST['submit']))
+/*if(isset($_POST['submit']))
 {
-   print_r(UploadPDF());
-	//AddFeuillets(UploadPDF());
-} 
+  // print_r(UploadPDF());
+	AddFeuillets(UploadPDF());
+	
+	
+} */
+
+if (isset($_POST['action'])){
+  $action = $_POST['action'];
+  
+  switch($action){
+  /*case 'updateNouvellesAll':
+    FNUpdateEvent();
+	case 'updateNouvelles':
+    FNUpdateEvent();*/
+	case 'AddNewFeuillets':
+		AddFeuillets(UploadPDF($_POST['fileToUpload']));
+  }
+}
 function AddFeuillets($arrayFiles){
+	
+	$arrayMessages = array();
+	$arrayUploadsDB = array();
+	$arrayToReturn = array();
+	//print_r($arrayFiles['errors']);
+	//echo'<br><br><br>';
+	//print_r($arrayFiles['pdfs']);
+
+	for($x = 0; $x <count($arrayFiles['errors']);$x++){
+		//print_r($arrayFiles['errors'][$x][0]);
+		
+		if($arrayFiles['errors'][$x][0] == 'success'){
+			array_push($arrayUploadsDB,AddFeuillet($arrayFiles['pdfs'][$x]));
+		}
+		else{			
+			array_push($arrayMessages,arrayMessageError($arrayFiles['errors'][$x]));
+		}
+
+	}
+	//print_r($arrayMessages);		
+	//echo'<br><br><br>';
+	//print_r($arrayUploadsDB);	
+	$arrayToReturn = array(
+		'MessageError'=>$arrayMessages,
+		'UploadsDB'=>$arrayUploadsDB
+	);
+	//	print_r($arrayToReturn);
+	echo json_encode($arrayToReturn);
+	
+	
+	
+}
+function AddFeuillet($File){
+	
+	if(FeuiletDAO::AddFeuillet($File['pdfPath'], $File['pdfName'], $File['actif'], $File['orderDisplay'], $File['size']) == 'success'){
+		$uploadToDb = array(
+		'pdfName' =>$File['pdfName'],
+		'succes' =>'succes'
+		);
+	}
+	else{
+		$uploadToDb = array(
+		'pdfName' =>$File['pdfName'],
+		'succes' =>'fail'
+		);
+		
+	}
+	return $uploadToDb;
+}
+function arrayMessageError($message){
 	$arrayMessage = array();
-	
-	
-	
-	
+	for($x = 0; $x <count($message);$x++){
+		array_push($arrayMessage,$message[$x]);				
+	}
+
+	return $arrayMessage;
 }
 
 
