@@ -1,8 +1,11 @@
 <?php
 
+require_once 'clsEncrypt.php';
+
 class FormulaireEnfant{
 
   private $formulaireId;
+  private $nom;
   private $adresse;
   private $codePostal;
   private $courriel;
@@ -27,10 +30,11 @@ class FormulaireEnfant{
   private $key;
   private $iv;
 
-  function __construct($formulaireId, $adresse, $codePostal, $courriel, $dateDeNaissance, $nomPere, $telPere, $nomMere, $telMere, $bapteme, $pardon, $eucharistie, $allergies,
+  function __construct($formulaireId, $nom, $adresse, $codePostal, $courriel, $dateDeNaissance, $nomPere, $telPere, $nomMere, $telMere, $bapteme, $pardon, $eucharistie, $allergies,
                        $paroisseId, $communityId, $initiation, $ptitePasto, $agnelets, $premierPardon, $premiereCommunion, $confirmation, $brebis, $key, $iv){
     
     $this->formulaireId       = $formulaireId;
+    $this->nom                = $nom;
     $this->adresse            = $adresse;
     $this->codePostal         = $codePostal;
     $this->courriel           = $courriel;
@@ -55,6 +59,23 @@ class FormulaireEnfant{
     $this->key                = $key;
     $this->iv                 = $iv;
 
+  }
+
+  function getFormListHTML(){
+    $decrypt = new Encryption();
+    $communityId = '';
+    if ($this->communityId != null){
+      $communityId = $this->communityId;
+    }
+    $html = '<div class="row">
+               <div class="col-md-9" onclick="fnGetSpecificFormData('.$this->formulaireId.')">
+                 <div class="col-md-3">'.$this->formulaireId.'</div>
+                 <div class="col-md-3">'.$decrypt->decryptData($this->courriel, $this->key, $this->iv).'</div>
+                 <div class="col-md-3">'.$communityId.'</div>
+               </div>
+               <div class="col-md-3"><input type="button" name="btnDelete" value="Delete" onclick="fnDelete('.$this->formulaireId.')"></div>
+             </div>';
+    echo $html;
   }
 
 }

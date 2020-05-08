@@ -29,4 +29,8 @@ function validateAdminEditing(){
   return false;
 }
 
+if (!isset($_SESSION['gformid'])){
+  $_SESSION['gformid'] = 0;
+}
+
 ?>

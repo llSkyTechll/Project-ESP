@@ -18,4 +18,19 @@ function FNSubmit($formdata){
   exit(FormulaireEnfantDAO::saveFormulaire($formdata));
 }
 
+function LoadHTML(){
+  if (!Admin::isConnected()){
+    FormulaireEnfantDAO::getFormHTML();
+  }else if($_SESSION['gformid'] == 0){
+    $formArray = FormulaireEnfantDAO::getFormList();;
+    if($formArray != null){
+      for($x = 0; $x < count($formArray); $x++){
+        $formArray[$x]->getFormListHTML();
+      }
+    }
+  }else{
+    FormulaireEnfantDAO::getFormSpecData($_SESSION['gformid']);
+  }
+}
+
 ?>

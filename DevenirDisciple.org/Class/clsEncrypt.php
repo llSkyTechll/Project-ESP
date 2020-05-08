@@ -38,7 +38,7 @@ class Encryption{
   public function generateKey(){ 
     $key_size = 32; 
     $encryption_key = openssl_random_pseudo_bytes($key_size, $strong); 
-    if (strlen($encryption_key) < 32){ 
+    if (strlen($encryption_key) < 32 || strlen($encryption_key) > 32){ 
       $encryption_key = $this->generateKey(); 
     } 
 
@@ -49,7 +49,7 @@ class Encryption{
     $iv_size = 16; 
     $iv = openssl_random_pseudo_bytes($iv_size, $strong); 
 
-    if (strlen($iv) < 16){ 
+    if (strlen($iv) < 16 || strlen($iv) > 16){ 
       $iv = $this->generateIV(); 
     } 
 

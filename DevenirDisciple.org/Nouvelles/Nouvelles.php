@@ -157,9 +157,6 @@ require_once 'Nouvelles_pr.php';
 			jQuery('.datetimepicker').datepicker({
 				timepicker: true,
 				language: 'en'
-				
-				
-				
 			});
 		});
 
