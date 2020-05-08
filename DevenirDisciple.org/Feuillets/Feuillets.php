@@ -27,7 +27,7 @@ require_once '../Uploads/UploadImage.php';
 	
 	
 	<script>
-		function fnAddFeuillets() {		
+		/*function fnAddFeuillets() {		
 
 			$(function() {	
 				alert(document.getElementById("fileToUpload").nodeValue);
@@ -44,11 +44,11 @@ require_once '../Uploads/UploadImage.php';
 						var UploadsDB= 1;
 						var message = '';
 						
-						/*for(x = 0; newData.length;x++){
+						for(x = 0; newData.length;x++){
 							if(newData[UploadsDB].succes =='succes'){
 								 	
 								 }
-						}*/
+						}
 						Swal.fire("Veuillez remplir tous les champs", '', 'warning');
 						
 						
@@ -67,7 +67,50 @@ require_once '../Uploads/UploadImage.php';
 					}
 				})
 			});
-		}
+		}*/
+      $(function () {
+        $('form').on('submit', function (e) {
+					//alert(document.getElementById("fileToUpload").files);
+					//console.dir(document.getElementById("fileToUpload").files);
+					//console.dir($(document.getElementById("fileToUpload").files).serializeArray());
+					//alert($("form").serializeArray());
+					//alert(document.getElementById("fileToUpload").files);
+				//e.preventDefault()
+
+				 /*var files = document.getElementById("fileToUpload").files;
+				 var formData = new FormData();
+
+				for (var i = 0; i < files.length; i++) {
+				//var file = files[i];
+					alert(files[i]);
+
+					formData.append('files[]', files[i]);
+				}*/
+					//alert(formData);
+          //e.preventDefault();
+					//alert($('form').serialize());
+					//alert(document.getElementById("fileToUpload").files);
+					//alert("reee");
+					
+          $.ajax({
+					type: 'post',
+					url: 'Feuillets.php',
+					data: ({
+						action: 'AddNewFeuillets',
+						fileToUpload : document.getElementById("fileToUpload").files
+					}),
+						contentType: "multipart/form-data",
+						processData: false,
+					success: function(data) {
+						alert(data);
+              //alert('form was submitted');
+            }
+          });
+					
+					
+
+        });
+      });
 	
 	</script>
 
@@ -80,10 +123,10 @@ require_once '../Uploads/UploadImage.php';
     <input type="file" name="fileToUpload[]" id="fileToUpload" multiple>
     <input type="submit" value="Upload Image" name="submit">
 </form>-->
-	<form action="#" method="post" enctype="multipart/form-data">
+	<form action="javascript:void(0);" method="post" enctype="multipart/form-data">
     <label for="fileToUpload">Select PDF to upload:</label>
     <input type="file" name="fileToUpload" id="fileToUpload" multiple>
-    <input type="submit" value="Upload PDF" name="submit" onClick="fnAddFeuillets()">
+    <input type="submit" value="Upload PDF" name="submit">
 </form>
 	<!--<form action="../Uploads/UploadVideo.php" method="post" enctype="multipart/form-data">
     <label for="fileToUpload">Select Video to upload:</label>
