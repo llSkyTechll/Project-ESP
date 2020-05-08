@@ -142,26 +142,36 @@ function loadPageContent(){
 			}		*/
 }
 
-/*if(isset($_POST['submit']))
-{
-  // print_r(UploadPDF());
-	AddFeuillets(UploadPDF());
-	
-	
-} */
-
 if (isset($_POST['action'])){
-  $action = $_POST['action'];
-  
-  switch($action){
-  /*case 'updateNouvellesAll':
-    FNUpdateEvent();
-	case 'updateNouvelles':
-    FNUpdateEvent();*/
-	case 'AddNewFeuillets':
-		AddFeuillets(UploadPDF($_POST['fileToUpload']));
-  }
+	$action = $_POST['action'];
+		
+	switch($action){
+		/*case 'updateNouvellesAll':
+		FNUpdateEvent();
+		case 'updateNouvelles':
+		FNUpdateEvent();*/
+		case 'AddNewFeuillets':
+		//	exit($_POST['fileToUpload']);
+		//	exit('test');
+		if(isset($_POST['fileToUpload']))
+		{
+			//exit("yer");
+			
+		// print_r(UploadPDF());
+			//echo("submit");
+			//exit($_POST['fileToUpload']);
+		//AddFeuillets(UploadPDF());
+			//exit($_POST['fileToUpload']);
+
+		}
+			//exit('succes2');
+			
+		//AddFeuillets(UploadPDF($_POST['fileToUpload']));
+	}
+	exit("post");
+	
 }
+
 function AddFeuillets($arrayFiles){
 	
 	$arrayMessages = array();

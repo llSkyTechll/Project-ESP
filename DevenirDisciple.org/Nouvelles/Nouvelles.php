@@ -184,6 +184,7 @@ require_once 'Nouvelles_pr.php';
 					GetHTMLNouvelle(NouvellesDAO::getNouvelles($_SESSION["nouvelleId"]));
 				}
 			}		
+		
 	?>
 	</div>
 	<?php require_once '../Footer.php';?>
