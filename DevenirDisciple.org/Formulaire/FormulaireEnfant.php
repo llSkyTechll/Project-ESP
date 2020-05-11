@@ -121,7 +121,19 @@ $conn = OpenCon();
     }
 
     function fnGetSpecificFormData(formid){
-      console.log(formid);
+      $.ajax({
+          type: 'post',
+          url: 'FormulaireEnfant.php',
+          data: ({
+            action: "loadFormData",
+            formid: formid
+          }),
+          success: function(data) {
+            if (data == 'success') {
+              window.top.location.reload();
+            }
+          }            
+      })
     }
 
   </script>

@@ -258,6 +258,26 @@ class FormulaireEnfantDAO{
     echo $html;
   }
 
+  public static function getFormSpecData($formid){
+    $conn = OpenCon();
+
+    $SQL  = "CALL GetFormEnfant('".$formid."');";
+
+    $RSSQL = $conn->query($SQL);
+
+    CloseCon($conn);
+
+    if ($RSSQL->num_rows > 0){
+      $row = $RSSQL->fetch_assoc();
+      $formdata = new FormulaireEnfant($row['formulaireid'], $row['nom'], $row['adresse'], $row['codepostal'], $row['courriel'], $row['datenaissance'], $row['nompere'], $row['telpere'],
+                 $row['nommere'], $row['telmere'], $row['bapteme'], $row['pardon'], $row['eucharistie'], $row['allergies'], $row['paroisseid'], $row['communauteid'], $row['initiation'], $row['ptitepasto'], $row['agnelets'],
+                 $row['premierpardon'], $row['premierecommunion'], $row['confirmation'], $row['brebis'], $row['key'], $row['iv']);
+      $formdata->getFormDataDetails();
+    }
+
+    
+  }
+
 }
 
 ?>
