@@ -23,7 +23,8 @@ function FNRedirect(){
   $path   = $_POST["path"];
   $_SESSION["gmenuId"] = $menuId;
   $_SESSION["gpath"]   = $path;
-	$_SESSION["nouvelleId"] = 0;
+  $_SESSION["nouvelleId"] = 0;
+  $_SESSION["gformid"] = 0;
 }
 function FNRedirectionNouvelle(){
   

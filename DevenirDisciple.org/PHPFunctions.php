@@ -33,4 +33,11 @@ if (!isset($_SESSION['gformid'])){
   $_SESSION['gformid'] = 0;
 }
 
+function FNCheckbox($value){
+  if ($value == 1){
+    return 'checked';
+  }
+  return '';
+}
+
 ?>

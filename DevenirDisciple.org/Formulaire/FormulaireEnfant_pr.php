@@ -14,6 +14,13 @@ if (isset($_POST['formdata'])){
   }
 }
 
+if (isset($_POST['action'])){
+  switch($_POST['action']){
+    case 'loadFormData':
+      FNLoadFormData();
+  }
+}
+
 function FNSubmit($formdata){  
   exit(FormulaireEnfantDAO::saveFormulaire($formdata));
 }
@@ -30,6 +37,13 @@ function LoadHTML(){
     }
   }else{
     FormulaireEnfantDAO::getFormSpecData($_SESSION['gformid']);
+  }
+}
+
+function FNLoadFormData(){
+  if (isset($_POST['formid'])){
+    $_SESSION['gformid'] = $_POST['formid'];
+    exit('success');
   }
 }
 
