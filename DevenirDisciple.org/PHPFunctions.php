@@ -29,8 +29,12 @@ function validateAdminEditing(){
   return false;
 }
 
-if (!isset($_SESSION['gformid'])){
-  $_SESSION['gformid'] = 0;
+if (!isset($_SESSION['gformenfantid'])){
+  $_SESSION['gformenfantid'] = 0;
+}
+
+if (!isset($_SESSION['gformbenevolatid'])){
+  $_SESSION['gformbenevolatid'] = 0;
 }
 
 function FNCheckbox($value){

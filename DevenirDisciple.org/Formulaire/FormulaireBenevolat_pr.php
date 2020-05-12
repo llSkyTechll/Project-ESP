@@ -14,10 +14,34 @@ if (isset($_POST['formdata'])){
   }
 }
 
+if (isset($_POST['action'])){
+  switch($_POST['action']){
+    case 'loadFormData':
+      FNLoadFormData();
+  }
+}
+
 function FNSubmit($formdata){  
   $formulaireBenevolat =  new FormulaireBenevolat();
   
   exit($formulaireBenevolat->saveForm($formdata));
+}
+
+function loadHTML(){
+  if (!Admin::isConnected()){
+    FormulaireBenevolat::getFormHTML();
+  }else if ($_SESSION['gformbenevolatid'] == 0){
+    FormulaireBenevolat::getFormListHTML();
+  }else{
+    FormulaireBenevolat::getFormSpecData($_SESSION['gformbenevolatid']);
+  } 
+}
+
+function FNLoadFormData(){
+  If (isset($_POST['formid'])){
+    $_SESSION['gformbenevolatid'] = $_POST['formid'];
+    exit('success');
+  }
 }
 
 ?>

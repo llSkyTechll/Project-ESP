@@ -28,7 +28,7 @@ function FNSubmit($formdata){
 function LoadHTML(){
   if (!Admin::isConnected()){
     FormulaireEnfantDAO::getFormHTML();
-  }else if($_SESSION['gformid'] == 0){
+  }else if($_SESSION['gformenfantid'] == 0){
     $formArray = FormulaireEnfantDAO::getFormList();;
     if($formArray != null){
       for($x = 0; $x < count($formArray); $x++){
@@ -36,13 +36,13 @@ function LoadHTML(){
       }
     }
   }else{
-    FormulaireEnfantDAO::getFormSpecData($_SESSION['gformid']);
+    FormulaireEnfantDAO::getFormSpecData($_SESSION['gformenfantid']);
   }
 }
 
 function FNLoadFormData(){
   if (isset($_POST['formid'])){
-    $_SESSION['gformid'] = $_POST['formid'];
+    $_SESSION['gformenfantid'] = $_POST['formid'];
     exit('success');
   }
 }

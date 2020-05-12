@@ -68,7 +68,7 @@ class FormulaireEnfant{
       $communityId = $this->communityId;
     }
     $html = '
-               <div class="row col-md-12" onclick="fnGetSpecificFormData('.$this->formulaireId.')">
+               <div style="cursor:pointer" class="row col-md-12 backgroundHover" onclick="fnGetSpecificFormData('.$this->formulaireId.')">
                  <div class="col-md-1"><p>'.$this->formulaireId.'</p></div>
                  <div class="col-md-5"><p>'.$decrypt->decryptData($this->courriel, $this->key, $this->iv).'</p></div>
                  <div class="col-md-5"><p>'.$communityId.'</p></div>
