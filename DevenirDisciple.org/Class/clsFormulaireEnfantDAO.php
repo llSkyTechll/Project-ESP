@@ -47,7 +47,9 @@ class FormulaireEnfantDAO{
 
       $SQL = "CALL FormulaireEnfantSave(".$param.");";
       
-      $conn->query($SQL);
+      if (!$conn->query($SQL)){
+        return 'fail';
+      }
 
       CloseCon($conn);
 
@@ -69,7 +71,9 @@ class FormulaireEnfantDAO{
 
     $SQL  = 'CALL GetAllFormEnfant();';
 
-    $RSSQL = $conn->query($SQL);
+    if (!$RSSQL = $conn->query($SQL)){
+      echo 'Une erreur est survenu dans la requête à la base de données.';
+    }
 
     CloseCon($conn);
 
@@ -274,6 +278,12 @@ class FormulaireEnfantDAO{
                  $row['premierpardon'], $row['premierecommunion'], $row['confirmation'], $row['brebis'], $row['key'], $row['iv']);
       $formdata->getFormDataDetails();
     }
+
+    
+  }
+
+  public static function deleteForm($formid){
+    $SQL = "CALL DeleteFormEnfant('".$formid."')";
 
     
   }

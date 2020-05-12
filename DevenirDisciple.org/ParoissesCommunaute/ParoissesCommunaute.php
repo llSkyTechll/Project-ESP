@@ -225,8 +225,6 @@ if (isset($_SESSION['gmenuId'])){
 					// emphasizes business hours
 					businessHours: false,
 					defaultView: 'month',
-					// event dragging & resizing
-					editable: true,
 					// header
 					header: {
 						left: 'title',

@@ -58,7 +58,9 @@ class FormulaireBenevolat{
 
       $SQL = "CALL FormulaireBenevolatSave(".$param.");";
 
-      $conn->query($SQL);
+      if (!$conn->query($SQL)){
+        return 'Fail';
+      }
 
       CloseCon($conn);
 
@@ -283,7 +285,9 @@ class FormulaireBenevolat{
 
     $SQL = 'CALL GetAllFormBenevolat();';
 
-    $RSSQL = $conn->query($SQL);
+    if (!$RSSQL = $conn->query($SQL)){
+      echo 'Erreur lors de la requête à la base de données.';
+    }
 
     CloseCon($conn);
 
@@ -309,7 +313,9 @@ class FormulaireBenevolat{
 
     $SQL = "CALL GetFormBenevolat('".$formid."');";
 
-    $RSSQL = $conn->query($SQL);
+    if (!$RSSQL = $conn->query($SQL)){
+      echo 'Erreur lors de la requête à la base de données.';
+    }
 
     CloseCon($conn);
 
@@ -323,35 +329,35 @@ class FormulaireBenevolat{
             <div class="form-group row">
               <label for="ffirstname" class="col-md-1 col-form-label">Prénom:</label>
               <div class="col-md-5">
-                <input type="text" class="form-control" id="ffirstname" name="ffirstname" tabindex="10" placeholder="Prénom" value="'.$decrypt->decryptdata($row['prenom'],$row['key'],$row['iv']).'">
+                <input type="text" class="form-control" id="ffirstname" name="ffirstname" tabindex="10" readonly placeholder="Prénom" value="'.$decrypt->decryptdata($row['prenom'],$row['key'],$row['iv']).'">
               </div>
               <label for="flastname" class="col-md-1 col-form-label">Nom:</label>
               <div class="col-md-5">
-                <input type="text" class="form-control" id="flastname" name="flastname" tabindex="20" placeholder="Nom" value="'.$decrypt->decryptdata($row['nom'],$row['key'],$row['iv']).'">
+                <input type="text" class="form-control" id="flastname" name="flastname" tabindex="20" readonly placeholder="Nom" value="'.$decrypt->decryptdata($row['nom'],$row['key'],$row['iv']).'">
               </div>
             </div>
             <div class="form-group row">
               <label for="faddress" class="col-md-1 col-form-label">Adresse</label>
               <div class="col-md-11">
-                <input type="text" class="form-control" id="faddress" name="faddress" tabindex="30" placeholder="Adresse" value="'.$decrypt->decryptdata($row['adresse'],$row['key'],$row['iv']).'">
+                <input type="text" class="form-control" id="faddress" name="faddress" tabindex="30" readonly placeholder="Adresse" value="'.$decrypt->decryptdata($row['adresse'],$row['key'],$row['iv']).'">
               </div>
             </div>
             <div class="form-group row">
               <label for="fphone" class="col-md-1 col-form-label">Tél. :</label>
               <div class="col-md-11">
-                <input type="tel" class="form-control" id="fphone" name="fphone" tabindex="40" placeholder="Tél." pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value="'.$decrypt->decryptdata($row['telephone'],$row['key'],$row['iv']).'">
+                <input type="tel" class="form-control" id="fphone" name="fphone" tabindex="40" readonly placeholder="Tél." pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value="'.$decrypt->decryptdata($row['telephone'],$row['key'],$row['iv']).'">
               </div>
             </div>
             <div class="form-group row">
               <label for="fcellphone" class="col-md-1 col-form-label">Tél. cell:</label>
               <div class="col-md-11">
-                <input type="tel" class="form-control" id="fcellphone" name="fcellphone" tabindex="50" placeholder="Tél. cell" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value="'.$decrypt->decryptdata($row['cellulaire'],$row['key'],$row['iv']).'">
+                <input type="tel" class="form-control" id="fcellphone" name="fcellphone" readonly tabindex="50" placeholder="Tél. cell" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value="'.$decrypt->decryptdata($row['cellulaire'],$row['key'],$row['iv']).'">
               </div>
             </div>
             <div class="form-group row">
               <label for="femail" class="col-md-1 col-form-label">Courriel</label>
               <div class="col-md-11">
-                <input type="email" class="form-control" id="femail" name="femail" tabindex="60" placeholder="Courriel" value="'.$decrypt->decryptdata($row['courriel'],$row['key'],$row['iv']).'">
+                <input type="email" class="form-control" id="femail" name="femail" readonly  tabindex="60" placeholder="Courriel" value="'.$decrypt->decryptdata($row['courriel'],$row['key'],$row['iv']).'">
               </div>
             </div>
 
@@ -379,16 +385,16 @@ class FormulaireBenevolat{
                 <td colspan="2">
                   <ul>
                     <li>
-                      <input class="form-control" type="text" tabindex="70" name="fbenevolat1" id="fbenevolat1" style="width:100%" length="500" value="'.$row['benevolat1'].'">
+                      <input class="form-control" type="text" tabindex="70" name="fbenevolat1" readonly id="fbenevolat1" style="width:100%" length="500" value="'.$row['benevolat1'].'">
                     </li>
                     <li>
-                      <input class="form-control" type="text" tabindex="80" name="fbenevolat2" id="fbenevolat2" style="width:100%" length="500" value="'.$row['benevolat2'].'">
+                      <input class="form-control" type="text" tabindex="80" name="fbenevolat2" readonly id="fbenevolat2" style="width:100%" length="500" value="'.$row['benevolat2'].'">
                     </li>
                     <li>
-                      <input class="form-control" type="text" tabindex="90" name="fbenevolat3" id="fbenevolat3" style="width:100%" length="500" value="'.$row['benevolat3'].'">
+                      <input class="form-control" type="text" tabindex="90" name="fbenevolat3" readonly id="fbenevolat3" style="width:100%" length="500" value="'.$row['benevolat3'].'">
                     </li>
                     <li>
-                      <input class="form-control" type="text" tabindex="100" name="fbenevolat4" id="fbenevolat4" style="width:100%" length="500" value="'.$row['benevolat4'].'">
+                      <input class="form-control" type="text" tabindex="100" name="fbenevolat4" readonly id="fbenevolat4" style="width:100%" length="500" value="'.$row['benevolat4'].'">
                     </li>
                   </ul>
                 </td>
@@ -401,7 +407,7 @@ class FormulaireBenevolat{
               </tr>
               <tr>
                 <td colspan="2">
-                  <select class="form-control" tabindex="110" name="fparoisseid" id="fparoisseid" style="width:50%" onchange="fnCommunityList()">
+                  <select class="form-control" disabled tabindex="110" name="fparoisseid" id="fparoisseid" style="width:50%" onchange="fnCommunityList()">
                     <option value="0"></option>';
                               
                       
@@ -437,7 +443,7 @@ class FormulaireBenevolat{
                             $html .= '</select>';
                           }
                           $paroisseid = $Row['paroisseid'];
-                          $html .= '<select class="form-control" tabindex="120" name="fcommunityid'.$paroisseid.'" id="fcommunityid'.$paroisseid.'" style="width:50%;">
+                          $html .= '<select class="form-control" disabled tabindex="120" name="fcommunityid'.$paroisseid.'" id="fcommunityid'.$paroisseid.'" style="width:50%;">
                           <option value="0"></option>
                           <option ';
                           if ($row['communauteid'] == $Row['communauteid']){
@@ -478,45 +484,45 @@ class FormulaireBenevolat{
               </tr>
               <tr>
                 <td><label>Lundi</label></td>
-                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="130" name="flundiam" '.FNCheckbox($row['lundiam']).'></td>
-                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="140" name="flundipm" '.FNCheckbox($row['lundipm']).'></td>
-                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="150" name="flundisoir" '.FNCheckbox($row['lundisoiree']).'></td>
+                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="130" disabled name="flundiam" '.FNCheckbox($row['lundiam']).'></td>
+                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="140" disabled name="flundipm" '.FNCheckbox($row['lundipm']).'></td>
+                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="150" disabled name="flundisoir" '.FNCheckbox($row['lundisoiree']).'></td>
               </tr>
               <tr>
                 <td><label>Mardi</label></td>
-                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="160" name="fmardiam" '.FNCheckbox($row['mardiam']).'></td>
-                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="170" name="fmardipm" '.FNCheckbox($row['mardipm']).'></td>
-                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="180" name="fmardisoir" '.FNCheckbox($row['mardisoiree']).'></td>
+                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="160" disabled name="fmardiam" '.FNCheckbox($row['mardiam']).'></td>
+                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="170" disabled name="fmardipm" '.FNCheckbox($row['mardipm']).'></td>
+                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="180" disabled name="fmardisoir" '.FNCheckbox($row['mardisoiree']).'></td>
               </tr>
               <tr>
                 <td><label>Mercredi</label></td>
-                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="190" name="fmercrediam" '.FNCheckbox($row['mercrediam']).'></td>
-                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="200" name="fmercredipm" '.FNCheckbox($row['mercredipm']).'></td>
-                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="210" name="fmercredisoir" '.FNCheckbox($row['mercredisoiree']).'></td>
+                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="190" disabled name="fmercrediam" '.FNCheckbox($row['mercrediam']).'></td>
+                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="200" disabled name="fmercredipm" '.FNCheckbox($row['mercredipm']).'></td>
+                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="210" disabled name="fmercredisoir" '.FNCheckbox($row['mercredisoiree']).'></td>
               </tr>
               <tr>
                 <td><label>Jeudi</label></td>
-                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="220" name="fjeudiam" '.FNCheckbox($row['jeudiam']).'></td>
-                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="230" name="fjeudipm" '.FNCheckbox($row['jeudipm']).'></td>
-                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="240" name="fjeudisoir" '.FNCheckbox($row['jeudisoiree']).'></td>
+                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="220" disabled name="fjeudiam" '.FNCheckbox($row['jeudiam']).'></td>
+                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="230" disabled name="fjeudipm" '.FNCheckbox($row['jeudipm']).'></td>
+                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="240" disabled name="fjeudisoir" '.FNCheckbox($row['jeudisoiree']).'></td>
               </tr>
               <tr>
                 <td><label>Vendredi</label></td>
-                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="250" name="fvendrediam" '.FNCheckbox($row['vendrediam']).'></td>
-                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="260" name="fvendredipm" '.FNCheckbox($row['vendredipm']).'></td>
-                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="270" name="fvendredisoir" '.FNCheckbox($row['vendredisoiree']).'></td>
+                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="250" disabled name="fvendrediam" '.FNCheckbox($row['vendrediam']).'></td>
+                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="260" disabled name="fvendredipm" '.FNCheckbox($row['vendredipm']).'></td>
+                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="270" disabled name="fvendredisoir" '.FNCheckbox($row['vendredisoiree']).'></td>
               </tr>
               <tr>
                 <td><label>Samedi</label></td>
-                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="280" name="fsamediam" '.FNCheckbox($row['samediam']).'></td>
-                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="290" name="fsamedipm" '.FNCheckbox($row['samedipm']).'></td>
-                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="300" name="fsamedisoir" '.FNCheckbox($row['samedisoiree']).'></td>
+                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="280" disabled name="fsamediam" '.FNCheckbox($row['samediam']).'></td>
+                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="290" disabled name="fsamedipm" '.FNCheckbox($row['samedipm']).'></td>
+                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="300" disabled name="fsamedisoir" '.FNCheckbox($row['samedisoiree']).'></td>
               </tr>
               <tr>
                 <td><label>Dimanche</label></td>
-                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="310" name="fdimancheam" '.FNCheckbox($row['dimancheam']).'></td>
-                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="320" name="fdimanchepm" '.FNCheckbox($row['dimanchepm']).'></td>
-                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="330" name="fdimanchesoir" '.FNCheckbox($row['dimanchesoiree']).'></td>
+                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="310" disabled name="fdimancheam" '.FNCheckbox($row['dimancheam']).'></td>
+                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="320" disabled name="fdimanchepm" '.FNCheckbox($row['dimanchepm']).'></td>
+                <td class="Center"><input class="big-checkbox" type="checkbox" value="1" tabindex="330" disabled name="fdimanchesoir" '.FNCheckbox($row['dimanchesoiree']).'></td>
               </tr>
             </table>
       

@@ -68,12 +68,12 @@ class FormulaireEnfant{
       $communityId = $this->communityId;
     }
     $html = '
-               <div style="cursor:pointer" class="row col-md-12 backgroundHover" onclick="fnGetSpecificFormData('.$this->formulaireId.')">
-                 <div class="col-md-1"><p>'.$this->formulaireId.'</p></div>
-                 <div class="col-md-5"><p>'.$decrypt->decryptData($this->courriel, $this->key, $this->iv).'</p></div>
-                 <div class="col-md-5"><p>'.$communityId.'</p></div>
-                 <div class="col-md-1"><input type="button" name="btnDelete" value="Delete" onclick="fnDelete('.$this->formulaireId.')"></div>
-                 </div>
+               <div style="cursor:pointer" class="row col-md-12 backgroundHover" >
+                 <div class="col-md-1" onclick="fnGetSpecificFormData('.$this->formulaireId.')"><p>'.$this->formulaireId.'</p></div>
+                 <div class="col-md-5" onclick="fnGetSpecificFormData('.$this->formulaireId.')"><p>'.$decrypt->decryptData($this->courriel, $this->key, $this->iv).'</p></div>
+                 <div class="col-md-5" onclick="fnGetSpecificFormData('.$this->formulaireId.')"><p>'.$communityId.'</p></div>
+                 <div class="col-md-1"><input type="button" name="btnDelete" value="Delete" onclick="fnDeleteConfirmation('.$this->formulaireId.')"></div>
+               </div>
              ';
     echo $html;
   }

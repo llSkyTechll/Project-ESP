@@ -27,7 +27,9 @@ class TemplateTextDAO{
 
     $conn = OpenCon();
     
-    $conn->query($SQL);
+    if (!$conn->query($SQL)){
+      exit('fail');
+    }
     
     CloseCon($conn);
     

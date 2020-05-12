@@ -37,10 +37,10 @@ class Encryption{
 
   public function generateKey(){ 
     $key_size = 32; 
-    $encryption_key = openssl_random_pseudo_bytes($key_size, $strong); 
+    $encryption_key = random_bytes($key_size); 
 
     while (strlen($encryption_key) < 32 || strlen($encryption_key) > 32){
-      $encryption_key = openssl_random_pseudo_bytes($key_size, $strong); 
+      $encryption_key = random_bytes($key_size); 
     }
 
     return $encryption_key; 
@@ -48,14 +48,15 @@ class Encryption{
 
   public function generateIV(){ 
     $iv_size = 16; 
-    $iv = openssl_random_pseudo_bytes($iv_size, $strong); 
+    $iv = random_bytes($iv_size); 
 
     while (strlen($iv) < 16 || strlen($iv) > 16){
-      $iv = openssl_random_pseudo_bytes($iv_size, $strong); 
+      $iv = random_bytes($iv_size); 
     }
 
     return $iv; 
   } 
+
 } 
  
 ?>

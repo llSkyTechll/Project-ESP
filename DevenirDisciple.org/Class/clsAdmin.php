@@ -7,7 +7,9 @@ class Admin{
     
     $param = "'".$email."', '".$password."', @AdminId";  
     $SQL = "CALL ConnexionAdmin(".$param.");";
-    $RSSQL = $conn->query($SQL);
+    if (!$RSSQL = $conn->query($SQL)){
+      return false;
+    }
     $Result = $RSSQL->fetch_assoc();
 
     CloseCon($conn);

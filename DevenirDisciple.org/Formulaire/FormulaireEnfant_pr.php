@@ -18,6 +18,8 @@ if (isset($_POST['action'])){
   switch($_POST['action']){
     case 'loadFormData':
       FNLoadFormData();
+    case 'deleteForm':
+      FNDeleteForm();
   }
 }
 
@@ -44,6 +46,12 @@ function FNLoadFormData(){
   if (isset($_POST['formid'])){
     $_SESSION['gformenfantid'] = $_POST['formid'];
     exit('success');
+  }
+}
+
+function FNDeleteForm(){
+  if (isset($_POST['formid'])){
+    exit(FormulaireEnfantDAO::deleteForm($_POST['formid']));
   }
 }
 

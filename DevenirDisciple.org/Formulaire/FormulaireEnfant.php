@@ -145,6 +145,49 @@ $conn = OpenCon();
       })
     }
 
+    function fnDeleteConfirmation(formid){
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.value) {
+          fnDelete(formid);
+        }
+      })
+    }
+
+    function fnDelete(formid){
+      $.ajax({
+          type: 'post',
+          url: 'FormulaireEnfant.php',
+          data: ({
+            action: "deleteForm",
+            formid: formid
+          }),
+          success: function(data) {
+            if (data == 'success') {
+              Swal.fire({
+                title: 'Supression effectué avec succès',
+                icon: 'success'
+              }).then((result) => {
+                window.top.location.reload();
+              });
+            }else if(data == 'fail'){
+              Swal.fire(
+                'Erreur',
+                'Une erreur est survenue.',
+                'warning'
+              )
+            }
+          }            
+      })
+    }
+
   </script>
 </head>
 

@@ -6,11 +6,13 @@ class ParoisseCommunaute{
     $conn = OpenCon();
     
     $SQL = "CALL GetAllParoisse();";
-    $RSSQL = $conn->query($SQL);
+    
+    if (!$RSSQL = $conn->query($SQL)){
+      echo 'Erreur lors de la requête à la base de données.';
+    }
     
     CloseCon($conn);
     
-   
     return $RSSQL;
   }
   
@@ -18,7 +20,10 @@ class ParoisseCommunaute{
     $conn = OpenCon();
     
     $SQL = 'CALL GetAllCommunauteOrderParoisse();';
-    $RSSQL = $conn->query($SQL);
+    
+    if (!$RSSQL = $conn->query($SQL)){
+      echo 'Erreur lors de la requête à la base de données.';
+    }
 
     CloseCon($conn);
     
@@ -29,7 +34,10 @@ class ParoisseCommunaute{
     $SQL = 'CALL GetCommunityID('.$_SESSION['gmenuId'].');';
     
     $conn  = OpenCon();
-    $RSSQL = $conn->query($SQL);
+
+    if (!$RSSQL = $conn->query($SQL)){
+      echo 'Erreur lors de la requête à la base de données.';
+    }
 
     CloseCon($conn);
     
@@ -50,7 +58,9 @@ class ParoisseCommunaute{
     
     $SQL = "CALL GetCommunitySchedule('".$_SESSION['gcommunityid']."')";
     
-    $RSSQL = $conn->query($SQL);
+    if (!$RSSQL = $conn->query($SQL)){
+      echo 'Erreur lors de la requête à la base de données.';
+    }
     
     $Row = $RSSQL->fetch_assoc();
 
@@ -75,7 +85,9 @@ class ParoisseCommunaute{
     
     $SQL = "CALL SaveCommunitySchedule('".$scheduleid."','".$schedule."','".$communityid."');";
     
-    $RSSQL = $conn->query($SQL);
+    if ($conn->query($SQL)){
+      exit('fail');
+    }
 
     CloseCon($conn);
 

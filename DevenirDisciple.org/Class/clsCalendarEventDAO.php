@@ -29,7 +29,9 @@ class CalendarEventDAO{
     
     $SQL = "CALL AddEvent('".$name."','". $date."','". $descr."','". $color."','". $icon."','".$_SESSION['gcommunityid']."');";
 
-    $RSSQL = $conn->query($SQL);    
+    if (!$RSSQL = $conn->query($SQL)){
+      exit('fail');
+    }    
     
     CloseCon($conn);
     
@@ -41,7 +43,9 @@ class CalendarEventDAO{
     
     $SQL = "CALL DeleteEvent('".$inEventID."');";
 
-    $RSSQL = $conn->query($SQL);    
+    if (!$RSSQL = $conn->query($SQL)){
+      exit('fail');
+    }
     
     CloseCon($conn);
     
@@ -53,7 +57,9 @@ class CalendarEventDAO{
     
     $SQL = "CALL UpdateEvent('".$inEventID."','".$name."','". $date."','". $descr."','". $color."','". $icon."');";
 
-    $RSSQL = $conn->query($SQL);    
+    if (!$RSSQL = $conn->query($SQL)){
+      exit('fail');
+    }
     
     CloseCon($conn);
     
