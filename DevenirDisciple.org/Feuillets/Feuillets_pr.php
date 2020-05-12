@@ -151,9 +151,19 @@ if (isset($_POST['action'])){
 		case 'updateNouvelles':
 		FNUpdateEvent();*/
 		case 'AddNewFeuillets':
+			if(isset($_POST['fileToUpload']))
+			{
+				exit($_POST['fileToUpload']);
+			}
+			if(isset($_FILES["fileToUpload"]))
+			{
+				exit("FILES");
+			}
+			exit("AddNewFeuillets");
+			break;
 		//	exit($_POST['fileToUpload']);
 		//	exit('test');
-		if(isset($_POST['fileToUpload']))
+		/*if(isset($_FILES["fileToUpload"]))
 		{
 			//exit("yer");
 			
@@ -163,7 +173,7 @@ if (isset($_POST['action'])){
 		//AddFeuillets(UploadPDF());
 			//exit($_POST['fileToUpload']);
 
-		}
+		}*/
 			//exit('succes2');
 			
 		//AddFeuillets(UploadPDF($_POST['fileToUpload']));
@@ -171,6 +181,15 @@ if (isset($_POST['action'])){
 	exit("post");
 	
 }
+/*if(isset($_POST['fileToUpload']))
+{
+	echo("post");
+}
+
+if(isset($_FILES["fileToUpload"]))
+{
+	echo("FILES");
+}*/
 
 function AddFeuillets($arrayFiles){
 	

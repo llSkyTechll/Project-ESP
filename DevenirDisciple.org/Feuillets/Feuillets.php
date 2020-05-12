@@ -23,107 +23,157 @@ require_once '../Uploads/UploadImage.php';
 	
 	
 	<title>Devenir Disciple</title>
-</head>
 	
 	
 	<script>
-		/*function fnAddFeuillets() {		
+	/*function fnAddFeuillets() {		
 
-			$(function() {	
-				alert(document.getElementById("fileToUpload").nodeValue);
-				$.ajax({
-					type: 'post',
-					url: 'Feuillets.php',
-					data: ({
-						action: 'AddNewFeuillets',
-						fileToUpload: document.getElementById("fileToUpload").nodeValue
-					}),
-					success: function(data) {
-						var newData = JSON.parse(data);
-						var MessageError= 0;
-						var UploadsDB= 1;
-						var message = '';
-						
-						for(x = 0; newData.length;x++){
-							if(newData[UploadsDB].succes =='succes'){
-								 	
-								 }
-						}
-						Swal.fire("Veuillez remplir tous les champs", '', 'warning');
-						
-						
-						if (data == 'fail') {
-							Swal.fire("Une erreur c'est produite", '', 'warning');
-						} else if (data == 'success') {
-							Swal.fire({
-								title: 'Ajout réussi.',
-								icon: 'success'
-							}).then((result) => {
-								window.top.location.reload();
-							});
-						} else if (data == 'emptyFields') {
-							Swal.fire("Veuillez remplir tous les champs", '', 'warning');
-						}
+		$(function() {	
+			alert(document.getElementById("fileToUpload").nodeValue);
+			$.ajax({
+				type: 'post',
+				url: 'Feuillets.php',
+				data: ({
+					action: 'AddNewFeuillets',
+					fileToUpload: document.getElementById("fileToUpload").nodeValue
+				}),
+				success: function(data) {
+					var newData = JSON.parse(data);
+					var MessageError= 0;
+					var UploadsDB= 1;
+					var message = '';
+
+					for(x = 0; newData.length;x++){
+						if(newData[UploadsDB].succes =='succes'){
+
+							 }
 					}
-				})
-			});
-		}*/
-      $(function () {
-        $('form').on('submit', function (e) {
-					//alert(document.getElementById("fileToUpload").files);
-					//console.dir(document.getElementById("fileToUpload").files);
-					//console.dir($(document.getElementById("fileToUpload").files).serializeArray());
-					//alert($("form").serializeArray());
-					//alert(document.getElementById("fileToUpload").files);
-				//e.preventDefault()
+					Swal.fire("Veuillez remplir tous les champs", '', 'warning');
 
-				 /*var files = document.getElementById("fileToUpload").files;
-				 var formData = new FormData();
 
+					if (data == 'fail') {
+						Swal.fire("Une erreur c'est produite", '', 'warning');
+					} else if (data == 'success') {
+						Swal.fire({
+							title: 'Ajout réussi.',
+							icon: 'success'
+						}).then((result) => {
+							window.top.location.reload();
+						});
+					} else if (data == 'emptyFields') {
+						Swal.fire("Veuillez remplir tous les champs", '', 'warning');
+					}
+				}
+			})
+		});
+	}*/
+		$(function () {
+			$('form').on('submit', function (e) {
+				e.preventDefault();
+				//alert(document.getElementById("fileToUpload").files);
+				//console.dir(document.getElementById("fileToUpload").files);
+				//console.dir($(document.getElementById("fileToUpload").files).serializeArray());
+				//alert($("form").serializeArray());
+				//alert(document.getElementById("fileToUpload").files);
+			//e.preventDefault()
+
+			 /*var files = document.getElementById("fileToUpload").files;
+			 var formData = new FormData();
+
+			for (var i = 0; i < files.length; i++) {
+			//var file = files[i];
+				alert(files[i]);
+
+				formData.append('files[]', files[i]);
+			}*/
+				//alert(formData);
+				//e.preventDefault();
+				//alert($('form').serialize());
+				//alert(document.getElementById("fileToUpload").files);
+				//e.preventDefault();
+			//	alert("reee");
+
+				//alert($(document.getElementById("fileToUpload").files).serialize());
+				//alert(document.forms["uploadPDF"].value);
+
+
+
+
+				/*var data = new FormData(this);
+				var params = $("input[type=submit]", this).data("params"); // parameters to send along with data
+				var json_params = JSON.stringify(params); // This converts your javascript object into a string that you can send to the server.
+				data.append("params", json_params)
+				*/
+
+				// var formData = new FormData($(this)[0].files);
+				//var files = document.getElementById("fileToUpload").files;
+				//alert(files);
+				//var json_params = JSON.stringify(formData);
+				//alert(formData);
+				//alert(json_params);
+				//alert(this[0].files);
+				//alert($(this)[0].files);
+
+
+				//alert(this[0].files);
+	/*	var data = new FormData();
+		jQuery.each($(this)[0].files, function(i, file) {
+			data.append('file-'+i, file);
+		});*/
+				//alert(data);
+
+
+				var formData = new FormData();
+				var files = document.getElementById("fileToUpload").files;
 				for (var i = 0; i < files.length; i++) {
-				//var file = files[i];
-					alert(files[i]);
+					var file = files[i];
+					// Add the file to the request.
+					formData.append('fileToUpload[]', file, file.name);
+				}
 
-					formData.append('files[]', files[i]);
-				}*/
-					//alert(formData);
-          //e.preventDefault();
-					//alert($('form').serialize());
-					//alert(document.getElementById("fileToUpload").files);
-					//alert("reee");
-					
-          $.ajax({
-					type: 'post',
-					url: 'Feuillets.php',
-					data: ({
-						action: 'AddNewFeuillets',
-						fileToUpload : document.getElementById("fileToUpload").files
-					}),
-						contentType: "multipart/form-data",
-						processData: false,
-					success: function(data) {
-						alert(data);
-              //alert('form was submitted');
-            }
-          });
-					
-					
+				/*var xhr = new XMLHttpRequest();
+				xhr.open("POST", "uph.php");
+				xhr.send(fd);
+*/
 
-        });
-      });
+
+				/*$.ajax({
+				type: 'post',
+				url: 'Feuillets.php',
+				data: ({
+					action: 'AddNewFeuillets',
+					fileToUpload : formData
+				}),
+					cache: false,
+					contentType: "multipart/form-data",
+					processData: false,
+				success: function(data) {
+					alert(data);
+						//alert('form was submitted');
+					}
+				});*/
+
+
+
+			});
+		});
+
+</script>
+
+</head>
 	
-	</script>
-
-<body>
-
 	
+
+<body>	
 
 	<!--<form action="../Uploads/UploadImage.php" method="post" enctype="multipart/form-data">
     <label for="fileToUpload">Select image to upload:</label>
     <input type="file" name="fileToUpload[]" id="fileToUpload" multiple>
     <input type="submit" value="Upload Image" name="submit">
 </form>-->
-	<form action="javascript:void(0);" method="post" enctype="multipart/form-data">
+	<!--<form action="javascript:void(0);" method="post" enctype="multipart/form-data">-->
+	<!--<form action="#" method="post" enctype="multipart/form-data">-->
+	<form id="uploadPDF" name="uploadPDF" action="javascript:void(0);" method="post" enctype="multipart/form-data">
     <label for="fileToUpload">Select PDF to upload:</label>
     <input type="file" name="fileToUpload" id="fileToUpload" multiple>
     <input type="submit" value="Upload PDF" name="submit">
