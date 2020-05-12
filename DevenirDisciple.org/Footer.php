@@ -19,7 +19,7 @@
 				<input class="btn btn-primary" type="button" name="btnDeconnexion" value="lien intéressant">
 			</div>
 			<div class="col-md-4">
-				<input class="btn btn-primary" type="button" name="btnDeconnexion" value="contact">
+				<input class="btn btn-primary" type="button" name="btnContact" value="Contactez-nous" onclick="parent.fnRedirection('Formulaire/FormulaireContact.php', 0);">
 			</div>
 			<div class="col-md-2">
 				<?php 
@@ -32,8 +32,7 @@
 			</div>
 
 		</div>
-    
-
+		
 	</div>
 
 </footer>

@@ -285,7 +285,15 @@ class FormulaireEnfantDAO{
   public static function deleteForm($formid){
     $SQL = "CALL DeleteFormEnfant('".$formid."')";
 
-    
+    $conn = OpenCon();
+
+    if (!$conn->query($SQL)){
+      return 'fail';
+    }
+
+    CloseCon($conn);
+
+    return 'success';
   }
 
 }

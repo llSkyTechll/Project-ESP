@@ -31,6 +31,7 @@ function LoadHTML(){
   if (!Admin::isConnected()){
     FormulaireEnfantDAO::getFormHTML();
   }else if($_SESSION['gformenfantid'] == 0){
+    echo '<div><h1>Liste des formulaires pour enfants</h1></div>';
     $formArray = FormulaireEnfantDAO::getFormList();;
     if($formArray != null){
       for($x = 0; $x < count($formArray); $x++){
