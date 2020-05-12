@@ -84,15 +84,15 @@ function formatSizeUnits($bytes){
 	}
 	elseif ($bytes > 1)
 	{
-			$bytes = $bytes . ' bytes';
+			$bytes = $bytes . ' Octets';
 	}
 	elseif ($bytes == 1)
 	{
-			$bytes = $bytes . ' byte';
+			$bytes = $bytes . ' Octet';
 	}
 	else
 	{
-			$bytes = '0 bytes';
+			$bytes = '0 Octets';
 	}
 
 	return $bytes;

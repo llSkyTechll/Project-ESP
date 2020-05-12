@@ -20,6 +20,7 @@ require_once '../Uploads/UploadImage.php';
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	
 	<link rel="stylesheet" href="../css/include.css">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 	
 	
 	<title>Devenir Disciple</title>
@@ -67,96 +68,7 @@ require_once '../Uploads/UploadImage.php';
 			})
 		});
 	}*/
-		$(function () {
-			$('form').on('submit', function (e) {
-				e.preventDefault();
-				//alert(document.getElementById("fileToUpload").files);
-				//console.dir(document.getElementById("fileToUpload").files);
-				//console.dir($(document.getElementById("fileToUpload").files).serializeArray());
-				//alert($("form").serializeArray());
-				//alert(document.getElementById("fileToUpload").files);
-			//e.preventDefault()
-
-			 /*var files = document.getElementById("fileToUpload").files;
-			 var formData = new FormData();
-
-			for (var i = 0; i < files.length; i++) {
-			//var file = files[i];
-				alert(files[i]);
-
-				formData.append('files[]', files[i]);
-			}*/
-				//alert(formData);
-				//e.preventDefault();
-				//alert($('form').serialize());
-				//alert(document.getElementById("fileToUpload").files);
-				//e.preventDefault();
-			//	alert("reee");
-
-				//alert($(document.getElementById("fileToUpload").files).serialize());
-				//alert(document.forms["uploadPDF"].value);
-
-
-
-
-				/*var data = new FormData(this);
-				var params = $("input[type=submit]", this).data("params"); // parameters to send along with data
-				var json_params = JSON.stringify(params); // This converts your javascript object into a string that you can send to the server.
-				data.append("params", json_params)
-				*/
-
-				// var formData = new FormData($(this)[0].files);
-				//var files = document.getElementById("fileToUpload").files;
-				//alert(files);
-				//var json_params = JSON.stringify(formData);
-				//alert(formData);
-				//alert(json_params);
-				//alert(this[0].files);
-				//alert($(this)[0].files);
-
-
-				//alert(this[0].files);
-	/*	var data = new FormData();
-		jQuery.each($(this)[0].files, function(i, file) {
-			data.append('file-'+i, file);
-		});*/
-				//alert(data);
-
-
-				var formData = new FormData();
-				var files = document.getElementById("fileToUpload").files;
-				for (var i = 0; i < files.length; i++) {
-					var file = files[i];
-					// Add the file to the request.
-					formData.append('fileToUpload[]', file, file.name);
-				}
-
-				/*var xhr = new XMLHttpRequest();
-				xhr.open("POST", "uph.php");
-				xhr.send(fd);
-*/
-
-
-				/*$.ajax({
-				type: 'post',
-				url: 'Feuillets.php',
-				data: ({
-					action: 'AddNewFeuillets',
-					fileToUpload : formData
-				}),
-					cache: false,
-					contentType: "multipart/form-data",
-					processData: false,
-				success: function(data) {
-					alert(data);
-						//alert('form was submitted');
-					}
-				});*/
-
-
-
-			});
-		});
+		
 
 </script>
 
@@ -173,11 +85,11 @@ require_once '../Uploads/UploadImage.php';
 </form>-->
 	<!--<form action="javascript:void(0);" method="post" enctype="multipart/form-data">-->
 	<!--<form action="#" method="post" enctype="multipart/form-data">-->
-	<form id="uploadPDF" name="uploadPDF" action="javascript:void(0);" method="post" enctype="multipart/form-data">
+	<!--<form  action="#" method="post" enctype="multipart/form-data">
     <label for="fileToUpload">Select PDF to upload:</label>
-    <input type="file" name="fileToUpload" id="fileToUpload" multiple>
+    <input type="file" name="fileToUpload[]" id="fileToUpload" multiple>
     <input type="submit" value="Upload PDF" name="submit">
-</form>
+</form>-->
 	<!--<form action="../Uploads/UploadVideo.php" method="post" enctype="multipart/form-data">
     <label for="fileToUpload">Select Video to upload:</label>
     <input type="file" name="fileToUpload[]" id="fileToUpload" multiple>

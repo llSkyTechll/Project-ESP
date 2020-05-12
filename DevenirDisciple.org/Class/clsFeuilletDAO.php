@@ -53,7 +53,7 @@ class FeuiletDAO{
     
     CloseCon($conn);
     
-    exit('success');
+    return('success');
   }
   
 }
