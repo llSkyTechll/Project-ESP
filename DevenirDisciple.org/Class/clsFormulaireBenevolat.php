@@ -7,6 +7,7 @@ class FormulaireBenevolat{
   public function saveForm($formdata){
     
     $result = $this->validationEmpty($formdata);
+      
     if ($result == 'success'){
       $conn = OpenCon();
     
@@ -54,7 +55,7 @@ class FormulaireBenevolat{
       "','".$lundipm."','".$lundisoir."','".$mardiam."','".$mardipm."','".$mardisoir."','".$mercrediam.
       "','".$mercredipm."','".$mercredisoir."','".$jeudiam."','".$jeudipm."','".$jeudisoir."','".$vendrediam.
       "','".$vendredipm."','".$vendredisoir."','".$samediam."','".$samedipm."','".$samedisoir."','".$dimancheam.
-      "','".$dimanchepm."','".$dimanchesoir."','".$key."','".$iv."'";
+      "','".$dimanchepm."','".$dimanchesoir."','".$conn->real_escape_string($key)."','".$conn->real_escape_string($iv)."'";
 
       $SQL = "CALL FormulaireBenevolatSave(".$param.");";
 
@@ -68,6 +69,7 @@ class FormulaireBenevolat{
     }else{
       return $result;
     }
+    
   }
   
   public function validationEmpty($formdata){
@@ -295,6 +297,7 @@ class FormulaireBenevolat{
 
     if ($RSSQL->num_rows > 0){
       $decrypt = new Encryption();
+      $html .= '<div><h1>Liste des formulairse de bénévolat</h1></div>';
       while ($row = $RSSQL->fetch_assoc()){
         $html .= '<div cursor="pointer" class="row col-md-12 backgroundHover" >
                     <div class="col-md-1" onclick="fnGetSpecificFormData('.$row['formulaireid'].')"><p>'.$row['formulaireid'].'</p></div>

@@ -26,6 +26,7 @@ function FNRedirect(){
   $_SESSION["nouvelleId"] = 0;
   $_SESSION["gformenfantid"] = 0;
   $_SESSION["gformbenevolatid"] = 0;
+  $_SESSION["gformcontactid"] = 0;
 }
 function FNRedirectionNouvelle(){
   
