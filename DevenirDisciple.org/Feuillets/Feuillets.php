@@ -18,65 +18,101 @@ require_once '../Uploads/UploadImage.php';
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 	<script src="../JavaScript/JSFunction.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	
+
 	<link rel="stylesheet" href="../css/include.css">
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-	
-	
-	<title>Devenir Disciple</title>
-	
-	
-	<script>
-	/*function fnAddFeuillets() {		
 
-		$(function() {	
-			alert(document.getElementById("fileToUpload").nodeValue);
+
+	<title>Devenir Disciple</title>
+
+
+	<script>
+		function fnSaveFeuillets() {
+
+			var allArray = [];
+			var allOrderDisplay = document.querySelectorAll("input[type = number]");
+			var allVisible = document.querySelectorAll("input[type = checkbox]");
+			for (var x = 0; x < allOrderDisplay.length; x++) {
+				var OrderDispay = allOrderDisplay[x].id;
+				var index = OrderDispay.indexOf("_");
+				var id = OrderDispay.substring(index + 1, OrderDispay.lenght);
+				var array = [id, allVisible[x].checked ? 1 : 0, allOrderDisplay[x].value];
+				allArray.push(array);
+			}
+
 			$.ajax({
 				type: 'post',
 				url: 'Feuillets.php',
 				data: ({
-					action: 'AddNewFeuillets',
-					fileToUpload: document.getElementById("fileToUpload").nodeValue
+					action: 'SaveFeuillets',
+					arrayFeuillet: JSON.stringify(allArray)
 				}),
 				success: function(data) {
-					var newData = JSON.parse(data);
-					var MessageError= 0;
-					var UploadsDB= 1;
-					var message = '';
-
-					for(x = 0; newData.length;x++){
-						if(newData[UploadsDB].succes =='succes'){
-
-							 }
-					}
-					Swal.fire("Veuillez remplir tous les champs", '', 'warning');
-
 
 					if (data == 'fail') {
 						Swal.fire("Une erreur c'est produite", '', 'warning');
 					} else if (data == 'success') {
 						Swal.fire({
-							title: 'Ajout réussi.',
+							title: 'Sauvegarde réussi.',
 							icon: 'success'
 						}).then((result) => {
 							window.top.location.reload();
 						});
-					} else if (data == 'emptyFields') {
-						Swal.fire("Veuillez remplir tous les champs", '', 'warning');
+					}
+				}
+			});
+
+		}
+
+		function fnDeleteConfirmation(FeuilletId) {
+			Swal.fire({
+				title: 'Are you sure?',
+				text: "You won't be able to revert this!",
+				icon: 'warning',
+				showCancelButton: true,
+				confirmButtonColor: '#3085d6',
+				cancelButtonColor: '#d33',
+				confirmButtonText: 'Yes, delete it!'
+			}).then((result) => {
+				if (result.value) {
+					fnDelete(FeuilletId);
+				}
+			})
+		}
+
+		function fnDelete(FeuilletId) {
+			$.ajax({
+				type: 'post',
+				url: 'Feuillets.php',
+				data: ({
+					action: "DeleteFeuillets",
+					FeuilletId: FeuilletId
+				}),
+				success: function(data) {
+					
+					if (data == 'success') {
+						Swal.fire({
+							title: 'Supression effectué avec succès',
+							icon: 'success'
+						}).then((result) => {
+							window.top.location.reload();
+						});
+					} else if (data == 'failDB') {
+						Swal.fire("Une erreur c'est produite", 'Impossible de suprimmer le pdf de la base de donnée', 'warning');
+					} else if (data == 'failFile') {
+						Swal.fire("Une erreur c'est produite", 'Impossible de supprimer le fichier', 'warning');
 					}
 				}
 			})
-		});
-	}*/
-		
+		}
 
-</script>
+	</script>
 
 </head>
-	
-	
 
-<body>	
+
+
+<body>
 
 	<!--<form action="../Uploads/UploadImage.php" method="post" enctype="multipart/form-data">
     <label for="fileToUpload">Select image to upload:</label>
@@ -95,19 +131,19 @@ require_once '../Uploads/UploadImage.php';
     <input type="file" name="fileToUpload[]" id="fileToUpload" multiple>
     <input type="submit" value="Upload Image" name="submit">
 </form>-->
-	
-	
+
+
 	<!--lire PDF-->
 	<!--<a href="../Ressource/PDF/Travail2.pdf" >ok</a>-->
 	<!--Download PDF-->
 	<!--<a href="../Ressource/PDF/Travail2.pdf" download>ok</a>-->
-		<div class="container">
+	<div class="container">
 		<?php		
 			loadPageContent();	
 	?>
 	</div>
-<?php require_once '../Footer.php';?>
-	
+	<?php require_once '../Footer.php';?>
+
 </body>
 
 

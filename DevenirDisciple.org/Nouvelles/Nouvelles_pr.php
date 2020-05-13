@@ -8,51 +8,19 @@ if (isset($_POST['action'])){
   $action = $_POST['action'];
   
   switch($action){
-  /*case 'updateNouvellesAll':
-    FNUpdateEvent();
-	case 'updateNouvelles':
-    FNUpdateEvent();*/
+  case 'updateNouvellesAll':
+    fnSaveNouvelle();
+	case 'UpdateNouvelle':
+    fnUpdateNouvelle();
 	case 'saveNouvelles':
 		fnSaveNouvelle();
   }
 }
+	if(isset($_FILES['fileToUpload'])){
+		fnUpdateNouvelle();
+	}	
 
-function GetHTMLBandeau($arrayNouvelles){
-	
-	//print_r($arrayNouvelles[0]);
-	$html = '';
-	$html = '<div id="carouselExampleIndicators" class="carousel slide w-50 container" data-ride="carousel" data-interval="10000">
-						<ol class="carousel-indicators">';
 
-	for($x = 0; $x <count($arrayNouvelles);$x++){
-		$html .= '<li data-target="#carouselExampleIndicators" data-slide-to="'.$x.'"';
-		if($x==0){ $html .= 'class="active"'; }
-		$html .= '></li>';				
-	}
-	$html .='</ol><div class="carousel-inner">';
-
-	for($x = 0; $x <count($arrayNouvelles);$x++){
-
-		$html .= '<div class="carousel-item';
-		if($x==0){ $html.=' active';	}
-		$html .= '">
-						<img class="d-block img-fluid" style="widht: 1000px;height:400px" src="'.$arrayNouvelles[$x]->getImagePath().'" alt="'.$arrayNouvelles[$x]->getTitle().'" title="'.$arrayNouvelles[$x]->getTitle().'">
-						</div>';
-	}
-	$html.='<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			<span class="sr-only">Previous</span>
-		</a>
-		<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-			<span class="carousel-control-next-icon" aria-hidden="true"></span>
-			<span class="sr-only">Next</span>
-		</a>
-		</div>
-		</div>';
-	
-	echo $html;
-
-}
 function GetHTMLAllnouvelles($arrayNouvelles){
 	
 	$html = '';
@@ -88,33 +56,7 @@ function GetHTMLNouvelle($Nouvelles){
 	echo $html;
 
 }
-function GetHTMLNouvelleEdit($Nouvelles){
-	
-	$html = '';
-	$html .= '<div class=" justify-content-center" ><header>
-					<div > 
-						<img id ="image"src="'.$Nouvelles->getImagePath().'" alt="Image de '.$Nouvelles->getTitle().'" height="200" width="200">
-						<form action="../Uploads/UploadImage.php" method="post" enctype="multipart/form-data">
-							<label for="fileToUpload">Select image to upload:</label>
-							<input type="file" name="fileToUpload[]" id="fileToUpload" multiple>
-							<input type="submit" value="Upload Image" name="submit">
-						</form>
-					</div>	
 
-						<h1 id="title"> 
-							'.$Nouvelles->getTitle().'
-						</h1>
-					</header>						
-
-					<div id="content"> 
-						'.$Nouvelles->getDescrTot().'
-					</div>
-					</div>
-					<hr>';
-
-	echo $html;
-
-}
 function GetHTMLAllNouvellesEdit($arrayNouvelles){
 	
 	$html = '';
@@ -206,6 +148,59 @@ function GetAddNouvelles(){
 	echo $html;
 }
 
+function GetHTMLNouvelleEdit($Nouvelles){
+	
+	$epochDebut = $Nouvelles->getDateDebut();
+	$epochFin = $Nouvelles->getDateFin();
+	$dateDebut = new DateTime("@$epochDebut");  
+	$dateFin = new DateTime("@$epochFin"); 
+	$html = '';
+	$html .='	
+			<div id="addNouvelles" >
+				<div>
+					<img id="imageSommaire" src="'.$Nouvelles->getImagePath().'" alt="Image" height="42" width="42" />
+					<form action="#" method="post" enctype="multipart/form-data">
+							<label for="fileToUpload">Select image to upload:</label>
+							<input type="file" name="fileToUpload[]" id="fileToUpload">
+							<input type="submit" value="Upload Image" name="submit">
+					</form>
+				</div>
+				<div>
+				<label for="title">Titre</label>
+					<p id="title" contentEditable>'.$Nouvelles->getTitle().'</p>
+				</div>
+				<div class="row">
+					<div class="col">
+						<label for="dateDebut">date de début</label>
+						<input type="text" class="datetimepicker form-control" readonly name="dateDebut" id="dateDebut" value="'.$dateDebut->format('d/m/Y').'">
+					</div>
+					<div class="col">
+						<label for="dateFin">date de fin</label>
+						<input type="text" class="datetimepicker form-control" readonly=name="dateFin" id="dateFin" value = "'.$dateFin->format('d/m/Y').'">
+					</div>
+				</div>
+				<div>
+					<label for="descriptionSommaire">Description Sommaire</label>
+					<div id="descriptionSommaire" contentEditable>'.$Nouvelles->getDescrSomm().'</div>
+				</div>
+				<div>
+					<label for="descriptionTotal">Description Complète</label>
+					<div id="descriptionTotal" contentEditable>'.$Nouvelles->getDescrTot().'</div>
+				</div>
+				<div>
+					
+					<input type="checkbox" id="checkbox" name="checkboxtitraae" value="'.$Nouvelles->getActif().'"';
+					if($Nouvelles->getActif() == 1)
+						{
+							$html.= "checked";
+						}
+			$html.='>
+					<label for="checkbox">Actif</label>
+				</div>
+				<button type="button" class="btn btn-primary mt-3" onclick="fnUpdateNouvelle();">Sauvegarder</button>
+			</div>';
+	echo $html;
+}
 function fnSaveNouvelle(){
 	 if ($_POST['dateDebut'] == '' || 
 			 $_POST['dateFin'] == '' || 
@@ -222,16 +217,37 @@ function fnSaveNouvelle(){
   
   exit('fail');
 }
-function fnUpdateNouvelle(){
-	 
+function fnUpdateNouvelle(){	 
   
-  if (NouvellesDAO::updateNouvelles(FNSQL($_POST['nouvelleId']),FNSQL($_POST['title']), FNSQL($_POST['descriptionSommaire']), FNSQL($_POST['descriptionTotal']), FNSQL($_POST['dateDebut']), FNSQL($_POST['dateFin']), FNSQL($_POST['actif']), FNSQL($_POST['imageSommaire'])) == 'success'){
+	if(isset($_FILES['fileToUpload']) ){
+			echo"file";
+		}
+  /*if (NouvellesDAO::updateNouvelles(FNSQL($_SESSION["nouvelleId"]),
+																		FNSQL($_POST['title']),
+																		FNSQL($_POST['descriptionSommaire']),
+																		FNSQL($_POST['descriptionTotal']),
+																		FNSQL($_POST['dateDebut']),
+																		FNSQL($_POST['dateFin']), 
+																		FNSQL($_POST['actif']),
+																		FNSQL($_POST['imageSommaire'])) == 'success'){
+		if(isset($_FILES['fileToUpload']) $$ isset($_POST)){
+			$_SESSION["nouvelleId"] 
+		}
     exit('success');
-  }
+  }*/
+		/*if(isset($_FILES['fileToUpload']) ){
+			echo"file";
+		}
+	if( isset($_POST)){
+		echo"post";
+	}*/
   
-  exit('fail');
+ // exit('fail');
 }
-
+function UpdateImageNouvelle($files){
+	
+	
+}
 
 
 ?>

@@ -84,7 +84,7 @@ require_once 'Nouvelles_pr.php';
 					type: 'post',
 					url: 'Nouvelles.php',
 					data: ({
-						action: 'saveNouvelles',
+						action: 'UpdateNouvelle',						
 						imageSommaire: document.getElementById('imageSommaire').src,
 						dateDebut: ddebut,
 						dateFin: dfin,
@@ -98,50 +98,18 @@ require_once 'Nouvelles_pr.php';
 							Swal.fire("Une erreur c'est produite", '', 'warning');
 						} else if (data == 'success') {
 							Swal.fire({
-								title: 'Ajout réussi.',
+								title: 'Sauvegarde réussi.',
 								icon: 'success'
 							}).then((result) => {
 								window.top.location.reload();
 							});
-						} else if (data == 'emptyFields') {
-							Swal.fire("Veuillez remplir tous les champs", '', 'warning');
 						}
 					}
 				})
 			});
 		}
 
-		function fnAddPicture() {
-			$(function() {
-				$.ajax({
-					type: 'post',
-					url: '../Uploads/UploadImage.php',
-					data: ({
-						action: 'UploadImage',
-						imageSommaire: document.getElementById('imageSommaire').src,
-						dateDebut: document.getElementById('dateDebut').value,
-						dateFin: document.getElementById('dateFin').value,
-						descriptionSommaire: document.getElementById('descriptionSommaire').value,
-						descriptionTotal: document.getElementById('descriptionTotal').value
-					}),
-					success: function(data) {
-						if (data == 'fail') {
-							Swal.fire("Une erreur c'est produite", '', 'warning');
-						} else if (data == 'success') {
-							Swal.fire({
-								title: 'Ajout réussi.',
-								icon: 'success'
-							}).then((result) => {
-								window.top.location.reload();
-							});
-						} else if (data == 'emptyFields') {
-							Swal.fire("Veuillez remplir tous les champs", '', 'warning');
-						}
-					}
-				})
-			});
-		}
-
+		
 		function fnAddNouvelle() {
 			var nouvelleEdit = document.getElementById("NouvelleEdit");
 			var addNouvelles = document.getElementById("addNouvelles");

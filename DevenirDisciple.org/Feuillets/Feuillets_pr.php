@@ -6,10 +6,52 @@ require_once '../Class/clsFeuilletDAO.php';
 require_once '../Uploads/UploadPDF.php';
 
 	if(isset($_FILES['fileToUpload'])){
-		//$_SESSION['fileToUpload'] = $_FILES['fileToUpload'];
-		//DisplayMessage();
 		AddFeuillets(UploadPDF());
 	}	
+
+if (isset($_POST['action'])){
+  $action = $_POST['action'];
+  
+  switch($action){
+	case 'SaveFeuillets':
+		fnSaveFeuillets();
+		break;
+	case 'DeleteFeuillets':
+		fnDeleteFeuillets();
+		break;
+  }
+}
+function fnSaveFeuillets(){
+	$id = 0;
+	$orderDisplay = 2;
+	$actif = 1;
+	
+	if(isset($_POST['arrayFeuillet'])){
+		$arrayFeuilet = json_decode($_POST['arrayFeuillet']);
+		for($x = 0; $x < count($arrayFeuilet);$x++){
+			if(FeuiletDAO::UpdateFeuillet($arrayFeuilet[$x][$id],																		
+																		$arrayFeuilet[$x][$actif],
+																	 $arrayFeuilet[$x][$orderDisplay])  == 'fail'){
+				exit('fail');
+			}
+		}
+		exit('success');
+	}
+}
+function fnDeleteFeuillets(){
+	
+	if(isset($_POST['FeuilletId'])){
+		
+		$feuillet = FeuiletDAO::getFeuillet($_POST['FeuilletId']);
+		
+			if(FeuiletDAO::DeleteFeuillet($_POST['FeuilletId'])  == 'fail'){
+				exit('failDB');
+			}else if(!unlink($feuillet->getPdfPath())){
+				exit('failFile');
+			}		
+		exit('success');
+	}
+}
 function GetHTMLAllFeuillets($arrayFeuillet){
 	
 	$html = '';
@@ -22,10 +64,11 @@ function GetHTMLAllFeuillets($arrayFeuillet){
 				</tr>
 			</thead>
 		<tbody>';			
-
+if(is_array($arrayFeuillet)){
 	for($x = 0; $x <count($arrayFeuillet);$x++){
 		$html .= getHTMLFeuillet($arrayFeuillet[$x]);
 	}
+}
 
 	$html .='</tbody>
 	</table>';
@@ -57,16 +100,17 @@ function GetHTMLFeuilletEdit($feuillet){
 							<a href="'.$feuillet->getPdfPath().'">'.$feuillet->getPdfName().'</a>							
 						</th>
 						<td>'.$feuillet->getSize().'</td>
-						<td><input type="number" id="OrderDisplay'.$feuillet->getFeuilletId().'" name="OrderDisplay'.$feuillet->getFeuilletId().'"
+						<td><input type="number" id="OrderDisplay_'.$feuillet->getFeuilletId().'" name="OrderDisplay_'.$feuillet->getFeuilletId().'"
 							min="0" value="'.$feuillet->getOrderDisplay().'"></td>
-						<td><input type="checkbox" id="checkbox'.$feuillet->getFeuilletId().'" name="checkbox'.$feuillet->getPdfName().'" value="'.$feuillet->getActif().'" ';
+						<td><input type="checkbox" id="checkbox_'.$feuillet->getFeuilletId().'" name="checkbox_'.$feuillet->getPdfName().'" value="'.$feuillet->getActif().'" ';
 
 						if($feuillet->getActif() == 1)
 						{
 							$html.= "checked";
 						}
 
-						$html .='></td>
+						$html .='></td>';
+						$html.='<td><input type="button" name="btnDelete" value="Delete" onclick="fnDeleteConfirmation('.$feuillet->getFeuilletId().')"></td>
 						
 					</tr>';
 	return $html;
@@ -83,42 +127,45 @@ function GetHTMLAllFeuilletsEdit($arrayFeuillet){
 					<th scope="col">Taille</th>
 					<th scope="col">Ordre d\'affichage</th>
 					<th scope="col">Visible</th>
+					<th scope="col"></th>
 				</tr>
 			</thead>
 		<tbody>';			
-
+if(is_array($arrayFeuillet)){
 	for($x = 0; $x <count($arrayFeuillet);$x++){
 		$html .= GetHTMLFeuilletEdit($arrayFeuillet[$x]);
 	}
+}
+	
 
 	$html .='</tbody>
 	</table>';
-$html.='<button type="button" id="btnSaveFeuillets" class="btn btn-primary" onclick="fnSaveFeuillets();">Sauvegarder</button>';
-$html .='<form  action="#" method="post" enctype="multipart/form-data">
-    <label for="fileToUpload">Select PDF to upload:</label>
-    <input type="file" name="fileToUpload[]" id="fileToUpload" multiple>
-    <input type="submit" value="Upload PDF" name="submit">
-</form>';
+	if(is_array($arrayFeuillet)){
+		$html.='<button type="button" id="btnSaveFeuillets" class="btn btn-primary" onclick="fnSaveFeuillets();">Sauvegarder</button>';
+	}	
+	
+	$html .='<form  action="#" method="post" enctype="multipart/form-data">
+			<label for="fileToUpload">Select PDF to upload:</label>
+			<input type="file" name="fileToUpload[]" id="fileToUpload" multiple>
+			<input type="submit" value="Upload PDF" name="submit">
+	</form>';
+
 	echo $html;
 
 }
 function loadPageContent(){
 	
 	if(isset($_SESSION['fileToUpload'])){
-		//$_SESSION['fileToUpload'] = $_FILES['fileToUpload'];
 		DisplayMessage();
 	}	
 		
 			if(validateAdminEditing()){
-				GetHTMLAllFeuilletsEdit(FeuiletDAO::getAllFeuillet());
+				GetHTMLAllFeuilletsEdit(FeuiletDAO::getAllFeuilletEdit());
 			}
 			else{
 				GetHTMLAllFeuillets(FeuiletDAO::getAllFeuillet());
 			}		
 }
-
-
-
 function AddFeuillets($arrayFiles){
 	
 	$arrayMessages = array();
@@ -174,17 +221,13 @@ function arrayMessageError($message){
 function DisplayMessage(){
 	$Swal='<script>';
 	
-	
-	//
-
 	if(empty($_SESSION['fileToUpload']['MessageError'])){
 		$Swal.='Swal.fire({
 						icon: "success",
 						title: "Ajout avec success"  
 						})';
 	}
-	else{
-		
+	else{		
 		$Swal.='Swal.fire({
 						icon: "error",
 						title: "Une erreur est survenue"  
@@ -193,7 +236,6 @@ function DisplayMessage(){
 	
 	$Swal.='</script>';
 	echo $Swal;
-
 	unset($_SESSION['fileToUpload']);
 }
 
