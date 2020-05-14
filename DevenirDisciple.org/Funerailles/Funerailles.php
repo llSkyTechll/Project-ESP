@@ -81,9 +81,9 @@ require_once '../InformationPages/TemplateText_pr.php';
       
       $pageContent->getHTMLPageContent();
       
-      echo '<input class="btn btn-primary" type="button" tabindex="340" name="btnSubmitForm" value="Vie de la personne défunte">';
+      echo '<input class="btn btn-primary" type="button" tabindex="330" name="btnDefunt" value="Vie de la personne défunte">';
 
-      echo '<input class="btn btn-primary" type="button" tabindex="340" name="btnSubmitForm" value="Choix des lectures & services">';
+      echo '<input class="btn btn-primary" type="button" tabindex="340" name="btnLecture" value="Choix des lectures & services">';
 
     ?>
   
