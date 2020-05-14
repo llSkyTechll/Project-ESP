@@ -83,8 +83,9 @@ require_once '../InformationPages/TemplateText_pr.php';
      
     ?>
 
+      <br>
       <div> 
-        <input type="button" name="btnRedirectFormulaireEnfant" id="btnRedirectFormulaireEnfant" value="Inscription" onclick="parent.fnRedirection('Formulaire/FormulaireEnfant.php',0)">
+        <input type="button" class="btn btn-primary" name="btnRedirectFormulaireEnfant" id="btnRedirectFormulaireEnfant" value="Inscription" onclick="parent.fnRedirection('Formulaire/FormulaireEnfant.php',0)">
       </div>
     
     </div>

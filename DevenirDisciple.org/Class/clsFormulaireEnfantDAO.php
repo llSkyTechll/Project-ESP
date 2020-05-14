@@ -43,7 +43,7 @@ class FormulaireEnfantDAO{
       $param = "'".$name."', '".$adresse."', '".$codepostal."','".$courriel."','".$datenaissance."','".$nompere."','".$telpere."','".$nommere."','".$telmere.
       "','".FNSQL($formdata['fbapteme'])."','".FNSQL($formdata['fpardon'])."','".FNSQL($formdata['feucharistie'])."','".FNSQL($formdata['fallergies'])."','".$paroisseid."','".$communityid."','".$initiation.
       "','".$ptitepasto."','".$agnelets."','".$premierpardon."','".$premierecommunion."','".$confirmation."','".$brebis.
-      "','".$key."','".$iv."'";
+      "','".$conn->real_escape_string($key)."','".$conn->real_escape_string($iv)."'";
 
       $SQL = "CALL FormulaireEnfantSave(".$param.");";
       
@@ -285,7 +285,15 @@ class FormulaireEnfantDAO{
   public static function deleteForm($formid){
     $SQL = "CALL DeleteFormEnfant('".$formid."')";
 
-    
+    $conn = OpenCon();
+
+    if (!$conn->query($SQL)){
+      return 'fail';
+    }
+
+    CloseCon($conn);
+
+    return 'success';
   }
 
 }

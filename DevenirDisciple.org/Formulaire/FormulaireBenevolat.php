@@ -126,6 +126,49 @@ $conn = OpenCon();
       })
     }
 
+		function fnDeleteConfirmation(formid){
+      Swal.fire({
+        title: 'Confirmer la supression?',
+        text: "Cette action est irréversible",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Supprimer'
+      }).then((result) => {
+        if (result.value) {
+          fnDelete(formid);
+        }
+      })
+    }
+
+    function fnDelete(formid){
+      $.ajax({
+          type: 'post',
+          url: 'FormulaireBenevolat.php',
+          data: ({
+            action: "deleteForm",
+            formid: formid
+          }),
+          success: function(data) {
+            if (data == 'success') {
+              Swal.fire({
+                title: 'Supression effectué avec succès',
+                icon: 'success'
+              }).then((result) => {
+                window.top.location.reload();
+              });
+            }else if(data == 'fail'){
+              Swal.fire(
+                'Erreur',
+                'Une erreur est survenue.',
+                'warning'
+              )
+            }
+          }            
+      })
+    }
+
 	</script>
 </head>
 

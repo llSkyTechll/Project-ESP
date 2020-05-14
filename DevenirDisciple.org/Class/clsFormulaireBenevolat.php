@@ -7,6 +7,7 @@ class FormulaireBenevolat{
   public function saveForm($formdata){
     
     $result = $this->validationEmpty($formdata);
+      
     if ($result == 'success'){
       $conn = OpenCon();
     
@@ -54,7 +55,7 @@ class FormulaireBenevolat{
       "','".$lundipm."','".$lundisoir."','".$mardiam."','".$mardipm."','".$mardisoir."','".$mercrediam.
       "','".$mercredipm."','".$mercredisoir."','".$jeudiam."','".$jeudipm."','".$jeudisoir."','".$vendrediam.
       "','".$vendredipm."','".$vendredisoir."','".$samediam."','".$samedipm."','".$samedisoir."','".$dimancheam.
-      "','".$dimanchepm."','".$dimanchesoir."','".$key."','".$iv."'";
+      "','".$dimanchepm."','".$dimanchesoir."','".$conn->real_escape_string($key)."','".$conn->real_escape_string($iv)."'";
 
       $SQL = "CALL FormulaireBenevolatSave(".$param.");";
 
@@ -68,6 +69,7 @@ class FormulaireBenevolat{
     }else{
       return $result;
     }
+    
   }
   
   public function validationEmpty($formdata){
@@ -295,12 +297,13 @@ class FormulaireBenevolat{
 
     if ($RSSQL->num_rows > 0){
       $decrypt = new Encryption();
+      $html .= '<div><h1>Liste des formulairse de bénévolat</h1></div>';
       while ($row = $RSSQL->fetch_assoc()){
-        $html .= '<div cursor="pointer" class="row col-md-12 backgroundHover" onclick="fnGetSpecificFormData('.$row['formulaireid'].')">
-                    <div class="col-md-1"><p>'.$row['formulaireid'].'</p></div>
-                    <div class="col-md-5"><p>'.$decrypt->decryptData($row['courriel'], $row['key'], $row['iv']).'</p></div>
-                    <div class="col-md-5"><p>'.$row['nomparoisse'].'</p></div>
-                    <div class="col-md-1"><input type="button" name="btnDelete" value="Delete" onclick="fnDelete('.$row['formulaireid'].')"></div>
+        $html .= '<div cursor="pointer" class="row col-md-12 backgroundHover" >
+                    <div class="col-md-1" onclick="fnGetSpecificFormData('.$row['formulaireid'].')"><p>'.$row['formulaireid'].'</p></div>
+                    <div class="col-md-5" onclick="fnGetSpecificFormData('.$row['formulaireid'].')"><p>'.$decrypt->decryptData($row['courriel'], $row['key'], $row['iv']).'</p></div>
+                    <div class="col-md-5" onclick="fnGetSpecificFormData('.$row['formulaireid'].')"><p>'.$row['nomparoisse'].'</p></div>
+                    <div class="col-md-1"><input type="button" class="btn btn-primary" name="btnDelete" value="Supprimer" onclick="fnDeleteConfirmation('.$row['formulaireid'].')"></div>
                   </div>';
       }
     }
@@ -309,6 +312,7 @@ class FormulaireBenevolat{
   }
 
   public static function getFormSpecData($formid){
+
     $conn = OpenCon();
 
     $SQL = "CALL GetFormBenevolat('".$formid."');";
@@ -324,7 +328,8 @@ class FormulaireBenevolat{
 
       $decrypt = new Encryption();
 
-      $html = '<form class="container" name="formSubmit" id="formSubmit">
+      $html = '<div class="container"><input class="btn btn-primary" type="button" value="Retour" onclick="parent.fnRedirection(\'Formulaire/FormulaireBenevolat.php\', 0);"></div>
+            <form class="container" name="formSubmit" id="formSubmit">
             <input type="hidden" name="action" id="action" value="submit">
             <div class="form-group row">
               <label for="ffirstname" class="col-md-1 col-form-label">Prénom:</label>
@@ -530,6 +535,20 @@ class FormulaireBenevolat{
 
     echo $html;
     }
+  }
+
+  public static function deleteForm($formid){
+    $SQL = "CALL DeleteFormBenevolat('".$formid."')";
+
+    $conn = OpenCon();
+
+    if (!$conn->query($SQL)){
+      return 'fail';
+    }
+
+    CloseCon($conn);
+
+    return 'success';
   }
   
 }

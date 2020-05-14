@@ -49,7 +49,7 @@ class Encryption{
   public function generateIV(){ 
     $iv_size = 16; 
     $iv = random_bytes($iv_size); 
-
+    
     while (strlen($iv) < 16 || strlen($iv) > 16){
       $iv = random_bytes($iv_size); 
     }

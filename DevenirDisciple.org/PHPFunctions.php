@@ -37,6 +37,10 @@ if (!isset($_SESSION['gformbenevolatid'])){
   $_SESSION['gformbenevolatid'] = 0;
 }
 
+if (!isset($_SESSION['gformcontactid'])){
+  $_SESSION['gformcontactid'] = 0;
+}
+
 function FNCheckbox($value){
   if ($value == 1){
     return 'checked';

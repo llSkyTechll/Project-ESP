@@ -72,7 +72,7 @@ class FormulaireEnfant{
                  <div class="col-md-1" onclick="fnGetSpecificFormData('.$this->formulaireId.')"><p>'.$this->formulaireId.'</p></div>
                  <div class="col-md-5" onclick="fnGetSpecificFormData('.$this->formulaireId.')"><p>'.$decrypt->decryptData($this->courriel, $this->key, $this->iv).'</p></div>
                  <div class="col-md-5" onclick="fnGetSpecificFormData('.$this->formulaireId.')"><p>'.$communityId.'</p></div>
-                 <div class="col-md-1"><input type="button" name="btnDelete" value="Delete" onclick="fnDeleteConfirmation('.$this->formulaireId.')"></div>
+                 <div class="col-md-1"><input type="button" class="btn btn-primary" name="btnDelete" value="Supprimer" onclick="fnDeleteConfirmation('.$this->formulaireId.')"></div>
                </div>
              ';
     echo $html;
@@ -81,7 +81,7 @@ class FormulaireEnfant{
   function getFormDataDetails(){
     $decrypt = new Encryption();
 
-    $html = '<div class="form-group row"><input type="button" value="Retour" onclick="parent.fnRedirection(\'Formulaire/FormulaireEnfant.php\', 0);"></div>';
+    $html = '<div class="container"><input class="btn btn-primary" type="button" value="Retour" onclick="parent.fnRedirection(\'Formulaire/FormulaireEnfant.php\', 0);"></div>';
 
     $html .= '<form class="container" name="formSubmit" id="formSubmit">
       <input type="hidden" name="action" id="action" value="submit">

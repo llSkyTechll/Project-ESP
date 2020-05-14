@@ -18,6 +18,8 @@ if (isset($_POST['action'])){
   switch($_POST['action']){
     case 'loadFormData':
       FNLoadFormData();
+    case 'deleteForm':
+      FNDeleteForm();
   }
 }
 
@@ -41,6 +43,12 @@ function FNLoadFormData(){
   If (isset($_POST['formid'])){
     $_SESSION['gformbenevolatid'] = $_POST['formid'];
     exit('success');
+  }
+}
+
+function FNDeleteForm(){
+  if (isset($_POST['formid'])){
+    exit(FormulaireBenevolat::deleteForm($_POST['formid']));
   }
 }
 
