@@ -74,7 +74,7 @@ require_once 'Nouvelles_pr.php';
 		}
 
 		function fnUpdateNouvelle() {
-
+			
 			var check = document.getElementById('checkbox').checked == true ? 1 : 0;
 			var ddebut = new Date(document.getElementById('dateDebut').value);
 			ddebut = ddebut.getTime() / 1000;
@@ -129,6 +129,7 @@ require_once 'Nouvelles_pr.php';
 				language: 'en'
 			});
 		});
+		
 
 	</script>
 

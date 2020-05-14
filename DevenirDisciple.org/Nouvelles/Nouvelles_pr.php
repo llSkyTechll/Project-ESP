@@ -4,13 +4,12 @@ require_once '../PHPFunctions.php';
 require_once '../Class/clsNouvellesDAO.php';
 
 require_once '../Class/clsNouvelles.php';
+
 require_once '../Uploads/UploadImage.php';
 if (isset($_POST['action'])){
   $action = $_POST['action'];
   
   switch($action){
-  /*case 'updateNouvellesAll':
-    fnSaveNouvelle();*/
 	case 'UpdateNouvelle':
     fnUpdateNouvelle();
 	case 'saveNouvelles':
@@ -28,8 +27,7 @@ function GetHTMLAllnouvelles($arrayNouvelles){
 	for($x = 0; $x <count($arrayNouvelles);$x++){
 		
 		$html .= GetHTMLNouvelle($arrayNouvelles[$x]);
-	}
-	
+	}	
 	
 	echo $html;
 
@@ -160,7 +158,7 @@ function GetHTMLNouvelleEdit($Nouvelles){
 				<div>
 					<img id="imageSommaire" src="'.$Nouvelles->getImagePath().'" alt="Image" height="42" width="42" />
 					
-					<form action="#" method="post" enctype="multipart/form-data" id="form" >
+					<form action="#" method="post" enctype="multipart/form-data" id="form" onsubmit="fnUpdateNouvelle()">
 							<label for="fileToUpload">Select image to upload:</label>
 							<input type="file" name="fileToUpload[]" id="fileToUpload">
 							<input type="submit" value="Upload Image" name="submit">
@@ -228,25 +226,20 @@ function fnUpdateNouvelle(){
 																		FNSQL($_POST['dateFin']), 
 																		FNSQL($_POST['actif'])) == 'success')
 	{
-		/*if(isset($_FILES['fileToUpload']) && isset($_POST)){
-			//$_SESSION["nouvelleId"] 
-		}*/
+		
     exit('success');
   }
-		/*if(isset($_FILES['fileToUpload']) ){
-			echo"file";
-		}
 	if(isset($_POST)){
-		echo"post";
-		//$_SESSION["nouvelleId"] = 0;
-	}*/
+		
+		$_SESSION["nouvelleId"] = 0;
+	}
   
   exit('fail');
 }
 function UpdateImageNouvelle($file){
 	
 	if(NouvellesDAO::UpdateImageNouvelle($_SESSION["nouvelleId"],$file['images'][0]['imagePath']) == 'success'){
-		//echo"yep";
+		
 	}
 		
 }

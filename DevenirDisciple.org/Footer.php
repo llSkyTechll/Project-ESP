@@ -8,20 +8,23 @@
 		}
 
 	</script>
-	<div class="container pt-3" >
+	<div class="container pt-3 pb-3">
 		<div class="row">
-			<div class="col-md-2">
+			<div class="col-md-3 row">
 				<img class="d-block img-fluid" style="widht: 100px;height:100px" src="../Ressource/Image/Logo_St-Jean-Paul_II.jpg" alt="Logo St-Jean-Paul II" title="Logo St-Jean-Paul II">
 				<img class="d-block img-fluid" style="widht: 100px;height:100px" src="../Ressource/Image/Logo_SGS.png" alt="Logo SGS" title="Logo SGS">
 			</div>
 
-			<div class="col-md-4">
+			<div class="col-md-3">
+				<div class="col text-center">
 				<input class="btn btn-primary" type="button" name="btnDeconnexion" value="lien intéressant">
+				</div>
+				
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-3">
 				<input class="btn btn-primary" type="button" name="btnContact" value="Contactez-nous" onclick="parent.fnRedirection('Formulaire/FormulaireContact.php', 0);">
 			</div>
-			<div class="col-md-2">
+			<div class="col-md-3">
 				<?php 
 					if(Admin::isConnected()){
 						echo '<input class="btn btn-primary" type="button" name="btnDeconnexion" onclick="parent.fnDeconnexion()" value="Déconnexion">';
@@ -32,7 +35,7 @@
 			</div>
 
 		</div>
-		
+
 	</div>
 
 </footer>
