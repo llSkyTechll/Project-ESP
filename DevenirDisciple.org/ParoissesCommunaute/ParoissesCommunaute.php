@@ -308,19 +308,16 @@ if (isset($_SESSION['gmenuId'])){
 
 <body>
 	<div class="container">
-		<header>
-			<h1>Paroisse-Communauté</h1>
-		</header>
-
-		<p>
-      <?php  
-        if (isset($_SESSION['gcommunityid'])){
-          echo GetCommunityName(); 
-        }
+		<?php  
+			if (isset($_SESSION['gcommunityid'])){
+				echo"<header><h1>";
+				echo GetCommunityName(); 
+				echo"</h1></header>";
+			}
       ?>
-    </p>
+    
 
-    <h1>Heures de bureau</h1>
+    <h2>Heures de bureau</h2>
     
     <?php
       ParoisseCommunaute::getScheduleHTML();
@@ -333,7 +330,7 @@ if (isset($_SESSION['gmenuId'])){
     ?>
 		
   <div class="col-md-12">
-		<div class="p-5">
+		<div class="p-2">
 			<h2 class="mb-4">Calendrier des événements</h2>
 			<div class="card">
 				<div class="card-body p-0">

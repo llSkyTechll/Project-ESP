@@ -148,7 +148,7 @@ background-size: cover;">
 			</div>
 		</nav>
 	</div>
-	<iframe class="mt-6" id="PageContent" src="<?php if(isset($_SESSION['gpath'])){echo $_SESSION['gpath'];}else{echo 'Accueil/Accueil.php';}?>" frameborder="0" allowtransparency="true"></iframe>
+	<iframe class="mt-5 pt-3" id="PageContent" src="<?php if(isset($_SESSION['gpath'])){echo $_SESSION['gpath'];}else{echo 'Accueil/Accueil.php';}?>" frameborder="0" allowtransparency="true"></iframe>
 
 </body>
 
