@@ -11,10 +11,6 @@ class Nouvelles{
   private $actif;
   private $imagePath;
 
-
-	
-	
-  
   function __construct($NouvellesId, $title, $descrSomm, $descrTot , $dateDebut, $dateFin, $actif, $imagePath){
     $this->NouvellesId 	= $NouvellesId;
     $this->title 				= $title;
@@ -24,9 +20,7 @@ class Nouvelles{
     $this->dateFin      = $dateFin;
     $this->actif      	= $actif;
     $this->imagePath   	= $imagePath;
-  }
-  
-  
+  }  
 
 	public function getNouvellesId(){
 		return $this->NouvellesId; 
@@ -52,9 +46,6 @@ class Nouvelles{
 	public function getImagePath(){
 		return $this->imagePath;
 	}
-	
-	
-
   
 }
 

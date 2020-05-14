@@ -4,12 +4,13 @@ require_once '../PHPFunctions.php';
 require_once '../Class/clsNouvellesDAO.php';
 
 require_once '../Class/clsNouvelles.php';
+require_once '../Uploads/UploadImage.php';
 if (isset($_POST['action'])){
   $action = $_POST['action'];
   
   switch($action){
-  case 'updateNouvellesAll':
-    fnSaveNouvelle();
+  /*case 'updateNouvellesAll':
+    fnSaveNouvelle();*/
 	case 'UpdateNouvelle':
     fnUpdateNouvelle();
 	case 'saveNouvelles':
@@ -17,9 +18,8 @@ if (isset($_POST['action'])){
   }
 }
 	if(isset($_FILES['fileToUpload'])){
-		fnUpdateNouvelle();
-	}	
-
+		UpdateImageNouvelle(UploadImage());
+	}
 
 function GetHTMLAllnouvelles($arrayNouvelles){
 	
@@ -83,8 +83,8 @@ function GetHTMLAllNouvellesEdit($arrayNouvelles){
 				'<tr>
 					<th scope="row">
 						<a href onclick="parent.fnRedirectionNouvelle(\'Nouvelles/Nouvelles.php\',0,'.$arrayNouvelles[$x]->getNouvellesId().')">'.$arrayNouvelles[$x]->getTitle().'</a></th>
-					<td>'.$dateDebut->format('Y-m-d').'</td>
-					<td>'.$dateFin->format('Y-m-d').'</td>
+					<td>'.$dateDebut->format('m/d/Y').'</td>
+					<td>'.$dateFin->format('m/d/Y').'</td>
 					<td><input type="checkbox" id="checkbox'.$arrayNouvelles[$x]->getNouvellesId().'" name="checkbox'.$arrayNouvelles[$x]->getTitle().'" value="'.$arrayNouvelles[$x]->getActif().'" ';
 					
 				if($arrayNouvelles[$x]->getActif() == 1)
@@ -159,7 +159,8 @@ function GetHTMLNouvelleEdit($Nouvelles){
 			<div id="addNouvelles" >
 				<div>
 					<img id="imageSommaire" src="'.$Nouvelles->getImagePath().'" alt="Image" height="42" width="42" />
-					<form action="#" method="post" enctype="multipart/form-data">
+					
+					<form action="#" method="post" enctype="multipart/form-data" id="form" >
 							<label for="fileToUpload">Select image to upload:</label>
 							<input type="file" name="fileToUpload[]" id="fileToUpload">
 							<input type="submit" value="Upload Image" name="submit">
@@ -172,11 +173,11 @@ function GetHTMLNouvelleEdit($Nouvelles){
 				<div class="row">
 					<div class="col">
 						<label for="dateDebut">date de début</label>
-						<input type="text" class="datetimepicker form-control" readonly name="dateDebut" id="dateDebut" value="'.$dateDebut->format('d/m/Y').'">
+						<input type="text" class="datetimepicker form-control" readonly name="dateDebut" id="dateDebut" value="'.$dateDebut->format('m/d/Y').'">
 					</div>
 					<div class="col">
 						<label for="dateFin">date de fin</label>
-						<input type="text" class="datetimepicker form-control" readonly=name="dateFin" id="dateFin" value = "'.$dateFin->format('d/m/Y').'">
+						<input type="text" class="datetimepicker form-control" readonly=name="dateFin" id="dateFin" value = "'.$dateFin->format('m/d/Y').'">
 					</div>
 				</div>
 				<div>
@@ -211,45 +212,44 @@ function fnSaveNouvelle(){
     exit('emptyFields');
   }
   
-  if (NouvellesDAO::saveNewNouvelles(FNSQL($_POST['title']), FNSQL($_POST['descriptionSommaire']), FNSQL($_POST['descriptionTotal']), FNSQL($_POST['dateDebut']), FNSQL($_POST['dateFin']), FNSQL($_POST['actif']), FNSQL($_POST['imageSommaire'])) == 'success'){
+  if (NouvellesDAO::saveNewNouvelles(FNSQL($_POST['title']), FNSQL($_POST['descriptionSommaire']), FNSQL($_POST['descriptionTotal']), FNSQL($_POST['dateDebut']), FNSQL($_POST['dateFin']), FNSQL($_POST['actif'])) == 'success'){
     exit('success');
   }
   
   exit('fail');
 }
-function fnUpdateNouvelle(){	 
-  
-	if(isset($_FILES['fileToUpload']) ){
-			echo"file";
-		}
-  /*if (NouvellesDAO::updateNouvelles(FNSQL($_SESSION["nouvelleId"]),
+function fnUpdateNouvelle(){
+	  
+  if (NouvellesDAO::updateNouvelles(FNSQL($_SESSION["nouvelleId"]),
 																		FNSQL($_POST['title']),
 																		FNSQL($_POST['descriptionSommaire']),
 																		FNSQL($_POST['descriptionTotal']),
 																		FNSQL($_POST['dateDebut']),
 																		FNSQL($_POST['dateFin']), 
-																		FNSQL($_POST['actif']),
-																		FNSQL($_POST['imageSommaire'])) == 'success'){
-		if(isset($_FILES['fileToUpload']) $$ isset($_POST)){
-			$_SESSION["nouvelleId"] 
-		}
+																		FNSQL($_POST['actif'])) == 'success')
+	{
+		/*if(isset($_FILES['fileToUpload']) && isset($_POST)){
+			//$_SESSION["nouvelleId"] 
+		}*/
     exit('success');
-  }*/
+  }
 		/*if(isset($_FILES['fileToUpload']) ){
 			echo"file";
 		}
-	if( isset($_POST)){
+	if(isset($_POST)){
 		echo"post";
+		//$_SESSION["nouvelleId"] = 0;
 	}*/
   
- // exit('fail');
+  exit('fail');
 }
-function UpdateImageNouvelle($files){
+function UpdateImageNouvelle($file){
 	
-	
+	if(NouvellesDAO::UpdateImageNouvelle($_SESSION["nouvelleId"],$file['images'][0]['imagePath']) == 'success'){
+		//echo"yep";
+	}
+		
 }
 
 
 ?>
-
-

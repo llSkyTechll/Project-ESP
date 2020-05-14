@@ -34,7 +34,7 @@ require_once 'Nouvelles_pr.php';
 
 	<script>
 		function fnSaveNouvelle() {
-		
+
 			var check = document.getElementById('checkbox').checked == 'true' ? 1 : 0;
 
 			$(function() {
@@ -72,44 +72,46 @@ require_once 'Nouvelles_pr.php';
 				})
 			});
 		}
-		
-			function fnUpdateNouvelle() {
-			$(function() {
-				var check = document.getElementById('checkbox').checked == true ? 1 : 0;
-				var ddebut = new Date(document.getElementById('dateDebut').value);
-				ddebut = ddebut.getTime() / 1000;
-				var dfin = new Date(document.getElementById('dateFin').value);
-				dfin = dfin.getTime() / 1000;
-				$.ajax({
-					type: 'post',
-					url: 'Nouvelles.php',
-					data: ({
-						action: 'UpdateNouvelle',						
-						imageSommaire: document.getElementById('imageSommaire').src,
-						dateDebut: ddebut,
-						dateFin: dfin,
-						descriptionSommaire: document.getElementById('descriptionSommaire').innerHTML,
-						descriptionTotal: document.getElementById('descriptionTotal').innerHTML,
-						title: document.getElementById('title').innerHTML,
-						actif: check
-					}),
-					success: function(data) {
-						if (data == 'fail') {
-							Swal.fire("Une erreur c'est produite", '', 'warning');
-						} else if (data == 'success') {
-							Swal.fire({
-								title: 'Sauvegarde réussi.',
-								icon: 'success'
-							}).then((result) => {
-								window.top.location.reload();
-							});
-						}
+
+		function fnUpdateNouvelle() {
+
+			var check = document.getElementById('checkbox').checked == true ? 1 : 0;
+			var ddebut = new Date(document.getElementById('dateDebut').value);
+			ddebut = ddebut.getTime() / 1000;
+			var dfin = new Date(document.getElementById('dateFin').value);
+			dfin = dfin.getTime() / 1000;
+
+			$.ajax({
+				type: 'post',
+				url: 'Nouvelles.php',
+				data: ({
+					action: 'UpdateNouvelle',
+					dateDebut: ddebut,
+					dateFin: dfin,
+					descriptionSommaire: document.getElementById('descriptionSommaire').innerHTML,
+					descriptionTotal: document.getElementById('descriptionTotal').innerHTML,
+					title: document.getElementById('title').innerHTML,
+					actif: check
+				}),
+				success: function(data) {
+					alert(data);
+
+					if (data == 'fail') {
+						Swal.fire("Une erreur c'est produite", '', 'warning');
+					} else if (data == 'success') {
+						Swal.fire({
+							title: 'Sauvegarde réussi.',
+							icon: 'success'
+						}).then((result) => {
+							window.top.location.reload();
+						});
 					}
-				})
-			});
+				}
+			})
+
 		}
 
-		
+
 		function fnAddNouvelle() {
 			var nouvelleEdit = document.getElementById("NouvelleEdit");
 			var addNouvelles = document.getElementById("addNouvelles");
@@ -134,8 +136,10 @@ require_once 'Nouvelles_pr.php';
 
 <body>
 	<div class="container">
+
 		<?php		
-			if(validateAdminEditing()){
+		
+		if(validateAdminEditing()){
 				if($_SESSION["nouvelleId"] == 0){
 					GetHTMLAllNouvellesEdit(NouvellesDAO::getAllNouvelles());
 					GetAddNouvelles();

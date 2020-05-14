@@ -17,7 +17,7 @@ function UploadImage(){
 	
 	for($x = 0; $x <count($_FILES["fileToUpload"]["name"]);$x++ ){
 	$arrayError = array();	
-		$arrayPdf = array();
+		$arrayImage = array();
 		
 		
 		$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"][$x]);
@@ -25,14 +25,7 @@ function UploadImage(){
 		$file_type=$_FILES["fileToUpload"]['type'][$x];
 		
 		if($_FILES["fileToUpload"]["error"][$x] == 0){
-			
-			$check = getimagesize($_FILES["fileToUpload"]["tmp_name"][$x]);
-
-			if($check !== true) {
-					array_push($arrayError, "Le fichier n\'est pas une image.");
-				$uploadOk = 0;
-			} 
-			
+						
 			if (file_exists($target_file)) {
 				array_push($arrayError,"Désolé, le fichier existe déjà.");
 				$uploadOk = 0;
@@ -42,18 +35,17 @@ function UploadImage(){
 				array_push($arrayError, "Désolé, seul les fichier moins de 2Mo sont accespté.");
 				$uploadOk = 0;
 			}
-			if($file_type != "image/jpg" && $file_type != "image/png" && $file_type != "image/jpeg"
-			&& $file_type != "image/gif" )
+			if($file_type != "image/jpg" &&
+				 $file_type != "image/png" &&
+				 $file_type != "image/jpeg"&&
+				 $file_type != "image/gif" )
 			{
 				array_push($arrayError, "Sorry, only JPG, JPEG, PNG & GIF files are allowed.");
 				$uploadOk = 0;
 			}
 			
 			
-			if ($uploadOk == 0 ) {
-				array_push($arrayError,"Désolé, votre fichier n'a pas été télécharger.");
-			} 
-			else {
+			if ($uploadOk != 0 )  {
 				if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$x], $target_file)) {
 
 				$arrayImage = array(
@@ -62,7 +54,7 @@ function UploadImage(){
 				array_push($arrayError,"success");
 				} 
 				else{
-						echo "Sorry, there was an error uploading your file.";
+						array_push($arrayError,  "Sorry, there was an error uploading your file.");
 				}
 			}
 		}

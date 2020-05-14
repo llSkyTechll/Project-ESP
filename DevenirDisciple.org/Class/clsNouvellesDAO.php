@@ -36,32 +36,43 @@ class NouvellesDAO{
 	
 	
   
-  public static function saveNewNouvelles($title, $descrSomm, $descrTot ,$dateStart, $dateEnd, $actif, $imagePath){
-    
+  public static function saveNewNouvelles($title, $descrSomm, $descrTot ,$dateStart, $dateEnd, $actif){
     
     $conn = OpenCon();
     
-    $SQL = "CALL AddNouvelles('".$title."','". $descrSomm."','". $descrTot."','". $dateStart."','". $dateEnd."','".$actif."','".$imagePath."');";
+    $SQL = "CALL AddNouvelles('".$title."','". $descrSomm."','". $descrTot."','". $dateStart."','". $dateEnd."','".$actif."');";
 		
     $RSSQL = $conn->query($SQL);    
     
     CloseCon($conn);
     
-    exit('success');
+    return('success');
   }  
-	public static function updateNouvelles($nouvelleId, $title, $descrSomm, $descrTot ,$dateStart, $dateEnd, $actif, $imagePath){
-    
+	public static function updateNouvelles($nouvelleId, $title, $descrSomm, $descrTot ,$dateStart, $dateEnd, $actif){   
     
     $conn = OpenCon();
     
-    $SQL = "CALL UpdateNouvelles('".$nouvelleId."','".$title."','". $descrSomm."','". $descrTot."','". $dateStart."','". $dateEnd."','".$actif."','".$imagePath."');";
+    $SQL = "CALL UpdateNouvelles('".$nouvelleId."','".$title."','". $descrSomm."','". $descrTot."','". $dateStart."','". $dateEnd."','".$actif."');";
+		
+     if (!$conn->query($SQL)){			 
+      return('fail');
+    } 
+    CloseCon($conn);
+    
+    return('success');
+  }
+	public static function UpdateImageNouvelle($nouvelleId,$imagePath){
+		
+		$conn = OpenCon();
+    
+    $SQL = "CALL UpdateImageNouvelle('".$nouvelleId."','".$imagePath."');";
 
     $RSSQL = $conn->query($SQL);    
     
     CloseCon($conn);
     
-    exit('success');
-  }
+    return('success');
+	}
 	
 	
 	
