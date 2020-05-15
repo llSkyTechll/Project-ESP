@@ -77,7 +77,7 @@ function GetBasPage($basPage){
 				<div class="col-md-6 col-sm-12 row m-auto">
 					<div class="col-md-6 col-sm-6 col-10 m-auto">
 						<a onclick="parent.fnRedirection(\'Formulaire/FormulaireBenevolat.php\',0)">
-							<img style="width:200px;height:300px" class="d-block img-fluid rounded w-100 " src="'.$basPage['imageHomeliePath'] .'" alt="Homéli du curé" title="Homéli du curé">
+							<img style="width:200px;height:300px" class="d-block img-fluid rounded w-100 " src="'.$basPage['imageHomeliePath'] .'" alt="Homélie du curé" title="Homélie du curé">
 						</a>
 					</div>
 					<div class="col-md-6 col-sm-6 col-10 m-auto">
@@ -119,7 +119,7 @@ function GetBasPageEdit($basPage){
 			<div class="basPage row m-auto">
 				<div class="col-md-6 col-sm-12 row m-auto">
 					<div class="col-md-6 col-sm-6 col-10 m-auto">
-							<img class="d-block img-fluid rounded w-100 " src="'.$basPage['imageHomeliePath'] .'" alt="Homéli du curé" title="Homéli du curé">
+							<img class="d-block img-fluid rounded w-100 " src="'.$basPage['imageHomeliePath'] .'" alt="Homélie du curé" title="Homélie du curé">
 						<form  action="#" method="post" enctype="multipart/form-data">
 							<label for="fileToUploadImageHomelie">Select PDF to upload:</label>
 							<input type="file" name="fileToUploadImageHomelie[]" id="fileToUploadImageHomelie">
