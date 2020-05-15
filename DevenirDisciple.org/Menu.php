@@ -41,12 +41,12 @@ $conn = OpenCon();
 						path: Path
 					})
 				});
-        document.getElementById('PageContent').src = Path;
+				document.getElementById('PageContent').src = Path;
 			})
 		}
 
 		function fnRedirectionNouvelle(Path, menuId, nouvelleId) {
-			
+
 			$(function() {
 				$.ajax({
 					type: 'post',
@@ -83,7 +83,7 @@ $conn = OpenCon();
 				});
 			});
 		}
-		
+
 		/*$('iframe').load( function() {
 			$('iframe').contents().find("head")
 				.append($("<style type='text/css'>  body{background:none transparent !important;background-color:none  !important;}  </style>"));
@@ -95,7 +95,7 @@ $conn = OpenCon();
         });
 			
 		});*/
-	  
+
 	</script>
 </head>
 
@@ -139,16 +139,16 @@ background-size: cover;">
 					?>
 					<li>
 						<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-              <input name="cmd" type="hidden" value="_s-xclick"> 
-              <input name="hosted_button_id" type="hidden" value="DMYLJ8APSPW2A"> <input alt="Donate with PayPal button" border="0" name="submit" src="https://www.paypalobjects.com/fr_CA/i/btn/btn_donateCC_LG.gif" title="PayPal - The safer, easier way to pay online!" type="image"> 
-              <img alt="" border="0" height="1" src="https://www.paypal.com/fr_CA/i/scr/pixel.gif" width="1" style="display: none !important;">
-            </form>
+							<input name="cmd" type="hidden" value="_s-xclick">
+							<input name="hosted_button_id" type="hidden" value="DMYLJ8APSPW2A"> <input alt="Donate with PayPal button" border="0" name="submit" src="https://www.paypalobjects.com/fr_CA/i/btn/btn_donateCC_LG.gif" title="PayPal - The safer, easier way to pay online!" type="image">
+							<img alt="" border="0" height="1" src="https://www.paypal.com/fr_CA/i/scr/pixel.gif" width="1" style="display: none !important;">
+						</form>
 					</li>
 				</ul>
 			</div>
 		</nav>
 	</div>
-	<iframe class="mt-5 pt-3" id="PageContent" src="<?php if(isset($_SESSION['gpath'])){echo $_SESSION['gpath'];}else{echo 'Accueil/Accueil.php';}?>" frameborder="0" allowtransparency="true"></iframe>
+	<iframe class="mt-6 pt-4" id="PageContent" src="<?php if(isset($_SESSION['gpath'])){echo $_SESSION['gpath'];}else{echo 'Accueil/Accueil.php';}?>" frameborder="0" allowtransparency="true"></iframe>
 
 </body>
 

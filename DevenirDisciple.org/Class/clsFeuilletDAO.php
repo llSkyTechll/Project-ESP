@@ -76,7 +76,7 @@ class FeuiletDAO{
     return('success');
   }
  
-	 public static function UpdateFeuillet( $feuilletId,$actif, $orderDisplay){
+	 public static function UpdateFeuillet($feuilletId,$actif, $orderDisplay){
     $SQL = "CALL UpdateFeuillet('".$feuilletId."','".$actif."','".$orderDisplay."');";
     $conn = OpenCon();
 		 if (!$conn->query($SQL)){			 

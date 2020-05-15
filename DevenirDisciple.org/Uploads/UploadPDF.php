@@ -1,7 +1,7 @@
 <?php
 
 
-function UploadPDF(){
+function UploadPDF($FILES){
 	$target_dir = "../Ressource/PDF/";
 	$arrayErrors = array();
 	$arrayPdfs = array();
@@ -16,15 +16,15 @@ function UploadPDF(){
 		8 => 'A PHP extension stopped the file upload.',
 	);
 	
-	for($x = 0; $x <count($_FILES["fileToUpload"]["name"]);$x++ ){
+	for($x = 0; $x <count($FILES["name"]);$x++ ){
 	$arrayError = array();	
 		$arrayPdf = array();
 		
-		$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"][$x]);
+		$target_file = $target_dir . basename($FILES["name"][$x]);
 		$uploadOk = 1;
-		$file_type=$_FILES["fileToUpload"]['type'][$x];
+		$file_type=$FILES['type'][$x];
 		
-		if($_FILES["fileToUpload"]["error"][$x] == 0){			
+		if($FILES["error"][$x] == 0){			
 			if (file_exists($target_file)) {
 				array_push($arrayError,"Désolé, le fichier existe déjà.");
 				$uploadOk = 0;
@@ -37,14 +37,14 @@ function UploadPDF(){
 				array_push($arrayError,"Désolé, votre fichier n'a pas été télécharger.");
 			} 
 			else {
-				if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$x], $target_file)) {
+				if (move_uploaded_file($FILES["tmp_name"][$x], $target_file)) {
 
 				$arrayPdf = array(
 					'pdfPath' => $target_file,
-					'pdfName' => basename($_FILES["fileToUpload"]["name"][$x]),
+					'pdfName' => basename($FILES["name"][$x]),
 					'actif' => 0,
 					'orderDisplay' => 0,
-					'size' => formatSizeUnits($_FILES["fileToUpload"]["size"][$x])
+					'size' => formatSizeUnits($FILES["size"][$x])
 				);
 				array_push($arrayError,"success");
 				} 
@@ -54,7 +54,7 @@ function UploadPDF(){
 			}
 		}
 		else{			
-			array_push($arrayError,$phpFileUploadErrors[$_FILES["fileToUpload"]["error"][$x]]);
+			array_push($arrayError,$phpFileUploadErrors[$FILES["error"][$x]]);
 		}
 		array_push($arrayErrors,$arrayError);
 		array_push($arrayPdfs,$arrayPdf);

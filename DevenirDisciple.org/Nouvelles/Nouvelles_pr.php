@@ -17,7 +17,7 @@ if (isset($_POST['action'])){
   }
 }
 	if(isset($_FILES['fileToUpload'])){
-		UpdateImageNouvelle(UploadImage());
+		UpdateImageNouvelle(UploadImage($_FILES['fileToUpload']));
 	}
 
 function GetHTMLAllnouvelles($arrayNouvelles){

@@ -1,6 +1,6 @@
 <?php
 
-function UploadImage(){
+function UploadImage($FILES){
 	$target_dir = "../Ressource/Image/";
 	$arrayErrors = array();
 	$arrayImages = array();
@@ -15,23 +15,23 @@ function UploadImage(){
 		8 => 'A PHP extension stopped the file upload.',
 	);
 	
-	for($x = 0; $x <count($_FILES["fileToUpload"]["name"]);$x++ ){
+	for($x = 0; $x <count($FILES["name"]);$x++ ){
 	$arrayError = array();	
 		$arrayImage = array();
 		
 		
-		$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"][$x]);
+		$target_file = $target_dir . basename($FILES["name"][$x]);
 		$uploadOk = 1;
-		$file_type=$_FILES["fileToUpload"]['type'][$x];
+		$file_type=$FILES['type'][$x];
 		
-		if($_FILES["fileToUpload"]["error"][$x] == 0){
+		if($FILES["error"][$x] == 0){
 						
 			if (file_exists($target_file)) {
 				array_push($arrayError,"Désolé, le fichier existe déjà.");
 				$uploadOk = 0;
 			}
 			
-			if ($_FILES["fileToUpload"]["size"][$x] > 2000000) {
+			if ($FILES["size"][$x] > 2000000) {
 				array_push($arrayError, "Désolé, seul les fichier moins de 2Mo sont accespté.");
 				$uploadOk = 0;
 			}
@@ -46,10 +46,11 @@ function UploadImage(){
 			
 			
 			if ($uploadOk != 0 )  {
-				if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$x], $target_file)) {
+				if (move_uploaded_file($FILES["tmp_name"][$x], $target_file)) {
 
 				$arrayImage = array(
-					'imagePath' => $target_file
+					'imagePath' => $target_file,
+					'imagenName' => basename($FILES["name"][$x])
 				);
 				array_push($arrayError,"success");
 				} 
@@ -59,7 +60,7 @@ function UploadImage(){
 			}
 		}
 		else{			
-			array_push($arrayError,$phpFileUploadErrors[$_FILES["fileToUpload"]["error"][$x]]);
+			array_push($arrayError,$phpFileUploadErrors[$FILES["error"][$x]]);
 		}
 		array_push($arrayErrors,$arrayError);
 		array_push($arrayImages,$arrayImage);

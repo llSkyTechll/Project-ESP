@@ -64,7 +64,9 @@ td ul li {
 	height: 20px;
 }
 
-
+.mt-6 {
+	margin-top: 4rem !important;
+}
 
 a img {
 	cursor: pointer;

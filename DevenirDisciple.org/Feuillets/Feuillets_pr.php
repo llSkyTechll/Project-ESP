@@ -6,7 +6,7 @@ require_once '../Class/clsFeuilletDAO.php';
 require_once '../Uploads/UploadPDF.php';
 
 	if(isset($_FILES['fileToUpload'])){
-		AddFeuillets(UploadPDF());
+		AddFeuillets(UploadPDF($_FILES['fileToUpload']));
 	}	
 
 if (isset($_POST['action'])){

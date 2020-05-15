@@ -113,30 +113,6 @@ require_once '../Uploads/UploadImage.php';
 
 
 <body>
-
-	<!--<form action="../Uploads/UploadImage.php" method="post" enctype="multipart/form-data">
-    <label for="fileToUpload">Select image to upload:</label>
-    <input type="file" name="fileToUpload[]" id="fileToUpload" multiple>
-    <input type="submit" value="Upload Image" name="submit">
-</form>-->
-	<!--<form action="javascript:void(0);" method="post" enctype="multipart/form-data">-->
-	<!--<form action="#" method="post" enctype="multipart/form-data">-->
-	<!--<form  action="#" method="post" enctype="multipart/form-data">
-    <label for="fileToUpload">Select PDF to upload:</label>
-    <input type="file" name="fileToUpload[]" id="fileToUpload" multiple>
-    <input type="submit" value="Upload PDF" name="submit">
-</form>-->
-	<!--<form action="../Uploads/UploadVideo.php" method="post" enctype="multipart/form-data">
-    <label for="fileToUpload">Select Video to upload:</label>
-    <input type="file" name="fileToUpload[]" id="fileToUpload" multiple>
-    <input type="submit" value="Upload Image" name="submit">
-</form>-->
-
-
-	<!--lire PDF-->
-	<!--<a href="../Ressource/PDF/Travail2.pdf" >ok</a>-->
-	<!--Download PDF-->
-	<!--<a href="../Ressource/PDF/Travail2.pdf" download>ok</a>-->
 	<div class="container">
 		<?php		
 			loadPageContent();	

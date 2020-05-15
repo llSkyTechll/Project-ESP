@@ -143,70 +143,55 @@ class FormulaireEnfantDAO{
         </div>
       </div>
       <div class="form-group row">
-        <label style="text-align:center" class="col-md-12 col-form-label">Sacrements célébrés ( église et date )</label>      
-      </div>
+        <label class="col-md-12 col-form-label text-center">Sacrements célébrés ( église et date )</label>      
+      </div>		
+		 	<div class="form-group row">
+        <label for="fbapteme" class="col-md-2 col-form-label">Baptême:</label>
+        <div class="col-md-10">
+          <input class="form-control" type="text" tabindex="70" name="fbapteme" id="fbapteme"  length="500" value="">
+        </div>
+      </div>		
+		 	<div class="form-group row">
+				<label for="fpardon" class="col-md-2 col-form-label">Pardon:</label>
+				<div class="col-md-10">
+					<input class="form-control" type="text" tabindex="80" name="fpardon" id="fpardon"  length="500" value="">
+				</div>
+      </div>			
+		 	<div class="form-group row">
+				<label for="feucharistie" class="col-md-2 col-form-label">Eucharistie:</label>
+				<div class="col-md-10">
+					<input class="form-control" type="text" tabindex="90" name="feucharistie" id="feucharistie"  length="500" value="">         
+				</div>
+			</div>
+			<div class="form-group row">
+        <label for="fallergies" class="col-md-2 col-form-label">Allergies:</label>
+        <div class="col-md-10">
+          <input class="form-control" type="text" tabindex="100" name="fallergies" id="fallergies"  length="500" value="">
+        </div>
+      </div>		
+			<br>
+			<div class="form-group row">
+        <label  class="col-md-12 col-form-label text-left">Paroisse</label>      
+      </div>	
+			
+			<div class="form-group row">
+				<div class="col-md-6 col-8">
+					<select class="form-control" tabindex="110" name="fparoisseid" id="fparoisseid"  onchange="fnCommunityList()">
+						<option value="0"></option>';
 
-      <table style="width:100%;height:100%;margin-left:auto;margin-right:auto;border-collapse: collapse;">
-        <tr>
-          <td style="width:10%">
-            <label for="fbapteme">Baptême:</label>
-          </td>
-          <td style="width:90%">
-            <input class="form-control" type="text" tabindex="70" name="fbapteme" id="fbapteme" style="width:100%" length="500" value="">
-          </td>
-        </tr>
-        <tr>
-          <td style="width:10%">
-            <label for="fpardon">Pardon:</label>
-          </td>
-          <td style="width:90%">
-            <input class="form-control" type="text" tabindex="80" name="fpardon" id="fpardon" style="width:100%" length="500" value="">
-          </td>    
-        </tr>
-        <tr>
-          <td style="width:10%">
-            <label for="feucharistie">Eucharistie:</label>
-          </td>
-          <td style="width:90%">
-            <input class="form-control" type="text" tabindex="90" name="feucharistie" id="feucharistie" style="width:100%" length="500" value="">         
-          </td>
-        </tr>
-        <tr>
-          <td style="width:10%">
-            <label for="fallergies"><i>Allergies:</i></label>
-          </td>
-          <td>
-            <input class="form-control" type="text" tabindex="100" name="fallergies" id="fallergies" style="width:100%" length="500" value="">
-          </td>
-        </tr>
-
-        <tr>
-          <td colspan="4">
-            <br>
-            <p>Paroisse</p>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="4">
-            <select class="form-control" tabindex="110" name="fparoisseid" id="fparoisseid" style="width:50%" onchange="fnCommunityList()">
-              <option value="0"></option>';
-                    
-                $paroissecommunaute = new ParoisseCommunaute();
-                
-                $Result = $paroissecommunaute->getAllParoisse();
-                
-                if ($Result->num_rows > 0){
-                  while ($Row = $Result->fetch_assoc()){
-                    $html .= '<option value="'.$Row['paroisseid'].'">'.$Row['nom'].'</option>';
-                  }
-                }  
-
-            $html.= '</select>
-        </tr>
-
-        <tr>
-          <td colspan="4">';
-              $Result = $paroissecommunaute->getAllCommunauteOrderParoisse();
+						$paroissecommunaute = new ParoisseCommunaute();
+						$Result = $paroissecommunaute->getAllParoisse();
+						if ($Result->num_rows > 0){
+							while ($Row = $Result->fetch_assoc()){
+								$html .= '<option value="'.$Row['paroisseid'].'">'.$Row['nom'].'</option>';
+							}
+						} 
+					$html.= '</select>  
+				</div>
+      </div>	
+			<div class="form-group row">
+				<div class="col-md-6 col-8">';
+        $Result = $paroissecommunaute->getAllCommunauteOrderParoisse();
 
               if ($Result->num_rows > 0){
                 $paroisseid = 0;
@@ -216,7 +201,7 @@ class FormulaireEnfantDAO{
                       $html.= '</select>' ;
                     }
                     $paroisseid = $Row['paroisseid'];
-                    $html .= '<select class="form-control" tabindex="120" name="fcommunityid'.$paroisseid.'" id="fcommunityid'.$paroisseid.'" style="width:50%;display:none">';
+                    $html .= '<select class="form-control " tabindex="120" name="fcommunityid'.$paroisseid.'" id="fcommunityid'.$paroisseid.'" style="display:none">';
                     $html .= '<option value="0"></option>';
                     $html .= '<option value="'.$Row['communauteid'].'">'.$Row['nom'].'</option>';
                   }else{
@@ -225,8 +210,14 @@ class FormulaireEnfantDAO{
                 }
                 $html .= '</select>';
               }  
-        $html .= '</td>
-        </tr>
+     
+		 $html .= '</div>	
+		 </div>
+			
+      <table style="width:100%;height:100%;margin-left:auto;margin-right:auto;border-collapse: collapse;">
+     
+
+        
         </table>
         <br>
         <table class="Bold TableBorder" align="center">
@@ -251,7 +242,7 @@ class FormulaireEnfantDAO{
           <td class="Center" style="width:16%"><input class="big-checkbox" type="checkbox" name="fbrebis" id="fbrebis" value="1"></td>
         </tr>
       </table>
-      
+			
       <br>
       <div class="Center">
         <input class="btn btn-primary" type="button" tabindex="340" name="btnSubmitForm" value="Envoyer" onclick="fnSubmit();">

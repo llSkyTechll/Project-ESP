@@ -19,25 +19,39 @@ class AccueilDAO{
       $row = $RSSQL->fetch_assoc();
       return $row;
     
-    }
-    
-		return null;
-		
-    
+    }    
+		return null;	
   }
   
-  public static function savePageContent($contentId, $menuid, $title, $header, $subtitle, $content){
-    $SQL = "CALL SavePageContentTemplateText('".$contentId."','".$menuid."','".$title."','".$header."','".$subtitle."','".$content."');";
-
+  public static function UpdateImageHomelie($imageHomeliePath){
+    $SQL = "CALL UpdateImageHomelie('".$imageHomeliePath."');";
     $conn = OpenCon();
-    
     $conn->query($SQL);
-    
     CloseCon($conn);
-    
     exit('success');
   }
-  
+  public static function UpdateImageTemoignage($imageTemoignagePath){
+    $SQL = "CALL UpdateImageTemoignage('".$imageTemoignagePath."');";
+    $conn = OpenCon();
+    $conn->query($SQL);
+    CloseCon($conn);
+    exit('success');
+  }
+  public static function UpdateVideoBienvenue($videoBienvenuePath){
+    $SQL = "CALL UpdateVideoBienvenue('".$videoBienvenuePath."');";
+    $conn = OpenCon();
+    $conn->query($SQL);
+    CloseCon($conn);
+    exit('success');
+  }
+  public static function UpdateImageFormulaire($imageFormulairePath){
+    $SQL = "CALL UpdateImageFormulaire('".$imageFormulairePath."');";
+    $conn = OpenCon();
+    $conn->query($SQL);
+    CloseCon($conn);
+    exit('success');
+  }
+ 
 }
 
 ?>

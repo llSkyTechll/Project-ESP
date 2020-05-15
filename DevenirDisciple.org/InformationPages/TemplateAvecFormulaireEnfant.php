@@ -8,6 +8,8 @@ require_once '../Class/clsTemplateTextDAO.php';
 
 require_once '../InformationPages/TemplateText_pr.php';
 
+require_once '../Uploads/UploadImage.php';
+
 ?>
 
 <!doctype html>

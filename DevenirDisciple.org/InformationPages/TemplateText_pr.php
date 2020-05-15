@@ -4,6 +4,8 @@ require_once '../PHPFunctions.php';
 
 require_once '../Class/clsTemplateTextDAO.php';
 
+require_once '../Uploads/UploadImage.php';
+
 if (isset($_POST['action'])){
   switch($_POST['action']){
   case 'saveContent':
