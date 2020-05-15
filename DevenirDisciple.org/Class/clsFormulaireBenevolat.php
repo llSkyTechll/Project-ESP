@@ -297,7 +297,7 @@ class FormulaireBenevolat{
 
     if ($RSSQL->num_rows > 0){
       $decrypt = new Encryption();
-      $html .= '<div><h1>Liste des formulairse de bénévolat</h1></div>';
+      $html .= '<div><h1>Liste des formulaires de bénévolat</h1></div>';
       while ($row = $RSSQL->fetch_assoc()){
         $html .= '<div cursor="pointer" class="row col-md-12 backgroundHover" >
                     <div class="col-md-1" onclick="fnGetSpecificFormData('.$row['formulaireid'].')"><p>'.$row['formulaireid'].'</p></div>
