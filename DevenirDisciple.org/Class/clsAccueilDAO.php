@@ -4,6 +4,7 @@
 require_once '../Class/clsNouvellesDAO.php';
 
 require_once '../Class/clsNouvelles.php';
+
 class AccueilDAO{
   
   public static function getBasPage(){
@@ -18,9 +19,8 @@ class AccueilDAO{
     if ($RSSQL->num_rows > 0) {
       $row = $RSSQL->fetch_assoc();
       return $row;
-    
     }    
-		return null;	
+		return null;
   }
   
   public static function UpdateImageHomelie($imageHomeliePath){

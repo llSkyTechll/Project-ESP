@@ -49,9 +49,9 @@ require_once '../Uploads/UploadImage.php';
 				}),
 				success: function(data) {
 
-					if (data == 'fail') {
+					if (data.trim() == 'fail') {
 						Swal.fire("Une erreur c'est produite", '', 'warning');
-					} else if (data == 'success') {
+					} else if (data.trim() == 'success') {
 						Swal.fire({
 							title: 'Sauvegarde réussi.',
 							icon: 'success'
@@ -90,16 +90,16 @@ require_once '../Uploads/UploadImage.php';
 				}),
 				success: function(data) {
 					
-					if (data == 'success') {
+					if (data.trim() == 'success') {
 						Swal.fire({
 							title: 'Supression effectué avec succès',
 							icon: 'success'
 						}).then((result) => {
 							window.top.location.reload();
 						});
-					} else if (data == 'failDB') {
+					} else if (data.trim() == 'failDB') {
 						Swal.fire("Une erreur c'est produite", 'Impossible de suprimmer le pdf de la base de donnée', 'warning');
-					} else if (data == 'failFile') {
+					} else if (data.trim() == 'failFile') {
 						Swal.fire("Une erreur c'est produite", 'Impossible de supprimer le fichier', 'warning');
 					}
 				}

@@ -183,9 +183,7 @@ function AddFeuillets($arrayFiles){
 		}
 
 	}
-	//print_r($arrayMessages);		
-	//echo'<br><br><br>';
-	//print_r($arrayUploadsDB);	
+	
 	$arrayToReturn = array(
 		'MessageError'=>$arrayMessages,
 		'UploadsDB'=>$arrayUploadsDB

@@ -56,16 +56,16 @@ require_once 'Nouvelles_pr.php';
 						actif: check
 					}),
 					success: function(data) {
-						if (data == 'fail') {
+						if (data.trim() == 'fail') {
 							Swal.fire("Une erreur c'est produite", '', 'warning');
-						} else if (data == 'success') {
+						} else if (data.trim() == 'success') {
 							Swal.fire({
 								title: 'Ajout réussi.',
 								icon: 'success'
 							}).then((result) => {
 								window.top.location.reload();
 							});
-						} else if (data == 'emptyFields') {
+						} else if (data.trim() == 'emptyFields') {
 							Swal.fire("Veuillez remplir tous les champs", '', 'warning');
 						}
 					}
@@ -96,9 +96,9 @@ require_once 'Nouvelles_pr.php';
 				success: function(data) {
 					alert(data);
 
-					if (data == 'fail') {
+					if (data.trim() == 'fail') {
 						Swal.fire("Une erreur c'est produite", '', 'warning');
-					} else if (data == 'success') {
+					} else if (data.trim() == 'success') {
 						Swal.fire({
 							title: 'Sauvegarde réussi.',
 							icon: 'success'

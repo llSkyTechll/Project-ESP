@@ -77,12 +77,12 @@ function GetBasPage($basPage){
 				<div class="col-md-6 col-sm-12 row m-auto">
 					<div class="col-md-6 col-sm-6 col-10 m-auto">
 						<a onclick="parent.fnRedirection(\'Formulaire/FormulaireBenevolat.php\',0)">
-							<img class="d-block img-fluid rounded w-100 " src="'.$basPage['imageHomeliePath'] .'" alt="Homéli du curé" title="Homéli du curé">
+							<img style="width:200px;height:300px" class="d-block img-fluid rounded w-100 " src="'.$basPage['imageHomeliePath'] .'" alt="Homéli du curé" title="Homéli du curé">
 						</a>
 					</div>
 					<div class="col-md-6 col-sm-6 col-10 m-auto">
 						<a onclick="parent.fnRedirection(\'Formulaire/FormulaireBenevolat.php\',0)">
-							<img class="d-block img-fluid rounded w-100 "  src="'.$basPage['imageTemoignagePath'] .'" alt="Témoinage" title="Témoinage">
+							<img style="width:200px;height:300px" class="d-block img-fluid rounded w-100 "  src="'.$basPage['imageTemoignagePath'] .'" alt="Témoinage" title="Témoinage">
 						</a>
 					</div>
 				</div>
@@ -98,7 +98,7 @@ function GetBasPage($basPage){
 					</div>
 					<div class="col-md-6 col-sm-6 col-10 m-auto">
 						<a onclick="parent.fnRedirection(\'Formulaire/FormulaireBenevolat.php\',0)">
-							<img class="d-block img-fluid rounded w-100"  src="'.$basPage['imageFormulairePath'] .'" alt="Formulaire Bénévolat" title="Formulaire Bénévolat">
+							<img style="width:200px;height:300px" class="d-block img-fluid rounded w-100"  src="'.$basPage['imageFormulairePath'] .'" alt="Formulaire Bénévolat" title="Formulaire Bénévolat">
 						</a>
 					</div>
 				</div>

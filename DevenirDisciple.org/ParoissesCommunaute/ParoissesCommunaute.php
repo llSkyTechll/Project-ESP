@@ -105,16 +105,16 @@ if (isset($_SESSION['gmenuId'])){
             icon: document.getElementById('eicon').value,
           }),
           success: function(data) {
-            if (data == 'fail') {
+            if (data.trim() == 'fail') {
               Swal.fire("Une erreur c'est produite", '', 'warning');
-            } else if (data == 'success') {
+            } else if (data.trim() == 'success') {
               Swal.fire({
                 title: 'Ajout réussi.',
                 icon: 'success'
               }).then((result) => {
                 window.top.location.reload();
               });
-            } else if (data == 'emptyFields'){
+            } else if (data.trim() == 'emptyFields'){
               Swal.fire("Veuillez remplir tous les champs", '', 'warning');
             }
           }
@@ -132,9 +132,9 @@ if (isset($_SESSION['gmenuId'])){
             eventid: document.getElementById('eventid').value            
           }),
           success: function(data) {
-            if (data == 'fail') {
+            if (data.trim() == 'fail') {
               Swal.fire("Une erreur c'est produite", '', 'warning');
-            } else if (data == 'success') {
+            } else if (data.trim() == 'success') {
               Swal.fire({
                 title: 'Supression réussi.',
                 icon: 'success'
@@ -162,16 +162,16 @@ if (isset($_SESSION['gmenuId'])){
             icon: document.getElementById('eicon').value
           }),
           success: function(data) {
-            if (data == 'fail') {
+            if (data.trim() == 'fail') {
               Swal.fire("Une erreur c'est produite", '', 'warning');
-            } else if (data == 'success') {
+            } else if (data.trim() == 'success') {
               Swal.fire({
                 title: 'Modification réussi.',
                 icon: 'success'
               }).then((result) => {
                 window.top.location.reload();
               });
-            }else if (data == 'emptyFields'){
+            }else if (data.trim() == 'emptyFields'){
               Swal.fire("Veuillez remplir tous les champs", '', 'warning');
             }
           }
@@ -189,9 +189,9 @@ if (isset($_SESSION['gmenuId'])){
             schedule: document.getElementById('schedule').innerHTML
           }),
           success: function(data) {
-            if (data == 'fail') {
+            if (data.trim() == 'fail') {
               Swal.fire("Une erreur c'est produite", '', 'warning');
-            } else if (data == 'success') {
+            } else if (data.trim() == 'success') {
               Swal.fire({
                 title: 'Modification réussi.',
                 icon: 'success'
@@ -406,12 +406,12 @@ if (isset($_SESSION['gmenuId'])){
 		</div>
     </div>
 
-		<div><a>lien feuillet</a></div>
+		<!--<div><a>lien feuillet</a></div>
 		<div><a>lien Facebook</a></div>
 
 		<div>
 			<p>Données</p>
-		</div>
+		</div>-->
 	</div>
 	<?php require_once '../Footer.php';?>
 </body>

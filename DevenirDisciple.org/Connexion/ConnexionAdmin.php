@@ -39,9 +39,9 @@ require_once 'ConnexionAdmin_pr.php';
 						password: document.getElementById('fpassword').value
 					}),
 					success: function(data) {
-						if (data == 'fail') {
+						if (data.trim() == 'fail') {
 							Swal.fire('Email et/ou mot de passe incorrect.', '', 'warning');
-						} else if (data == 'success') {
+						} else if (data.trim() == 'success') {
 							Swal.fire({
 								title: 'Connexion réussi.',
 								icon: 'success'

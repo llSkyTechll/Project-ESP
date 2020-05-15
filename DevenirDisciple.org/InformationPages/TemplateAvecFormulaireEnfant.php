@@ -45,14 +45,14 @@ require_once '../Uploads/UploadImage.php';
               content:   document.getElementById('content').innerHTML
             }),
             success: function(data) {
-              if (data == 'success') {
+              if (data.trim() == 'success') {
                 Swal.fire({
                   title: 'Changement effectué avec succès',
                   icon: 'success'
                 }).then((result) => {
                   window.top.location.reload();
                 });
-              } else if (data == "admin") {
+              } else if (data.trim() == "admin") {
                 Swal.fire("Erreur", "Seul un administrateur du site peut effectuer des changements.", 'error');
               }
             }

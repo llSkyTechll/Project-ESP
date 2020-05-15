@@ -69,18 +69,18 @@ $conn = OpenCon();
 						formdata: $("#formSubmit").serialize()
 					}),
 					success: function(data) {
-						if (data == 'emptyFields') {
+						if (data.trim() == 'emptyFields') {
                if (fnValidateEmptyFields() == false){
                 Swal.fire("Formulaire invalide", 'Veuillez remplir les champs obligatoires', 'warning');
               }
-						} else if (data == 'Success') {
+						} else if (data.trim() == 'Success') {
 							Swal.fire({
 								title: 'Envoie effectué avec succès',
 								icon: 'success'
 							}).then((result) => {
 								window.top.location.reload();
 							});
-						} else if (data == "Fail") {
+						} else if (data.trim() == "Fail") {
 							Swal.fire("Erreur lors de l'envoie", "Impossible d'envoyer le formulaire", 'error');
 						}
 					}
@@ -119,7 +119,7 @@ $conn = OpenCon();
             formid: formid
           }),
           success: function(data) {
-            if (data == 'success') {
+            if (data.trim() == 'success') {
               window.top.location.reload();
             }
           }            
@@ -151,14 +151,14 @@ $conn = OpenCon();
             formid: formid
           }),
           success: function(data) {
-            if (data == 'success') {
+            if (data.trim() == 'success') {
               Swal.fire({
                 title: 'Supression effectué avec succès',
                 icon: 'success'
               }).then((result) => {
                 window.top.location.reload();
               });
-            }else if(data == 'fail'){
+            }else if(data.trim() == 'fail'){
               Swal.fire(
                 'Erreur',
                 'Une erreur est survenue.',

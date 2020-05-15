@@ -230,7 +230,6 @@ function fnUpdateNouvelle(){
     exit('success');
   }
 	if(isset($_POST)){
-		
 		$_SESSION["nouvelleId"] = 0;
 	}
   

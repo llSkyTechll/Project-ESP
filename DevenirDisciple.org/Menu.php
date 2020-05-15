@@ -71,7 +71,7 @@ $conn = OpenCon();
 						action: 'deconnexion'
 					}),
 					success: function(data) {
-						if (data == 'success') {
+						if (data.trim() == 'success') {
 							Swal.fire({
 								title: 'Déconnexion réussi.',
 								icon: 'success'
