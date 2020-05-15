@@ -88,7 +88,7 @@ CREATE TABLE `calendarevent` (
   PRIMARY KEY (`eventId`),
   KEY `FK_communityId` (`communityId`),
   CONSTRAINT `FK_communityId` FOREIGN KEY (`communityId`) REFERENCES `communaute` (`communauteid`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -97,7 +97,7 @@ CREATE TABLE `calendarevent` (
 
 LOCK TABLES `calendarevent` WRITE;
 /*!40000 ALTER TABLE `calendarevent` DISABLE KEYS */;
-INSERT INTO `calendarevent` VALUES (10,'Test','04/22/2020 08:27 am','','fc-bg-lightgreen','calendar',16),(11,'Test','04/29/2020 08:35 am','','fc-bg-lightgreen','group',16),(13,'Test','04/29/2020 08:35 am','test','fc-bg-lightgreen','group',16),(14,'Test','04/09/2020 10:40 am - 04/16/2020 11:59 pm','Test','fc-bg-default','circle',16);
+INSERT INTO `calendarevent` VALUES (10,'Test','04/22/2020 08:27 am','','fc-bg-lightgreen','calendar',16),(11,'Test','04/29/2020 08:35 am','','fc-bg-lightgreen','group',16),(13,'Test','04/29/2020 08:35 am','test','fc-bg-lightgreen','group',16),(14,'Test','04/09/2020 10:40 am - 04/16/2020 11:59 pm','Test','fc-bg-default','circle',16),(15,'Test affichage Éric','05/13/2020 02:44 pm','test affichage','fc-bg-default','circle',4);
 /*!40000 ALTER TABLE `calendarevent` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -171,7 +171,7 @@ CREATE TABLE `feuillet` (
   `orderDisplay` int(11) DEFAULT NULL,
   `size` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`feuilletId`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=50 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -180,7 +180,7 @@ CREATE TABLE `feuillet` (
 
 LOCK TABLES `feuillet` WRITE;
 /*!40000 ALTER TABLE `feuillet` DISABLE KEYS */;
-INSERT INTO `feuillet` VALUES (2,'../Ressource/PDF/validations.pdf','validations.pdf',0,0,'524.15 Ko');
+INSERT INTO `feuillet` VALUES (49,'../Ressource/PDF/test.pdf','test.pdf',1,2,'4 Octets'),(47,'../Ressource/PDF/Reseau_personnel.pdf','Reseau_personnel.pdf',1,1,'112.08 Ko');
 /*!40000 ALTER TABLE `feuillet` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -301,7 +301,7 @@ CREATE TABLE `menu` (
   `redirectionPath` varchar(500) NOT NULL DEFAULT '',
   `sequence` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`menuId`)
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -310,7 +310,7 @@ CREATE TABLE `menu` (
 
 LOCK TABLES `menu` WRITE;
 /*!40000 ALTER TABLE `menu` DISABLE KEYS */;
-INSERT INTO `menu` VALUES (1,'0','Accueil','Accueil/Accueil.php',1),(2,'0','Paroisses-Communautés','ParoissesCommunaute/ParoissesCommunaute.php',2),(3,'0','Sacrements','Sacrements/Sacrements.php',3),(4,'0','Chemins de foi','CheminsDeFoi/CheminsDeFoi.php',4),(5,'0','Funérailles','Funerailles/Funerailles.php',5),(6,'0','Feuillets','Feuillets/Feuillets.php',6),(7,'0','Financement','Nouvelles/Nouvelles.php',7),(8,'2','St-Georges-de-Sartigan','ParoissesCommunaute/ParoissesCommunaute.php',2),(9,'2','Saint-Jean-Paul II','ParoissesCommunaute/ParoissesCommunaute.php',1),(10,'8','Saint-Benjamin','ParoissesCommunaute/ParoissesCommunaute.php',0),(11,'8','Saint-Côme','ParoissesCommunaute/ParoissesCommunaute.php',0),(12,'8','Sainte-Aurélie','ParoissesCommunaute/ParoissesCommunaute.php',0),(13,'9','Saint-Gédéon','ParoissesCommunaute/ParoissesCommunaute.php',0),(14,'8','Saint-Georges','ParoissesCommunaute/ParoissesCommunaute.php',0),(15,'8','Saint-Jean-de-la-Lande','ParoissesCommunaute/ParoissesCommunaute.php',0),(16,'9','Saint-Ludger','ParoissesCommunaute/ParoissesCommunaute.php',0),(17,'9','Saint-Martin','ParoissesCommunaute/ParoissesCommunaute.php',0),(18,'8','Saint-Philibert','ParoissesCommunaute/ParoissesCommunaute.php',0),(19,'8','Saint-Prosper','ParoissesCommunaute/ParoissesCommunaute.php',0),(20,'8','Saint-René-Goupil','ParoissesCommunaute/ParoissesCommunaute.php',0),(21,'9','Saint-Robert-Bellarmin','ParoissesCommunaute/ParoissesCommunaute.php',0),(22,'8','Saint-Simon','ParoissesCommunaute/ParoissesCommunaute.php',0),(23,'9','Saint-Théophile','ParoissesCommunaute/ParoissesCommunaute.php',0),(24,'8','Saint-Zacharie','ParoissesCommunaute/ParoissesCommunaute.php',0),(25,'3','Baptême','InformationPages/TemplateText.php',1),(26,'3','Premier pardon - réconciliation','InformationPages/TemplateAvecFormulaireEnfant.php',2),(27,'3','Première communion','InformationPages/TemplateAvecFormulaireEnfant.php',3),(28,'3','Confirmation','InformationPages/TemplateAvecFormulaireEnfant.php',4),(29,'3','Mariage','InformationPages/TemplateText.php',5),(30,'3','Onction des malades','InformationPages/TemplateText.php',6),(31,'3','Initiation chrétienne des adultes','InformationPages/TemplateText.php',7),(32,'4','Liturgie','CheminsDeFoi/CheminsDeFoi.php',1),(33,'4','Enfants','CheminsDeFoi/CheminsDeFoi.php',2),(34,'4','Pastorale jeunesse','InformationPages/TemplateText.php',3),(35,'4','Équipes de fraternité','InformationPages/TemplateText.php',4),(36,'4','Croissance spirituelle','InformationPages/TemplateText.php',5),(37,'4','Comité Création Verte','InformationPages/TemplateText.php',6),(39,'8','Assomption de la BVM','ParoissesCommunaute/ParoissesCommunaute.php',0),(40,'8','Notre-Dame-de-la-Providence','ParoissesCommunaute/ParoissesCommunaute.php',0),(41,'32','Liturgie et thèmes liturgiques','InformationPages/TemplateText.php',1),(42,'32','Servants de messes','InformationPages/TemplateText.php',2),(43,'33','Éveil à la foi','CheminsDeFoi/CheminsDeFoi.php',1),(44,'33','Brebis de Jésus','InformationPages/TemplateText.php',2),(45,'33','Catéchèse','InformationPages/TemplateAvecFormulaireEnfant.php',3),(46,'43','Agnelets','InformationPages/TemplateText.php',1),(47,'43','Liens intéressants','InformationPages/TemplateText.php',2),(48,'43','P\'tite Pasto','InformationPages/TemplateAvecFormulaireEnfant.php',3),(49,'36','Catéchèse des adultes','InformationPages/TemplateText.php',1),(50,'36','Cellules paroissiales d\'évangélisation','InformationPages/TemplateText.php',2),(51,'36','Chapelles d\'adoration','InformationPages/TemplateText.php',3),(52,'36','Curcillo','InformationPages/TemplateText.php',4),(53,'36','Groupes de prière','InformationPages/TemplateText.php',5),(54,'7','Campagne','InformationPages/TemplateText.php',1),(55,'7','Autres activités','InformationPages/TemplateText.php',2),(56,'7','Magasin','InformationPages/TemplateText.php',3),(57,'7','Mario Pelchat et les prêtres','InformationPages/TemplateText.php',4);
+INSERT INTO `menu` VALUES (1,'0','Accueil','Accueil/Accueil.php',1),(2,'0','Paroisses-Communautés','ParoissesCommunaute/ParoissesCommunaute.php',3),(3,'0','Sacrements','Sacrements/Sacrements.php',4),(4,'0','Chemins de foi','CheminsDeFoi/CheminsDeFoi.php',5),(5,'0','Funérailles','Funerailles/Funerailles.php',6),(6,'0','Feuillets','Feuillets/Feuillets.php',7),(7,'0','Financement','Financement/Financement.php',8),(8,'2','St-Georges-de-Sartigan','ParoissesCommunaute/ParoissesCommunaute.php',2),(9,'2','Saint-Jean-Paul II','ParoissesCommunaute/ParoissesCommunaute.php',1),(10,'8','Saint-Benjamin','ParoissesCommunaute/ParoissesCommunaute.php',0),(11,'8','Saint-Côme','ParoissesCommunaute/ParoissesCommunaute.php',0),(12,'8','Sainte-Aurélie','ParoissesCommunaute/ParoissesCommunaute.php',0),(13,'9','Saint-Gédéon','ParoissesCommunaute/ParoissesCommunaute.php',0),(14,'8','Saint-Georges','ParoissesCommunaute/ParoissesCommunaute.php',0),(15,'8','Saint-Jean-de-la-Lande','ParoissesCommunaute/ParoissesCommunaute.php',0),(16,'9','Saint-Ludger','ParoissesCommunaute/ParoissesCommunaute.php',0),(17,'9','Saint-Martin','ParoissesCommunaute/ParoissesCommunaute.php',0),(18,'8','Saint-Philibert','ParoissesCommunaute/ParoissesCommunaute.php',0),(19,'8','Saint-Prosper','ParoissesCommunaute/ParoissesCommunaute.php',0),(20,'8','Saint-René-Goupil','ParoissesCommunaute/ParoissesCommunaute.php',0),(21,'9','Saint-Robert-Bellarmin','ParoissesCommunaute/ParoissesCommunaute.php',0),(22,'8','Saint-Simon','ParoissesCommunaute/ParoissesCommunaute.php',0),(23,'9','Saint-Théophile','ParoissesCommunaute/ParoissesCommunaute.php',0),(24,'8','Saint-Zacharie','ParoissesCommunaute/ParoissesCommunaute.php',0),(25,'3','Baptême','InformationPages/TemplateText.php',1),(26,'3','Premier pardon - réconciliation','InformationPages/TemplateAvecFormulaireEnfant.php',2),(27,'3','Première communion','InformationPages/TemplateAvecFormulaireEnfant.php',3),(28,'3','Confirmation','InformationPages/TemplateAvecFormulaireEnfant.php',4),(29,'3','Mariage','InformationPages/TemplateText.php',5),(30,'3','Onction des malades','InformationPages/TemplateText.php',6),(31,'3','Initiation chrétienne des adultes','InformationPages/TemplateText.php',7),(32,'4','Liturgie','CheminsDeFoi/CheminsDeFoi.php',1),(33,'4','Enfants','CheminsDeFoi/CheminsDeFoi.php',2),(34,'4','Pastorale jeunesse','InformationPages/TemplateText.php',3),(35,'4','Équipes de fraternité','InformationPages/TemplateText.php',4),(36,'4','Croissance spirituelle','InformationPages/TemplateText.php',5),(37,'4','Comité Création Verte','InformationPages/TemplateText.php',6),(39,'8','Assomption de la BVM','ParoissesCommunaute/ParoissesCommunaute.php',0),(40,'8','Notre-Dame-de-la-Providence','ParoissesCommunaute/ParoissesCommunaute.php',0),(41,'32','Liturgie et thèmes liturgiques','InformationPages/TemplateText.php',1),(42,'32','Servants de messes','InformationPages/TemplateText.php',2),(43,'33','Éveil à la foi','CheminsDeFoi/CheminsDeFoi.php',1),(44,'33','Brebis de Jésus','InformationPages/TemplateText.php',2),(45,'33','Catéchèse','InformationPages/TemplateAvecFormulaireEnfant.php',3),(46,'43','Agnelets','InformationPages/TemplateText.php',1),(47,'43','Liens intéressants','InformationPages/TemplateText.php',2),(48,'43','P\'tite Pasto','InformationPages/TemplateAvecFormulaireEnfant.php',3),(49,'36','Catéchèse des adultes','InformationPages/TemplateText.php',1),(50,'36','Cellules paroissiales d\'évangélisation','InformationPages/TemplateText.php',2),(51,'36','Chapelles d\'adoration','InformationPages/TemplateText.php',3),(52,'36','Curcillo','InformationPages/TemplateText.php',4),(53,'36','Groupes de prière','InformationPages/TemplateText.php',5),(54,'7','Campagne','InformationPages/TemplateText.php',1),(55,'7','Autres activités','InformationPages/TemplateText.php',2),(56,'7','Magasin','InformationPages/TemplateText.php',3),(57,'7','Mario Pelchat et les prêtres','InformationPages/TemplateText.php',4),(58,'0','Salle de nouvelles','Nouvelles/Nouvelles.php',2);
 /*!40000 ALTER TABLE `menu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -331,7 +331,7 @@ CREATE TABLE `nouvelles` (
   `actif` tinyint(1) DEFAULT NULL,
   `imagePath` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`nouvellesId`)
-) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -340,7 +340,7 @@ CREATE TABLE `nouvelles` (
 
 LOCK TABLES `nouvelles` WRITE;
 /*!40000 ALTER TABLE `nouvelles` DISABLE KEYS */;
-INSERT INTO `nouvelles` VALUES (20,'titraae','somm','total',1588252052,1588252630,1,'../Ressource/Image/Jesus1.jpg'),(21,'titraae','somm','total',1588252052,1585713600,0,'../Ressource/Image/Jesus2.jpg'),(22,'titraae','somm','total',1588252052,1588252630,1,'../Ressource/Image/Jesus3.jpg'),(23,'titraae','somm','total',1588252052,1588252630,1,'../Ressource/Image/Jesus4.jpg'),(24,'asd','sss','ss',1589581860,1589668260,0,'http://project-esp/DevenirDisciple.org/Nouvelles/Nouvelles.php'),(25,'asd','sss','ss',1589581860,1589668260,0,'http://project-esp/DevenirDisciple.org/Nouvelles/Nouvelles.php'),(26,'a','a','a',1589582580,1589409780,0,'http://project-esp/DevenirDisciple.org/Nouvelles/Nouvelles.php'),(27,'a','a','a',1589582580,1589409780,0,'http://project-esp/DevenirDisciple.org/Nouvelles/Nouvelles.php'),(28,'ss','ss','ss',1589669640,1590015240,0,'http://project-esp/DevenirDisciple.org/Nouvelles/Nouvelles.php'),(29,'ss','ss','ss',1589583360,1589324160,0,'http://project-esp/DevenirDisciple.org/Nouvelles/Nouvelles.php'),(30,'s','ss','ss',1588806000,1588719600,0,'http://project-esp/DevenirDisciple.org/Nouvelles/Nouvelles.php'),(31,'sssssssssssss','sssssssssssssssss','sssssssssssss',1588806000,1588892400,0,'http://project-esp/DevenirDisciple.org/Nouvelles/Nouvelles.php');
+INSERT INTO `nouvelles` VALUES (20,'nouvelle1','somm','total',1588219200,1588219200,1,'../Ressource/Image/Salle_de_nouvelles.jpg'),(21,'nouvelle2','somm','total',1588252052,1585713600,1,'../Ressource/Image/Les_activite_dans_nos_communautes.jpg'),(22,'nouvelle3','somm','total',1588252052,1588252630,1,'../Ressource/Image/Campagne_de_financement.jpg'),(23,'nouvelle4','somm','total',1588252052,1588252630,1,'../Ressource/Image/Nos_Paroisses_apres_la_Pandemie.jpg'),(38,'titleap2','pee','pett',1589342400,1589342400,1,'../Ressource/Image/Notre_communaute_numerique.jpg');
 /*!40000 ALTER TABLE `nouvelles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -509,6 +509,25 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `DeleteEvent`(IN inEventId INT(11))
 BEGIN
 	DELETE FROM calendarevent WHERE eventId = inEventId;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `DeleteFeuillet` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DeleteFeuillet`(IN inFeuilletId INT(11))
+BEGIN
+	DELETE FROM feuillet WHERE FeuilletId = inFeuilletId;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -771,7 +790,26 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `GetAllFeuillet`()
 BEGIN
-	select feuilletId, pdfPath, pdfName, Actif, orderDisplay, size from feuillet;
+	select feuilletId, pdfPath, pdfName, Actif, orderDisplay, size from feuillet where Actif = 1 order by orderDisplay;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `GetAllFeuilletEdit` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GetAllFeuilletEdit`()
+BEGIN
+	select feuilletId, pdfPath, pdfName, Actif, orderDisplay, size from feuillet  order by  orderDisplay , Actif;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -910,7 +948,8 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `GetFeuillet`(in inFeuilletId int)
 BEGIN
-	select feuilletId, pdfPath, Actif, orderDisplay, size from feuillet where feuilletId = inFeuilletId;
+	select feuilletId, pdfPath, pdfName, Actif, orderDisplay, size from feuillet where feuilletId = inFeuilletId;
+    
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1124,17 +1163,15 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateFeuillet`(in inFeuilletId int, inPdfPath varchar(200),in inPdfName varchar(100), in inActif tinyint, in inOrderDisplay int, in inSize varchar(20))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateFeuillet`(in inFeuilletId int, in inActif tinyint, in inOrderDisplay int)
 BEGIN
 	update feuillet
     SET 
-        pdfPath 	 = inPdfPath,
-        pdfName 	 = inPdfName,
         Actif 		 = inActif,
-        orderDisplay = inOrderDisplay,
-        size 		 = inSize
+        orderDisplay = inOrderDisplay
+        
 	WHERE
-     feuilletId= nouvelleId;
+     feuilletId= inFeuilletId;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1160,6 +1197,101 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `UpdateImageFormulaire` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateImageFormulaire`(in inImageFormulairePath varchar(500))
+BEGIN
+	update accueil
+    SET         
+        imageFormulairePath = inImageFormulairePath
+        
+	WHERE
+     accueilId= 1;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `UpdateImageHomelie` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateImageHomelie`(in inImageHomeliePath varchar(500))
+BEGIN
+	update accueil
+    SET         
+        imageHomeliePath = inImageHomeliePath
+        
+	WHERE
+     accueilId= 1;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `UpdateImageNouvelle` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateImageNouvelle`(in inNouvellesId int(11), in inImagePath varchar(500))
+BEGIN
+	update `nouvelles`
+    SET 
+		imagePath = inImagePath
+	WHERE
+    nouvellesId = inNouvellesId;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `UpdateImageTemoignage` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateImageTemoignage`(in inImageTemoignagePath varchar(500))
+BEGIN
+	update accueil
+    SET         
+        imageTemoignagePath = inImageTemoignagePath
+        
+	WHERE
+     accueilId= 1;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `UpdateNouvelles` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -1171,26 +1303,49 @@ DELIMITER ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateNouvelles`(
-	in nouvelleId int(11), 
-    title varchar(50),
-	descrSomm VARCHAR(100),
-	descrTot LONGTEXT,
-	dateDebut INT(11),
-	dateFin INT(11),
-	actif tinyint,
-	imagePath varchar(500))
+	in inNouvelleId int(11), 
+    in inTitle varchar(50),
+	in inDescrSomm VARCHAR(100),
+	in inDescrTot LONGTEXT,
+	in inDateDebut INT(11),
+	in inDateFin INT(11),
+	in inActif tinyint)
 BEGIN
 	update `nouvelles`
     SET 
-		title = title,
-		descrSomm = descrSomm,
-		descrTot = descrTot,
-		dateDebut = dateDebut,
-		dateFin = dateFin,
-		actif = actif,
-		imagePath = imagePath
+		title = inTitle,
+		descrSomm = inDescrSomm,
+		descrTot = inDescrTot,
+		dateDebut = inDateDebut,
+		dateFin = inDateFin,
+		actif = inActif
+		
 	WHERE
-    nouvellesId = nouvelleId;
+    nouvellesId = inNouvelleId;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `UpdateVideoBienvenue` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateVideoBienvenue`(in inVideoBienvenuePath varchar(500))
+BEGIN
+	update accueil
+    SET         
+        videoBienvenuePath = inVideoBienvenuePath
+        
+	WHERE
+     accueilId= 1;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1207,4 +1362,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-05-12 11:42:06
+-- Dump completed on 2020-05-15 13:01:25
