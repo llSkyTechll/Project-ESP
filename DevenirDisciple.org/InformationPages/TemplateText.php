@@ -29,7 +29,8 @@ require_once '../InformationPages/TemplateText_pr.php';
     
     <script>
     
-      function fnSavePageContent() {      
+      function fnSavePageContent() { 
+				
         $(function() {
           $.ajax({
             type: 'post',
@@ -76,7 +77,7 @@ require_once '../InformationPages/TemplateText_pr.php';
     <div class="container text-left">
     
     <?php
-    
+    	DisplayMessage();
       $pageContent = TemplateTextDAO::loadPageContent();  
       
       $pageContent->getHTMLPageContent();

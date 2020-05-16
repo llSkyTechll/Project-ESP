@@ -53,7 +53,7 @@ function UploadImage($FILES){
 
 				$arrayImage = array(
 					'imagePath' => $target_file,
-					'imagenName' => basename($FILES["name"][$x])
+					'imageName' => basename($FILES["name"][$x])
 				);
 				array_push($arrayError,"success");
 				} 

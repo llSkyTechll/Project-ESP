@@ -146,9 +146,9 @@ if(is_array($arrayFeuillet)){
 	}	
 	
 	$html .='<form  action="#" method="post" enctype="multipart/form-data">
-			<label for="fileToUpload">Select PDF to upload:</label>
+			<label for="fileToUpload">Sélectionner un PDF à télécharger:</label>
 			<input type="file" name="fileToUpload[]" id="fileToUpload" multiple>
-			<input type="submit" value="Upload PDF" name="submit">
+			<input type="submit" value="Télécharger le PDF" name="submit">
 	</form>';
 
 	echo $html;
@@ -220,19 +220,21 @@ function arrayMessageError($message){
 function DisplayMessage(){
 	$Swal='<script>';
 	
-	if(empty($_SESSION['fileToUpload']['MessageError'])){
-		$Swal.='Swal.fire({
-						icon: "success",
-						title: "Ajout avec success"  
-						})';
+	if(isset($_SESSION['fileToUpload'])){
+		
+		if(empty($_SESSION['fileToUpload']['MessageError'])){
+			$Swal.='Swal.fire({
+							icon: "success",
+							title: "Ajout avec success"  
+							})';
+		}
+		else{		
+			$Swal.='Swal.fire({
+							icon: "error",
+							title: "Une erreur est survenue"  
+							})';
+		}
 	}
-	else{		
-		$Swal.='Swal.fire({
-						icon: "error",
-						title: "Une erreur est survenue"  
-						})';
-	}
-	
 	$Swal.='</script>';
 	echo $Swal;
 	unset($_SESSION['fileToUpload']);

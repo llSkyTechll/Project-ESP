@@ -78,7 +78,7 @@ require_once '../Uploads/UploadImage.php';
     <div class="container">
     
     <?php
-    
+			DisplayMessage();
       $pageContent = TemplateTextDAO::loadPageContent();  
       
       $pageContent->getHTMLPageContent();

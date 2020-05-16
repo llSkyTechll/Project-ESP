@@ -19,6 +19,7 @@ require_once 'Accueil_pr.php';
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 	<script src="../JavaScript/JSFunction.js"></script>
 	<link rel="stylesheet" href="../css/include.css">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 	<title>Devenir Disciple</title>
 </head>
 

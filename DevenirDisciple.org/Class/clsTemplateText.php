@@ -27,12 +27,23 @@ class TemplateText{
     }
     echo '<input type="hidden" id="contentId" value="'.$this->pageContentTemplateTextId.'">
 					
-						<header>
-						<div id="image"> 
+						<header>';
+					if($this->image !='' && validateAdminEditing() == false){
+						echo '<div id="image"> 
 							<img src="'.$this->image.'" alt="Image Titre" height="200" width="200">
-						</div>	
+						</div>';	
+					}else if(validateAdminEditing()){
+						echo '<div id="image"> 
+							<img src="'.$this->image.'" alt="Image Titre" height="200" width="200">						
+							<form  action="#" method="post" enctype="multipart/form-data" onsubmit="fnSavePageContent()">
+								<label for="fileToUpload">Sélectionner une image à télécharger:</label>
+								<input type="file" name="fileToUpload[]" id="fileToUpload">
+								<input type="submit" value="Télécharger l\'image" name="submit">
+							</form>
+						</div>';
+					}
 						
-							<h1 id="title" '.$contentEditable.'> 
+					echo '<h1 id="title" '.$contentEditable.'> 
 								'.$this->title.'
 							</h1>
 							<div id="header" '.$contentEditable.'> 

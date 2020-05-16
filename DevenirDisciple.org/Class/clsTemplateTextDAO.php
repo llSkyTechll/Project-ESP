@@ -35,6 +35,17 @@ class TemplateTextDAO{
     
     exit('success');
   }
+	
+	  public static function UpdateImageTemplateText($menuid, $imagePath){
+    $SQL = "CALL UpdateImageTemplateText('".$menuid."','".$imagePath."');";
+    $conn = OpenCon();    
+    if (!$conn->query($SQL)){
+      return('fail');
+    }    
+    CloseCon($conn);
+    return('success');
+  }
+	
   
 }
 

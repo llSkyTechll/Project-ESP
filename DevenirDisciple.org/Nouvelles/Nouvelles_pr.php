@@ -109,9 +109,9 @@ function GetAddNouvelles(){
 				<div>
 					<img id="imageSommaire" src="" alt="Image" height="42" width="42" />
 					<form action="../Uploads/UploadImage.php" method="post" enctype="multipart/form-data">
-							<label for="fileToUpload">Select image to upload:</label>
+							<label for="fileToUpload">Sélectionner une image à télécharger:</label>
 							<input type="file" name="fileToUpload[]" id="fileToUpload">
-							<input type="submit" value="Upload Image" name="submit">
+							<input type="submit" value="Télécharger l\'image" name="submit">
 					</form>
 				</div>
 				<div>
@@ -159,9 +159,9 @@ function GetHTMLNouvelleEdit($Nouvelles){
 					<img id="imageSommaire" src="'.$Nouvelles->getImagePath().'" alt="Image" height="42" width="42" />
 					
 					<form action="#" method="post" enctype="multipart/form-data" id="form" onsubmit="fnUpdateNouvelle()">
-							<label for="fileToUpload">Select image to upload:</label>
+							<label for="fileToUpload">Sélectionner une image à télécharger:</label>
 							<input type="file" name="fileToUpload[]" id="fileToUpload">
-							<input type="submit" value="Upload Image" name="submit">
+							<input type="submit" value="Télécharger l\'image" name="submit">
 					</form>
 				</div>
 				<div>

@@ -1,60 +1,81 @@
 <?php
 
-function UploadVideo(){
+function UploadVideo($FILES){
 	$target_dir = "../Ressource/Video/";
 		if (!file_exists($target_dir)) {
     mkdir($target_dir, 0777, true);
 	}
-	for($x = 0; $x <count($_FILES["fileToUpload"]["name"]);$x++ ){
-
-		$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"][$x]);
+	$arrayErrors = array();
+	$arrayImages = array();
+	$phpFileUploadErrors = array(
+		0 => 'There is no error, the file uploaded with success',
+		1 => 'The uploaded file exceeds the upload_max_filesize directive in php.ini',
+		2 => 'The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form',
+		3 => 'The uploaded file was only partially uploaded',
+		4 => 'No file was uploaded',
+		6 => 'Missing a temporary folder',
+		7 => 'Failed to write file to disk.',
+		8 => 'A PHP extension stopped the file upload.',
+	);
+	
+	for($x = 0; $x <count($FILES["name"]);$x++ ){
+		$arrayError = array();	
+		$arrayImage = array();
+		
+		
+		$target_file = $target_dir . basename($FILES["name"][$x]);
 		$uploadOk = 1;
-		$file_type=$_FILES['fileToUpload']['type'][$x];
-
-		// Check if image file is a actual image or fake image
-		/*if(isset($_POST["submit"])) {
-		$check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-
-		if($check !== false) {
-		echo "File is an image - " . $check["mime"] . ".";
-		$uploadOk = 1;
-		} else {
-		echo "File is not an image.";
-		$uploadOk = 0;
-		}
-		}*/
-		// Check if file already exists
-		if (file_exists($target_file)) {
-			echo "Sorry, file already exists.";
-			$uploadOk = 0;
-		}
-		// Check file size
-		/*if ($_FILES["fileToUpload"]["size"] > 2000000) {
-		echo "Sorry, your file is too large.";
-		$uploadOk = 0;
-		}*/
-
-		// Allow certain file formats
-
-		if($file_type != "video/mp4" && $file_type != "video/quicktime" && $file_type != "video/avi"
-		&& $file_type != "video/webm" ){
-			echo "Sorry, mp4, MOV, AVI, WEBM are allowed.";
-			$uploadOk = 0;
-		}
-		// Check if $uploadOk is set to 0 by an error
-		if ($uploadOk == 0) {
-			echo "Sorry, your file was not uploaded.";
-		// if everything is ok, try to upload file
-		} 
-		else {
-			if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$x], $target_file)) {
-				echo "The file ". basename( $_FILES["fileToUpload"]["name"][$x]). " has been uploaded.";
+		$file_type=$FILES['type'][$x];
+		
+		if($FILES["error"][$x] == 0){
+						
+			if (file_exists($target_file)) {
+				array_push($arrayError,"Désolé, le fichier existe déjà.");
+				$uploadOk = 0;
 			}
-			else {
-				echo "Sorry, there was an error uploading your file.";
+			
+			if ($FILES["size"][$x] > 200000000) {
+				array_push($arrayError, "Désolé, seul les fichier moins de 200Mo sont accespté.");
+				$uploadOk = 0;
+			}
+			if($file_type != "video/mp4" &&
+				 $file_type != "video/quicktime" &&
+				 $file_type != "video/avi" &&
+				 $file_type != "video/webm" ){
+				array_push($arrayError, "Sorry, mp4, MOV, AVI, WEBM are allowed.");
+				$uploadOk = 0;
+			}
+			
+			
+			if ($uploadOk != 0 )  {
+				if (move_uploaded_file($FILES["tmp_name"][$x], $target_file)) {
+
+				$arrayImage = array(
+					'videoPath' => $target_file,
+					'videoName' => basename($FILES["name"][$x])
+				);
+				array_push($arrayError,"success");
+				} 
+				else{
+						array_push($arrayError,  "Sorry, there was an error uploading your file.");
+				}
 			}
 		}
+		else{			
+			array_push($arrayError,$phpFileUploadErrors[$FILES["error"][$x]]);
+		}
+		array_push($arrayErrors,$arrayError);
+		array_push($arrayImages,$arrayImage);
 
 	}
+	
+$arrayToReturn = array(
+					'errors' => $arrayErrors,
+					'videos' => $arrayImages
+				);
+return $arrayToReturn;
 }
+
 ?>
+
+

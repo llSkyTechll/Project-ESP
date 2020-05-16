@@ -9,6 +9,7 @@ require_once '../Class/clsNouvellesDAO.php';
 require_once '../Class/clsNouvelles.php';
 
 require_once '../Uploads/UploadImage.php';
+
 require_once '../Uploads/UploadVideo.php';
 
 
@@ -20,10 +21,10 @@ if(isset($_FILES['fileToUploadImageTemoignage'])){
 	}	
 if(isset($_FILES['fileToUploadVideoBienvenue'])){
 		UpdateVideoBienvenue(UploadVideo($_FILES['fileToUploadVideoBienvenue']));
-	}	
-if(isset($_FILES['fileToUploadImageFormulaire'])){
-		UpdateImageFormulaire(UploadImage($_FILES['fileToUploadImageFormulaire']));
-	}	
+		}	
+	if(isset($_FILES['fileToUploadImageFormulaire'])){
+			UpdateImageFormulaire(UploadImage($_FILES['fileToUploadImageFormulaire']));
+		}	
 
 
 function GetHTMLBandeau($arrayNouvelles){
@@ -121,17 +122,19 @@ function GetBasPageEdit($basPage){
 					<div class="col-md-6 col-sm-6 col-10 m-auto">
 							<img class="d-block img-fluid rounded w-100 " src="'.$basPage['imageHomeliePath'] .'" alt="Homélie du curé" title="Homélie du curé">
 						<form  action="#" method="post" enctype="multipart/form-data">
-							<label for="fileToUploadImageHomelie">Select PDF to upload:</label>
+						<div class="form-group">
+							<label for="fileToUploadImageHomelie">Sélectionner une image à télécharger:</label>
 							<input type="file" name="fileToUploadImageHomelie[]" id="fileToUploadImageHomelie">
-							<input type="submit" value="Upload PDF" name="submit">
+							<input type="submit" value="Télécharger l\'image" name="submit">
+						</div>
 						</form>
 					</div>
 					<div class="col-md-6 col-sm-6 col-10 m-auto">
 							<img class="d-block img-fluid rounded w-100 "  src="'.$basPage['imageTemoignagePath'] .'" alt="Témoinage" title="Témoinage">
 						<form  action="#" method="post" enctype="multipart/form-data">
-							<label for="fileToUploadImageTemoignage">Select PDF to upload:</label>
+							<label for="fileToUploadImageTemoignage">Sélectionner une image à télécharger:</label>
 							<input type="file" name="fileToUploadImageTemoignage[]" id="fileToUploadImageTemoignage">
-							<input type="submit" value="Upload PDF" name="submit">
+							<input type="submit" value="Télécharger l\'image" name="submit">
 						</form>
 					</div>
 				</div>
@@ -144,17 +147,17 @@ function GetBasPageEdit($basPage){
 							</video>
 						</div>
 							<form  action="#" method="post" enctype="multipart/form-data">
-								<label for="fileToUploadVideoBienvenue">Select PDF to upload:</label>
+								<label for="fileToUploadVideoBienvenue">Sélectionner une vidéo à télécharger:</label>
 								<input type="file" name="fileToUploadVideoBienvenue[]" id="fileToUploadVideoBienvenue">
-								<input type="submit" value="Upload PDF" name="submit">
+								<input type="submit" value="Télécharger la vidéo" name="submit">
 							</form>
 					</div>
 					<div class="col-md-6 col-sm-6 col-10 m-auto">
 							<img class="d-block img-fluid rounded w-100"  src="'.$basPage['imageFormulairePath'] .'" alt="Formulaire Bénévolat" title="Formulaire Bénévolat">
 						<form  action="#" method="post" enctype="multipart/form-data">
-							<label for="fileToUploadImageFormulaire">Select PDF to upload:</label>
+							<label for="fileToUploadImageFormulaire">Sélectionner une image à télécharger:</label>
 							<input type="file" name="fileToUploadImageFormulaire[]" id="fileToUploadImageFormulaire">
-						<input type="submit" value="Upload PDF" name="submit">
+						<input type="submit" value="Télécharger l\'image" name="submit">
 						</form>
 					</div>
 				</div>
@@ -166,6 +169,7 @@ function GetBasPageEdit($basPage){
 }
 
 function loadPageContent(){
+	DisplayMessage();
 	GetHTMLBandeau(NouvellesDAO::getNouvellesBandeau());	
 	if(validateAdminEditing()){
 		GetBasPageEdit(AccueilDAO::getBasPage());		
@@ -181,7 +185,7 @@ function UpdateImageHomelie($arrayFiles){
 
 	for($x = 0; $x <count($arrayFiles['errors']);$x++){
 		if($arrayFiles['errors'][$x][0] == 'success'){
-			array_push($arrayUploadsDB,AddFeuillet($arrayFiles['pdfs'][$x]));
+			array_push($arrayUploadsDB,UpdateImageHomelieDB($arrayFiles['images'][$x]));
 		}
 		else{			
 			array_push($arrayMessages,arrayMessageError($arrayFiles['errors'][$x]));
@@ -200,7 +204,7 @@ function UpdateImageTemoignage($arrayFiles){
 
 	for($x = 0; $x <count($arrayFiles['errors']);$x++){
 		if($arrayFiles['errors'][$x][0] == 'success'){
-			array_push($arrayUploadsDB,AddFeuillet($arrayFiles['pdfs'][$x]));
+			array_push($arrayUploadsDB,UpdateImageTemoignageDB($arrayFiles['images'][$x]));
 		}
 		else{			
 			array_push($arrayMessages,arrayMessageError($arrayFiles['errors'][$x]));
@@ -219,7 +223,7 @@ function UpdateVideoBienvenue($arrayFiles){
 
 	for($x = 0; $x <count($arrayFiles['errors']);$x++){
 		if($arrayFiles['errors'][$x][0] == 'success'){
-			array_push($arrayUploadsDB,AddFeuillet($arrayFiles['pdfs'][$x]));
+			array_push($arrayUploadsDB,UpdateVideoBienvenueDB($arrayFiles['videos'][$x]));
 		}
 		else{			
 			array_push($arrayMessages,arrayMessageError($arrayFiles['errors'][$x]));
@@ -250,29 +254,30 @@ function UpdateImageFormulaire($arrayFiles){
 	);
 	$_SESSION['fileToUpload'] = $arrayToReturn;
 }
-
 function DisplayMessage(){
+	
 	$Swal='<script>';
 	
-	if(empty($_SESSION['fileToUpload']['MessageError'])){
-		$Swal.='Swal.fire({
-						icon: "success",
-						title: "Ajout avec success"  
-						})';
-	}
-	else{		
-		$Swal.='Swal.fire({
-						icon: "error",
-						title: "Une erreur est survenue"  
-						})';
+	if(isset($_SESSION['fileToUpload'])){
+		
+		if(empty($_SESSION['fileToUpload']['MessageError'])){
+			$Swal.='Swal.fire({
+							icon: "success",
+							title: "Ajout avec success"  
+							})';
+		}
+		else{		
+			$Swal.='Swal.fire({
+							icon: "error",
+							title: "Une erreur est survenue"  
+							})';
+		}
 	}
 	
 	$Swal.='</script>';
 	echo $Swal;
 	unset($_SESSION['fileToUpload']);
 }
-
-
 function UpdateImgageFormulaireDB($File){
 	
 	if(AccueilDAO::UpdateImageFormulaire($File['imagePath']) == 'success'){
@@ -290,4 +295,88 @@ function UpdateImgageFormulaireDB($File){
 	}
 	return $uploadToDb;
 }
+function UpdateVideoBienvenueDB($File){	
+	if(AccueilDAO::UpdateVideoBienvenue($File['videoPath']) == 'success'){
+		$uploadToDb = array(
+		'videoName' =>$File['videoName'],
+		'succes' =>'succes'
+		);
+	}
+	else{
+		$uploadToDb = array(
+		'videoName' =>$File['videoName'],
+		'succes' =>'fail'
+		);
+		
+	}
+	return $uploadToDb;
+}
+function UpdateImageHomelieDB($File){
+	
+	if(AccueilDAO::UpdateImageHomelie($File['imagePath']) == 'success'){
+		$uploadToDb = array(
+		'imageName' =>$File['imageName'],
+		'succes' =>'succes'
+		);
+	}
+	else{
+		$uploadToDb = array(
+		'imageName' =>$File['imageName'],
+		'succes' =>'fail'
+		);
+		
+	}
+	return $uploadToDb;
+}
+function UpdateImageTemoignageDB($File){
+	
+	if(AccueilDAO::UpdateImageTemoignage($File['imagePath']) == 'success'){
+		$uploadToDb = array(
+		'imageName' =>$File['imageName'],
+		'succes' =>'succes'
+		);
+	}
+	else{
+		$uploadToDb = array(
+		'imageName' =>$File['imageName'],
+		'succes' =>'fail'
+		);
+		
+	}
+	return $uploadToDb;
+}
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

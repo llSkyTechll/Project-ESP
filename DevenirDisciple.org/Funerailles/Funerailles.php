@@ -76,7 +76,7 @@ require_once '../InformationPages/TemplateText_pr.php';
   <div class="container">
 
     <?php
-      
+      DisplayMessage();
       $pageContent = TemplateTextDAO::loadPageContent();  
       
       $pageContent->getHTMLPageContent();
