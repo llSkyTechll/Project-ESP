@@ -41,6 +41,26 @@
 	box-sizing: border-box
 }
 
+.fc-bg-blue{
+	background-color: lightblue !important;
+}
+
+.fc-bg-lightgreen{
+	background-color: lightgreen !important;
+}
+
+.fc-bg-pinkred{
+	background-color: pink !important;
+}
+
+.fc-bg-deepskyblue{
+	background-color: deepskyblue !important;
+}
+
+.fc-bg-default{
+	background-color: white !important;
+}
+
 html {
 	font-family: sans-serif;
 	line-height: 1.15;

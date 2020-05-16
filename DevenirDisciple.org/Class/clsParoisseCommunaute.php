@@ -50,7 +50,16 @@ class ParoisseCommunaute{
   }
   
   public static function getCommunityName(){
-    //À compléter
+    $conn = OpenCon();
+
+    if (isset($_SESSION['gcommunityid'])){
+      $SQL = "CALL GetCommunityName('".$_SESSION['gcommunityid']."');";
+
+      if ($RSSQL = $conn->query($SQL)){
+        $communityname = $RSSQL->fetch_assoc();
+        echo $communityname['nom'];
+      }
+    }
   }
   
   public static function getScheduleHTML(){
@@ -84,8 +93,8 @@ class ParoisseCommunaute{
     $conn = OpenCon();
     
     $SQL = "CALL SaveCommunitySchedule('".$scheduleid."','".$schedule."','".$communityid."');";
-    
-    if ($conn->query($SQL)){
+
+    if (!$conn->query($SQL)){
       exit('fail');
     }
 
