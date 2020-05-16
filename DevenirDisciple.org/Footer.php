@@ -1,7 +1,7 @@
 <?php
   require_once 'Class/clsAdmin.php';
 ?>
-<footer class="mt-3">
+<footer class="footer">
 	<script>
 		if (window.top === window.self) {
 			window.top.location.replace('Menu.php');

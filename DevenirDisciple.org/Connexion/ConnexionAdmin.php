@@ -16,7 +16,7 @@ require_once 'ConnexionAdmin_pr.php';
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Devenir Disciple</title>
 	<!-- Bootstrap4-->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="../css/Bootstrap.css" >
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
@@ -58,42 +58,21 @@ require_once 'ConnexionAdmin_pr.php';
 </head>
 
 <body>
-	<!-- <form class=""id="formConnexion">
-    <table style="width:100%;height:100%">
-      <tr>
-        <td align="right" style="width:50%">
-          Courriel:
-        </td>
-        <td class="mx-sm-4 col-md-3">
-          <input class="" type="text" name="femail" tabindex="10" id="femail" value="">
-        </td>
-      </tr>
-      <tr>
-        <td align="right">
-          Mot de passe:
-        </td>
-        <td class="col-md-3">
-          <input class="" type="password" name="fpassword" tabindex="20" id="fpassword" value="">
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2" align="center">
-        </td>
-      </tr>
-    </table>
-  </form>-->
-	<form class="container col-md-6" id="formConnexion">
-		<div class="form-group">
-			<label for="femail">Courriel</label>
-			<input class="form-control" type="email " name="femail" tabindex="10" id="femail" placeholder="Entrer votre email">
-		</div>
-		<div class="form-group">
-			<label for="fpassword">Mot de passe</label>
-			<input class="form-control" type="password" name="fpassword" tabindex="20" id="fpassword" placeholder="Entrer votre mot de passe">
-		</div>
-		<input class="btn btn-primary" type="button" tabindex="30" name="btnConnect" value="Se connecter" onclick="fnConnexion();">
+	<div class="content container">
+		<form class="container col-md-6" id="formConnexion">
+			<div class="form-group">
+				<label for="femail">Courriel</label>
+				<input class="form-control" type="email " name="femail" tabindex="10" id="femail" placeholder="Entrer votre email">
+			</div>
+			<div class="form-group">
+				<label for="fpassword">Mot de passe</label>
+				<input class="form-control" type="password" name="fpassword" tabindex="20" id="fpassword" placeholder="Entrer votre mot de passe">
+			</div>
+			<input class="btn btn-primary" type="button" tabindex="30" name="btnConnect" value="Se connecter" onclick="fnConnexion();">
 
-	</form>
+		</form>
+	</div>
+	
 
 	<script>
 		var form = document.getElementById("formConnexion");
@@ -106,8 +85,10 @@ require_once 'ConnexionAdmin_pr.php';
 
 	</script>
 
+	<?php require_once '../Footer.php';?>
+
 </body>
 
-<?php require_once '../Footer.php';?>
+
 
 </html>
