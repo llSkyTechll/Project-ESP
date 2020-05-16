@@ -168,7 +168,7 @@ function GetBasPageEdit($basPage){
 function loadPageContent(){
 	GetHTMLBandeau(NouvellesDAO::getNouvellesBandeau());	
 	if(validateAdminEditing()){
-		GetBasPage(AccueilDAO::getBasPage());		
+		GetBasPageEdit(AccueilDAO::getBasPage());		
 	}else{
 		
 		GetBasPage(AccueilDAO::getBasPage());		

@@ -2,6 +2,9 @@
 
 function UploadVideo(){
 	$target_dir = "../Ressource/Video/";
+		if (!file_exists($target_dir)) {
+    mkdir($target_dir, 0777, true);
+	}
 	for($x = 0; $x <count($_FILES["fileToUpload"]["name"]);$x++ ){
 
 		$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"][$x]);

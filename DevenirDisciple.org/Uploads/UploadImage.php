@@ -2,6 +2,9 @@
 
 function UploadImage($FILES){
 	$target_dir = "../Ressource/Image/";
+		if (!file_exists($target_dir)) {
+    mkdir($target_dir, 0777, true);
+	}
 	$arrayErrors = array();
 	$arrayImages = array();
 	$phpFileUploadErrors = array(
