@@ -40,7 +40,7 @@ class NouvellesDAO{
     
     $conn = OpenCon();
     
-    $SQL = "CALL AddNouvelles('".$title."','". $descrSomm."','". $descrTot."','". $dateStart."','". $dateEnd."','".$actif."');";
+    $SQL = "CALL AddNouvelles('".$conn->real_escape_string($title)."','". $conn->real_escape_string($descrSomm)."','". $conn->real_escape_string($descrTot)."','". $conn->real_escape_string($dateStart)."','". $conn->real_escape_string($dateEnd)."','".$conn->real_escape_string($actif)."');";
 		
     $RSSQL = $conn->query($SQL);    
     
@@ -52,7 +52,7 @@ class NouvellesDAO{
     
     $conn = OpenCon();
     
-    $SQL = "CALL UpdateNouvelles('".$nouvelleId."','".$title."','". $descrSomm."','". $descrTot."','". $dateStart."','". $dateEnd."','".$actif."');";
+    $SQL = "CALL UpdateNouvelles('".$nouvelleId."','".$conn->real_escape_string($title)."','". $conn->real_escape_string($descrSomm)."','". $conn->real_escape_string($descrTot)."','".$conn->real_escape_string($dateStart)."','". $conn->real_escape_string($dateEnd)."','".$conn->real_escape_string($actif)."');";
 		
      if (!$conn->query($SQL)){			 
       return('fail');

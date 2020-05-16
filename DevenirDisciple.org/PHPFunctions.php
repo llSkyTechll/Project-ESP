@@ -18,10 +18,6 @@ if (!isset($_SESSION['gcommunityid'])){
   $_SESSION['gcommunityid'] = 0;
 }
 
-function FNSQL($string){
-  return str_replace("'", "''", $string);
-}
-
 function validateAdminEditing(){
   if (Admin::isConnected()) {
     return true;

@@ -103,6 +103,7 @@ if (isset($_SESSION['gmenuId'])){
             description: document.getElementById('edesc').value,
             color: document.getElementById('ecolor').value,
             icon: document.getElementById('eicon').value,
+            global: document.getElementById('eglobal').checked ? 1 : 0
           }),
           success: function(data) {
             if (data.trim() == 'fail') {
@@ -159,7 +160,8 @@ if (isset($_SESSION['gmenuId'])){
             date: document.getElementById('edate').value,
             description: document.getElementById('edesc').value,
             color: document.getElementById('ecolor').value,
-            icon: document.getElementById('eicon').value
+            icon: document.getElementById('eicon').value,
+            global: document.getElementById('eglobal').checked ? 1 : 0
           }),
           success: function(data) {
             if (data.trim() == 'fail') {
@@ -258,6 +260,7 @@ if (isset($_SESSION['gmenuId'])){
             jQuery('#ecolor').val('');
             jQuery('#eicon').val('');
             jQuery('#edate').val('');
+            jQuery('#eglobal').prop('checked', false);
             jQuery('#modal-view-event-add').modal();
           },
           <?php
@@ -272,7 +275,11 @@ if (isset($_SESSION['gmenuId'])){
               jQuery('#edesc').val(event.description);
               jQuery('#ecolor').val(event.className);
               jQuery('#eicon').val(event.icon);
-              
+              var global = true;
+              if (event.global == 0) {
+                global = false;
+              }
+              jQuery('#eglobal').prop('checked', global);
               var startDate = fnAdaptDate(event.start);
               
               if (event.end == null){
@@ -311,13 +318,10 @@ if (isset($_SESSION['gmenuId'])){
     <?php  
       if (isset($_SESSION['gcommunityid'])){
         echo"<header><h1>";
-        echo GetCommunityName(); 
+        echo GetCommunityName();
         echo"</h1></header>";
       }
       ?>
-    
-
-    <h2>Heures de bureau</h2>
     
     <?php
       ParoisseCommunaute::getScheduleHTML();
@@ -392,6 +396,10 @@ if (isset($_SESSION['gmenuId'])){
                   <option value="suitcase">Valise</option>
                   <option value="calendar">Calendrier</option>
                 </select>
+              </div>
+              <div class="form-group">
+                <label>Global</label>
+                <input type="checkbox" class="big-checkbox" name="eglobal" id="eglobal" value="1">
               </div>
             </div>
             <div class="modal-footer">

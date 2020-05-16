@@ -92,7 +92,7 @@ class ParoisseCommunaute{
   public static function saveSchedule($scheduleid, $schedule, $communityid){
     $conn = OpenCon();
     
-    $SQL = "CALL SaveCommunitySchedule('".$scheduleid."','".$schedule."','".$communityid."');";
+    $SQL = "CALL SaveCommunitySchedule('".$scheduleid."','".$conn->real_escape_string($schedule)."','".$communityid."');";
 
     if (!$conn->query($SQL)){
       exit('fail');

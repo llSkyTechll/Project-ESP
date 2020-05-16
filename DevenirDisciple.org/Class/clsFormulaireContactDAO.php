@@ -54,12 +54,14 @@ class FormulaireContactDAO{
       $key = $encrypt->generateKey();
       $iv  = $encrypt->generateIV();
 
-      $prenom = $encrypt->encryptData(FNSQL($prenom), $key, $iv);
-      $nom    = $encrypt->encryptData(FNSQL($nom), $key, $iv);
-      $courriel = $encrypt->encryptData(FNSQL($courriel), $key, $iv);
-      $telephone = $encrypt->encryptData(FNSQL($telephone),$key, $iv);
-
       $conn = OpenCon();
+
+      $prenom = $encrypt->encryptData($conn->real_escape_string($prenom), $key, $iv);
+      $nom    = $encrypt->encryptData($conn->real_escape_string($nom), $key, $iv);
+      $courriel = $encrypt->encryptData($conn->real_escape_string($courriel), $key, $iv);
+      $telephone = $encrypt->encryptData($conn->real_escape_string($telephone),$key, $iv);
+
+      
 
       $param = "'".$prenom."','".$nom."','".$courriel."','".$telephone."','".$message."','".$conn->real_escape_string($key)."','".$conn->real_escape_string($iv)."'";
 

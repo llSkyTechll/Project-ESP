@@ -23,10 +23,10 @@ class TemplateTextDAO{
   }
   
   public static function savePageContent($contentId, $menuid, $title, $header, $subtitle, $content){
-    $SQL = "CALL SavePageContentTemplateText('".$contentId."','".$menuid."','".$title."','".$header."','".$subtitle."','".$content."');";
-
     $conn = OpenCon();
-    
+
+    $SQL = "CALL SavePageContentTemplateText('".$contentId."','".$menuid."','".($title)."','".$conn->real_escape_string($header)."','".$conn->real_escape_string($subtitle)."','".$conn->real_escape_string($content)."');";
+
     if (!$conn->query($SQL)){
       exit('fail');
     }

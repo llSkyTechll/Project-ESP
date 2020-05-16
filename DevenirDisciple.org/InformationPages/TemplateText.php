@@ -53,6 +53,8 @@ require_once '../InformationPages/TemplateText_pr.php';
                 });
               } else if (data.trim() == "admin") {
                 Swal.fire("Erreur", "Seul un administrateur du site peut effectuer des changements.", 'error');
+              }else if (data.trim() == "fail") {
+                Swal.fire("Erreur", "Une erreur c'est produite.", 'error');
               }
             }
           })

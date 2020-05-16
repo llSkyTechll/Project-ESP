@@ -210,7 +210,7 @@ function fnSaveNouvelle(){
     exit('emptyFields');
   }
   
-  if (NouvellesDAO::saveNewNouvelles(FNSQL($_POST['title']), FNSQL($_POST['descriptionSommaire']), FNSQL($_POST['descriptionTotal']), FNSQL($_POST['dateDebut']), FNSQL($_POST['dateFin']), FNSQL($_POST['actif'])) == 'success'){
+  if (NouvellesDAO::saveNewNouvelles($_POST['title'], $_POST['descriptionSommaire'], $_POST['descriptionTotal'], $_POST['dateDebut'], $_POST['dateFin'], $_POST['actif']) == 'success'){
     exit('success');
   }
   
@@ -218,13 +218,13 @@ function fnSaveNouvelle(){
 }
 function fnUpdateNouvelle(){
 	  
-  if (NouvellesDAO::updateNouvelles(FNSQL($_SESSION["nouvelleId"]),
-																		FNSQL($_POST['title']),
-																		FNSQL($_POST['descriptionSommaire']),
-																		FNSQL($_POST['descriptionTotal']),
-																		FNSQL($_POST['dateDebut']),
-																		FNSQL($_POST['dateFin']), 
-																		FNSQL($_POST['actif'])) == 'success')
+  if (NouvellesDAO::updateNouvelles($_SESSION["nouvelleId"],
+																		$_POST['title'],
+																		$_POST['descriptionSommaire'],
+																		$_POST['descriptionTotal'],
+																		$_POST['dateDebut'],
+																		$_POST['dateFin'], 
+																		$_POST['actif']) == 'success')
 	{
 		
     exit('success');

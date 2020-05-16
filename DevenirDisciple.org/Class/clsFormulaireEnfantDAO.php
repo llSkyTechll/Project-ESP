@@ -16,15 +16,15 @@ class FormulaireEnfantDAO{
       $key          = $encrypt->generateKey();
       $iv           = $encrypt->generateIV();
       
-      $name          = $encrypt->encryptData(FNSQL($formdata['fname']), $key, $iv); 
-      $adresse       = $encrypt->encryptData(FNSQL($formdata['faddress']), $key, $iv);
-      $codepostal    = $encrypt->encryptData(FNSQL($formdata['fzipcode']), $key, $iv);
-      $courriel      = $encrypt->encryptData(FNSQL($formdata['femail']), $key, $iv);
-      $datenaissance = $encrypt->encryptData(FNSQL($formdata['fdatenaissance']), $key, $iv);
-      $nompere       = $encrypt->encryptData(FNSQL($formdata['fnompere']), $key, $iv);
-      $telpere       = $encrypt->encryptData(FNSQL($formdata['ftelpere']), $key, $iv);
-      $nommere       = $encrypt->encryptData(FNSQL($formdata['fnommere']), $key, $iv);
-      $telmere       = $encrypt->encryptData(FNSQL($formdata['ftelmere']), $key, $iv);
+      $name          = $encrypt->encryptData($conn->real_escape_string($formdata['fname']), $key, $iv); 
+      $adresse       = $encrypt->encryptData($conn->real_escape_string($formdata['faddress']), $key, $iv);
+      $codepostal    = $encrypt->encryptData($conn->real_escape_string($formdata['fzipcode']), $key, $iv);
+      $courriel      = $encrypt->encryptData($conn->real_escape_string($formdata['femail']), $key, $iv);
+      $datenaissance = $encrypt->encryptData($conn->real_escape_string($formdata['fdatenaissance']), $key, $iv);
+      $nompere       = $encrypt->encryptData($conn->real_escape_string($formdata['fnompere']), $key, $iv);
+      $telpere       = $encrypt->encryptData($conn->real_escape_string($formdata['ftelpere']), $key, $iv);
+      $nommere       = $encrypt->encryptData($conn->real_escape_string($formdata['fnommere']), $key, $iv);
+      $telmere       = $encrypt->encryptData($conn->real_escape_string($formdata['ftelmere']), $key, $iv);
 
       $initiation        = isset($formdata['finitiation'])        ? 1 : 0;
       $ptitepasto        = isset($formdata['fptitepasto'])        ? 1 : 0;
@@ -41,7 +41,7 @@ class FormulaireEnfantDAO{
       }
       
       $param = "'".$name."', '".$adresse."', '".$codepostal."','".$courriel."','".$datenaissance."','".$nompere."','".$telpere."','".$nommere."','".$telmere.
-      "','".FNSQL($formdata['fbapteme'])."','".FNSQL($formdata['fpardon'])."','".FNSQL($formdata['feucharistie'])."','".FNSQL($formdata['fallergies'])."','".$paroisseid."','".$communityid."','".$initiation.
+      "','".$conn->real_escape_string($formdata['fbapteme'])."','".$conn->real_escape_string($formdata['fpardon'])."','".$conn->real_escape_string($formdata['feucharistie'])."','".$conn->real_escape_string($formdata['fallergies'])."','".$paroisseid."','".$communityid."','".$initiation.
       "','".$ptitepasto."','".$agnelets."','".$premierpardon."','".$premierecommunion."','".$confirmation."','".$brebis.
       "','".$conn->real_escape_string($key)."','".$conn->real_escape_string($iv)."'";
 

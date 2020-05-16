@@ -28,7 +28,7 @@ function FNAddEvent(){
     exit('emptyFields');
   }
   
-  if (CalendarEventDAO::saveNewEvent(FNSQL($_POST['name']), FNSQL($_POST['date']), FNSQL($_POST['description']), FNSQL($_POST['color']), FNSQL($_POST['icon'])) == 'success'){
+  if (CalendarEventDAO::saveNewEvent($_POST['name'], $_POST['date'], $_POST['description'], $_POST['color'], $_POST['icon'], $_POST['global']) == 'success'){
     exit('success');
   }
   
@@ -46,7 +46,7 @@ function FNDeleteEvent(){
 
 function FNUpdateEvent(){
   if (FNValidateEmptyFields() != 'emptyFields'){
-    if (CalendarEventDAO::updateEvent($_POST['eventid'], FNSQL($_POST['name']), FNSQL($_POST['date']), FNSQL($_POST['description']), FNSQL($_POST['color']), FNSQL($_POST['icon'])) == 'success'){
+    if (CalendarEventDAO::updateEvent($_POST['eventid'], $_POST['name'], $_POST['date'], $_POST['description'], $_POST['color'], $_POST['icon'], $_POST['global']) == 'success'){
       exit('success');
     }
     exit('fail');
@@ -61,7 +61,7 @@ function FNValidateEmptyFields(){
 }
 
 function FNSaveSchedule(){
-  $schedule    = FNSQL($_POST['schedule']);
+  $schedule    = $_POST['schedule'];
   $scheduleid  = $_POST['scheduleid'];
   $communityid = $_SESSION['gcommunityid'];
   if (ParoisseCommunaute::saveSchedule($scheduleid, $schedule, $communityid) == 'success'){

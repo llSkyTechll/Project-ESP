@@ -20,7 +20,7 @@
 			<div class="row col-md-8 col-sm-7 col-6">
 				<div class="col-md-4 col-sm-6 col-12 mb-1">
 					<div class="text-center">
-						<input class="btn btn-primary" type="button" name="btnDeconnexion" value="lien intéressant">
+						<input class="btn btn-primary" type="button" name="btnLiensInteressants" value="Liens intéressants" onclick="parent.fnRedirection('InformationPages/TemplateText.php', 100);">
 					</div>
 				</div>
 				<div class="col-md-4 col-sm-6 col-12 mb-1">

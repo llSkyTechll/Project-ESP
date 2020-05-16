@@ -19,10 +19,10 @@ if(isset($_FILES['fileToUpload'])){
 function FNSavePageContent(){  
 
   if (Admin::isConnected()){
-    $title    = FNSQL($_POST['title']);
-    $header   = FNSQL($_POST['header']);
-    $subtitle = FNSQL($_POST['subtitle']);
-    $content  = FNSQL($_POST['content']);
+    $title    = $_POST['title'];
+    $header   = $_POST['header'];
+    $subtitle = $_POST['subtitle'];
+    $content  = $_POST['content'];
     
     TemplateTextDAO::savePageContent($_POST['contentId'], $_SESSION['gmenuId'], $title, $header, $subtitle, $content);  
     

@@ -15,12 +15,12 @@ class FormulaireBenevolat{
       $key          = $encrypt->generateKey();
       $iv           = $encrypt->generateIV();
       
-      $email        = $encrypt->encryptData(FNSQL($formdata['femail']), $key, $iv);
-      $firstname    = $encrypt->encryptData(FNSQL($formdata['ffirstname']), $key, $iv);
-      $lastname     = $encrypt->encryptData(FNSQL($formdata['flastname']), $key, $iv);
-      $address      = $encrypt->encryptData(FNSQL($formdata['faddress']), $key, $iv);
-      $phone        = $encrypt->encryptData(FNSQL($formdata['fphone']), $key, $iv);
-      $cellphone    = $encrypt->encryptData(FNSQL($formdata['fcellphone']), $key, $iv);
+      $email        = $encrypt->encryptData($conn->real_escape_string($formdata['femail']), $key, $iv);
+      $firstname    = $encrypt->encryptData($conn->real_escape_string($formdata['ffirstname']), $key, $iv);
+      $lastname     = $encrypt->encryptData($conn->real_escape_string($formdata['flastname']), $key, $iv);
+      $address      = $encrypt->encryptData($conn->real_escape_string($formdata['faddress']), $key, $iv);
+      $phone        = $encrypt->encryptData($conn->real_escape_string($formdata['fphone']), $key, $iv);
+      $cellphone    = $encrypt->encryptData($conn->real_escape_string($formdata['fcellphone']), $key, $iv);
 
       $lundiam      = isset($formdata['flundiam'])      ? 1 : 0;
       $lundipm      = isset($formdata['flundipm'])      ? 1 : 0;
@@ -51,7 +51,7 @@ class FormulaireBenevolat{
       }
       
       $param = "'".$email."', '".$firstname."', '".$lastname."','".$address."','".$phone."','".$cellphone.
-      "','".FNSQL($formdata['fbenevolat1'])."','".FNSQL($formdata['fbenevolat2'])."','".FNSQL($formdata['fbenevolat3'])."','".FNSQL($formdata['fbenevolat4'])."','".$paroisseid."','".$communityid."','".$lundiam.
+      "','".$conn->real_escape_string($formdata['fbenevolat1'])."','".$conn->real_escape_string($formdata['fbenevolat2'])."','".$conn->real_escape_string($formdata['fbenevolat3'])."','".$conn->real_escape_string($formdata['fbenevolat4'])."','".$paroisseid."','".$communityid."','".$lundiam.
       "','".$lundipm."','".$lundisoir."','".$mardiam."','".$mardipm."','".$mardisoir."','".$mercrediam.
       "','".$mercredipm."','".$mercredisoir."','".$jeudiam."','".$jeudipm."','".$jeudisoir."','".$vendrediam.
       "','".$vendredipm."','".$vendredisoir."','".$samediam."','".$samedipm."','".$samedisoir."','".$dimancheam.
