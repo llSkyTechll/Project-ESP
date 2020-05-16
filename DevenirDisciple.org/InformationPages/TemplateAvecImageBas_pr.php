@@ -86,7 +86,7 @@ function GetHTMLImageMagasin($ImageMagasin){
 			<th scope="row">
 				<a href="'.$ImageMagasin->getImagePath().'">'.$ImageMagasin->getImageName().'</a>							
 			</th>
-			<td>'.$ImageMagasin->getSize().'</td>
+			
 		</tr>';	
 
 	return $html;

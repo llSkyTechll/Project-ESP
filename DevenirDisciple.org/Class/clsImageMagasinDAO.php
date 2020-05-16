@@ -13,12 +13,11 @@ class ImageMagasinDAO{
     
     $RSSQL = $conn->query($SQL);
     
-
     if ($RSSQL->num_rows > 0) {
-      $ImageMagasinx = array();
-			while($row = $RSSQL->fetch_assoc()) {
+      $ImageMagasins = array();
+			while($row = $RSSQL->fetch_assoc()) {        
         
-        array_push($ImageMagasins, new ImageMagasin($row['ImageMagasinId'], $row['menuId'], $row['imagePath'],$row['imageName'], $row['actif'], $row['orderDisplay']));
+        array_push($ImageMagasins, new ImageMagasin($row['imageMagasinId'], $row['menuId'], $row['imagePath'],$row['imageName'], $row['actif'], $row['orderDisplay']));
       }      
     }		
 		else{
