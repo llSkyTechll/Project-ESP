@@ -2,7 +2,13 @@
 
 
 function UploadPDF($FILES){
+	
 	$target_dir = "../Ressource/PDF/";
+	if (!file_exists($target_dir)) {
+    mkdir($target_dir, 0777, true);
+	}
+		
+	
 	$arrayErrors = array();
 	$arrayPdfs = array();
 	$phpFileUploadErrors = array(
