@@ -31,7 +31,7 @@ CREATE TABLE `accueil` (
   `videoBienvenuePath` varchar(200) DEFAULT NULL,
   `imageFormulairePath` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`accueilId`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -174,7 +174,7 @@ CREATE TABLE `feuillet` (
   `orderDisplay` int(11) DEFAULT NULL,
   `size` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`feuilletId`)
-) ENGINE=MyISAM AUTO_INCREMENT=54 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -363,7 +363,7 @@ CREATE TABLE `nouvelles` (
   `actif` tinyint(1) DEFAULT NULL,
   `imagePath` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`nouvellesId`)
-) ENGINE=MyISAM AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
