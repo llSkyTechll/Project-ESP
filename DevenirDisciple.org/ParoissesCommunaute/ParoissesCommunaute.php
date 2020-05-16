@@ -315,7 +315,7 @@ if (isset($_SESSION['gmenuId'])){
 </head>
 
 <body>
-  <div class="container">
+  <div class="content container">
     <?php  
       if (isset($_SESSION['gcommunityid'])){
         echo"<header><h1>";

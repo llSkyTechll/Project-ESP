@@ -174,12 +174,14 @@ $conn = OpenCon();
 
 <body>
 	<br>
-	
-		<?php
-		
-		loadHTML();
+    <div class="content container">
+      <?php
+      
+      loadHTML();
 
-		?>
+      ?>
+    </div>
+    <br>
 
 	<?php require_once '../Footer.php';?>
 

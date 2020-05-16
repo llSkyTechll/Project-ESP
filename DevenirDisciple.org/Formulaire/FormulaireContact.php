@@ -168,10 +168,14 @@ $conn = OpenCon();
 </head>
 
 <body>
+
+  <div class="content container">
 	
-	<?php
-		LoadHTML();
-	?>
+    <?php
+      LoadHTML();
+    ?>
+    
+  </div>
 
 	<?php require_once '../Footer.php';?>
 

@@ -25,13 +25,13 @@ require_once 'Accueil_pr.php';
 
 
 <body>
-	<div class="container">
+	<div class="content container">
 
 		<?php
-		loadPageContent();	
-	
+
+			loadPageContent();	
 		
-	?>
+		?>
 	</div>
 	<?php 
 	require_once '../Footer.php';

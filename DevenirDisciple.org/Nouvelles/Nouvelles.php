@@ -136,7 +136,7 @@ require_once 'Nouvelles_pr.php';
 </head>
 
 <body>
-	<div class="container">
+	<div class="content container">
 
 		<?php		
 		

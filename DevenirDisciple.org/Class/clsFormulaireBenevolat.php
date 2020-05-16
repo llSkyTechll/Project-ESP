@@ -220,7 +220,7 @@ class FormulaireBenevolat{
 
 
 
-            <table class="Bold TableBorder" align="center">
+            <table class="m-auto Bold TableBorder">
               <tr>
                 <td style="width:25%"></td>
                 <td class="Center" style="width:25%"><label>AVANT-MIDI</label></td>

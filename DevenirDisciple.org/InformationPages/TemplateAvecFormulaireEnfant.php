@@ -75,7 +75,7 @@ require_once '../Uploads/UploadImage.php';
 
   <body>
   
-    <div class="container">
+    <div class="content container">
     
     <?php
 			DisplayMessage();

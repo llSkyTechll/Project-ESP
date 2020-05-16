@@ -110,14 +110,15 @@ require_once '../Uploads/UploadImage.php';
 
 </head>
 
-
-
 <body>
-	<div class="container">
+	<div class="content container">
+
 		<?php		
 			loadPageContent();	
-	?>
+		?>
+		
 	</div>
+
 	<?php require_once '../Footer.php';?>
 
 </body>

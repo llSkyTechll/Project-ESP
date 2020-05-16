@@ -73,7 +73,7 @@ require_once '../InformationPages/TemplateText_pr.php';
 
 <body>
 
-  <div class="container">
+  <div class="content container">
 
     <?php
       DisplayMessage();
