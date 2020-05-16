@@ -13,7 +13,8 @@ body {
 iframe {
 	width: 100%;
 	height: 90%;
-	}
+}
+  
 iframe body{
 	background:none transparent !important;
 	background-color:none  !important;
