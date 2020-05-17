@@ -24,15 +24,23 @@ function GetHTMLAllnouvelles($arrayNouvelles){
 	
 	$html = '';
 	
-	for($x = 0; $x <count($arrayNouvelles);$x++){
-		
-		$html .= GetHTMLNouvelle($arrayNouvelles[$x]);
-	}	
+	if (isset($arrayNouvelles)){
+		for($x = 0; $x <count($arrayNouvelles);$x++){
+			
+			$html .= GetHTMLNouvelle($arrayNouvelles[$x]);
+		}	
+	}
 	
 	echo $html;
 
 }
 function GetHTMLNouvelle($Nouvelles){
+	
+	if ($_SESSION["nouvelleId"] != 0 ){
+		$descr = $Nouvelles->getDescrTot();
+	}else{
+		$descr = $Nouvelles->getDescrSomm();
+	}
 	
 	$html = '';
 	$html .= '<div class=" justify-content-center"><header>
@@ -40,13 +48,13 @@ function GetHTMLNouvelle($Nouvelles){
 						<img id="image" src="'.$Nouvelles->getImagePath().'" alt="Image de '.$Nouvelles->getTitle().'" height="200" width="200">
 					</div>	
 
-						<h1 id="title"> 
+						<h1 id="title" style="cursor:pointer" onclick="parent.fnRedirectionNouvelle(\'Nouvelles/Nouvelles.php\',0,\''.$Nouvelles->getNouvellesId().'\')"> 
 							'.$Nouvelles->getTitle().'
 						</h1>
 					</header>						
 
 					<div id="content"> 
-						'.$Nouvelles->getDescrTot().'
+						'.$descr.'
 					</div>
 					</div>
 					<hr>';
