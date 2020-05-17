@@ -54,7 +54,7 @@ function fnDeleteImageMagasin(){
 	}
 }
 function GetHTMLAllImagesMagasin($arrayImageMagasin){
-	$html = '<div class="col-md-12 row">'; 
+	$html = '<div class="col-12 row">'; 
 	if(is_array($arrayImageMagasin)){
 		for($x = 0; $x <count($arrayImageMagasin);$x++){
 			$html .= getHTMLImageMagasin($arrayImageMagasin[$x]);
@@ -69,8 +69,8 @@ function GetHTMLImageMagasin($ImageMagasin){
 	
 	$html = '';
 	$html .='
-		<figure class="col-md-2 col-sm-4 col-6">
-			<img alt="'.$ImageMagasin->getImageName().'" src="'.$ImageMagasin->getImagePath().'" class="img-fluid" style="width:auto; height:100%; max-height:150px">
+		<figure class=" col-lg-2 col-md-3 col-sm-4 col-6">
+			<img alt="'.$ImageMagasin->getImageName().'" src="'.$ImageMagasin->getImagePath().'" class="imageMagasin" >
 		</figure>';
 
 	return $html;
@@ -83,7 +83,7 @@ function GetHTMLImageMagasinEdit($ImageMagasin){
 		<tr>
 			<th scope="row">
         
-        <img class="d-block" src="'.$ImageMagasin->getImagePath().'" style="width:300px;height:auto"alt="'.$ImageMagasin->getImageName().'"/>				
+        <img class="imageMagasinEdit" src="'.$ImageMagasin->getImagePath().'" alt="'.$ImageMagasin->getImageName().'"/>				
 			</th>
 			<td><input type="number" id="OrderDisplay_'.$ImageMagasin->getImageMagasinId().'" name="OrderDisplay_'.$ImageMagasin->getImageMagasinId().'"
 				min="0" value="'.$ImageMagasin->getOrderDisplay().'"></td>
