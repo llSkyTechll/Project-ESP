@@ -211,3 +211,7 @@ footer div > img +img {
 		margin-top: .5rem!important;
 	}
 }
+
+.contentEditable{
+	border-style: solid;
+}

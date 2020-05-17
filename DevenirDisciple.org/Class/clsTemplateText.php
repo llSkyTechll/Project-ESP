@@ -43,17 +43,17 @@ class TemplateText{
 						</div>';
 					}
 						
-					echo '<h1 id="title" '.$contentEditable.'> 
+					echo '<h1 id="title" class="'.$contentEditable.'" '.$contentEditable.'> 
 								'.$this->title.'
 							</h1>
-							<div id="header" '.$contentEditable.'> 
+							<div id="header" class="'.$contentEditable.'" '.$contentEditable.'> 
 							'.$this->header.'
 							</div>
 						</header>						
-						<h2 id="subtitle" '.$contentEditable.'> 
+						<h2 id="subtitle" class="'.$contentEditable.'" '.$contentEditable.'> 
 							'.$this->subtitle.'
 						</h2>
-						<div id="content" '.$contentEditable.'> 
+						<div id="content" class="'.$contentEditable.'" '.$contentEditable.'> 
 							'.$this->content.'
 						</div>';
           

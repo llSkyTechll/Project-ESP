@@ -124,7 +124,7 @@ function GetAddNouvelles(){
 				</div>
 				<div>
 				<label for="title">Titre</label>
-					<p id="title" contentEditable></p>
+					<p id="title" class="contentEditable" contentEditable></p>
 				</div>
 				<div class="row">
 					<div class="col">
@@ -138,11 +138,11 @@ function GetAddNouvelles(){
 				</div>
 				<div>
 					<label for="descriptionSommaire">Description Sommaire</label>
-					<div id="descriptionSommaire" contentEditable></div>
+					<div id="descriptionSommaire" class="contentEditable" contentEditable></div>
 				</div>
 				<div>
 					<label for="descriptionTotal">Description Complète</label>
-					<div id="descriptionTotal" contentEditable></div>
+					<div id="descriptionTotal" class="contentEditable" contentEditable></div>
 				</div>
 				<div>
 					
@@ -174,7 +174,7 @@ function GetHTMLNouvelleEdit($Nouvelles){
 				</div>
 				<div>
 				<label for="title">Titre</label>
-					<p id="title" contentEditable>'.$Nouvelles->getTitle().'</p>
+					<p id="title" class="contentEditable" contentEditable>'.$Nouvelles->getTitle().'</p>
 				</div>
 				<div class="row">
 					<div class="col">
@@ -188,11 +188,11 @@ function GetHTMLNouvelleEdit($Nouvelles){
 				</div>
 				<div>
 					<label for="descriptionSommaire">Description Sommaire</label>
-					<div id="descriptionSommaire" contentEditable>'.$Nouvelles->getDescrSomm().'</div>
+					<div id="descriptionSommaire" class="contentEditable" contentEditable>'.$Nouvelles->getDescrSomm().'</div>
 				</div>
 				<div>
 					<label for="descriptionTotal">Description Complète</label>
-					<div id="descriptionTotal" contentEditable>'.$Nouvelles->getDescrTot().'</div>
+					<div id="descriptionTotal" class="contentEditable" contentEditable>'.$Nouvelles->getDescrTot().'</div>
 				</div>
 				<div>
 					

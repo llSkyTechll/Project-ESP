@@ -94,8 +94,6 @@ require_once 'Nouvelles_pr.php';
 					actif: check
 				}),
 				success: function(data) {
-					alert(data);
-
 					if (data.trim() == 'fail') {
 						Swal.fire("Une erreur c'est produite", '', 'warning');
 					} else if (data.trim() == 'success') {
