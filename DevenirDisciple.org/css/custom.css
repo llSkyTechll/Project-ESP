@@ -135,3 +135,7 @@ footer div > img +img {
 	height:300px ;
 	text-align: center
 }
+
+.contentEditable{
+	border-style: solid;
+}

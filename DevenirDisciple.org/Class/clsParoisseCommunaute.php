@@ -82,7 +82,7 @@ class ParoisseCommunaute{
       $scheduleid = $Row['scheduleid'];
     }
     echo '<input type="hidden" name="scheduleid" id="scheduleid" value="'.$scheduleid.'">';
-    echo '<div id="schedule" name="schedule" '.$contentEditable.'>'.
+    echo '<div id="schedule" name="schedule" class="'.$contentEditable.'" '.$contentEditable.'>'.
           $Row['schedule']
           .'</div>';    
 
