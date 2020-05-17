@@ -6051,7 +6051,7 @@
 			tableList: "table",
 			tableListHeading: "table-active",
 			buttonGroup: "btn-group",
-			button: "btn btn-primary",
+			button: "btn-calendar btn-primary-calendar",
 			stateActive: "active",
 			stateDisabled: "disabled",
 			today: "alert alert-info",

@@ -108,7 +108,7 @@ $conn = OpenCon();
   background-attachment: fixed;
 background-size: cover;">
 
-  <div class="container fixed-top" style="height:10%;">
+  <div class="menu container fixed-top">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -145,7 +145,7 @@ background-size: cover;">
           <li>
             <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
               <input name="cmd" type="hidden" value="_s-xclick">
-              <input name="hosted_button_id" type="hidden" value="DMYLJ8APSPW2A"> <input alt="Donate with PayPal button"
+              <input name="hosted_button_id" type="hidden" value="DMYLJ8APSPW2A"> <input alt="Faire un don avec PayPal button"
                 border="0" name="submit" src="https://www.paypalobjects.com/fr_CA/i/btn/btn_donateCC_LG.gif"
                 title="PayPal - The safer, easier way to pay online!" type="image">
               <img alt="" border="0" height="1" src="https://www.paypal.com/fr_CA/i/scr/pixel.gif" width="1"
@@ -156,10 +156,11 @@ background-size: cover;">
       </div>
     </nav>
   </div>
-  <iframe class="mt-6 pt-4" id="PageContent"
-    src="<?php if(isset($_SESSION['gpath'])){echo $_SESSION['gpath'];}else{echo 'Accueil/Accueil.php';}?>"
-    frameborder="0" allowtransparency="true"></iframe>
-
+  <div class="iframe">
+    <iframe id="PageContent"
+      src="<?php if(isset($_SESSION['gpath'])){echo $_SESSION['gpath'];}else{echo 'Accueil/Accueil.php';}?>"
+      frameborder="0" allowtransparency="true"></iframe>
+  </div>
 </body>
 
 </html>

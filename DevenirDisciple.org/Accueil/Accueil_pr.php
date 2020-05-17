@@ -77,12 +77,12 @@ function GetBasPage($basPage){
 			<div class="basPage row m-auto">
 				<div class="col-md-6 col-sm-12 row m-auto">
 					<div class="col-md-6 col-sm-6 col-10 m-auto">
-						<a onclick="parent.fnRedirection(\'Formulaire/FormulaireBenevolat.php\',0)">
+						<a onclick="parent.fnRedirection(\'InformationPages/TemplateText.php\',101)">
 							<img  class="d-block img-fluid rounded imageBasPageAccueil " src="'.$basPage['imageHomeliePath'] .'" alt="Homélie du curé" title="Homélie du curé">
 						</a>
 					</div>
 					<div class="col-md-6 col-sm-6 col-10 m-auto">
-						<a onclick="parent.fnRedirection(\'Formulaire/FormulaireBenevolat.php\',0)">
+					<a onclick="parent.fnRedirection(\'InformationPages/TemplateText.php\',102)">
 							<img  class="d-block img-fluid rounded imageBasPageAccueil "  src="'.$basPage['imageTemoignagePath'] .'" alt="Témoinage" title="Témoinage">
 						</a>
 					</div>
@@ -120,8 +120,10 @@ function GetBasPageEdit($basPage){
 			<div class="basPage row m-auto">
 				<div class="col-md-6 col-sm-12 row m-auto">
 					<div class="col-md-6 col-sm-6 col-10 m-auto">
+						<a onclick="parent.fnRedirection(\'InformationPages/TemplateText.php\',101)">
 							<img class="d-block img-fluid rounded imageBasPageAccueil" src="'.$basPage['imageHomeliePath'] .'" alt="Homélie du curé" title="Homélie du curé">
-						<form  action="#" method="post" enctype="multipart/form-data">
+						</a>
+							<form  action="#" method="post" enctype="multipart/form-data">
 						<div class="form-group">
 							<label for="fileToUploadImageHomelie">Sélectionner une image à télécharger:</label>
 							<input type="file" name="fileToUploadImageHomelie[]" id="fileToUploadImageHomelie">
@@ -130,7 +132,9 @@ function GetBasPageEdit($basPage){
 						</form>
 					</div>
 					<div class="col-md-6 col-sm-6 col-10 m-auto">
+					<a onclick="parent.fnRedirection(\'InformationPages/TemplateText.php\',102)">
 							<img class="d-block img-fluid rounded imageBasPageAccueil"  src="'.$basPage['imageTemoignagePath'] .'" alt="Témoinage" title="Témoinage">
+							</a>
 						<form  action="#" method="post" enctype="multipart/form-data">
 							<label for="fileToUploadImageTemoignage">Sélectionner une image à télécharger:</label>
 							<input type="file" name="fileToUploadImageTemoignage[]" id="fileToUploadImageTemoignage">
@@ -153,8 +157,10 @@ function GetBasPageEdit($basPage){
 							</form>
 					</div>
 					<div class="col-md-6 col-sm-6 col-10 m-auto">
+					<a onclick="parent.fnRedirection(\'Formulaire/FormulaireBenevolat.php\',0)">
 							<img class="d-block img-fluid rounded imageBasPageAccueil"  src="'.$basPage['imageFormulairePath'] .'" alt="Formulaire Bénévolat" title="Formulaire Bénévolat">
-						<form  action="#" method="post" enctype="multipart/form-data">
+						</a>
+							<form  action="#" method="post" enctype="multipart/form-data">
 							<label for="fileToUploadImageFormulaire">Sélectionner une image à télécharger:</label>
 							<input type="file" name="fileToUploadImageFormulaire[]" id="fileToUploadImageFormulaire">
 						<input type="submit" value="Télécharger l\'image" name="submit">
@@ -345,38 +351,3 @@ function UpdateImageTemoignageDB($File){
 	}
 	return $uploadToDb;
 }
-?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -61,7 +61,7 @@ require_once '../InformationPages/TemplateText_pr.php';
     <?php if(Admin::isConnected() == false) { ?>
       $(document).ready(function() {
         document.getElementById('title').innerHTML = document.getElementById('title').innerHTML.replace(/href/g, ' target="_blank" href');
-        document.getElementById('subtitle').innerHTML = document.getElementById('subtile').innerHTML.replace(/href/g, ' target="_blank" href');
+        document.getElementById('subtitle').innerHTML = document.getElementById('subtitle').innerHTML.replace(/href/g, ' target="_blank" href');
         document.getElementById('header').innerHTML = document.getElementById('header').innerHTML.replace(/href/g, ' target="_blank" href');
         document.getElementById('content').innerHTML = document.getElementById('content').innerHTML.replace(/href/g, ' target="_blank" href');
       });
@@ -80,10 +80,6 @@ require_once '../InformationPages/TemplateText_pr.php';
       $pageContent = TemplateTextDAO::loadPageContent();  
       
       $pageContent->getHTMLPageContent();
-      
-      echo '<input class="btn btn-primary" type="button" tabindex="330" name="btnDefunt" value="Vie de la personne défunte">';
-
-      echo '<input class="btn btn-primary" type="button" tabindex="340" name="btnLecture" value="Choix des lectures & services">';
 
     ?>
   
