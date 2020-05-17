@@ -353,7 +353,7 @@ if (isset($_SESSION['gmenuId'])){
             <div class="event-body"></div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-dismiss="modal">Fermer</button>
+            <button type="button" class="btn-calendar btn-primary-calendar" data-dismiss="modal">Fermer</button>
           </div>
         </div>
       </div>
@@ -365,7 +365,7 @@ if (isset($_SESSION['gmenuId'])){
           <form id="add-event">
             <div class="modal-body">
               <input type="hidden" name="eventid" id="eventid" value="0">
-              <h4>Ajout un événement</h4>
+              <h4>Ajouter un événement</h4>
               <div class="form-group">
                 <label>Nom de l'événement</label>
                 <input type="text" class="form-control" name="ename" id="ename">
@@ -404,23 +404,16 @@ if (isset($_SESSION['gmenuId'])){
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary" id="btnDelete" onclick="fnDeleteEvent();">Supprimer</button>
-              <button type="button" class="btn btn-primary" id="btnUpdate" onclick="fnUpdateEvent();">Enregistrer</button>
-              <button type="button" class="btn btn-primary" id="btnAdd" onclick="fnAddEvent();">Enregistrer</button>
-              <button type="button" class="btn btn-primary" data-dismiss="modal">Fermer</button>
+              <button type="button" class="btn-calendar btn-primary-calendar" id="btnDelete" onclick="fnDeleteEvent();">Supprimer</button>
+              <button type="button" class="btn-calendar btn-primary-calendar" id="btnUpdate" onclick="fnUpdateEvent();">Enregistrer</button>
+              <button type="button" class="btn-calendar btn-primary-calendar" id="btnAdd" onclick="fnAddEvent();">Enregistrer</button>
+              <button type="button" class="btn-calendar btn-primary-calendar" data-dismiss="modal">Fermer</button>
             </div>
           </form>
         </div>
       </div>
     </div>
     </div>
-
-    <!--<div><a>lien feuillet</a></div>
-    <div><a>lien Facebook</a></div>
-
-    <div>
-      <p>Données</p>
-    </div>-->
   </div>
   <?php require_once '../Footer.php';?>
 </body>

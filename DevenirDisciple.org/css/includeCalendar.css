@@ -1626,7 +1626,7 @@ h2 {
 	margin-bottom: 20px;
 }
 
-.btn {
+.btn-calendar {
 	font-size: 15px !important;
 	text-transform: uppercase;
 	font-weight: 700;
@@ -1637,11 +1637,11 @@ h2 {
 	padding: 10px 20px !important;
 }
 
-.btn:focus {
+.btn-calendar:focus {
 	box-shadow: none;
 }
 
-.btn.btn-primary {
+.btn-calendar.btn-primary-calendar {
 	background: #002147;
 	color: #ffffff;
 }
