@@ -17,7 +17,7 @@ class FeuiletDAO{
     if ($RSSQL->num_rows > 0) {
       $feuillets = array();
 			while($row = $RSSQL->fetch_assoc()) {
-        array_push($feuillets, new Feuillet($row['feuilletId'], $row['pdfPath'],$row['pdfName'], $row['Actif'], $row['orderDisplay'],$row['size']));
+        array_push($feuillets, new Feuillet($row['feuilletId'], $row['pdfPath'],$row['pdfName'], $row['actif'], $row['orderDisplay'],$row['size']));
       }      
     }		
 		else{
@@ -38,7 +38,7 @@ class FeuiletDAO{
     if ($RSSQL->num_rows > 0) {
       $feuillets = array();
 			while($row = $RSSQL->fetch_assoc()) {
-        array_push($feuillets, new Feuillet($row['feuilletId'], $row['pdfPath'],$row['pdfName'], $row['Actif'], $row['orderDisplay'],$row['size']));
+        array_push($feuillets, new Feuillet($row['feuilletId'], $row['pdfPath'],$row['pdfName'], $row['actif'], $row['orderDisplay'],$row['size']));
       }      
     }
 		else{
@@ -55,7 +55,7 @@ class FeuiletDAO{
 		
     if ($RSSQL->num_rows > 0) {
 			$row = $RSSQL->fetch_assoc();
-      $feuillet = new Feuillet($row['feuilletId'], $row['pdfPath'], $row['pdfName'], $row['Actif'], $row['orderDisplay'],$row['size']);
+      $feuillet = new Feuillet($row['feuilletId'], $row['pdfPath'], $row['pdfName'], $row['actif'], $row['orderDisplay'],$row['size']);
 			
       }      
     

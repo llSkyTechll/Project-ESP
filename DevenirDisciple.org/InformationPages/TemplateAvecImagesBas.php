@@ -6,7 +6,7 @@ require_once '../PHPFunctions.php';
 
 require_once '../Class/clsTemplateTextDAO.php';
 
-require_once '../InformationPages/TemplateText_pr.php';
+require_once '../InformationPages/TemplateAvecImageBas_pr.php';
 
 ?>
 
@@ -70,7 +70,86 @@ require_once '../InformationPages/TemplateText_pr.php';
         });
       <?php } ?>
 
-    </script>
+		function fnSaveImagesMagasins() {
+
+			var allArray = [];
+			var allOrderDisplay = document.querySelectorAll("input[type = number]");
+			var allVisible = document.querySelectorAll("input[type = checkbox]");
+			for (var x = 0; x < allOrderDisplay.length; x++) {
+				var OrderDispay = allOrderDisplay[x].id;
+				var index = OrderDispay.indexOf("_");
+				var id = OrderDispay.substring(index + 1, OrderDispay.lenght);
+				var array = [id, allVisible[x].checked ? 1 : 0, allOrderDisplay[x].value];
+				allArray.push(array);
+			}
+
+			$.ajax({
+				type: 'post',
+				url: 'TemplateAvecImagesBas.php',
+				data: ({
+					action: 'SaveImagesMagasins',
+					arrayImageMagasin: JSON.stringify(allArray)
+				}),
+				success: function(data) {
+
+					if (data.trim() == 'fail') {
+						Swal.fire("Une erreur c'est produite", '', 'warning');
+					} else if (data.trim() == 'success') {
+						Swal.fire({
+							title: 'Sauvegarde réussi.',
+							icon: 'success'
+						}).then((result) => {
+							window.top.location.reload();
+						});
+					}
+				}
+			});
+
+		}
+
+		function fnDeleteConfirmation(ImageMagasinId) {
+			Swal.fire({
+				title: 'Are you sure?',
+				text: "You won't be able to revert this!",
+				icon: 'warning',
+				showCancelButton: true,
+				confirmButtonColor: '#3085d6',
+				cancelButtonColor: '#d33',
+				confirmButtonText: 'Yes, delete it!'
+			}).then((result) => {
+				if (result.value) {
+					fnDelete(ImageMagasinId);
+				}
+			})
+		}
+
+		function fnDelete(ImageMagasinId) {
+			$.ajax({
+				type: 'post',
+				url: 'TemplateAvecImagesBas.php',
+				data: ({
+					action: "DeleteImageMagasin",
+					ImageMagasinId: ImageMagasinId
+				}),
+				success: function(data) {
+					
+					if (data.trim() == 'success') {
+						Swal.fire({
+							title: 'Supression effectué avec succès',
+							icon: 'success'
+						}).then((result) => {
+							window.top.location.reload();
+						});
+					} else if (data.trim() == 'failDB') {
+						Swal.fire("Une erreur c'est produite", 'Impossible de suprimmer le pdf de la base de donnée', 'warning');
+					} else if (data.trim() == 'failFile') {
+						Swal.fire("Une erreur c'est produite", 'Impossible de supprimer le fichier', 'warning');
+					}
+				}
+			})
+		}
+
+	</script>
     
   </head>
 
@@ -79,12 +158,14 @@ require_once '../InformationPages/TemplateText_pr.php';
     <div class="content container text-left">
     
     <?php
-    
+    //echo $_SESSION['gmenuId'];
     	DisplayMessage();
       
       $pageContent = TemplateTextDAO::loadPageContent();  
       
       $pageContent->getHTMLPageContent();
+
+      loadPageContent();
      
     ?>
     

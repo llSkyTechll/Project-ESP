@@ -57,7 +57,7 @@ function GetHTMLAllFeuillets($arrayFeuillet){
 	
 	$html = '';
 	$html = '
-		<table class="table table-striped" id="NouvelleEdit">
+		<table class="table table-striped" id="tableFeuillet">
 			<thead>
 				<tr>
 					<th scope="col">Fichier attaché</th>
@@ -121,7 +121,7 @@ function GetHTMLAllFeuilletsEdit($arrayFeuillet){
 	
 	$html = '';
 	$html = '
-		<table class="table table-striped" id="NouvelleEdit">
+		<table class="table table-striped" id="tableFeuilletEdit">
 			<thead>
 				<tr>
 					<th scope="col">Fichier attaché</th>

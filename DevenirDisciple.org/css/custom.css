@@ -98,3 +98,17 @@ footer div > img +img {
 		margin-top: .5rem!important;
 	}
 }
+.imageBandeau{
+	width: 1080px;
+	height: 345px;
+}
+.imageTemplateText{
+	width:400px;
+	height:200px ;
+	text-align: center
+}
+.imageBasPageAccueil{
+	width:200px;
+	height:300px ;
+	text-align: center
+}
