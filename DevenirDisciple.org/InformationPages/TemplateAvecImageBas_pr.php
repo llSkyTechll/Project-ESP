@@ -6,9 +6,9 @@ require_once '../Class/clsImageMagasinDAO.php';
 
 require_once '../Uploads/UploadImage.php';
 
-	if(isset($_FILES['fileToUpload'])){
-		AddImageMagasins(UploadImage($_FILES['fileToUpload']));
-	}	
+if(isset($_FILES['fileToUpload'])){
+	AddImageMagasins(UploadImage($_FILES['fileToUpload']));
+}	
 
 if (isset($_POST['action'])){
   $action = $_POST['action'];
@@ -54,27 +54,14 @@ function fnDeleteImageMagasin(){
 	}
 }
 function GetHTMLAllImagesMagasin($arrayImageMagasin){
-	
-	$html = '';
-	$html = '
-		<table class="table table-striped" id="tableImageMagasin">
-			<thead>
-				<tr>
-					<th scope="col">Fichier attaché</th>
-					<th scope="col">Taille</th>
-				</tr>
-			</thead>
-		<tbody>';			
+	$html = '<div class="col-12 row">'; 
 	if(is_array($arrayImageMagasin)){
 		for($x = 0; $x <count($arrayImageMagasin);$x++){
 			$html .= getHTMLImageMagasin($arrayImageMagasin[$x]);
 		}
-	}
+	}	
 
-	$html .='</tbody>
-	</table>';
-
-
+		$html .= '</div>';
 	echo $html;
 
 }
@@ -82,12 +69,9 @@ function GetHTMLImageMagasin($ImageMagasin){
 	
 	$html = '';
 	$html .='
-		<tr>
-			<th scope="row">
-				<a href="'.$ImageMagasin->getImagePath().'">'.$ImageMagasin->getImageName().'</a>							
-			</th>
-			
-		</tr>';	
+		<figure class=" col-lg-2 col-md-3 col-sm-4 col-6">
+			<img alt="'.$ImageMagasin->getImageName().'" src="'.$ImageMagasin->getImagePath().'" class="imageMagasin" >
+		</figure>';
 
 	return $html;
 
@@ -99,7 +83,7 @@ function GetHTMLImageMagasinEdit($ImageMagasin){
 		<tr>
 			<th scope="row">
         
-        <img class="d-block" src="'.$ImageMagasin->getImagePath().'" style="width:300px;height:auto"alt="'.$ImageMagasin->getImageName().'"/>				
+        <img class="imageMagasinEdit" src="'.$ImageMagasin->getImagePath().'" alt="'.$ImageMagasin->getImageName().'"/>				
 			</th>
 			<td><input type="number" id="OrderDisplay_'.$ImageMagasin->getImageMagasinId().'" name="OrderDisplay_'.$ImageMagasin->getImageMagasinId().'"
 				min="0" value="'.$ImageMagasin->getOrderDisplay().'"></td>
@@ -145,12 +129,15 @@ function GetHTMLAllImagesMagasinEdit($arrayImageMagasin){
 	}	
 	
 	$html .='<form  action="#" method="post" enctype="multipart/form-data">
-			<label for="fileToUpload">Sélectionner une image à télécharger:</label>
-			<input type="file" name="fileToUpload[]" id="fileToUpload" multiple>
-			<input type="submit" value="Télécharger l\'image" name="submit">
-	</form>';
+				<div class="form-group">
+					<label for="fileToUpload">Sélectionner une image à télécharger:</label>
+					<input type="file" name="fileToUpload[]" id="fileToUpload" multiple>
+					<input type="submit" value="Télécharger l\'image" name="submit">
+				</div>
+			</form>';
 
 	echo $html;
+
 
 }
 function loadPageContent(){
@@ -163,6 +150,7 @@ function loadPageContent(){
 		GetHTMLAllImagesMagasinEdit(ImageMagasinDAO::getAllImageMagasinEdit());
 	}
 	else{
+		
 		GetHTMLAllImagesMagasin(ImageMagasinDAO::getAllImageMagasin());
 	}		
 }

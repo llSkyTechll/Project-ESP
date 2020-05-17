@@ -31,11 +31,12 @@ $conn = OpenCon();
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
   </script>
   <link rel="stylesheet" href="css/include.css">
-  <link rel="shortcut icon" href="Ressource/Image/faviconJesus.png" type="image/ico" />
+  <link rel="shortcut icon" href="Ressource/Image/favicon.png" type="image/ico" />
   <script src="JavaScript/JQuery1.9.1.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
   <script>
   function fnRedirection(Path, menuId) {
+    
     $(function() {
       $.ajax({
         type: 'post',
@@ -142,7 +143,7 @@ background-size: cover;">
 							}
 
 						?>
-          <li>
+          <li class="nav-item">
             <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
               <input name="cmd" type="hidden" value="_s-xclick">
               <input name="hosted_button_id" type="hidden" value="DMYLJ8APSPW2A"> <input alt="Faire un don avec PayPal button"

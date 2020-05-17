@@ -146,10 +146,12 @@ if(is_array($arrayFeuillet)){
 	}	
 	
 	$html .='<form  action="#" method="post" enctype="multipart/form-data">
-			<label for="fileToUpload">Sélectionner un PDF à télécharger:</label>
-			<input type="file" name="fileToUpload[]" id="fileToUpload" multiple>
-			<input type="submit" value="Télécharger le PDF" name="submit">
-	</form>';
+				<div class="form-group">
+					<label for="fileToUpload">Sélectionner un PDF à télécharger:</label>
+					<input type="file" name="fileToUpload[]" id="fileToUpload" multiple>
+					<input type="submit" value="Télécharger le PDF" name="submit">
+				</div>
+			</form>';
 
 	echo $html;
 

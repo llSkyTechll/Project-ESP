@@ -46,12 +46,12 @@ function GetHTMLBandeau($arrayNouvelles){
 		$html .= '<div class="carousel-item';
 		if($x==0){ $html.=' active';	}
 		$html .= '">
-						<div class="">
-								<a onclick="parent.fnRedirectionNouvelle(\'Nouvelles/Nouvelles.php\',0,'.$arrayNouvelles[$x]->getNouvellesId().')">
-									<img class="d-block  imageBandeau" src="'.$arrayNouvelles[$x]->getImagePath().'" alt="'.$arrayNouvelles[$x]->getTitle().'" title="'.$arrayNouvelles[$x]->getTitle().'">
-								</a>
-							</div>
-						</div>';
+      <div class="">
+          <a onclick="parent.fnRedirectionNouvelle(\'Nouvelles/Nouvelles.php\',0,'.$arrayNouvelles[$x]->getNouvellesId().')">
+            <img class="d-block imageBandeau" src="'.$arrayNouvelles[$x]->getImagePath().'" alt="'.$arrayNouvelles[$x]->getTitle().'" title="'.$arrayNouvelles[$x]->getTitle().'">
+          </a>
+      </div>
+      </div>';
 	}
 	$html.='<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
 			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -67,109 +67,110 @@ function GetHTMLBandeau($arrayNouvelles){
 	echo $html;
 
 }
-
 function GetBasPage($basPage){
 	$html = '';
 	if(!is_null($basPage) && !empty($basPage))
 	{
 		$html ='
-		<div class="container mt-5">
+		<div class="mt-5">
 			<div class="basPage row m-auto">
-				<div class="col-md-6 col-sm-12 row m-auto">
+				<div class="col-md-10 col-lg-6 col-sm-12 row m-auto">
 					<div class="col-md-6 col-sm-6 col-10 m-auto">
 						<a onclick="parent.fnRedirection(\'InformationPages/TemplateText.php\',101)">
-							<img  class="d-block img-fluid rounded imageBasPageAccueil " src="'.$basPage['imageHomeliePath'] .'" alt="Homélie du curé" title="Homélie du curé">
+							<img  class="rounded imageBasPageAccueil " src="'.$basPage['imageHomeliePath'] .'" alt="Homélie du curé" title="Homélie du curé">
 						</a>
 					</div>
 					<div class="col-md-6 col-sm-6 col-10 m-auto">
-					<a onclick="parent.fnRedirection(\'InformationPages/TemplateText.php\',102)">
-							<img  class="d-block img-fluid rounded imageBasPageAccueil "  src="'.$basPage['imageTemoignagePath'] .'" alt="Témoinage" title="Témoinage">
-						</a>
+            <a onclick="parent.fnRedirection(\'InformationPages/TemplateText.php\',102)">
+              <img  class="rounded imageBasPageAccueil "  src="'.$basPage['imageTemoignagePath'] .'" alt="Témoinage" title="Témoinage">
+            </a>
 					</div>
 				</div>
-				<div class="col-md-6 col-sm-12 row m-auto">
+				<div class="col-md-10 col-lg-6 col-sm-12 row m-auto">
 					<div class="col-md-6 col-sm-6 col-10 m-auto">
-						<div class="embed-responsive embed-responsive-4by3">
-							<video class="embed-responsive-item rounded " controls="controls">
+						<div class="embed-responsive embed-responsive-1by1">
+							<video class="embed-responsive-item" controls="controls">
 								<source src="'.$basPage['videoBienvenuePath'] .'" type="video/mp4" />
 								vidéo curé
-							</video>
-							
+							</video>							
 						</div>
 					</div>
 					<div class="col-md-6 col-sm-6 col-10 m-auto">
 						<a onclick="parent.fnRedirection(\'Formulaire/FormulaireBenevolat.php\',0)">
-							<img  class="d-block img-fluid rounded imageBasPageAccueil"  src="'.$basPage['imageFormulairePath'] .'" alt="Formulaire Bénévolat" title="Formulaire Bénévolat">
+							<img  class="rounded imageBasPageAccueil"  src="'.$basPage['imageFormulairePath'] .'" alt="Formulaire Bénévolat" title="Formulaire Bénévolat">
 						</a>
 					</div>
 				</div>
 			</div>
 		</div>';
 	}
-	echo $html;
-	
+	echo $html;	
 }
-
 
 function GetBasPageEdit($basPage){
 	$html = '';
 	if(!is_null($basPage) && !empty($basPage))
 	{
-		$html ='
-		<div class="container mt-5">
-			<div class="basPage row m-auto">
-				<div class="col-md-6 col-sm-12 row m-auto">
-					<div class="col-md-6 col-sm-6 col-10 m-auto">
-						<a onclick="parent.fnRedirection(\'InformationPages/TemplateText.php\',101)">
-							<img class="d-block img-fluid rounded imageBasPageAccueil" src="'.$basPage['imageHomeliePath'] .'" alt="Homélie du curé" title="Homélie du curé">
-						</a>
-							<form  action="#" method="post" enctype="multipart/form-data">
-						<div class="form-group">
-							<label for="fileToUploadImageHomelie">Sélectionner une image à télécharger:</label>
-							<input type="file" name="fileToUploadImageHomelie[]" id="fileToUploadImageHomelie">
-							<input type="submit" value="Télécharger l\'image" name="submit">
-						</div>
-						</form>
-					</div>
-					<div class="col-md-6 col-sm-6 col-10 m-auto">
-					<a onclick="parent.fnRedirection(\'InformationPages/TemplateText.php\',102)">
-							<img class="d-block img-fluid rounded imageBasPageAccueil"  src="'.$basPage['imageTemoignagePath'] .'" alt="Témoinage" title="Témoinage">
-							</a>
-						<form  action="#" method="post" enctype="multipart/form-data">
-							<label for="fileToUploadImageTemoignage">Sélectionner une image à télécharger:</label>
-							<input type="file" name="fileToUploadImageTemoignage[]" id="fileToUploadImageTemoignage">
-							<input type="submit" value="Télécharger l\'image" name="submit">
-						</form>
-					</div>
-				</div>
-				<div class="col-md-6 col-sm-12 row m-auto">
-					<div class="col-md-6 col-sm-6 col-10 m-auto">
-						<div class="embed-responsive embed-responsive-4by3">
-							<video class="embed-responsive-item rounded " controls="controls">
-								<source src="'.$basPage['videoBienvenuePath'] .'" type="video/mp4" />
-								vidéo curé
-							</video>
-						</div>
-							<form  action="#" method="post" enctype="multipart/form-data">
-								<label for="fileToUploadVideoBienvenue">Sélectionner une vidéo à télécharger:</label>
-								<input type="file" name="fileToUploadVideoBienvenue[]" id="fileToUploadVideoBienvenue">
-								<input type="submit" value="Télécharger la vidéo" name="submit">
-							</form>
-					</div>
-					<div class="col-md-6 col-sm-6 col-10 m-auto">
-					<a onclick="parent.fnRedirection(\'Formulaire/FormulaireBenevolat.php\',0)">
-							<img class="d-block img-fluid rounded imageBasPageAccueil"  src="'.$basPage['imageFormulairePath'] .'" alt="Formulaire Bénévolat" title="Formulaire Bénévolat">
-						</a>
-							<form  action="#" method="post" enctype="multipart/form-data">
-							<label for="fileToUploadImageFormulaire">Sélectionner une image à télécharger:</label>
-							<input type="file" name="fileToUploadImageFormulaire[]" id="fileToUploadImageFormulaire">
-						<input type="submit" value="Télécharger l\'image" name="submit">
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>';
-	}
+  $html ='
+  <div class="mt-5">
+    <div class="basPage row m-auto">
+      <div class="col-md-10 col-lg-6 col-sm-12 row m-auto">
+        <div class="col-md-6 col-sm-6 col-10 m-auto">
+          <a onclick="parent.fnRedirection(\'InformationPages/TemplateText.php\',101)">
+            <img  class="rounded imageBasPageAccueil " src="'.$basPage['imageHomeliePath'] .'" alt="Homélie du curé" title="Homélie du curé">
+          </a>
+          <form  action="#" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="fileToUploadImageHomelie">Sélectionner une image à télécharger:</label>
+              <input type="file" name="fileToUploadImageHomelie[]" id="fileToUploadImageHomelie">
+              <input class="btn btn-primary" type="submit" value="Télécharger l\'image" name="submit">
+            </div>
+          </form>
+        </div>
+        <div class="col-md-6 col-sm-6 col-10 m-auto">
+          <a onclick="parent.fnRedirection(\'InformationPages/TemplateText.php\',102)">
+            <img  class="rounded imageBasPageAccueil "  src="'.$basPage['imageTemoignagePath'] .'" alt="Témoinage" title="Témoinage">
+          </a>
+          <form  action="#" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="fileToUploadImageTemoignage">Sélectionner une image à télécharger:</label>
+              <input type="file" name="fileToUploadImageTemoignage[]" id="fileToUploadImageTemoignage">
+              <input class="btn btn-primary" type="submit" value="Télécharger l\'image" name="submit">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-10 col-lg-6 col-sm-12 row m-auto">
+        <div class="col-md-6 col-sm-6 col-10 m-auto">
+          <div class="embed-responsive embed-responsive-1by1">
+            <video class="embed-responsive-item" controls="controls">
+              <source src="'.$basPage['videoBienvenuePath'] .'" type="video/mp4" />
+              vidéo curé
+            </video>
+          </div>
+          <form  action="#" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="fileToUploadVideoBienvenue">Sélectionner une vidéo à télécharger:</label>
+              <input type="file" name="fileToUploadVideoBienvenue[]" id="fileToUploadVideoBienvenue">
+              <input class="btn btn-primary" type="submit" value="Télécharger la vidéo" name="submit">
+            </div>
+          </form>
+        </div>
+        <div class="col-md-6 col-sm-6 col-10 m-auto">
+          <a onclick="parent.fnRedirection(\'Formulaire/FormulaireBenevolat.php\',0)">
+            <img  class="rounded imageBasPageAccueil"  src="'.$basPage['imageFormulairePath'] .'" alt="Formulaire Bénévolat" title="Formulaire Bénévolat">
+          </a>
+          <form  action="#" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="fileToUploadImageFormulaire">Sélectionner une image à télécharger:</label>
+              <input type="file" name="fileToUploadImageFormulaire[]" id="fileToUploadImageFormulaire">
+              <input class="btn btn-primary" type="submit" value="Télécharger l\'image" name="submit">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>';}
 	echo $html;
 	
 }

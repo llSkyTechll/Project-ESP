@@ -53,7 +53,7 @@ function LoadSubMenu($submenuarray){
       echo('</div></ul>');
 
     }else{
-      echo ('<a class="nav-link" onclick="fnRedirection(\''.$submenu->get_redirectionPath().'\','.$submenu->get_menuid().')">'.$submenu->get_name().'</a>');
+      echo ('<a class="nav-link" onclick="fnRedirection(\''.$submenu->get_redirectionPath().'\','.$submenu->get_menuid().')" data-toggle="collapse" data-target=".navbar-collapse.show">'.$submenu->get_name().'</a>');
     }
     if($submenu->get_menuid() == $_SESSION['gmenuId']){
       $_SESSION['path'] = $submenu->get_redirectionPath();

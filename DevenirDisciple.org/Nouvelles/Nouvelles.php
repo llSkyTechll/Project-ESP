@@ -14,7 +14,7 @@ require_once 'Nouvelles_pr.php';
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- Bootstrap4-->
-	<link rel="stylesheet" href="../css/Bootstrap.css" >
+	<link rel="stylesheet" href="../css/Bootstrap.css">
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
@@ -35,13 +35,17 @@ require_once 'Nouvelles_pr.php';
 	<script>
 		function fnSaveNouvelle() {
 
-			var check = document.getElementById('checkbox').checked == 'true' ? 1 : 0;
+			var ddebut = "";
+			var dfin = "";
 
+			var check = document.getElementById('checkbox').checked == true ? 1 : 0;
 			$(function() {
-				var ddebut = new Date(document.getElementById('dateDebut').value);
-				ddebut = ddebut.getTime() / 1000;
-				var dfin = new Date(document.getElementById('dateFin').value);
-				dfin = dfin.getTime() / 1000;
+				if(isNaN(document.getElementById('dateDebut').value) && isNaN(document.getElementById('dateFin').value)){
+					ddebut = new Date(document.getElementById('dateDebut').value);
+					ddebut = ddebut.getTime() / 1000;
+					dfin = new Date(document.getElementById('dateFin').value);
+					dfin = dfin.getTime() / 1000;
+				}
 				$.ajax({
 					type: 'post',
 					url: 'Nouvelles.php',
@@ -74,7 +78,7 @@ require_once 'Nouvelles_pr.php';
 		}
 
 		function fnUpdateNouvelle() {
-			
+
 			var check = document.getElementById('checkbox').checked == true ? 1 : 0;
 			var ddebut = new Date(document.getElementById('dateDebut').value);
 			ddebut = ddebut.getTime() / 1000;
@@ -117,8 +121,6 @@ require_once 'Nouvelles_pr.php';
 			$(nouvelleEdit).addClass("d-none");
 			$(btnAddNouvelle).addClass("d-none");
 			$(addNouvelles).removeClass("d-none");
-
-
 		}
 
 		jQuery(document).ready(function() {
@@ -127,8 +129,49 @@ require_once 'Nouvelles_pr.php';
 				language: 'en'
 			});
 		});
-		
 
+		
+		function fnDeleteConfirmation(nouvelleId) {
+			Swal.fire({
+				title: 'Are you sure?',
+				text: "You won't be able to revert this!",
+				icon: 'warning',
+				showCancelButton: true,
+				confirmButtonColor: '#3085d6',
+				cancelButtonColor: '#d33',
+				confirmButtonText: 'Yes, delete it!'
+			}).then((result) => {
+				if (result.value) {
+					fnDelete(nouvelleId);
+				}
+			})
+		}
+
+		function fnDelete(nouvelleId) {
+			$.ajax({
+				type: 'post',
+				url: 'Nouvelles.php',
+				data: ({
+					action: "DeleteNouvelle",
+					nouvelleId: nouvelleId
+				}),
+				success: function(data) {
+					
+					if (data.trim() == 'success') {
+						Swal.fire({
+							title: 'Supression effectué avec succès',
+							icon: 'success'
+						}).then((result) => {
+							window.top.location.reload();
+						});
+					} else if (data.trim() == 'failDB') {
+						Swal.fire("Une erreur c'est produite", 'Impossible de suprimmer le pdf de la base de donnée', 'warning');
+					} else if (data.trim() == 'failFile') {
+						Swal.fire("Une erreur c'est produite", 'Impossible de supprimer le fichier', 'warning');
+					}
+				}
+			})
+		}
 	</script>
 
 </head>
@@ -136,29 +179,26 @@ require_once 'Nouvelles_pr.php';
 <body>
 	<div class="content container">
 
-		<?php		
-		
-		if(validateAdminEditing()){
-				if($_SESSION["nouvelleId"] == 0){
-					GetHTMLAllNouvellesEdit(NouvellesDAO::getAllNouvelles());
-					GetAddNouvelles();
-				}
-				else{
-					GetHTMLNouvelleEdit(NouvellesDAO::getNouvelles($_SESSION["nouvelleId"]));
-				}
+		<?php
+
+		if (validateAdminEditing()) {
+			if ($_SESSION["nouvelleId"] == 0) {
+				GetHTMLAllNouvellesEdit(NouvellesDAO::getAllNouvelles());
+				GetAddNouvelles();
+			} else {
+				GetHTMLNouvelleEdit(NouvellesDAO::getNouvelles($_SESSION["nouvelleId"]));
 			}
-			else{
-				if($_SESSION["nouvelleId"] == 0){
-					GetHTMLAllnouvelles(NouvellesDAO::getAllNouvelles());
-				}
-				else{
-					GetHTMLNouvelle(NouvellesDAO::getNouvelles($_SESSION["nouvelleId"]));
-				}
-			}		
-		
-	?>
+		} else {
+			if ($_SESSION["nouvelleId"] == 0) {
+				GetHTMLAllnouvelles(NouvellesDAO::getAllNouvelles());
+			} else {
+				GetHTMLNouvelle(NouvellesDAO::getNouvelles($_SESSION["nouvelleId"]));
+			}
+		}
+
+		?>
 	</div>
-	<?php require_once '../Footer.php';?>
+	<?php require_once '../Footer.php'; ?>
 
 </body>
 

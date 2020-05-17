@@ -157,22 +157,24 @@ require_once '../InformationPages/TemplateAvecImageBas_pr.php';
   
     <div class="content container text-left">
     
-    <?php
-    //echo $_SESSION['gmenuId'];
-    	DisplayMessage();
-      
-      $pageContent = TemplateTextDAO::loadPageContent();  
-      
-      $pageContent->getHTMLPageContent();
+		<?php
+		//echo $_SESSION['gmenuId'];
+			DisplayMessage();
+		
+		$pageContent = TemplateTextDAO::loadPageContent();  
+		
+		$pageContent->getHTMLPageContent();
 
-      loadPageContent();
-     
-    ?>
-    
-    <!--Images-->
+		loadPageContent();
+		
+		
+		?>
     
     </div>
 
+
+
+	
   </body>
   <?php require_once '../Footer.php';?>
 </html>
