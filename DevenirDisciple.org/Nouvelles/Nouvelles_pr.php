@@ -100,7 +100,7 @@ function GetHTMLAllNouvellesEdit($arrayNouvelles)
     $html .=
       '<tr>
 					<th scope="row">
-						<a href onclick="parent.fnRedirectionNouvelle(\'Nouvelles/Nouvelles.php\',0,' . $arrayNouvelles[$x]->getNouvellesId() . ')">' . $arrayNouvelles[$x]->getTitle() . '</a></th>
+						<a href onclick="parent.fnRedirectionNouvelle(\'Nouvelles/Nouvelles.php\',59,' . $arrayNouvelles[$x]->getNouvellesId() . ')">' . $arrayNouvelles[$x]->getTitle() . '</a></th>
 					<td>' . $dateDebut->format('m/d/Y') . '</td>
 					<td>' . $dateFin->format('m/d/Y') . '</td>
 					<td><input type="checkbox" id="checkbox' . $arrayNouvelles[$x]->getNouvellesId() . '" name="checkbox' . $arrayNouvelles[$x]->getTitle() . '" value="' . $arrayNouvelles[$x]->getActif() . '" ';
@@ -131,7 +131,7 @@ function GetAddNouvelles()
 			<div id="addNouvelles" class="d-none">
 				<div>
 					<img id="imageSommaire" src="" alt="Image"  />
-					<form action="../Uploads/UploadImage.php" method="post" enctype="multipart/form-data">
+					<form action="#" method="post" enctype="multipart/form-data">
 							<label for="fileToUpload">Sélectionner une image à télécharger:</label>
 							<input type="file" name="fileToUpload[]" id="fileToUpload">
 							<input type="submit" value="Télécharger l\'image" name="submit">
@@ -269,9 +269,74 @@ function fnUpdateNouvelle()
 
   exit('fail');
 }
-function UpdateImageNouvelle($file)
-{
 
-  if (NouvellesDAO::UpdateImageNouvelle($_SESSION["nouvelleId"], $file['images'][0]['imagePath']) == 'success') {
+function UpdateImageNouvelle($arrayFiles){
+
+  $arrayMessages = array();
+  $arrayUploadsDB = array();
+  $arrayToReturn = array();
+
+  for($x = 0; $x <count($arrayFiles['errors']);$x++){
+
+      if($arrayFiles['errors'][$x][0] == 'success'){
+          array_push($arrayUploadsDB,AddImageNouvelle($arrayFiles['images'][$x]));
+      }
+      else{
+          array_push($arrayMessages,arrayMessageError($arrayFiles['errors'][$x]));
+      }
+
   }
+
+  $arrayToReturn = array(
+      'MessageError'=>$arrayMessages,
+      'UploadsDB'=>$arrayUploadsDB
+  );
+  $_SESSION['fileToUpload'] = $arrayToReturn;
+
+}
+
+function AddImageNouvelle($File){
+  echo $_SESSION["nouvelleId"];
+  if(NouvellesDAO::UpdateImageNouvelle($_SESSION["nouvelleId"], $File['imagePath']) == 'success'){
+      $uploadToDb = array(
+      'imageName' =>$File['imageName'],
+      'succes' =>'succes'
+      );
+  }
+  else{
+      $uploadToDb = array(
+      'imageName' =>$File['imageName'],
+      'succes' =>'fail'
+      );
+
+  }
+  return $uploadToDb;
+}
+function arrayMessageError($message){
+  $arrayMessage = array();
+  for($x = 0; $x <count($message);$x++){
+      array_push($arrayMessage,$message[$x]);
+  }
+}
+function DisplayMessage(){
+	$Swal='<script>';
+	
+	if(isset($_SESSION['fileToUpload'])){
+		
+		if(empty($_SESSION['fileToUpload']['MessageError'])){
+			$Swal.='Swal.fire({
+							icon: "success",
+							title: "Ajout avec success"  
+							})';
+		}
+		else{		
+			$Swal.='Swal.fire({
+							icon: "error",
+							title: "Une erreur est survenue"  
+							})';
+		}
+	}
+	$Swal.='</script>';
+	echo $Swal;
+	unset($_SESSION['fileToUpload']);
 }

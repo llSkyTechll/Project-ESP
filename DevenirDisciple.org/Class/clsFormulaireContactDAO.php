@@ -56,14 +56,12 @@ class FormulaireContactDAO{
 
       $conn = OpenCon();
 
-      $prenom = $encrypt->encryptData($conn->real_escape_string($prenom), $key, $iv);
-      $nom    = $encrypt->encryptData($conn->real_escape_string($nom), $key, $iv);
-      $courriel = $encrypt->encryptData($conn->real_escape_string($courriel), $key, $iv);
-      $telephone = $encrypt->encryptData($conn->real_escape_string($telephone),$key, $iv);
+      $prenom = $encrypt->encryptData($prenom, $key, $iv);
+      $nom    = $encrypt->encryptData($nom, $key, $iv);
+      $courriel = $encrypt->encryptData($courriel, $key, $iv);
+      $telephone = $encrypt->encryptData($telephone,$key, $iv);
 
-      
-
-      $param = "'".$prenom."','".$nom."','".$courriel."','".$telephone."','".$message."','".$conn->real_escape_string($key)."','".$conn->real_escape_string($iv)."'";
+      $param = "'".$conn->real_escape_string($prenom)."','".$conn->real_escape_string($nom)."','".$conn->real_escape_string($courriel)."','".$conn->real_escape_string($telephone)."','".$conn->real_escape_string($message)."','".$conn->real_escape_string($key)."','".$conn->real_escape_string($iv)."'";
 
       $SQL = 'CALL FormulaireContactSave('.$param.');';
       

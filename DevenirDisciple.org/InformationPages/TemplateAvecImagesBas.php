@@ -109,13 +109,13 @@ require_once '../InformationPages/TemplateAvecImageBas_pr.php';
 
 		function fnDeleteConfirmation(ImageMagasinId) {
 			Swal.fire({
-				title: 'Are you sure?',
-				text: "You won't be able to revert this!",
-				icon: 'warning',
-				showCancelButton: true,
-				confirmButtonColor: '#3085d6',
-				cancelButtonColor: '#d33',
-				confirmButtonText: 'Yes, delete it!'
+				title: 'Confirmer la supression?',
+        text: "Cette action est irréversible",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Supprimer'
 			}).then((result) => {
 				if (result.value) {
 					fnDelete(ImageMagasinId);

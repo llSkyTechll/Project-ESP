@@ -111,7 +111,7 @@ function GetHTMLFeuilletEdit($feuillet){
 						}
 
 						$html .='></td>';
-						$html.='<td><input type="button" name="btnDelete" value="Delete" onclick="fnDeleteConfirmation('.$feuillet->getFeuilletId().')"></td>
+						$html.='<td><input type="button" name="btnDelete" class="btn btn-primary" value="Supprimer" onclick="fnDeleteConfirmation('.$feuillet->getFeuilletId().')"></td>
 						
 					</tr>';
 	return $html;

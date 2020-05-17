@@ -94,4 +94,14 @@ function 	DisplayMessage(){
 }
 
 
+function arrayMessageError($message){
+	$arrayMessage = array();
+	for($x = 0; $x <count($message);$x++){
+		array_push($arrayMessage,$message[$x]);				
+	}
+
+	return $arrayMessage;
+}
+
+
 ?>

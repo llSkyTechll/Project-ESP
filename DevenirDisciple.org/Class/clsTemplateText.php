@@ -30,11 +30,11 @@ class TemplateText{
 						<header>';
 					if($this->image !='' && validateAdminEditing() == false){
 						echo '<div id="image"> 
-							<img src="'.$this->image.'" alt="Image Titre" height="200" width="200">
+							<img class="imageTemplateText m-auto d-block" src="'.$this->image.'" alt="Image Titre">
 						</div>';	
 					}else if(validateAdminEditing()){
 						echo '<div id="image"> 
-							<img src="'.$this->image.'" alt="Image Titre" height="200" width="200">						
+							<img class="imageTemplateText m-auto d-block" src="'.$this->image.'" alt="Image Titre">						
 							<form  action="#" method="post" enctype="multipart/form-data" onsubmit="fnSavePageContent()">
 								<label for="fileToUpload">Sélectionner une image à télécharger:</label>
 								<input type="file" name="fileToUpload[]" id="fileToUpload">

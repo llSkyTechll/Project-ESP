@@ -31,8 +31,8 @@ function FNRedirect(){
 function FNRedirectionNouvelle(){
   
   $_SESSION["gmenuId"] 		= $_POST["menuId"];
-  $_SESSION["gpath"]   		= $_POST["path"];;
-	$_SESSION["nouvelleId"] = $_POST["nouvelleId"];;
+  $_SESSION["gpath"]   		= $_POST["path"];
+	$_SESSION["nouvelleId"] = $_POST["nouvelleId"];
 }
 
 function FNDeconnexion(){

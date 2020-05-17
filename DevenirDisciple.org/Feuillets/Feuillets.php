@@ -66,13 +66,13 @@ require_once '../Uploads/UploadImage.php';
 
 		function fnDeleteConfirmation(FeuilletId) {
 			Swal.fire({
-				title: 'Are you sure?',
-				text: "You won't be able to revert this!",
-				icon: 'warning',
-				showCancelButton: true,
-				confirmButtonColor: '#3085d6',
-				cancelButtonColor: '#d33',
-				confirmButtonText: 'Yes, delete it!'
+				title: 'Confirmer la supression?',
+        text: "Cette action est irréversible",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Supprimer'
 			}).then((result) => {
 				if (result.value) {
 					fnDelete(FeuilletId);
@@ -89,7 +89,6 @@ require_once '../Uploads/UploadImage.php';
 					FeuilletId: FeuilletId
 				}),
 				success: function(data) {
-					
 					if (data.trim() == 'success') {
 						Swal.fire({
 							title: 'Supression effectué avec succès',

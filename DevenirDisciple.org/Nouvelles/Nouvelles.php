@@ -133,13 +133,13 @@ require_once 'Nouvelles_pr.php';
 		
 		function fnDeleteConfirmation(nouvelleId) {
 			Swal.fire({
-				title: 'Are you sure?',
-				text: "You won't be able to revert this!",
-				icon: 'warning',
-				showCancelButton: true,
-				confirmButtonColor: '#3085d6',
-				cancelButtonColor: '#d33',
-				confirmButtonText: 'Yes, delete it!'
+				title: 'Confirmer la supression?',
+        text: "Cette action est irréversible",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Supprimer'
 			}).then((result) => {
 				if (result.value) {
 					fnDelete(nouvelleId);
@@ -183,7 +183,8 @@ require_once 'Nouvelles_pr.php';
 
 		if (validateAdminEditing()) {
 			if ($_SESSION["nouvelleId"] == 0) {
-				GetHTMLAllNouvellesEdit(NouvellesDAO::getAllNouvelles());
+				DisplayMessage();
+				GetHTMLAllNouvellesEdit(NouvellesDAO::getAllNouvellesEdit());
 				GetAddNouvelles();
 			} else {
 				GetHTMLNouvelleEdit(NouvellesDAO::getNouvelles($_SESSION["nouvelleId"]));

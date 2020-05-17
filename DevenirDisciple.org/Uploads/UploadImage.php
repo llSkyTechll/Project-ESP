@@ -74,6 +74,7 @@ $arrayToReturn = array(
 					'errors' => $arrayErrors,
 					'images' => $arrayImages
 				);
+				print_r($arrayToReturn);
 return $arrayToReturn;
 }
 

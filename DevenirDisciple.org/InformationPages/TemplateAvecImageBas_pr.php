@@ -95,7 +95,7 @@ function GetHTMLImageMagasinEdit($ImageMagasin){
 			}
 
 			$html .='></td>';
-			$html.='<td><input type="button" name="btnDelete" value="Delete" onclick="fnDeleteConfirmation('.$ImageMagasin->getImageMagasinId().')"></td>
+			$html.='<td><input type="button" class="btn btn-primary" name="btnDelete" value="Supprimer" onclick="fnDeleteConfirmation('.$ImageMagasin->getImageMagasinId().')"></td>
 			
 		</tr>';
 	return $html;
