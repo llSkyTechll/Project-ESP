@@ -34,8 +34,8 @@ function UploadImage($FILES){
 				$uploadOk = 0;
 			}
 			
-			if ($FILES["size"][$x] > 2000000) {
-				array_push($arrayError, "Désolé, seul les fichier moins de 2Mo sont accespté.");
+			if ($FILES["size"][$x] > 10000000) {
+				array_push($arrayError, "Désolé, seul les fichier moins de 10Mo sont accespté.");
 				$uploadOk = 0;
 			}
 			if($file_type != "image/jpg" &&

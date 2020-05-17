@@ -65,8 +65,7 @@ class ImageMagasinDAO{
   
   public static function AddImageMagasin($menuId, $imagePath, $imageName, $actif, $orderDisplay){
     $SQL = "CALL AddImageMagasin('".$menuId."','".$imagePath."','".$imageName."','".$actif."','".$orderDisplay."');";
-    echo $SQL;
-
+    
     $conn = OpenCon();
     
     $conn->query($SQL);

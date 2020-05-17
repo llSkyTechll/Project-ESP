@@ -6,9 +6,9 @@ require_once '../Class/clsImageMagasinDAO.php';
 
 require_once '../Uploads/UploadImage.php';
 
-	if(isset($_FILES['fileToUpload'])){
-		AddImageMagasins(UploadImage($_FILES['fileToUpload']));
-	}	
+if(isset($_FILES['fileToUpload'])){
+	AddImageMagasins(UploadImage($_FILES['fileToUpload']));
+}	
 
 if (isset($_POST['action'])){
   $action = $_POST['action'];
@@ -54,27 +54,14 @@ function fnDeleteImageMagasin(){
 	}
 }
 function GetHTMLAllImagesMagasin($arrayImageMagasin){
-	
-	$html = '';
-	$html = '
-		<table class="table table-striped" id="tableImageMagasin">
-			<thead>
-				<tr>
-					<th scope="col">Fichier attaché</th>
-					<th scope="col">Taille</th>
-				</tr>
-			</thead>
-		<tbody>';			
+	$html = '<div class="col-md-12 row">'; 
 	if(is_array($arrayImageMagasin)){
 		for($x = 0; $x <count($arrayImageMagasin);$x++){
 			$html .= getHTMLImageMagasin($arrayImageMagasin[$x]);
 		}
-	}
+	}	
 
-	$html .='</tbody>
-	</table>';
-
-
+		$html .= '</div>';
 	echo $html;
 
 }
@@ -82,12 +69,9 @@ function GetHTMLImageMagasin($ImageMagasin){
 	
 	$html = '';
 	$html .='
-		<tr>
-			<th scope="row">
-				<a href="'.$ImageMagasin->getImagePath().'">'.$ImageMagasin->getImageName().'</a>							
-			</th>
-			
-		</tr>';	
+		<figure class="col-md-2 col-sm-4 col-6">
+			<img alt="'.$ImageMagasin->getImageName().'" src="'.$ImageMagasin->getImagePath().'" class="img-fluid" style="width:auto; height:100%; max-height:150px">
+		</figure>';
 
 	return $html;
 
@@ -152,6 +136,7 @@ function GetHTMLAllImagesMagasinEdit($arrayImageMagasin){
 
 	echo $html;
 
+
 }
 function loadPageContent(){
 
@@ -163,6 +148,7 @@ function loadPageContent(){
 		GetHTMLAllImagesMagasinEdit(ImageMagasinDAO::getAllImageMagasinEdit());
 	}
 	else{
+		
 		GetHTMLAllImagesMagasin(ImageMagasinDAO::getAllImageMagasin());
 	}		
 }
