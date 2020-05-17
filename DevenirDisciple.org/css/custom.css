@@ -120,8 +120,10 @@ footer div > img +img {
 	}
 }
 .imageBandeau{
-	width: 1080px;
-	height: 345px;
+	width:auto;
+	height:100%; 
+	max-width:1080px;
+	
 }
 .imageTemplateText{
 	width:400px;
