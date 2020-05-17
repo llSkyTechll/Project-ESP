@@ -114,15 +114,18 @@ a img {
 footer div > img +img {
 	margin-left: 5px !important;	
 }
-@media (max-width: 768px){
-	.basPage >div +div{
-		margin-top: .5rem!important;
-	}
-}
+
 .imageBandeau{
-	width:auto;
+	/*width:auto;
 	height:100%; 
-	max-width:1080px;
+	max-width:1080px;*/
+	/*width: 1080px;
+	height: 350px;*/
+
+	width:100%;
+	height:100%; 
+	/*max-width:1080px;
+	max-height:350px;*/
 	
 }
 .imageTemplateText{
@@ -131,7 +134,80 @@ footer div > img +img {
 	text-align: center
 }
 .imageBasPageAccueil{
-	width:200px;
-	height:300px ;
-	text-align: center
+	width:100%;
+	height:100%;
+
+	max-width:195px;
+	max-height:240px; 
+	min-width:195px;
+	min-height:240px; 
+	
+}
+.basPage > div > div{
+	margin-bottom: 0.625rem !important;
+
+}
+@media (min-width:576px) {
+	.imageBandeau{
+		max-width:540px;
+		max-height:180px; 
+		min-width:540px;
+		min-height:180px; 
+	}
+	.imageBasPageAccueil{
+		max-width:195px;
+		max-height:240px; 
+		min-width:195px;
+		min-height:240px; 		
+	}
+}
+
+@media (min-width: 768px){
+	.imageBandeau{
+		max-width:720px;
+		max-height:230px;
+		min-width:720px;
+		min-height:230px;
+	}
+	.imageBasPageAccueil{
+		max-width:230px;
+		max-height:280px; 
+		min-width:230px;
+		min-height:280px;  		
+	}
+}
+
+@media (min-width: 992px){
+	.imageBandeau{
+		max-width:960px;
+		max-height:305px;
+		min-width:960px;
+		min-height:305px;
+	}
+	.imageBasPageAccueil{
+		max-width:180px;
+		max-height:225px;
+		min-width:180px;
+		min-height:225px;		
+	}
+}
+@media (min-width: 1200px){
+	.imageBandeau{
+		max-width:1080px;
+		max-height:345px;
+		min-width:1080px;
+		min-height:345px;
+	}
+	.imageBasPageAccueil{
+		max-width:230px;
+		max-height:290px;
+		min-width:230px;
+		min-height:290px; 		
+	}
+}
+
+@media (max-width: 768px){
+	.basPage >div +div{
+		margin-top: .5rem!important;
+	}
 }

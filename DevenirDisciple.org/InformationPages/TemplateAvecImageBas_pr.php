@@ -129,10 +129,12 @@ function GetHTMLAllImagesMagasinEdit($arrayImageMagasin){
 	}	
 	
 	$html .='<form  action="#" method="post" enctype="multipart/form-data">
-			<label for="fileToUpload">Sélectionner une image à télécharger:</label>
-			<input type="file" name="fileToUpload[]" id="fileToUpload" multiple>
-			<input type="submit" value="Télécharger l\'image" name="submit">
-	</form>';
+				<div class="form-group">
+					<label for="fileToUpload">Sélectionner une image à télécharger:</label>
+					<input type="file" name="fileToUpload[]" id="fileToUpload" multiple>
+					<input type="submit" value="Télécharger l\'image" name="submit">
+				</div>
+			</form>';
 
 	echo $html;
 
