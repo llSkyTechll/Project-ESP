@@ -330,7 +330,7 @@ if (isset($_SESSION['gmenuId'])){
     
     <?php 
       if (Admin::isConnected()){
-        echo '<input type="button" name="btnSaveSchedule" id="btnSaveSchedule" value="Sauvegarder" onclick="fnSaveSchedule()">';
+        echo '<input type="button" class="btn btn-primary" name="btnSaveSchedule" id="btnSaveSchedule" value="Sauvegarder" onclick="fnSaveSchedule()">';
       }
     ?>
     

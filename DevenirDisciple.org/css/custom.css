@@ -9,8 +9,34 @@ background-size: cover;
 	margin: 0;
 }
 
+.iframe {
+	position: absolute;
+	top: 100px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.iframe iframe {
+	display: block; 
+	width: 100%; 
+	height: 100%; 
+	border: none;
+}
+
 html, body {
 	height: 100%;
+	width: 100%;
+	margin: 0; 
+	padding: 0
+}
+
+.menu {
+	position: absolute;
+	top: 0; 
+	left: 0; 
+	right: 0; 
+	height: 50px;
 }
 
 body {
@@ -25,11 +51,6 @@ body {
 .footer{
 	background-color: orange;
 	flex-shrink: 0;
-}
-
-iframe {
-	width: 100%;
-	height: 90%;
 }
   
 iframe body{
