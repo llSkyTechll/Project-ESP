@@ -81,7 +81,7 @@ class NouvellesDAO{
 		$conn = OpenCon();
     
     $SQL = "CALL UpdateImageNouvelle('".$nouvelleId."','".$imagePath."');";
-    echo $SQL;
+    
 
     $RSSQL = $conn->query($SQL);    
     

@@ -131,7 +131,7 @@ require_once 'Nouvelles_pr.php';
 		});
 
 		
-		function fnDeleteConfirmation(nouvelleId) {
+		function fnDeleteConfirmation(nouvelleId,imagePath) {
 			Swal.fire({
 				title: 'Confirmer la supression?',
         text: "Cette action est irréversible",
@@ -142,18 +142,19 @@ require_once 'Nouvelles_pr.php';
         confirmButtonText: 'Supprimer'
 			}).then((result) => {
 				if (result.value) {
-					fnDelete(nouvelleId);
+					fnDelete(nouvelleId,imagePath);
 				}
 			})
 		}
 
-		function fnDelete(nouvelleId) {
+		function fnDelete(nouvelleId,imagePath) {
 			$.ajax({
 				type: 'post',
 				url: 'Nouvelles.php',
 				data: ({
 					action: "DeleteNouvelle",
-					nouvelleId: nouvelleId
+					nouvelleId: nouvelleId,
+					imagePath:  imagePath
 				}),
 				success: function(data) {
 					
@@ -183,10 +184,10 @@ require_once 'Nouvelles_pr.php';
 
 		if (validateAdminEditing()) {
 			if ($_SESSION["nouvelleId"] == 0) {
-				DisplayMessage();
 				GetHTMLAllNouvellesEdit(NouvellesDAO::getAllNouvellesEdit());
 				GetAddNouvelles();
 			} else {
+				DisplayMessage();
 				GetHTMLNouvelleEdit(NouvellesDAO::getNouvelles($_SESSION["nouvelleId"]));
 			}
 		} else {

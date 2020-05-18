@@ -176,8 +176,7 @@ function AddFeuillets($arrayFiles){
 	$arrayToReturn = array();
 
 	for($x = 0; $x <count($arrayFiles['errors']);$x++){
-		//print_r($arrayFiles['errors'][$x][0]);
-		
+				
 		if($arrayFiles['errors'][$x][0] == 'success'){
 			array_push($arrayUploadsDB,AddFeuillet($arrayFiles['pdfs'][$x]));
 		}
