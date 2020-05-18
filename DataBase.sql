@@ -98,7 +98,6 @@ CREATE TABLE `calendarevent` (
 
 LOCK TABLES `calendarevent` WRITE;
 /*!40000 ALTER TABLE `calendarevent` DISABLE KEYS */;
-INSERT INTO `calendarevent` VALUES (10,'Test','04/22/2020 08:27 am','','fc-bg-lightgreen','calendar',16,0),(11,'Test','4/29/2020 8:35 am','Test','fc-bg-blue','group',16,0),(13,'Test','4/29/2020 8:35 am','test','fc-bg-default','group',16,0),(14,'Test','04/09/2020 10:40 am - 04/16/2020 11:59 pm','Test','fc-bg-default','circle',16,0),(16,'Test','5/1/2020 11:00 am','test','fc-bg-default','suitcase',4,0),(17,'Test','05/02/2020 11:01 am','test','fc-bg-pinkred','calendar',4,1),(18,'Test','05/03/2020 11:09 am','test','fc-bg-blue','cog',4,0),(19,'sdadasd','5/4/2020 11:09 am','tset','fc-bg-lightgreen','suitcase',4,0);
 /*!40000 ALTER TABLE `calendarevent` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -315,7 +314,6 @@ CREATE TABLE `formulaireenfant` (
 
 LOCK TABLES `formulaireenfant` WRITE;
 /*!40000 ALTER TABLE `formulaireenfant` DISABLE KEYS */;
-INSERT INTO `formulaireenfant` VALUES (16,'qZFE1xeYOp1fymdd22sH4CJhA8qxjWOjRn8j2H0RvOQ=','qUxH++9R8E0zzsgZd8cC9mS55qvsbcwnLmx0YOWhUiw=','rvqnp/0H1CuDYUPklROlaqd1Gi0gNFr/HeCfs1ra9lM=','2PnTSecu/P5bDBSyCQfpkeLlMRbsImrI6O61Q9U5rwR5XOOGYK3qKObowbhYWAVU','TBJ8LCrHwC61PqRquQbauHmtwHNEXhKsDnHX4XsNqLE=','stTxAd9hW7Z08A1fuoxrKKHXVmahZZ4OoZg2EY0Cx8A=','KiaAZFniom+R3IpCo6/N0rfv5w8Z7VPcZdFnJTAkZVk=','pjuRS46TIVgHL4wS6NaK2tO/XAhBYT5dAzKSw5w5HN8=','pjuRS46TIVgHL4wS6NaK2tO/XAhBYT5dAzKSw5w5HN8=','\'/\\','\'/\\','\'/\\','\'/\\',2,0,1,1,0,0,1,0,0,'éº\ƒ\ZJ}l¸@\◊\Í[¸KÇ¢ãèzé∫\…wzï∫˛\œ\«','˝6\‡æ7|6jUˇ\nø´Ø\„ß');
 /*!40000 ALTER TABLE `formulaireenfant` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -400,7 +398,7 @@ CREATE TABLE `nouvelles` (
 
 LOCK TABLES `nouvelles` WRITE;
 /*!40000 ALTER TABLE `nouvelles` DISABLE KEYS */;
-INSERT INTO `nouvelles` VALUES (20,'nouvelle1','somm','total',1588219200,1588219200,0,'../Ressource/Image/Salle_de_nouvelles.jpg'),(21,'nouvelle2','somm','total',1588252052,1585713600,1,'../Ressource/Image/Les_activite_dans_nos_communautes.jpg'),(22,'nouvelle3','somm','total',1588252052,1588252630,1,'../Ressource/Image/Campagne_de_financement.jpg'),(23,'nouvelle4','somm','total',1588219200,1588219200,1,'../Ressource/Image/Nos_Paroisses_apres_la_Pandemie.jpg'),(40,'nouvelle5','somm','total',1588737600,1589342400,1,'../Ressource/Image/Notre_communaute_numerique.jpg'),(48,'test','tset','testsetsetsetsetset',1588046400,1591416000,1,''),(53,'','','',0,0,0,''),(54,'','','',0,0,0,'');
+INSERT INTO `nouvelles` VALUES (20,'nouvelle1','somm','total',1588219200,1588219200,1,'../Ressource/Image/Salle_de_nouvelles.jpg'),(21,'nouvelle2','somm','total',1588252052,1585713600,1,'../Ressource/Image/Les_activite_dans_nos_communautes.jpg'),(22,'nouvelle3','somm','total',1588252052,1588252630,1,'../Ressource/Image/Campagne_de_financement.jpg'),(23,'nouvelle4','somm','total',1588219200,1588219200,1,'../Ressource/Image/Nos_Paroisses_apres_la_Pandemie.jpg'),(40,'nouvelle5','somm','total',1588737600,1589342400,1,'../Ressource/Image/Notre_communaute_numerique.jpg');
 /*!40000 ALTER TABLE `nouvelles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1604,8 +1602,8 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateImageNouvelle`(in inNouvellesId int(11), in inImagePath varchar(500))
 BEGIN
-	INSERT INTO `nouvelles`(title, descrSomm, descrTot, dateDebut, dateFin, actif, imagePath) SELECT '', '', '', 0, 0, 0, '' WHERE inNouvellesId = 0;
-	update `nouvelles`
+	INSERT INTO `nouvelles`(title, descrSomm, descrTot, dateDebut, dateFin, actif, imagePath) SELECT 'D√©fault', '', '', unix_timestamp(curdate()), unix_timestamp(curdate()), 0, inImagePath WHERE inNouvellesId = 0;
+	UPDATE `nouvelles`
     SET 
 		imagePath = inImagePath
 	WHERE
@@ -1731,4 +1729,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-05-17 19:25:27
+-- Dump completed on 2020-05-17 20:13:27
