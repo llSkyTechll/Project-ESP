@@ -226,7 +226,7 @@ function DisplayMessage(){
 		if(empty($_SESSION['fileToUpload']['MessageError'])){
 			$Swal.='Swal.fire({
 							icon: "success",
-							title: "Ajout avec success"  
+							title: "Ajout avec succès"  
 							})';
 		}
 		else{		
