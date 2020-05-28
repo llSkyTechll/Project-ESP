@@ -157,7 +157,7 @@ function GetBasPageEdit($basPage){
           </form>
         </div>
         <div class="col-md-6 col-sm-6 col-10 m-auto">
-          <a onclick="parent.fnRedirection(\'Formulaire/FormulaireBenevolat.php\',0)">
+          <a onclick="parent.fnRedirection(\'Formulaire/FormulaireBenevolat.php\', '. $_SESSION['gmenuId'].')">
             <img  class="rounded imageBasPageAccueil"  src="'.$basPage['imageFormulairePath'] .'" alt="Formulaire Bénévolat" title="Formulaire Bénévolat">
           </a>
           <form  action="#" method="post" enctype="multipart/form-data">

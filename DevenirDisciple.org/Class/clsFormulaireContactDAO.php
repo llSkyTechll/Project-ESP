@@ -24,11 +24,11 @@ class FormulaireContactDAO{
       <div class="form-group row">
         <div class="col-md-6">
           <label for="fcourriel" class=" col-form-label">Votre adresse courriel</label>
-          <input type="text" class="form-control" id="fcourriel" name="fcourriel" maxlength="100" tabindex="30" placeholder="courriel">
+          <input type="text" class="form-control" id="fcourriel" name="fcourriel" maxlength="100" tabindex="30" placeholder="Courriel">
         </div>
         <div class="col-md-6">
           <label for="ftelephone" class="col-form-label">Votre numéro de téléphone</label>
-          <input type="text" class="form-control" id="ftelephone" name="ftelephone" maxlength="100" tabindex="40" placeholder="numéro de téléphone">
+          <input type="text" class="form-control" id="ftelephone" name="ftelephone" maxlength="100" tabindex="40" placeholder="Numéro de téléphone">
         </div>
       </div>
       <div class="form-group row">

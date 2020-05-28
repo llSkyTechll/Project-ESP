@@ -12,8 +12,8 @@
 		<div class="row">
 			<div class="col-md-4 col-sm-5 col-6">
 				<div class="row text-center">
-					<img class="d-block img-fluid" style="widht: 100px;height:100px" src="../Ressource/Image/Logo_St-Jean-Paul_II.jpg" alt="Logo St-Jean-Paul II" title="Logo St-Jean-Paul II">
-					<img class="d-block img-fluid" style="widht: 100px;height:100px" src="../Ressource/Image/Logo_SGS.png" alt="Logo SGS" title="Logo SGS">
+					<img class="d-block img-fluid" style="width: 100px;height:100px" src="../Ressource/Image/Logo_St-Jean-Paul_II.jpg" alt="Logo St-Jean-Paul II" title="Logo St-Jean-Paul II">
+					<img class="d-block img-fluid" style="width: 100px;height:100px" src="../Ressource/Image/Logo_SGS.png" alt="Logo SGS" title="Logo SGS">
 				</div>
 			</div>
 
@@ -25,7 +25,7 @@
 				</div>
 				<div class="col-md-4 col-sm-6 col-12 mb-1">
 					<div class="text-center">
-						<input class="btn btn-primary" type="button" name="btnContact" value="Contactez-nous" onclick="parent.fnRedirection('Formulaire/FormulaireContact.php', 0);">
+						<input class="btn btn-primary" type="button" name="btnContact" value="Contactez-nous" onclick="parent.fnRedirection('Formulaire/FormulaireContact.php', <?php echo $_SESSION['gmenuId']; ?>);">
 					</div>
 				</div>
 				<div class="col-md-4 col-sm-6 col-12 ">
